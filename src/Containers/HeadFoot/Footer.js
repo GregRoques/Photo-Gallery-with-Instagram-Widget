@@ -18,10 +18,13 @@ class Footer extends Component{
         if(this.state.email){
             emailModal=(
                 <div className="modal">
-                    <div className="modalContact">
-                        <span className="CloseButton" onClick={this.toggleEmail}>X</span>
-                        <p className="contactFormat"> <i className="material-icons glyphs">location_on</i> Atlanta, GA &nbsp;&nbsp; <a href="tel:504-220-3832"><i className="material-icons glyphs">phone</i> 504.220.3832</a>   
-              <br/><a href="mailto:greg@gregroques.com"> <i className="material-icons glyphs">email&nbsp;</i>Greg@GregRoques.com</a></p>
+                    <div className="modalPosition">
+                        <div className="closeButton" onClick={this.toggleEmail}>X</div>
+                        <div className="modalContact">
+                            <span className="contactTitle">Contact</span>
+                            <p className="contactFormat"> <i className="material-icons glyphs">location_on</i> Atlanta, GA &nbsp;&nbsp; <a href="tel:504-220-3832"><i className="material-icons glyphs">phone</i> 504.220.3832</a></p>
+                            <p className="contactFormat"><a href="mailto:greg@gregroques.com"> <i className="material-icons glyphs">email&nbsp;</i>Greg@GregRoques.com</a></p>
+                        </div>
                     </div>
                 </div>
             )
