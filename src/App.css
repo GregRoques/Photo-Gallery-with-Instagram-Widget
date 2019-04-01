@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* =========================================================== Header Font */
+
+@font-face {
+  font-family: 'GregsHeader';
+  src: url('/fonts/Nautilus.otf');
+}
+
+

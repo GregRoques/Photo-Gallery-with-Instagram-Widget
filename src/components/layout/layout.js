@@ -8,7 +8,7 @@ import Aux from "../../HOC/Aux";
 function Layout(props){
     return(
         <Aux>
-            {/* <Header/> */}
+            <Header/>
                 <div>
                     {/* {props.children} */}
                 </div>

@@ -1,8 +1,22 @@
-/* =========================================================== Header Font */
+/* =========================================================== Footer */
 
-@font-face {
-    font-family: 'GregsHeader';
-    src: url('/fonts/Nautilus.otf');
+.header {
+    width: 100%;
+
+}
+
+.rightNav{
+    margin-right: 2rem;
+    font-family: 'GregsHeader', sans-serif;
+    text-align:right;
+    color: rgb(242,212,83);
+    font-size: 5rem; 
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px rgb(75,75,75); 
+    text-align: end;
+}
+
+.leftNav{
+    text-align:left;
 }
 
 /* =========================================================== Footer */
@@ -15,7 +29,6 @@
     padding: 1rem 0 1rem 0;
     text-align:center;
 }
-
 
 
 /* LinkedIn Logo */
