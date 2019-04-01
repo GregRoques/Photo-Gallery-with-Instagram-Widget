@@ -1,16 +1,17 @@
-import React from "react";
+import React from 'react';
+
 import "./Layout.css";
-import Nav from "../../containers/navBar/Nav";
-import Footer from "../utility/footer/Footer";
-import Aux from "../../hoc/Aux";
+import Header from "../../Containers/HeadFoot/Header";
+import Footer from "../../Containers/HeadFoot/Footer";
+import Aux from "../../HOC/Aux";
 
 function Layout(props){
     return(
         <Aux>
-            <Nav/>
-            <div className="content-margin">
-                {props.children}
-            </div>
+            <Header/>
+                <div>
+                    {props.children}
+                </div>
             <Footer/>
         </Aux>
     )
