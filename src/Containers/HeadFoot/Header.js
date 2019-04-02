@@ -7,7 +7,7 @@ class Header extends Component{
         return(
             <div className="header">
                 <span className="rightNav">Greg Roques</span>
-                <span className="leftNav">Software Developer</span>
+                <span className="leftNav jobTitle">{`<!--Software Developer-->`}</span>
                 
             </div>
         )
