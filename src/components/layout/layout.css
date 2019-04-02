@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.contentMargin{
+    margin-top: 2.75rem;
+    margin-bottom: 1.75rem;
+}

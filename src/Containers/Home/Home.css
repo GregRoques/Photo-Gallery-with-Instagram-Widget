@@ -38,7 +38,8 @@
     display: flex;
     justify-content:center;
     align-content:center;
-    margin:1rem;
+    margin-left:1rem;
+    margin-right:1rem;
 }
 
 .blog:hover, .projects:hover, .myStory:hover{
@@ -49,7 +50,7 @@
     border-width:8px;
     border-style:solid;
     background-color:white;
-    opacity:0.75;
+    /* opacity:0.75; */
     background-size: cover ;
     background-repeat: no-repeat;
     background-position: center;
