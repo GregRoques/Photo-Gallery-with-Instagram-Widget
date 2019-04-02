@@ -10,7 +10,7 @@ function Layout(props){
         <Aux>
             <Header/>
                 <div>
-                    {/* {props.children} */}
+                    {props.children}
                 </div>
             <Footer/>
         </Aux>

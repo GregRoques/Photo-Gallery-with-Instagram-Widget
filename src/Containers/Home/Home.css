@@ -1,0 +1,70 @@
+.homeBody{
+    /* position:relative; */
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:100%;
+}
+
+.myStory, .projects, .blog{
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    height:250px;
+    width:250px;
+    border-radius:100%;
+    color: white;
+    border-color: rgb(35,64,143);
+    /* border-color:rgb(100,100,100); */
+    background-color: rgb(0,183,241);
+    /* background-color: rgb(100,100,100,0.5); */
+    border-width:9px;
+    border-style:solid;
+    font-size: 2.5rem;
+    color:white;
+    text-align:center;
+    vertical-align: middle;
+    font-family:'GregsHeader',sans-serif;
+
+    
+}
+
+
+.circlesJustify{
+    height:275px;
+    width:275px;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    margin:1rem;
+}
+
+.blog:hover, .projects:hover, .myStory:hover{
+
+    transform:scale(0.8);
+    border-radius:100%;
+    border-color: rgb(0,183,241);
+    border-width:8px;
+    border-style:solid;
+    background-color:white;
+    opacity:0.75;
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition:1s all;
+    text-shadow: 2px 2px 1px black;
+}
+
+.blog:hover{
+    background-image: url('/images/homepage/mail.jpg'); 
+}
+
+.projects:hover{
+    background-image: url('/images/homepage/projects.jpg');
+}
+
+.myStory:hover{
+    background-image: url('/images/homepage/myPic.jpg');
+}
