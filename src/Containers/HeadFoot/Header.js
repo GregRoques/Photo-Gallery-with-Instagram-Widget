@@ -6,8 +6,9 @@ class Header extends Component{
     render(){
         return(
             <div className="header">
+                <span className="rightNav">Greg Roques</span>
                 <span className="leftNav">Software Developer</span>
-                <p className="rightNav">Greg Roques</p>
+                
             </div>
         )
     }

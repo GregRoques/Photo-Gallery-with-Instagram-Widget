@@ -1,22 +1,40 @@
-/* =========================================================== Footer */
+/* =========================================================== Header */
 
 .header {
     width: 100%;
-
+    margin-top:1rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
 .rightNav{
-    margin-right: 2rem;
+   
     font-family: 'GregsHeader', sans-serif;
     text-align:right;
+    vertical-align: center;
     color: rgb(242,212,83);
-    font-size: 5rem; 
+    font-size: 4rem; 
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px rgb(75,75,75); 
-    text-align: end;
+
+    width: 50%;
+    margin:2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    justify-content: flex-start;
 }
 
 .leftNav{
-    text-align:left;
+    width: 50%;
+    margin:2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    
 }
 
 /* =========================================================== Footer */
