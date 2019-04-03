@@ -1,33 +1,72 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Link}  from 'react-router-dom';
-
+import {Route, Redirect}  from 'react-router-dom';
 import "./Home.css"
 
-import About from '../About/About'
+import about from '../About/About'
 import Blog from '../Blog/Blog'
 import Portfolio from '../../Components/Portfolio/Portfolio'
 
 class Home extends Component{
 
+    state = {
+        categories:['about', 'portfolio', 'blog'],
+        go:'',
+        fade: [],
+        newPage: false
+    }
+    
+    pageHandler = (nextPage) => {
+       const catArray = this.state.categories
+
+       if(catArray.includes(nextPage)){
+           var go = nextPage
+           var fade = []
+
+           catArray.map((other)=>{
+               if(other != nextPage){
+                   fade.push(other)
+               }
+            })
+
+        }
+
+        // console.log(go)
+        // console.log(fade)
+        
+        this.setState({
+            go: go,
+            fade: fade,
+            newPage: true
+        })
+    }
+    
+
     render(){
-        return(
-        <Router>
-                <div className="homeBody">
-                    <div className="padding768 circlesJustify">
-                    <Link style={{ textDecoration: 'none' }} to="about"><div className="myStory"><span>About</span></div></Link> 
+        if(this.state.newPage === false){
+            return(
+                    <div className="homeBody">
+                        <div className="padding768 circlesJustify">
+                            <div onClick={()=>this.pageHandler('about')} className="about">About</div>
+                        </div>
+                        <div className="padding768 circlesJustify">
+                            <div onClick={()=>this.pageHandler('portfolio')} className="portfolio">Portfolio</div>
+                        </div>
+                        <div className="circlesJustify">
+                            <div onClick={()=>this.pageHandler('blog')} className="blog">Blog</div>
+                        </div>    
+                               
                     </div>
-                    <div className="padding768 circlesJustify">
-                        <Link style={{ textDecoration: 'none' }} to="portfolio"><div className="projects">Portfolio</div></Link>
-                    </div>
-                    <div className="circlesJustify">
-                        <Link style={{ textDecoration: 'none' }} to="blog"><div className="blog">Blog</div></Link>
-                    </div>                
-                </div>
-                <Route path="/about" component={About}/>
-                <Route path="/portfolio" component={Portfolio}/>
-                <Route path="/blog" component={Blog}/>
-            </Router>
-        )
+            )
+        }else{
+            console.log(this.state)
+            return(
+                <div>
+                <Route path="/about" Component={about}/>
+                <Route path="/portfolio" Component={Portfolio}/>
+                <Route path="/blog" Component={Blog}/>   
+                </div>  
+            )
+        }
     }
 
 }

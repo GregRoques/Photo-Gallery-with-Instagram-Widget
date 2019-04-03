@@ -5,6 +5,7 @@ import './App.css';
 import Layout from "./Components/Layout/Layout";
 import Home from './Containers/Home/Home';
 
+
 class App extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class App extends Component {
          <Layout>
            <Route path="/" component={Home}/>
         </Layout>
+              
       </Router>
     );
   }

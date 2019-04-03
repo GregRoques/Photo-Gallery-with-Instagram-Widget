@@ -7,7 +7,7 @@
     width:100%;
 }
 
-.myStory, .projects, .blog{
+.about, .portfolio, .blog{
     display: flex;
     justify-content:center;
     align-content:center;
@@ -42,7 +42,7 @@
     margin-right:1rem;
 }
 
-.blog:hover, .projects:hover, .myStory:hover{
+.blog:hover, .portfolio:hover, .about:hover{
 
     transform:scale(0.8);
     border-radius:100%;
@@ -62,10 +62,10 @@
     background-image: url('/images/homepage/mail.jpg'); 
 }
 
-.projects:hover{
+.portfolio:hover{
     background-image: url('/images/homepage/projects.jpg');
 }
 
-.myStory:hover{
+.about:hover{
     background-image: url('/images/homepage/myPic.jpg');
 }
