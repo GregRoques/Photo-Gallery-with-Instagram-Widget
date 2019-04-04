@@ -1,13 +1,14 @@
 import React, {Component} from "react";
 import "./HeadFoot.css"
 
-class Header extends Component{
+
+class Header extends Component{ 
 
     render(){
         return(
             <div className="header">
-                <span className="rightNav">Greg Roques</span>
-                <span className="leftNav jobTitle">{`<!--Software Developer-->`}</span>
+                <span className="leftNav">Greg Roques</span>
+                <span className="rightNav">{`<!--Software Developer-->`}</span>
                 
             </div>
         )

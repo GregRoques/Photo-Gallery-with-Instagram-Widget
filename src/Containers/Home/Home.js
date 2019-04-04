@@ -68,6 +68,7 @@ class Home extends Component{
                             handler={this.pageHandler}
                             className={className}
                             name={page}
+                            
                         />    
                     )
                 }

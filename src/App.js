@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <Router>
          <Layout>
+         {console.log(window.location.pathname)}
            <Route path="/" exact component={Home}/>
            <Route exact path="/about" component={About}/>
         </Layout>

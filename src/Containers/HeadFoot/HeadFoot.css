@@ -8,7 +8,7 @@
     position: relative;
 }
 
-.rightNav{
+.leftNav{
    
     font-family: 'GregsHeader', sans-serif;
     text-align:right;
@@ -25,17 +25,15 @@
     justify-content: flex-start;
 }
 
-.leftNav{
+.rightNav{
+  
     width: 50%;
     margin:2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    
-}
 
-.jobTitle{
     font-family:sans-serif;
     font-size: 2rem;
     font-style: italic;
@@ -43,6 +41,8 @@
     font-weight: bold;
     text-align:left;
 }
+
+
 
 /* =========================================================== Footer */
 
