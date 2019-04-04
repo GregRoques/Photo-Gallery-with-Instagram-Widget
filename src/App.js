@@ -6,14 +6,12 @@ import Layout from "./Components/Layout/Layout";
 import Home from './Containers/Home/Home';
 import About from './Containers/About/About'
 
-
-
 class App extends Component {
   render() {
     return (
       <Router>
          <Layout>
-           <Route path="/" exact render={()=>{return<Home/>}}/>
+           <Route path="/" exact component={Home}/>
            <Route exact path="/about" component={About}/>
         </Layout>
       </Router>

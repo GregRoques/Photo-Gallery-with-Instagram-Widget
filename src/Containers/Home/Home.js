@@ -1,75 +1,79 @@
-import React, {Component} from "react";
-import {Redirect, Link}  from 'react-router-dom';
+import React, { Component } from "react";
+import { Redirect }  from 'react-router-dom';
+import { css } from "emotion";
+
 import "./Home.css"
 
+const disappearTime = 1;
+
+const disappearingClass = css`
+    opacity: 0;
+    transition: ${disappearTime}s all;
+`;
+
+const scalingClass = css`
+    transform: scale(0);
+    transition: 0.75s all;
+`;
+
+const pages = ["About", "Portfolio", "Blog"]
+
+const Circle = ({name, handler, className}) => {
+    const lowerCaseName = name.toLowerCase();
+    return (
+        <div className={`padding768 circlesJustify ${className}`}>
+            <div onClick={ () => handler(lowerCaseName)} className={`${lowerCaseName} inner-circle`}>{name}</div>
+        </div>                
+    )
+}
 class Home extends Component{
 
-    state ={
-        go: '',
-        fade:[],
-        nextPage: false
+    state = {
+        nextPage: false,
+        redirect: false    
     }
 
-    pageHandler = (nextPage) => {
-       const catArray = ['about', 'portfolio', 'blog']
+    pageHandler = nextPage => {
 
-       if(catArray.includes(nextPage)){
-           var go = nextPage
-           var fade = []
-
-           catArray.map((other)=>{
-               if(other != nextPage){
-                   fade.push(other)
-               }
-            })
+        const stateObj = {
+            nextRoute: nextPage,
+            nextPage: true,
         }
-        this.setState({
-            go: go,
-            fade: fade,
-            nextPage:true
-        })
-       
 
+        pages.forEach(page => {
+            let lowerCase = page.toLowerCase()
+            if (lowerCase === nextPage) {
+                stateObj[`${lowerCase}Class`] = scalingClass
+            } else {
+                stateObj[`${lowerCase}Class`] = disappearingClass
+            }
+        })
+
+        this.setState(stateObj)
+
+        setTimeout(() => {
+            this.setState({redirect: true})
+        }, 1000 * disappearTime)        
     }
     
-
     render(){
-        let go = this.state.go
-        let fade = this.state.fade
-        
-        const forwardPage = () =>{
-            console.log('No Bueno.')
-          return (
-            <Redirect to="/about"/>
-          )
-        }
-        
-        if(this.state.nextPage === true){
-            document.querySelector(`.${go}`).style.transform= 'scale(0)'
-            document.querySelector(`.${go}`).style.transition= '0.75s all'
-            document.querySelector(`.${fade[0]}`).style.opacity= '0'
-            document.querySelector(`.${fade[0]}`).style.transition= '1s all'
-            document.querySelector(`.${fade[1]}`).style.opacity= '0'
-            document.querySelector(`.${fade[1]}`).style.transition = '1s all'
-            setTimeout(forwardPage, 1000)
-        }
-            return(
-                <div className="homeBody fadeIn">
-                    <div className="padding768 circlesJustify">
-                        <div onClick={()=>this.pageHandler('about')} className="about">About</div>
-                    </div>
-                    <div className="padding768 circlesJustify">
-                        <div onClick={()=>this.pageHandler('portfolio')} className="portfolio">Portfolio</div>
-                    </div>
-                    <div className="circlesJustify">
-                        <div onClick={()=>this.pageHandler('blog')} className="blog">Blog</div>
-                    </div>  
+        return(
+            <div className="homeBody fadeIn">
+                {this.state.redirect && <Redirect push to={`${this.state.nextRoute}`}/>}
 
-                    {/* The link is just for text purposes...it is Fake News */}
-                    <div><Link to="/about" >I link to the about page!</Link></div>
-                    
-                </div>
-            )
+                {pages.map(page => {
+                    let className = this.state[`${page.toLowerCase()}Class`]
+                    return (
+                        <Circle 
+                            handler={this.pageHandler}
+                            className={className}
+                            name={page}
+                        />    
+                    )
+                }
+                )}                
+            </div>
+        )
       
     }
 
