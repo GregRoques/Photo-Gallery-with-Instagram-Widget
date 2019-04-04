@@ -39,13 +39,6 @@ class Footer extends Component{
                         <img className="contact2" src= 'images/socialIcons/contact1.jpg' alt='LinkedIn: @GregRoques'/>
                 </div>
 
-                <div className="resume socialIcon">
-                    <a href='images/socialIcons/Resume.pdf' target="_blank">
-                        <img className="resume1"  src= 'images/socialIcons/pdf2.jpg' alt='LinkedIn: @GregRoques'/>
-                        <img className="resume2" src= 'images/socialIcons/pdf1.jpg' alt='LinkedIn: @GregRoques'/>
-                    </a>
-                </div>
-
                 <div className="li socialIcon">
                     <a href='https://www.linkedin.com/in/gregroques/' target="_blank">
                         <img className="li1"  src= 'images/socialIcons/li2.jpg' alt='LinkedIn: @GregRoques'/>
@@ -59,7 +52,13 @@ class Footer extends Component{
                         <img className="gh2" src= 'images/socialIcons/gh1.jpg' alt='LinkedIn: @GregRoques'/>
                     </a>
                 </div>
-
+                
+                <div className="resume socialIcon">
+                    <a href='images/socialIcons/Resume.pdf' target="_blank">
+                        <img className="resume1"  src= 'images/socialIcons/pdf2.jpg' alt='LinkedIn: @GregRoques'/>
+                        <img className="resume2" src= 'images/socialIcons/pdf1.jpg' alt='LinkedIn: @GregRoques'/>
+                    </a>
+                </div>
 
                 
 
