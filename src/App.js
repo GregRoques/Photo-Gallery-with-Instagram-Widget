@@ -4,6 +4,8 @@ import './App.css';
 
 import Layout from "./Components/Layout/Layout";
 import Home from './Containers/Home/Home';
+import About from './Containers/About/About'
+
 
 
 class App extends Component {
@@ -11,11 +13,12 @@ class App extends Component {
     return (
       <Router>
          <Layout>
-           <Route path="/" component={Home}/>
+           <Route path="/" exact render={()=>{return<Home/>}}/>
+           <Route exact path="/about" component={About}/>
         </Layout>
-              
       </Router>
     );
+    
   }
 }
 
