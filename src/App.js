@@ -7,11 +7,22 @@ import Home from './Containers/Home/Home';
 import About from './Containers/About/About'
 
 class App extends Component {
+
+  state = {
+    rightNavHeader: "/"
+  }
+
+  getRoute = headerRoute =>{
+    this.setState({
+      rightNavHeader: headerRoute
+    })
+  }
+
   render() {
     return (
       <Router>
-         <Layout>
-           <Route path="/" exact component={Home}/>
+         <Layout name={this.rightNavHeader}>
+           <Route sendRoute={this.getRoute} path="/" exact component={Home}/>
            <Route exact path="/about" component={About}/>
         </Layout>
       </Router>

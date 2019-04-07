@@ -9,7 +9,6 @@ const RightNav = ({name}) =>{
         </div>
     )
 }
-
 class Header extends Component{ 
 
     render(){

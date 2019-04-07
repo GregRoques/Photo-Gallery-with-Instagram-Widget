@@ -52,7 +52,7 @@ class Home extends Component{
         this.setState(stateObj)
 
         setTimeout(() => {
-            this.setState({redirect: true})
+            this.setState({redirect: true}); this.props.sendRoute(nextRoute)
         }, 1000 * disappearTime)        
     }
     
