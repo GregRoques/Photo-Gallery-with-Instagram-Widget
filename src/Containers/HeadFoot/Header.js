@@ -11,6 +11,10 @@ const RightNav = ({name}) =>{
 }
 class Header extends Component{ 
 
+    state ={
+        header: this.props.name
+    }
+
     render(){
         return(
             <div className="header">
