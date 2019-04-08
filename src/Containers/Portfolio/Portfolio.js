@@ -52,10 +52,10 @@ const languageImageLink = 'images/aboutMePage/'
 
 
 // ================================= Populate selectable list
-const ProjectList = ({name,click, hover}) => {
+const ProjectList = ({name,click, hover, offHover}) => {
     return (
         <div>
-            <div className='optionCircles' onClick={()=>click(name)} onMouseOver={()=>hover(name)}>{name}</div>
+            <div className='optionCircles' onClick={()=>click(name)} onMouseOut={()=>offHover()} onMouseOver={()=>hover(name)}>{name}</div>
         </div>                
     )
 }
@@ -112,7 +112,7 @@ const ProjectOnDisplay = ({title}) =>{
 class Portfolio extends Component{
 
     state = {
-        hoverProject: '',
+        hoverProject: ' ',
         currentProject: 'mealsleuth'
     }
 
@@ -123,15 +123,15 @@ class Portfolio extends Component{
     }
 
     displayHover = hoveringTitle =>{
-        if(hoveringTitle === null){
-            this.setState({
-                hoverProject: ''
-            })
-        }else{
-            this.setState({
-                hoverProject: projectDetails[hoveringTitle]['name']
-            })
-        }
+      this.setState({
+            hoverProject: projectDetails[hoveringTitle]['name']
+        })
+    }
+
+    displayHoverOff = () =>{
+        this.setState({
+            hoverProject: " "
+        })
     }
 
     render(){
@@ -144,6 +144,7 @@ class Portfolio extends Component{
                         name={project}
                         click={this.displayProject}
                         hover={this.displayHover}
+                        offHover={this.displayHoverOff}
                         />
                         )
                     })}
