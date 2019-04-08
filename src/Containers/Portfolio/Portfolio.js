@@ -39,7 +39,7 @@ const projectDetails ={
         type: 'Python',
         video: `pizzaCat`,
         description: `A horizontal side-scrolling shooter built in Python using the open-source video game library Pygame.`,
-        languages: ['python.png', 'photoshop.png'],
+        languages: ['python.png','pygame.png', 'photoshop.png'],
         readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
 
     }
@@ -52,10 +52,10 @@ const languageImageLink = 'images/aboutMePage/'
 
 
 // ================================= Populate selectable list
-const ProjectList = ({name,click}) => {
+const ProjectList = ({name,click, hover}) => {
     return (
         <div>
-            <div onClick={()=>click(name)}>{name}</div>
+            <div className='optionCircles' onClick={()=>click(name)} onMouseOver={()=>hover(name)}>{name}</div>
         </div>                
     )
 }
@@ -69,31 +69,31 @@ const ProjectOnDisplay = ({title}) =>{
     if(display['type']==='Python'){
         return(
             <div>
-            <h1>{display['type']}</h1>
-            <video class="videoPortfolio" controls poster={headerImageLink + display['video']+'.png'} src={headerImageLink + display['video']+'.mp4'} type="video/mp4"/>
-            <h2>{display['name']}</h2>
-            <p>{display['description']}</p>
-            {display['languages'].map(language => {
-                return(
-                    <img src= {languageImageLink + language}/>
-                )
-            })}
-            <span><a target="_blank"  href={display['readMe']}>
-                <button class="btn-info btn-md text-white">Read Me</button>
-            </a></span>
-        </div>
+                <h1 className="profileHeader">{display['type']}</h1>
+                <video class="picPortfolio" controls poster={headerImageLink + display['video']+'.png'} src={headerImageLink + display['video']+'.mp4'} type="video/mp4"/>
+                <h2 className= 'profileProjectName'>{display['name']}</h2>
+                <p className='profileParagraphFont'>{display['description']}</p>
+                {display['languages'].map(language => {
+                    return(
+                        <img className='devStyle' src= {languageImageLink + language}/>
+                    )
+                })}
+                <span><a target="_blank"  href={display['readMe']}>
+                    <button class="btn-info btn-md text-white">Read Me</button>
+                </a></span>
+            </div>
         )
 
     }else{
         return(
             <div>
-                <h1>{display['type']}</h1>
-                <img src= { headerImageLink + display['image'] }/>
-                <h2>{display['name']}</h2>
-                <p>{display['description']}</p>
+                <h1 className="profileHeader">{display['type']}</h1>
+                <img className="picPortfolio" src= { headerImageLink + display['image'] }/>
+                <h2 className="profileProjectName">{display['name']}</h2>
+                <p className='profileParagraphFont'>{display['description']}</p>
                 {display['languages'].map(language => {
                     return(
-                        <img src= {languageImageLink + language}/>
+                        <img className='devStyle' src= {languageImageLink + language}/>
                     )
                 })}
                 <span><a target="_blank"  href={display['demo']}>
@@ -112,6 +112,7 @@ const ProjectOnDisplay = ({title}) =>{
 class Portfolio extends Component{
 
     state = {
+        hoverProject: '',
         currentProject: 'mealsleuth'
     }
 
@@ -121,17 +122,34 @@ class Portfolio extends Component{
         })
     }
 
+    displayHover = hoveringTitle =>{
+        if(hoveringTitle === null){
+            this.setState({
+                hoverProject: ''
+            })
+        }else{
+            this.setState({
+                hoverProject: projectDetails[hoveringTitle]['name']
+            })
+        }
+    }
+
     render(){
         return(
             <div className="portfolioStyling">
-                <div className="portfolioOptionMenu">
+                <div className="circleContainer">
                     {myProjects.map(project => {
                         return(
                         <ProjectList 
                         name={project}
-                        click={this.displayProject}/>
+                        click={this.displayProject}
+                        hover={this.displayHover}
+                        />
                         )
                     })}
+                </div>
+                <div>
+                    {this.state.hoverProject}
                 </div>
                 <div>
                 <ProjectOnDisplay title={this.state.currentProject}/>
