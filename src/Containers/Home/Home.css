@@ -7,7 +7,7 @@
     width:100%;
 }
 
-.inner-circle{
+.innerCircle{
     display: flex;
     justify-content:center;
     align-content:center;
@@ -41,7 +41,7 @@
     margin-bottom:.5rem;
 }
 
-.inner-circle:hover{
+.innerCircle:hover{
 
     transform:scale(0.8);
     border-radius:100%;

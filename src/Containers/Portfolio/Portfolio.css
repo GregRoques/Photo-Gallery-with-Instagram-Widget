@@ -1,0 +1,13 @@
+.portfolioStyling{
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.portfolioOptionMenu{
+display:flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+}

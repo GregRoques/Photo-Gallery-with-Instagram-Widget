@@ -22,7 +22,7 @@ const Circle = ({name, handler, className}) => {
     const lowerCaseName = name.toLowerCase();
     return (
         <div className={`padding768 circlesJustify ${className}`}>
-            <div onClick={ () => handler(lowerCaseName)} className={`${lowerCaseName} inner-circle`}>{name}</div>
+            <div onClick={ () => handler(lowerCaseName)} className={`${lowerCaseName} innerCircle`}>{name}</div>
         </div>                
     )
 }
@@ -52,7 +52,7 @@ class Home extends Component{
         this.setState(stateObj)
 
         setTimeout(() => {
-            this.setState({redirect: true}); this.props.sendRoute(nextRoute)
+            this.setState({redirect: true})
         }, 1000 * disappearTime)        
     }
     
