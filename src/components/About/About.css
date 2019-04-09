@@ -1,0 +1,54 @@
+.portrait{
+    background-image: url('/images/aboutMePage/selfLowRes.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.aboutMeHeader{
+    font-family: 'GregsText', sans-serif;
+    text-align:center;
+    font-style: oblique;
+    font-weight: bolder;
+    color: rgb(35,64,143);
+    /* color:rgb(35,64,143); */
+    font-size: 3.5rem; 
+    /* text-shadow: 2px 2px 0px rgb(35,64,143); */
+    text-align: center;
+    padding-top:5%;
+}
+
+.aboutMeText{
+    font-family: 'GregsText', sans-serif;
+    font-size: .9rem;
+    padding-left:10px;
+    padding-right:10px;
+    color: rgb(100,100,100,0.65);
+    
+}
+
+.aboutMeSkills{
+    font-family: 'GregsText', sans-serif;
+    font-size: 2rem;
+    padding-top: 3%;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bolder;
+    /* color: rgb(0,183,241); */
+    color: rgb(100,100,100,0.65);
+}
+
+.lightGray{
+    max-width:100%;
+    height:auto;
+    padding:10px;
+    text-align:center;
+    background-position: center;
+}
+
+.skillIcon{
+    height:60px;
+    width:auto;
+    margin:10px;
+
+}

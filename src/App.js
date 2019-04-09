@@ -4,7 +4,8 @@ import './App.css';
 
 import Layout from "./Components/Layout/Layout";
 import Home from './Containers/Home/Home';
-import About from './Containers/About/About'
+import About from './Components/About/About'
+    import Design from './Containers/Design/Design'
 import Portfolio from './Containers/Portfolio/Portfolio'
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
          <Layout>
            <Route path="/" exact component={Home}/>
            <Route exact path="/about" component={About}/>
+           <Route exact path="/editorial" component={Design}/>
            <Route exact path="/portfolio" component={Portfolio}/>
         </Layout>
       </Router>
