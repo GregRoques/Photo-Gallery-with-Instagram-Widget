@@ -6,7 +6,7 @@ import "./Design.css";
 class Design extends Component{
     render(){
         return(
-            <div>
+            <div className="fadeIn">
                 <Magazines/>
                 <Photography/>
             </div>
