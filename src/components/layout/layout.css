@@ -34,6 +34,6 @@ body{
     font-size: 1.25rem;
     color: rgb(35,64,143);
     text-decoration: none;
-    text-decoration-color:none;
+    text-decoration-color:rgb(35,64,143);
     margin-top:2rem;
 }

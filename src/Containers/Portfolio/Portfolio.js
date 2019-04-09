@@ -176,9 +176,9 @@ class Portfolio extends Component{
                     </div>
                 </div>
                 <div className='redirectLinks'>
-                    <Link style={{ textDecoration: 'none' }} to="/">Home</Link> | 
-                    <Link style={{ textDecoration: 'none' }} to="/about"> About</Link> | 
-                    <Link style={{ textDecoration: 'none' }} to="/blog"> Blog</Link>
+                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
+                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link> | 
+                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/blog"> Blog</Link>
                 </div>
                 
             </div>
