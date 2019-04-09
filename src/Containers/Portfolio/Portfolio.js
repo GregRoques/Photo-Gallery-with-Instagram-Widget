@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link }  from 'react-router-dom';
 import "./Portfolio.css";
 
 // =============================== Projects displayed on this page
@@ -29,7 +30,7 @@ const projectDetails ={
         type: 'Full Stack',
         image: 'sift.png',
         description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
-        languages: ['html5.png', 'css3.png','javascript.png','redux.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
+        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
         demo: 'http://sift.gregroques.com',
         readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
     },
@@ -71,40 +72,54 @@ const ProjectOnDisplay = ({title}) =>{
 
     if(display['type']==='Python'){
         return(
-            <div>
-                <h1 className="profileHeader">{display['type']}</h1>
-                <video class="picPortfolio" controls poster={headerImageLink + display['image']} src={headerImageLink + display['video']} type="video/mp4"/>
-                <h2 className= 'profileProjectName'>{display['name']}</h2>
-                <p className='profileParagraphFont'>{display['description']}</p>
+            <div className='grayColumnContent'>
+                <div className= 'grayColumns'>
+                    <video class="picPortfolio" controls poster={headerImageLink + display['image']} src={headerImageLink + display['video']} type="video/mp4"/>
+                </div>
+                <div className='grayColumns'>
+                    <div className="profileProjectName">{display['name']}</div>
+                    <div className="profileHeader">// {display['type']}</div>
+                    <div className='profileParagraphFont'>{display['description']}</div>
+                    
+                    <div className='buttonAlign'>
+                    <span><a target="_blank"  href={display['readMe']}>
+                        <button class="demoReadButtons">Read Me</button>
+                    </a></span>
+                    </div>
+                </div>
                 {display['languages'].map(language => {
                     return(
                         <img className='devStyle' src= {languageImageLink + language}/>
                     )
                 })}
-                <span><a target="_blank"  href={display['readMe']}>
-                    <button class="btn-info btn-md text-white">Read Me</button>
-                </a></span>
             </div>
         )
 
     }else{
         return(
-            <div>
-                <h1 className="profileHeader">{display['type']}</h1>
-                <img className="picPortfolio" src= { headerImageLink + display['image'] }/>
-                <h2 className="profileProjectName">{display['name']}</h2>
-                <p className='profileParagraphFont'>{display['description']}</p>
-                {display['languages'].map(language => {
-                    return(
-                        <img className='devStyle' src= {languageImageLink + language}/>
-                    )
-                })}
-                <span><a target="_blank"  href={display['demo']}>
-                    <button class="btn-info btn-md text-white">Live Demo</button>
-                </a></span>
-                <span><a target="_blank"  href={display['readMe']}>
-                    <button class="btn-info btn-md text-white">Read Me</button>
-                </a></span>
+            <div className='grayColumnContent'>
+                <div className= 'grayColumns'>
+                    <img className="picPortfolio" src= { headerImageLink + display['image'] }/>
+                </div>
+                <div className='grayColumns'>
+                    <div className="profileProjectName">{display['name']}</div>
+                    <div className="profileHeader">// {display['type']}</div>
+                    <div className='profileParagraphFont'>{display['description']}</div>
+
+                    <div className='buttonAlign'>
+                    <span><a target="_blank"  href={display['demo']}>
+                        <button class="demoReadButtons">Live Demo</button>
+                    </a></span>
+                    <span><a target="_blank"  href={display['readMe']}>
+                        <button class="demoReadButtons">Read Me</button>
+                    </a></span>
+                    </div>
+                </div>
+                    {display['languages'].map(language => {
+                        return(
+                            <img className='devStyle' src= {languageImageLink + language}/>
+                        )
+                    })}
             </div>
         )
     }
@@ -139,7 +154,7 @@ class Portfolio extends Component{
 
     render(){
         return(
-            <div className="portfolioStyling">
+            <div className="portfolioStyling fadeIn">
                 <div className="circleContainer">
                     {myProjects.map(project => {
                         return(
@@ -152,11 +167,18 @@ class Portfolio extends Component{
                         )
                     })}
                 </div>
-                <div>
+                <div className="hoverPageLine">
                     {this.state.hoverProject}
                 </div>
-                <div>
-                <ProjectOnDisplay title={this.state.currentProject}/>
+                <div className='parameters'>
+                    <div className="profileRowBackground">
+                        <ProjectOnDisplay title={this.state.currentProject}/>
+                    </div>
+                </div>
+                <div className='redirectLinks'>
+                    <Link style={{ textDecoration: 'none' }} to="/">Home</Link> | 
+                    <Link style={{ textDecoration: 'none' }} to="/about"> About</Link> | 
+                    <Link style={{ textDecoration: 'none' }} to="/blog"> Blog</Link>
                 </div>
                 
             </div>
