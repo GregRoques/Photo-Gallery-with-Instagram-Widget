@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Portfolio.css";
 
-
 // =============================== Projects displayed on this page
 
 const myProjects = ["mealsleuth", "dietactics", "sift", "pizzaCat"]
@@ -37,7 +36,8 @@ const projectDetails ={
     pizzaCat: {
         name: 'Intergalactic Adventures of Pizza Cat',
         type: 'Python',
-        video: `pizzaCat`,
+        image: `pizzaCat.png`,
+        video: `pizzaCat.mp4`,
         description: `A horizontal side-scrolling shooter built in Python using the open-source video game library Pygame.`,
         languages: ['python.png','pygame.png', 'photoshop.png'],
         readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
@@ -45,17 +45,20 @@ const projectDetails ={
     }
 }
 
-// for constructing links with project details
+// ================================= for constructing links with project details
 
 const headerImageLink = 'images/portfolioimages/'
 const languageImageLink = 'images/aboutMePage/'
 
 
-// ================================= Populate selectable list
-const ProjectList = ({name,click, hover, offHover}) => {
+// ================================= Populate selectable circles
+
+const ProjectList = ({name, click, hover, offHover}) => {
+
     return (
         <div>
-            <div className='optionCircles' onClick={()=>click(name)} onMouseOut={()=>offHover()} onMouseOver={()=>hover(name)}>{name}</div>
+            <div className={`optionCircles ${name}BackgroundImage`} onClick={()=>click(name)} onMouseOut={()=>offHover()} onMouseOver={()=>hover(name)}>
+            </div>
         </div>                
     )
 }
@@ -70,7 +73,7 @@ const ProjectOnDisplay = ({title}) =>{
         return(
             <div>
                 <h1 className="profileHeader">{display['type']}</h1>
-                <video class="picPortfolio" controls poster={headerImageLink + display['video']+'.png'} src={headerImageLink + display['video']+'.mp4'} type="video/mp4"/>
+                <video class="picPortfolio" controls poster={headerImageLink + display['image']} src={headerImageLink + display['video']} type="video/mp4"/>
                 <h2 className= 'profileProjectName'>{display['name']}</h2>
                 <p className='profileParagraphFont'>{display['description']}</p>
                 {display['languages'].map(language => {
@@ -112,7 +115,7 @@ const ProjectOnDisplay = ({title}) =>{
 class Portfolio extends Component{
 
     state = {
-        hoverProject: ' ',
+        hoverProject: '',
         currentProject: 'mealsleuth'
     }
 
@@ -130,7 +133,7 @@ class Portfolio extends Component{
 
     displayHoverOff = () =>{
         this.setState({
-            hoverProject: " "
+            hoverProject: ""
         })
     }
 
