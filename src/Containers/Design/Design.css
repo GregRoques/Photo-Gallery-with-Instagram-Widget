@@ -1,3 +1,15 @@
+/* =============================== Headings */
+
+.artDirection{
+  font-family: 'GregsText';
+  font-size: 4rem;
+  text-align:center;
+  font-weight: bolder;
+  color: rgb(0,183,241);
+  margin:3rem;
+}
+
+
 /* ================================== carousel */
 
 .photoContent{
@@ -51,4 +63,91 @@
   font-family: sans-serif;
   font-size: 1 rem;
   color: rgb(35,64,143);
+}
+
+.instaAlign{
+  text-align: center;
+  width:100%;
+}
+
+.instaLogo{
+  width:12rem;
+  height:auto;
+  margin-top:1.5rem;
+  transition: transform 1s;
+  transform: scale(1);
+
+}
+
+.instaLogo:hover{
+  transition: transform 1s;
+  transform: scale(.85)
+}
+
+/* ======================================================================================================== Mags */
+
+.magRows{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%
+
+}
+
+.magContainers{
+  position:relative;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mags{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+
+}
+
+.imgDescription{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-family:'GregsText';
+  font-weight: bolder;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 1px black;
+  visibility: hidden;
+  font-style:italic;  
+  text-align:center;
+}
+
+
+
+.imgDescription:hover{
+  cursor:pointer;
+}
+
+.mags IMG{
+  width: inherit;
+  height: auto;
+  position: inline;
+  padding-bottom:15px;
+
+}
+
+.mags:hover IMG{
+  filter: grayscale(75%) blur(0.75px) opacity(75%);
+}
+
+.mags:hover .imgDescription{
+  visibility: visible;
 }
