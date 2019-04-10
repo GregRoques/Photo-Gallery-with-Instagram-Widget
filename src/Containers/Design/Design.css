@@ -1,3 +1,4 @@
+
 /* =============================== Headings */
 
 .artDirection{
@@ -90,10 +91,10 @@
 
 .mags{
   width: 500px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column;
   align-content: center;
-  align-items: center;
+  align-items: center; */
 
 }
 
@@ -106,12 +107,11 @@
   font-family:'GregsText';
   font-weight: bolder;
   font-size: 1.5rem;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1.25px 1.25px 1px black;
   visibility: hidden;
-  font-style:italic;  
+  /* font-style:italic;   */
   text-align:center;
 }
-
 
 
 .imgDescription:hover{

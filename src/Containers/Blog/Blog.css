@@ -1,0 +1,40 @@
+.blogAlign{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.articleColumn{
+    align-items:top;
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+    flex-wrap: wrap;
+}
+
+.previousPostsContainer{
+
+    background-color:lightgray;
+    width:100%;
+    border-radius:15px
+
+}
+
+.previousPostsColumn{
+    display: flex;
+    flex-direction: column;
+    align-items:top;
+    min-width: 30%;
+    flex-wrap: wrap;
+}
+
+.previousPostText{
+    padding-right: 2rem;
+    padding-left:2rem;
+    padding-bottom:2rem;
+}
+
+.articlePadding{
+    padding-right: 2rem;
+    padding-left:2rem;
+}

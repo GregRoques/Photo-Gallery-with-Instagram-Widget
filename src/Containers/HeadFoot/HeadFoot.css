@@ -1,11 +1,11 @@
 /* =========================================================== Header */
 
 .header {
-    width: 100%;
-    margin-top:1rem;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     position: relative;
+    margin:3rem;
 }
 
 .leftNav{
@@ -16,8 +16,8 @@
     color: rgb(242,212,83);
     font-size: 5rem; 
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px rgb(75,75,75); 
-    width: 50%;
-    margin:2rem;
+    width: 40%;
+    /* margin:2rem; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,8 +27,8 @@
 
 .rightNav{
     position:relative;
-    width: 50%;
-    margin:2rem;
+    width: 60%;
+    /* margin:2rem; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,7 +39,7 @@
     font-weight: bold;
     color:rgb(35,64,143);
     font-weight: bold;
-    text-align:end;
+    text-align:right;
 }
 
 /* RightNav page title typing */

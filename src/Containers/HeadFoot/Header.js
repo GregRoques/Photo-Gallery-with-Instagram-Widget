@@ -14,7 +14,7 @@ class Header extends Component{
     render(){
         return(
             <div className="header">
-                <Link style={{ textDecoration: 'none' }} to="/"><span title="Home Page" className="leftNav">Greg Roques</span></Link>
+                <Link style={{ textDecoration: 'none' }} to="/"><div title="Home Page" className="leftNav">Greg Roques</div></Link>
                 <div className ="rightNav">
                     <RightNav name={'Software Developer'}/>
                 </div>

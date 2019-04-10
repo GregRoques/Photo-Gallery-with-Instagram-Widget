@@ -7,6 +7,7 @@ import Home from './Containers/Home/Home';
 import About from './Components/About/About'
     import Design from './Containers/Design/Design'
 import Portfolio from './Containers/Portfolio/Portfolio'
+import Blog from './Containers/Blog/Blog'
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
            <Route exact path="/about" component={About}/>
            <Route exact path="/editorial" component={Design}/>
            <Route exact path="/portfolio" component={Portfolio}/>
+           <Route exact path="/blog" component={Blog}/>
         </Layout>
       </Router>
     );
