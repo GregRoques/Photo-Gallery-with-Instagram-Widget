@@ -107,12 +107,12 @@ const ProjectOnDisplay = ({title}) =>{
                     <div className='profileParagraphFont'>{display['description']}</div>
 
                     <div className='buttonAlign'>
-                    <span><a target="_blank"  href={display['demo']}>
-                        <button class="demoReadButtons">Live Demo</button>
-                    </a></span>
-                    <span><a target="_blank"  href={display['readMe']}>
-                        <button class="demoReadButtons">Read Me</button>
-                    </a></span>
+                        <span><a target="_blank"  href={display['demo']}>
+                            <button class="demoReadButtons">Live Demo</button>
+                        </a></span>
+                        <span><a target="_blank"  href={display['readMe']}>
+                            <button class="demoReadButtons">Read Me</button>
+                        </a></span>
                     </div>
                 </div>
                     {display['languages'].map(language => {

@@ -61,8 +61,9 @@ const Slider = ({currentNum, clickL, clickR}) =>{
             </div>
             <div onClick={()=>clickR()}  className="picButtons buttonRight">{`>`}</div>
         </div>
-        <div className='picTextAlign'>{musicPhotos[currentNum]['band']}</div>
-        <div className='instaAlign'><img className='instaLogo' src='images/design/instaWebsite.png'/></div>
+        <div className='picTextAlign'>
+            {musicPhotos[currentNum]['band']}
+        </div>
     </div>
     )
 }
@@ -108,6 +109,11 @@ class Photography extends Component{
                 clickL = {this.leftClick}
                 clickR = {this.rightClick}
                 />
+                   <div className='buttonAlign'>
+                    <span><a target="_blank"  href='https://www.instagram.com/gregroques/'>
+                        <button class="demoReadButtons">Instagram</button>
+                    </a></span>
+                </div>
             </div>
         )
     }
