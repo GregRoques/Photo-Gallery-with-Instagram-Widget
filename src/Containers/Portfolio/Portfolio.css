@@ -173,3 +173,7 @@ flex-direction: column;
     transform: scale(.75)
 
 }
+
+.demoReadButtons:focus{
+    outline:0;
+  }

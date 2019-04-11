@@ -3,7 +3,7 @@ import { Link }  from 'react-router-dom';
 import './Blog.css'
 
 // Blog Post Routes
-import Welcome from '../../Components/BlogEntries/Welcome'
+import Welcome from '../../Components/BlogEntries/BlogEntries'
 
 const blogPosts = {
 'Welcome':{
@@ -27,7 +27,7 @@ class Blog extends Component{
     }
     
     render(){
-        console.log(this.state.currentRoute)
+        // console.log(this.state.currentRoute)
         return(
             <div className='fadeIn'>
                 <div className='blogAlign'>
@@ -40,9 +40,9 @@ class Blog extends Component{
                         <div className='previousPostsContainer'>
                             <div className='previousPostText'>
                             <h1>Previous</h1>
-                            {Object.keys(blogPosts).map(posts=> {
+                            {Object.keys(blogPosts).map((posts,i)=> {
                                 return(
-                                    <div onClick={()=>this.click(posts)}>
+                                    <div key={i} onClick={()=>this.click(posts)}>
                                         > <b>{posts}:</b> <i>{blogPosts[posts]['date']}</i>
                                     </div>
                                 )

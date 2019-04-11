@@ -53,16 +53,18 @@ const musicPhotos = {
 const Slider = ({currentNum, clickL, clickR}) =>{
     return(
     <div>
-        <div class="col-12 artDirection">Photography</div>
+        <div className="artDirection">Photography</div>
         <div className='photoContent'>
             <div onClick={()=>clickL()} className="picButtons buttonLeft">{`<`}</div>
             <div className='sliderContainer'>
-                <img src={musicPhotos[currentNum]['image']}/>
+                <img src={musicPhotos[currentNum]['image']} alt={musicPhotos['band']}/>
             </div>
             <div onClick={()=>clickR()}  className="picButtons buttonRight">{`>`}</div>
         </div>
         <div className='picTextAlign'>
-            {musicPhotos[currentNum]['band']}
+            <a rel="noopener noreferrer" target="_blank" href={musicPhotos[currentNum]['website']} alt={musicPhotos[currentNum]['band']} >
+                {musicPhotos[currentNum]['band']}
+            </a>
         </div>
     </div>
     )
@@ -110,8 +112,8 @@ class Photography extends Component{
                 clickR = {this.rightClick}
                 />
                    <div className='buttonAlign'>
-                    <span><a target="_blank"  href='https://www.instagram.com/gregroques/'>
-                        <button class="demoReadButtons">Instagram</button>
+                    <span><a rel="noopener noreferrer" target="_blank"  href='https://www.instagram.com/gregroques/'>
+                        <button className="demoReadButtons">Instagram</button>
                     </a></span>
                 </div>
             </div>

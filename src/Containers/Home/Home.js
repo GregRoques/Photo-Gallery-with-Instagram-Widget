@@ -61,10 +61,11 @@ class Home extends Component{
             <div className="homeBody fadeIn">
                 {this.state.redirect && <Redirect push to={`${this.state.nextRoute}`}/>}
 
-                {pages.map(page => {
+                {pages.map((page, i)=>{
                     let className = this.state[`${page.toLowerCase()}Class`]
                     return (
                         <Circle 
+                            key ={i}
                             handler={this.pageHandler}
                             className={className}
                             name={page}

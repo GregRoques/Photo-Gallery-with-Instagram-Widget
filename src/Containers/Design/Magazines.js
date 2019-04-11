@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Design.css'
 
 const magList ={
@@ -25,12 +25,14 @@ const magList ={
 }
 
 const IssueList = ({mag}) => {
-    console.log(mag)
+    // console.log(mag)
     return(
         <div className='magContainers'>
-            <div className="mags"> <img src={magList[mag]['image']}/>
-                <div className="imgDescription">{magList[mag]['issue']}</div>
-            </div>
+            <a rel="noopener noreferrer" target="_blank" href={magList[mag]['link']} >
+                <div className="mags"> <img src={magList[mag]['image']} alt={magList[mag]['issue']}/>
+                    <div className="imgDescription"><i>{magList[mag]['issue']}</i></div>
+                </div>
+            </a>
         </div>
     )
 
@@ -40,11 +42,12 @@ function Magazines(props){
 
     return(
         <div>
-            <div class="col-12 artDirection">Art Direction</div>
+            <div className="artDirection">Art Direction</div>
             <div className='magRows'>
-                {(Object.keys(magList)).map(num => {
+                {(Object.keys(magList)).map((num,i) => {
                             return(
                             <IssueList
+                            key={i}
                             mag={num}
                             />
                             )

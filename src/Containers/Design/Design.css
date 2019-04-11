@@ -35,7 +35,7 @@
   align-content:center;
   align-items: center;
   z-index: 2;
-  color:white;
+  color:rgb(255,255,255,0.45);
   font-size:3rem;
   margin-right: -2.5rem;
   transition: transform .5s;
@@ -104,7 +104,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   color: white;
-  font-family:'GregsText';
+  font-family: serif;
   font-weight: bolder;
   font-size: 1.5rem;
   text-shadow: 1.25px 1.25px 1px black;
@@ -156,8 +156,11 @@
   transform: scale(1);
 }
 
+.demoReadButtons:focus{
+  outline:0;
+}
+
 .demoReadButtons:hover{
   transition: transform .5s;
   transform: scale(.75)
-
 }

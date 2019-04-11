@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Design.css'
 
 const articleList ={
@@ -33,7 +33,7 @@ const articleList ={
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
     6:{
-        title: 'Video Games Based in NOLA pt.1',
+        title: 'Video Games Based in New Orleans pt.1',
         category: 'Culture',
         image: 'images/design/articles/videogame.jpg',
         link: 'https://www.whereyat.com/video-games-set-in-new-orleans6'
@@ -50,19 +50,32 @@ const articleList ={
         image: 'images/design/articles/bigGigantic.jpg',
         link: 'https://www.dropbox.com/s/6qsqdhuperbeprw/big%20gigantic.pdf?dl=0'
     },
+    // 9:{
+    //     title: 'Jobs',
+    //     category: 'Film Review',
+    //     image: 'images/design/articles/jobs.jpg',
+    //     link: 'https://www.whereyat.com/jobs'
+    // },
+    // 10:{
+    //     title: 'Transformers: Age of Extinction',
+    //     category: 'Film Review',
+    //     image: 'images/design/articles/t4.jpg',
+    //     link: 'https://www.whereyat.com/transformers-age-of-extinction'
+    // },
 }
 
 const IssueList = ({art}) => {
-    console.log(art)
     return(
         <div className='magContainers'>
-            <div className="mags"> <img src={articleList[art]['image']}/>
-                <div className="imgDescription">
-                – {articleList[art]['category']} –
-                <br/>
-                <i>{articleList[art]['title']}</i>
+            <a rel="noopener noreferrer" target="_blank" href={articleList[art]['link']} >
+                <div className="mags"> <img src={articleList[art]['image']} alt={articleList[art]['title']}/>
+                    <div className="imgDescription">
+                    – {articleList[art]['category']} –
+                    <br/>
+                    <i>{articleList[art]['title']}</i>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     )
 
@@ -72,11 +85,12 @@ function Articles(props){
 
     return(
         <div>
-            <div class="col-12 artDirection">Articles</div>
+            <div className="artDirection">Articles</div>
             <div className='magRows'>
-                {(Object.keys(articleList)).map(num => {
+                {(Object.keys(articleList)).map((num, i) => {
                             return(
                             <IssueList
+                            key={i}
                             art={num}
                             />
                             )
@@ -84,8 +98,8 @@ function Articles(props){
 
             </div>
             <div className='buttonAlign'>
-                    <span><a target="_blank"  href='https://docs.google.com/document/d/1DC-jCkloiDcsfvOqXuUdJ-HMAchRf60jFP7xR_zLN98/edit'>
-                        <button class="demoReadButtons">More Articles</button>
+                    <span><a target="_blank" rel="noopener noreferrer" href='https://docs.google.com/document/d/1DC-jCkloiDcsfvOqXuUdJ-HMAchRf60jFP7xR_zLN98/edit'>
+                        <button className="demoReadButtons">More Articles</button>
                     </a></span>
                 </div>
         </div>

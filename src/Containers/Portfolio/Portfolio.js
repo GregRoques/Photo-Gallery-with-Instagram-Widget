@@ -74,22 +74,24 @@ const ProjectOnDisplay = ({title}) =>{
         return(
             <div className='grayColumnContent'>
                 <div className= 'grayColumns'>
-                    <video class="picPortfolio" controls poster={headerImageLink + display['image']} src={headerImageLink + display['video']} type="video/mp4"/>
+                    <video className="picPortfolio" controls poster={headerImageLink + display['image']} alt={display['name']} src={headerImageLink + display['video']} type="video/mp4"/>
                 </div>
                 <div className='grayColumns'>
                     <div className="profileProjectName">{display['name']}</div>
-                    <div className="profileHeader">// {display['type']}</div>
+                    <div className="profileHeader">{'//'} {display['type']}</div>
                     <div className='profileParagraphFont'>{display['description']}</div>
                     
                     <div className='buttonAlign'>
-                    <span><a target="_blank"  href={display['readMe']}>
-                        <button class="demoReadButtons">Read Me</button>
+                    <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
+                        <button className="demoReadButtons">Read Me</button>
                     </a></span>
                     </div>
                 </div>
-                {display['languages'].map(language => {
+                {display['languages'].map((language, i) => {
+                    const altText = language.replace(/\.[^/.]+$/, "")
+                    // console.log(altText)
                     return(
-                        <img className='devStyle' src= {languageImageLink + language}/>
+                        <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
                     )
                 })}
             </div>
@@ -99,25 +101,27 @@ const ProjectOnDisplay = ({title}) =>{
         return(
             <div className='grayColumnContent'>
                 <div className= 'grayColumns'>
-                    <img className="picPortfolio" src= { headerImageLink + display['image'] }/>
+                    <img className="picPortfolio" src= { headerImageLink + display['image']} alt={display['name']}/>
                 </div>
                 <div className='grayColumns'>
                     <div className="profileProjectName">{display['name']}</div>
-                    <div className="profileHeader">// {display['type']}</div>
+                    <div className="profileHeader">{'//'} {display['type']}</div>
                     <div className='profileParagraphFont'>{display['description']}</div>
 
                     <div className='buttonAlign'>
-                        <span><a target="_blank"  href={display['demo']}>
-                            <button class="demoReadButtons">Live Demo</button>
+                        <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
+                            <button className="demoReadButtons">Live Demo</button>
                         </a></span>
-                        <span><a target="_blank"  href={display['readMe']}>
-                            <button class="demoReadButtons">Read Me</button>
+                        <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
+                            <button className="demoReadButtons">Read Me</button>
                         </a></span>
                     </div>
                 </div>
-                    {display['languages'].map(language => {
+                    {display['languages'].map((language, i) => {
+                        const altText = language.replace(/\.[^/.]+$/, "")
+                        // console.log(altText)
                         return(
-                            <img className='devStyle' src= {languageImageLink + language}/>
+                            <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
                         )
                     })}
             </div>
@@ -156,10 +160,11 @@ class Portfolio extends Component{
         return(
             <div className="portfolioStyling fadeIn">
                 <div className="circleContainer">
-                    {myProjects.map(project => {
+                    {myProjects.map((project, i) => {
                         return(
                         <ProjectList 
                         name={project}
+                        key={i}
                         click={this.displayProject}
                         hover={this.displayHover}
                         offHover={this.displayHoverOff}

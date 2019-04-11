@@ -2,12 +2,40 @@ import React from "react";
 import { Link }  from 'react-router-dom';
 import "./About.css";
 
+const imageLink = '/images/aboutMePage/'
+
+const frontEnd = [
+    'html5.png',
+    'css3.png',
+    'bootstrap.png',
+    'sass.png',
+    'javascript.png',
+    'jquery.png',
+    'react.png',
+    'redux.png', 
+]
+
+const backEnd = [
+    'python.png',
+    'nodejs.png',
+    'express.png',
+    'mysql.png',
+    'postgresql.png',
+]
+
+const graphicDesign = [
+    'illustrator.png',
+    'indesign.png',
+    'photoshop.png',
+    'Premiere.png',
+]
+
 const About = (props) =>{
     return(
         
      <div className="fadeIn">
               <div>
-              <img className="portrait" src="/images/aboutMePage/selfLowRes.png"/>
+              <img className="portrait" src="/images/aboutMePage/selfLowRes.png" alt='Me'/>
               </div>
               <div className="col-12 col-md-6 col-xl-7">
                   <div className="aboutMeHeader">Who Am I?</div>
@@ -18,33 +46,37 @@ const About = (props) =>{
               <div className="col-12 mt-2">
                   <div className="aboutMeSkills">Front End</div>
                   <div className="lightGray">
-                      <img className="skillIcon" src="/images/aboutMePage/html5.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/css3.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/bootstrap.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/sass.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/javascript.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/jquery.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/redux.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/react.png"/>
+                  {frontEnd.map((language, i) => {
+                        const altText = language.replace(/\.[^/.]+$/, "")
+                        // console.log(altText)
+                        return(
+                            <img className='skillIcon' key={i} src= {imageLink + language} alt={altText}/>
+                        )
+                    })}
                   </div>
               </div>
               <div className="col-12 col-md-6">
                   <div className="aboutMeSkills">Back End</div>
                   <div className="lightGray">
-                      <img className="skillIcon" src="/images/aboutMePage/python.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/nodejs.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/express.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/mysql.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/postgresql.png"/>
+                  {backEnd.map((language,i) => {
+                        const altText = language.replace(/\.[^/.]+$/, "")
+                        // console.log(altText)
+                        return(
+                            <img className='skillIcon' key={i} src= {imageLink + language} alt={altText}/>
+                            )
+                        })}
                   </div>
               </div>
               <div className="col-12 col-md-6">
                   <div className="aboutMeSkills">Adobe CC</div>
                   <div className="lightGray">
-                      <img className="skillIcon" src="/images/aboutMePage/illustrator.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/indesign.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/photoshop.png"/>
-                      <img className="skillIcon" src="/images/aboutMePage/Premiere.png"/>
+                  {graphicDesign.map((language,i) => {
+                        const altText = language.replace(/\.[^/.]+$/, "")
+                        // console.log(altText)
+                        return(
+                            <img className='skillIcon' key={i} src= {imageLink + language} alt={altText}/>
+                            )
+                        })}
                   </div>
               </div>
               <div className='redirectLinks'>
