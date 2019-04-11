@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { Link }  from 'react-router-dom';
 import "./Portfolio.css";
 
+// Redux
+import { connect } from "react-redux";
+import {bindActionCreators} from 'redux';
+import SetHeader from '../../Actions/SetHeader'
+
+
 // =============================== Projects displayed on this page
 
 const myProjects = ["mealsleuth", "dietactics", "sift", "pizzaCat"]
@@ -133,6 +139,10 @@ const ProjectOnDisplay = ({title}) =>{
 
 class Portfolio extends Component{
 
+    setNewHeader = () =>{
+        this.props.SetHeader("Portfolio")
+    }
+
     state = {
         hoverProject: '',
         currentProject: 'mealsleuth'
@@ -159,6 +169,7 @@ class Portfolio extends Component{
     render(){
         return(
             <div className="portfolioStyling fadeIn">
+            {this.setNewHeader()}
                 <div className="circleContainer">
                     {myProjects.map((project, i) => {
                         return(
@@ -191,4 +202,13 @@ class Portfolio extends Component{
     }
 }
 
-export default Portfolio;
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+        SetHeader: SetHeader
+        }, dispatch
+    )
+}
+
+export default connect(null, mapDispatchToProps)(Portfolio);

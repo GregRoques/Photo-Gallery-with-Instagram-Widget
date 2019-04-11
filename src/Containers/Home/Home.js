@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Redirect }  from 'react-router-dom';
 import { css } from "emotion";
-
 import "./Home.css"
 
+// Redux
+import { connect } from "react-redux";
+import {bindActionCreators} from 'redux';
+import SetHeader from '../../Actions/SetHeader'
+
 const disappearTime = 1;
+
 
 const disappearingClass = css`
     opacity: 0;
@@ -28,7 +33,12 @@ const Circle = ({name, handler, className}) => {
 }
 class Home extends Component{
 
+    setNewHeader = () =>{
+        this.props.SetHeader("Software Developer")
+    }
+
     state = {
+        thisCategory: '/',
         nextPage: false,
         redirect: false    
     }
@@ -59,8 +69,9 @@ class Home extends Component{
     render(){
         return(
             <div className="homeBody fadeIn">
+            
                 {this.state.redirect && <Redirect push to={`${this.state.nextRoute}`}/>}
-
+                {this.setNewHeader()}
                 {pages.map((page, i)=>{
                     let className = this.state[`${page.toLowerCase()}Class`]
                     return (
@@ -81,4 +92,12 @@ class Home extends Component{
 
 }
 
-export default Home;
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+        SetHeader: SetHeader
+        }, dispatch
+    )
+}
+
+export default connect(null, mapDispatchToProps)(Home);

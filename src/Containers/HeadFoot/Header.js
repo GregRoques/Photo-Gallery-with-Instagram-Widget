@@ -2,21 +2,27 @@ import React, {Component} from "react";
 import { Link }  from 'react-router-dom';
 import "./HeadFoot.css"
 
-const RightNav = ({name}) =>{
+import {connect} from 'react-redux';
+
+
+var RightNav = ({name}) =>{
     return(
-        <div className="typeTitle">
+        <div className='typeTitle'>
             {`<!--`}{name}{`-->`}
         </div>
     )
 }
+
 class Header extends Component{ 
+
 
     render(){
         return(
             <div className="header">
                 <Link style={{ textDecoration: 'none' }} to="/"><div title="Home Page" className="leftNav">Greg Roques</div></Link>
+
                 <div className ="rightNav">
-                    <RightNav name={'Software Developer'}/>
+                    <RightNav name={this.props.currentHeader}/>
                 </div>
                 
             </div>
@@ -25,4 +31,10 @@ class Header extends Component{
 
 }
 
-export default Header;
+function mapStateToProps(state){
+    return{
+        currentHeader: state.header
+    }
+}
+
+export default connect(mapStateToProps) (Header);
