@@ -23,7 +23,7 @@ const startingArticle= Object.keys(blogPosts)[Object.keys(blogPosts).length - 1]
 
 class Blog extends Component{
 
-    setNewHeader = () =>{
+    componentDidMount() {
         this.props.SetHeader("Blog")
     }
 
@@ -41,7 +41,6 @@ class Blog extends Component{
         // console.log(this.state.currentRoute)
         return(
             <div className='fadeIn'>
-                {this.setNewHeader()}
                 <div className='blogAlign'>
                     <div className='articleColumn'>
                         <div className='articlePadding'>

@@ -12,14 +12,13 @@ import SetHeader from '../../Actions/SetHeader'
 
 class Design extends Component{
 
-    setNewHeader = () =>{
-        this.props.SetHeader("Editorial Work")
+    componentDidMount() {
+        this.props.SetHeader("Editorial Work");
     }
 
     render(){
         return(
             <div className="fadeIn">
-                {this.setNewHeader()}
                 <Magazines/>
                 <Photography/>
                 <Articles/>

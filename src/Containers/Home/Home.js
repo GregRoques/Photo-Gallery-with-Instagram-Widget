@@ -32,10 +32,9 @@ const Circle = ({name, handler, className}) => {
 }
 class Home extends Component{
 
-    setNewHeader = () =>{
+    componentDidMount() {
         this.props.SetHeader("Software Developer")
     }
-
     state = {
         thisCategory: '/',
         nextPage: false,
@@ -70,7 +69,6 @@ class Home extends Component{
             <div className="homeBody fadeIn">
             
                 {this.state.redirect && <Redirect push to={`${this.state.nextRoute}`}/>}
-                {this.setNewHeader()}
                 {pages.map((page, i)=>{
                     let className = this.state[`${page.toLowerCase()}Class`]
                     return (
@@ -78,8 +76,7 @@ class Home extends Component{
                             key ={i}
                             handler={this.pageHandler}
                             className={className}
-                            name={page}
-                            
+                            name={page}                            
                         />    
                     )
                 }

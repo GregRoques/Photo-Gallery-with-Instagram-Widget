@@ -139,8 +139,8 @@ const ProjectOnDisplay = ({title}) =>{
 
 class Portfolio extends Component{
 
-    setNewHeader = () =>{
-        this.props.SetHeader("Portfolio")
+    componentDidMount() {
+        this.props.SetHeader("Portfolio");
     }
 
     state = {
@@ -169,7 +169,6 @@ class Portfolio extends Component{
     render(){
         return(
             <div className="portfolioStyling fadeIn">
-            {this.setNewHeader()}
                 <div className="circleContainer">
                     {myProjects.map((project, i) => {
                         return(

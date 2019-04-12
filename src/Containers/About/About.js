@@ -36,14 +36,13 @@ const graphicDesign = [
 ]
 
 class About extends Component{
-    setNewHeader = () =>{
+    componentDidMount() {
         this.props.SetHeader("About")
     }
     render(){
         return(
             
         <div className="fadeIn">
-            {this.setNewHeader()}
             <div>
             <img className="portrait" src="/images/aboutMePage/selfLowRes.png" alt='Me'/>
             </div>
