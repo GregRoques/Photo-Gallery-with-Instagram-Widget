@@ -101,7 +101,7 @@ flex-direction: column;
 }
 
 .profileParagraphFont{
-    font-family: 'GregsText', sans-serif;
+    font-family: sans-serif;
     font-size:1rem;
     color:black;
     text-align: center;

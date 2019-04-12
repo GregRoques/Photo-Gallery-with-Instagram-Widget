@@ -11,12 +11,10 @@ import Blog from './Containers/Blog/Blog'
 
 class App extends Component {
 
-
-
   render() {
     return (
       <Router>
-         <Layout>
+         <Layout >
            <Route path="/" exact component={Home}/>
            <Route exact path="/about" component={About}/>
            <Route exact path="/editorial" component={Design}/>

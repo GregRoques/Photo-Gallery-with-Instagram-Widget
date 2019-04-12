@@ -47,7 +47,7 @@ const projectDetails ={
         video: `pizzaCat.mp4`,
         description: `A horizontal side-scrolling shooter built in Python using the open-source video game library Pygame.`,
         languages: ['python.png','pygame.png', 'photoshop.png'],
-        readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
+        readMe: 'https://github.com/GregRoques/Pizza-Cat-Python-Project/blob/master/README.md'
 
     }
 }
@@ -141,6 +141,7 @@ class Portfolio extends Component{
 
     componentDidMount() {
         this.props.SetHeader("Portfolio");
+        window.scrollTo(0, 0);
     }
 
     state = {

@@ -24,7 +24,8 @@ const startingArticle= Object.keys(blogPosts)[Object.keys(blogPosts).length - 1]
 class Blog extends Component{
 
     componentDidMount() {
-        this.props.SetHeader("Blog")
+        this.props.SetHeader("Blog");
+        window.scrollTo(0, 0);
     }
 
     click =(newPublish)=>{
@@ -50,11 +51,11 @@ class Blog extends Component{
                     <div className='previousPostsColumn'>
                         <div className='previousPostsContainer'>
                             <div className='previousPostText'>
-                            <h1>Previous</h1>
+                            <h1 className='previousTitle'>Previous</h1>
                             {Object.keys(blogPosts).map((posts,i)=> {
                                 return(
                                     <div key={i} onClick={()=>this.click(posts)}>
-                                        > <b>{posts}:</b> <i>{blogPosts[posts]['date']}</i>
+                                        <span className="arrowColor">></span> <b className='titleColor'>{posts} </b> <i>{blogPosts[posts]['date']}</i>
                                     </div>
                                 )
                             })}

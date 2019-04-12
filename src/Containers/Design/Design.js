@@ -14,7 +14,10 @@ class Design extends Component{
 
     componentDidMount() {
         this.props.SetHeader("Editorial Work");
+        window.scrollTo(0, 0);
     }
+
+
 
     render(){
         return(
@@ -24,7 +27,7 @@ class Design extends Component{
                 <Articles/>
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/portfolio"> Portfolio</Link>
+                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link>
                 </div>
             </div>
         )

@@ -16,7 +16,7 @@
     color: rgb(242,212,83);
     font-size: 5rem; 
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px rgb(75,75,75); 
-    width: 40%;
+    width: 50%;
     /* margin:2rem; */
     display: flex;
     flex-direction: row;
@@ -27,7 +27,7 @@
 
 .rightNav{
     position:relative;
-    width: 60%;
+    width: 50%;
     /* margin:2rem; */
     display: flex;
     flex-direction: row;

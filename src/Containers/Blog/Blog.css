@@ -38,3 +38,19 @@
     padding-right: 2rem;
     padding-left:2rem;
 }
+
+.titleColor{
+    color:  rgb(35,64,143);
+}
+
+.arrowColor{
+    color:white;
+    font-weight:bolder;
+}
+
+.previousTitle{
+    font-family: 'Oleo Script', cursive;
+    font-weight: 100;
+    color:white;
+    text-shadow: 1.25px 1.25px 1px rgb(0,0,0,0.75)
+}

@@ -33,7 +33,8 @@ const Circle = ({name, handler, className}) => {
 class Home extends Component{
 
     componentDidMount() {
-        this.props.SetHeader("Software Developer")
+        this.props.SetHeader("Software Developer");
+        window.scrollTo(0, 0);
     }
     state = {
         thisCategory: '/',
