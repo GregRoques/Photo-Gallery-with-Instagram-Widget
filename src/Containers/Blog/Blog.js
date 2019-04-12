@@ -34,6 +34,7 @@ class Blog extends Component{
        })
     }
 
+
     state ={
         currentRoute: startingArticle
     }
@@ -55,7 +56,7 @@ class Blog extends Component{
                             {Object.keys(blogPosts).map((posts,i)=> {
                                 return(
                                     <div key={i} onClick={()=>this.click(posts)}>
-                                        <span className="arrowColor">></span> <b className='titleColor'>{posts} </b> <i>{blogPosts[posts]['date']}</i>
+                                        <span className="arrowColor">></span> <span className="selectPreviousHover"><b className='titleColor'>{posts} </b> <i>{blogPosts[posts]['date']}</i></span>
                                     </div>
                                 )
                             })}

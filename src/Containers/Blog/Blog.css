@@ -54,3 +54,8 @@
     color:white;
     text-shadow: 1.25px 1.25px 1px rgb(0,0,0,0.75)
 }
+
+.selectPreviousHover:hover {
+    text-decoration-line: underline;
+    text-decoration-color:  rgb(0,183,241);
+}
