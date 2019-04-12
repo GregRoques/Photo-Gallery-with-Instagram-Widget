@@ -5,16 +5,21 @@ import "./HeadFoot.css"
 import {connect} from 'react-redux';
 
 
-var RightNav = ({name}) =>{
-    return(
-        <div className='typeTitle'>
-            {`<!--`}{name}{`-->`}
-        </div>
-    )
-}
 
 class Header extends Component{ 
 
+    state ={
+        title: `<!--${this.props.currentHeader}-->`
+    }
+
+
+    componentWillReceiveProps = nextProps =>{
+        if(this.props.currentHeader !== nextProps.currentHeader){
+            this.setState({
+                title: `<!--${nextProps.currentHeader}-->`
+            })
+        }
+    }
 
     render(){
         return(
@@ -22,7 +27,9 @@ class Header extends Component{
                 <Link style={{ textDecoration: 'none' }} to="/"><div title="Home Page" className="leftNav">Greg Roques</div></Link>
 
                 <div className ="rightNav">
-                    <RightNav name={this.props.currentHeader}/>
+                    <div className='typeTitle'>
+                        {this.state.title}
+                    </div>
                 </div>
                 
             </div>
