@@ -5,10 +5,21 @@ import Articles from './Articles'
 import { Link }  from 'react-router-dom';
 import "./Design.css";
 
+// Redux
+import { connect } from "react-redux";
+import {bindActionCreators} from 'redux';
+import SetHeader from '../../Actions/SetHeader'
+
 class Design extends Component{
+
+    setNewHeader = () =>{
+        this.props.SetHeader("Editorial Work")
+    }
+
     render(){
         return(
             <div className="fadeIn">
+                {this.setNewHeader()}
                 <Magazines/>
                 <Photography/>
                 <Articles/>
@@ -22,4 +33,12 @@ class Design extends Component{
     
 
 }
-export default Design;
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+        SetHeader: SetHeader
+        }, dispatch
+    )
+}
+
+export default connect(null, mapDispatchToProps)(Design);

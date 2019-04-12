@@ -5,6 +5,13 @@ import './Blog.css'
 // Blog Post Routes
 import Welcome from '../../Components/BlogEntries/BlogEntries'
 
+// Redux
+import { connect } from "react-redux";
+import {bindActionCreators} from 'redux';
+import SetHeader from '../../Actions/SetHeader'
+
+
+
 const blogPosts = {
 'Welcome':{
     date: '4/10/19',
@@ -15,6 +22,10 @@ const blogPosts = {
 const startingArticle= Object.keys(blogPosts)[Object.keys(blogPosts).length - 1]
 
 class Blog extends Component{
+
+    setNewHeader = () =>{
+        this.props.SetHeader("Blog")
+    }
 
     click =(newPublish)=>{
        this.setState({
@@ -30,6 +41,7 @@ class Blog extends Component{
         // console.log(this.state.currentRoute)
         return(
             <div className='fadeIn'>
+                {this.setNewHeader()}
                 <div className='blogAlign'>
                     <div className='articleColumn'>
                         <div className='articlePadding'>
@@ -63,4 +75,12 @@ class Blog extends Component{
 
 }
 
-export default Blog;
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(
+        {
+        SetHeader: SetHeader
+        }, dispatch
+    )
+}
+
+export default connect(null, mapDispatchToProps)(Blog);

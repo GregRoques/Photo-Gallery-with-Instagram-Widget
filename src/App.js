@@ -4,7 +4,7 @@ import './App.css';
 
 import Layout from "./Components/Layout/Layout";
 import Home from './Containers/Home/Home';
-import About from './Components/About/About'
+import About from './Containers/About/About'
     import Design from './Containers/Design/Design'
 import Portfolio from './Containers/Portfolio/Portfolio'
 import Blog from './Containers/Blog/Blog'

@@ -10,7 +10,6 @@ import SetHeader from '../../Actions/SetHeader'
 
 const disappearTime = 1;
 
-
 const disappearingClass = css`
     opacity: 0;
     transition: ${disappearTime}s all;
