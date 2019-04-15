@@ -7,8 +7,10 @@
   text-align:center;
   font-weight: bolder;
   color: rgb(0,183,241);
-  margin:3rem;
+  margin-top:3rem;
+  margin-bottom:2rem;
 }
+
 
 
 /* ================================== carousel */
@@ -163,4 +165,163 @@
 .demoReadButtons:hover{
   transition: transform .5s;
   transform: scale(.75)
+}
+
+/* ============================================ Responsiveness */
+
+@media screen and (max-width: 1289px){
+  .mags{
+    width:450px;
+  }
+
+  .magContainers{
+    margin-top:.9rem;
+    margin-bottom: .9rem;
+  }
+}
+
+@media screen and (max-width: 1149px){
+  .mags{
+    width:400px;
+  }
+
+  .magContainers{
+    margin-top:.8rem;
+    margin-bottom: .8rem;
+  }
+}
+
+@media screen and (max-width: 1080px){
+  .mags{
+    width:350px;
+  }
+  .magContainers{
+    margin-top:.7rem;
+    margin-bottom: .7rem;
+  }
+
+}
+
+@media screen and (max-width: 949px){
+  .mags{
+    width:300px;
+  }
+  .magContainers{
+    margin-top:.6rem;
+    margin-bottom: .6rem;
+  }
+
+  /* .imgDescription{
+    font-size: 1rem;
+    font-weight: bold;
+} */
+
+}
+
+@media screen and (max-width: 804px){
+  .mags{
+    width:250px;
+  }
+  .magContainers{
+    margin-top:.5rem;
+    margin-bottom: .5rem;
+  }
+
+  .artDirection{
+    font-size:3.25rem;
+    /* margin:2rem; */
+  }
+
+  .sliderContainer{
+    max-width:500px;
+  }
+
+  .picButtons{
+    font-size: 2.5rem;
+  }
+
+    .imgDescription{
+      font-size: 1.15rem;
+      font-weight: bold;
+  }
+  
+
+}
+
+@media screen and (max-width: 684px){
+
+  .artDirection{
+    font-size:2.5rem;
+    /* margin:2rem; */
+  }
+
+  .mags{
+    width:300px;
+  }
+
+  .magContainers{
+    width:100%;
+  }
+
+  .sliderContainer{
+    max-width:400px;
+  }
+
+  .picButtons{
+    font-size: 2rem;
+  }  
+
+  .buttonRight{
+    margin-left: -2rem;
+  }
+  
+  .buttonLeft{
+    margin-right: -2rem;
+  }
+
+  .imgDescription{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+
+}
+
+@media screen and (max-width: 449px){
+
+  .artDirection{
+    font-size:2rem;
+    margin-bottom:1rem;
+  }
+
+  .mags{
+    width:250px;
+  }
+
+  .magContainers{
+    width:100%;
+  }
+
+  .sliderContainer{
+    max-width:250px;
+  }
+
+  .picButtons{
+    font-size: 2rem;
+  }  
+
+  .buttonRight{
+    margin-left: -2rem;
+  }
+  
+  .buttonLeft{
+    margin-right: -2rem;
+  }
+
+
+  .imgDescription{
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
 }

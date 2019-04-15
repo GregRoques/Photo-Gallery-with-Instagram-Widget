@@ -47,9 +47,9 @@
     overflow: hidden;
     white-space: nowrap;
     letter-spacing: .075em;
-    /* border-right: .075em solid rgb(35,64,143); */
+    border-right: .075em solid rgb(35,64,143);
     animation: 
-    /* blink-caret 1s step-end infinite, */
+    blink-caret 1s step-end infinite,
     typing 3.5s steps(40, end);
     
 }
@@ -294,7 +294,7 @@
     }
 }
 
-@media screen and (max-width: 685px){
+@media screen and (max-width: 686px){
 
     .header{
         display: inline-block;
@@ -303,6 +303,11 @@
         margin-right:0rem;
         margin-bottom:0rem;
         
+    }
+
+    .typeTitle{
+        border-right:none;
+
     }
 
     .leftNav{
