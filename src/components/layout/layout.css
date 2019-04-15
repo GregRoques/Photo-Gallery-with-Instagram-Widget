@@ -1,9 +1,6 @@
-body{
-    margin: 0 auto;
-    padding: 0 auto;
-    right:0;
-    left:0;
-    width:100%
+.layoutBody{
+    width:90%;
+    margin:0 auto;
 }
 
 .contentMargin{
@@ -39,3 +36,12 @@ body{
     text-decoration-color:rgb(35,64,143);
     margin-top:2rem;
 }
+
+@media screen and (max-width: 400px){
+
+
+    .redirectLinks{
+        font-size: 1rem;
+    }
+  
+  }

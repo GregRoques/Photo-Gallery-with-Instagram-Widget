@@ -59,6 +59,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
     width: 100%
   
   }
@@ -77,6 +78,8 @@
   }
   
   .portraitContainer{
+    float: left;
+
     position:relative;
     align-content: center;
     align-items: center;
@@ -108,3 +111,171 @@
   }
 
 
+/* ====================================== Responsiveness*/
+
+@media screen and (min-width: 1210px){
+  .t2, .b2, .p2{
+    display: none
+  }
+}
+
+@media screen and (max-width: 1209px){
+
+  .portraitContainer{
+    width:30%;
+  }
+
+  .whoAmIContainer{
+    widows: 70%;
+  }
+
+  .portrait{
+    width:20rem;
+  }
+
+  .t1, .b2, .p2{
+display:none;
+  }
+
+  .aboutMeHeader{
+    padding:0px;
+  }
+
+  .aboutMeText{
+    font-size:.9rem;
+  }
+
+}
+
+@media screen and (max-width: 1119px){
+
+  .portraitContainer{
+    width:25%;
+  }
+
+  .whoAmIContainer{
+    widows: 75%;
+  }
+
+  .portrait{
+    width:15rem;
+  }
+
+  .b1{
+    display:none
+  }
+
+  .b2{
+    display:block;
+    padding-top:0px;
+  }
+
+}
+
+@media screen and (max-width: 994px){
+
+
+
+  .portrait{
+    width:12rem;
+  }
+
+  .p2{
+    display: block;
+  }
+
+  .p1{
+    display:none;
+  }
+
+  .aboutMeSkills{
+    font-size: 1.75rem;
+  }
+
+  .skillIcon{
+    height:55px
+  }
+
+}
+
+@media screen and (max-width: 862px){
+
+
+  .b2, .p2{
+    display:none
+  }
+
+  .p1{
+    display: inline;
+  }
+
+  .b1{
+    display:inline-block;
+  }
+
+    .portrait{
+      width:20rem;
+    }
+
+  .portraitContainer{
+    width:100%
+  }
+
+  .whoAmIContainer{
+    width:100%
+  }
+
+  .whoAmIPadding{
+    padding:0px;
+  }
+
+}
+
+@media screen and (max-width: 685px){
+  .aboutMeHeader{
+    display:none;
+  }
+
+  .aboutMeSkills{
+    font-size: 1.5rem;
+  }
+
+  .skillIcon{
+    height:50px
+  }
+
+  .portrait{
+    width:15rem;
+  }
+
+  .aboutContainers{
+    width: 100%
+  }
+
+  .aboutMeText{
+    font-size: .85rem;
+  }
+}
+
+
+
+@media screen and (max-width: 400px){
+
+
+  .portrait{
+    width:10rem;
+  }
+
+  .aboutMeSkills{
+    font-size: 1.25rem;
+  }
+
+  .skillIcon{
+    height:45px
+  }
+
+  .aboutMeText{
+    font-size: .8rem;
+  }
+
+}

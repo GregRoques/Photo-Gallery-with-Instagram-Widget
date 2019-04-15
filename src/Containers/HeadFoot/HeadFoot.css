@@ -1,35 +1,33 @@
 /* =========================================================== Header */
 
 .header {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    position: relative;
+    align-items:center;
+    /* justify-content: center; */
     margin:3rem;
 }
 
 .leftNav{
     white-space: nowrap;
-    font-family: 'GregsHeader', sans-serif;
-    text-align:right;
-    vertical-align: center;
+    font-family: 'GregsHeader', cursive;
     color: rgb(242,212,83);
     font-size: 5rem; 
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px rgb(75,75,75); 
     width: 50%;
-    /* margin:2rem; */
     display: flex;
     flex-direction: row;
-    align-items: center;
-    text-align: left;
-    justify-content: flex-start;
+   
+  
 }
 
 .rightNav{
     position:relative;
-    width: 50%;
-    /* margin:2rem; */
+    width: 60%;
+    text-align:right;
     display: flex;
+
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
@@ -39,7 +37,7 @@
     font-weight: bold;
     color:rgb(35,64,143);
     font-weight: bold;
-    text-align:right;
+
 }
 
 /* RightNav page title typing */
@@ -49,9 +47,9 @@
     overflow: hidden;
     white-space: nowrap;
     letter-spacing: .075em;
-    border-right: .075em solid rgb(35,64,143);
+    /* border-right: .075em solid rgb(35,64,143); */
     animation: 
-    blink-caret 1s step-end infinite,
+    /* blink-caret 1s step-end infinite, */
     typing 3.5s steps(40, end);
     
 }
@@ -251,4 +249,114 @@
     font-family: 'GregsHeader';
     font-size:3rem;
     color:  rgb(35,64,143);
+}
+
+/* ===================================================== Screen Resize */
+
+@media screen and (max-width: 1229px){
+    .rightNav{
+    width:50%
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .leftNav{
+    font-size:4rem;
+    }
+
+    .rightNav{
+        font-size:1rem;
+    }
+}
+
+@media screen and (max-width: 879px){
+
+    .header{
+        margin-bottom:2.5rem;
+    }
+
+    .leftNav{
+    font-size:3.75rem;
+    }
+
+    .rightNav{
+        font-size:1rem;
+    }
+}
+
+@media screen and (max-width: 800px){
+
+    .header{
+        margin-bottom:2.25rem;
+    }
+    .rightNav{
+        width:40%
+    }
+}
+
+@media screen and (max-width: 685px){
+
+    .header{
+        display: inline-block;
+        text-align:center;
+        margin-left:0rem;
+        margin-right:0rem;
+        margin-bottom:0rem;
+        
+    }
+
+    .leftNav{
+        width:100%;
+        display: inline-block;
+        
+    }
+
+    .rightNav{
+        width:100%;
+        /* display: inline-block; */
+        margin-top:1.75rem;
+        text-align:center;
+        justify-content:center;
+    }
+
+}
+
+@media screen and (min-width:400px){
+    .v2{
+        display: none
+    }
+}
+
+@media screen and (max-width: 399px){
+
+    .leftNav{
+        font-size:3rem;
+    }
+
+    .rightNav{
+        font-size:.9rem;
+    }
+
+    .li, .gh, .resume, .contact{
+        height: 40px;
+        width: 40px;
+        margin-top:0rem;
+    }
+
+    .v1{
+        display:none
+    }
+
+    .v2{
+        display:block;
+    }
+
+    .modal{
+        background-color:white;
+    }
+
+    .modalContact{
+        box-shadow: none;
+    }
+
 }

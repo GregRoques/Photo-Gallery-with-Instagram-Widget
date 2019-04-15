@@ -23,7 +23,9 @@ class Footer extends Component{
                         <div className="closeButton" onClick={this.toggleEmail}>X</div>
                         <div className="modalContact">
                             <span className="contactTitle">Contact</span>
-                            <p className="contactFormat"> <i className="material-icons glyphs">location_on</i> Atlanta, GA &nbsp;&nbsp; <a href="tel:504-220-3832"><i className="material-icons glyphs">phone</i> 504.220.3832</a></p>
+                            <p className="contactFormat v1"> <i className="material-icons glyphs">location_on</i> Atlanta, GA &nbsp;&nbsp; <a href="tel:504-220-3832"><i className="material-icons glyphs">phone</i> 504.220.3832</a></p>
+                            <p className="contactFormat v2"> <i className="material-icons glyphs">location_on</i> Atlanta, GA</p>
+                            <p className="contactFormat v2"><a href="tel:504-220-3832"><i className="material-icons glyphs">phone</i> 504.220.3832</a></p>
                             <p className="contactFormat"><a href="mailto:greg@gregroques.com"> <i className="material-icons glyphs">email&nbsp;</i>Greg@GregRoques.com</a></p>
                         </div>
                     </div>

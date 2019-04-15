@@ -112,7 +112,7 @@ class Photography extends Component{
                 clickR = {this.rightClick}
                 />
                    <div className='buttonAlign'>
-                    <span><a rel="noopener noreferrer" target="_blank"  href='https://www.instagram.com/gregroques/'>
+                    <span><a rel="noopener noreferrer" target="_blank"  href='https://www.instagram.com/qtrmileatatime/'>
                         <button className="demoReadButtons">Instagram</button>
                     </a></span>
                 </div>

@@ -7,6 +7,7 @@ import Aux from "../../HOC/Aux";
 
 function Layout(props){
     return(
+        <div className="layoutBody">
         <Aux>
             <Header header={props.header}/>
                 <div className="contentMargin">
@@ -14,6 +15,7 @@ function Layout(props){
                 </div>
             <Footer/>
         </Aux>
+        </div>
     )
 }
 
