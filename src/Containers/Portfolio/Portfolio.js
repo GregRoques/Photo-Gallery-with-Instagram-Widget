@@ -80,7 +80,7 @@ const ProjectOnDisplay = ({title}) =>{
         return(
             <div className='grayColumnContent'>
                 <div className= 'vidContentColumns'>
-                    <video className="vidPortfolio" controls poster={headerImageLink + display['image']} alt={display['name']} src={headerImageLink + display['video']} type="video/mp4"/>
+                    <video className="vidPortfolio" controls  alt={display['name']} src={headerImageLink + display['video'] + '#t=1'} type="video/mp4"/>
                 </div>
                 <div className='vidContentColumns'>
                     <div className="profileProjectName">{display['name']}</div>

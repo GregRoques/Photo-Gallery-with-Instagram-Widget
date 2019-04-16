@@ -39,19 +39,19 @@ flex-direction: column;
     }
 
 .mealsleuthBackgroundImage{
-    background-image: url('/images/iconImages/mealsleuth.png');
+    background-image: url('/images/iconImages/mealsleuthIcon.png');
 }
 
 .siftBackgroundImage{
-    background-image: url('/images/iconImages/sift.png');
+    background-image: url('/images/iconImages/siftIcon.png');
 }
 
 .dietacticsBackgroundImage{
-    background-image: url('/images/iconImages/dietactics.png');
+    background-image: url('/images/iconImages/dietacticsIcon.png');
 }
 
 .pizzaCatBackgroundImage{
-    background-image: url('/images/iconImages/pizzaCat.png');
+    background-image: url('/images/iconImages/pizzaCatIcon.png');
 }
 
 
