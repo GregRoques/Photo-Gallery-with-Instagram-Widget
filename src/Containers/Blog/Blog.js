@@ -14,7 +14,7 @@ import SetHeader from '../../Actions/SetHeader'
 
 const blogPosts = {
 'Welcome':{
-    date: '4/10/19',
+    date: '4/16/19',
     route: <Welcome/>
     },
 }

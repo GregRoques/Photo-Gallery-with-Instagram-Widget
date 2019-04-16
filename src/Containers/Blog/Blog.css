@@ -14,7 +14,7 @@
 
 .previousPostsContainer{
 
-    background-color:lightgray;
+    background-color:rgb(242,212,83);
     width:100%;
     border-radius:15px
 
@@ -58,4 +58,24 @@
 .selectPreviousHover:hover {
     text-decoration-line: underline;
     text-decoration-color:  rgb(0,183,241);
+}
+
+/* ================================================== Responsiveness */
+
+@media screen and (max-width: 879px){
+    .blogAlign{
+        display: block;
+    }
+    .articleColumn, .previousPostsColumn{
+        min-width:100%;
+        flex-wrap:none;
+    }
+    .previousPostsContainer{
+        margin-top:2rem;
+    }
+
+    .articlePadding{
+        padding-right: 0rem;
+        padding-left:0rem;
+    }
 }
