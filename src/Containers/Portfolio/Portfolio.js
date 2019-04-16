@@ -16,7 +16,7 @@ const projectDetails ={
     mealsleuth: {
         name: 'MealSleuth',
         type: 'Front End',
-        image: 'mealsleuth.png',
+        image: 'mealsleuth',
         description: `This project is a front-end application designed to search for certain restaurants based on user input for location and price range. The application returns a result that matches the user's input and renders it within the browser. The user can then get directions to the resulting location via Google Maps.`,
         languages: ['html5.png', 'css3.png','javascript.png'],
         demo: 'https://www.gregroques.com/mealsleuth',
@@ -25,7 +25,7 @@ const projectDetails ={
     dietactics: {
         name: 'DIETactics',
         type: 'Full Stack',
-        image: 'dietactics.png',
+        image: 'dietactics',
         description: `DIETactics is a full stack web application utilizing mySQL, Node.Js, and Express. Users are able to create diet plans based on their input (current weight, height, target weight, etc.). Users can log into their profile and view/update their progress on their current diet.`,
         languages: ['html5.png', 'css3.png','javascript.png', 'nodejs.png', 'express.png','mysql.png'],
         demo: 'http://dietactics.gregroques.com',
@@ -34,14 +34,14 @@ const projectDetails ={
     sift: {
         name: 'Sift',
         type: 'Full Stack',
-        image: 'sift.png',
+        image: 'sift',
         description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
         languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
         demo: 'http://sift.gregroques.com',
         readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
     },
     pizzaCat: {
-        name: 'Intergalactic Adventures of Pizza Cat',
+    name: `Intergalactic Adventures of Pizza Cat`,
         type: 'Python',
         image: `pizzaCat.png`,
         video: `pizzaCat.mp4`,
@@ -79,19 +79,18 @@ const ProjectOnDisplay = ({title}) =>{
     if(display['type']==='Python'){
         return(
             <div className='grayColumnContent'>
-                <div className= 'grayColumns'>
-                    <video className="picPortfolio" controls poster={headerImageLink + display['image']} alt={display['name']} src={headerImageLink + display['video']} type="video/mp4"/>
+                <div className= 'vidContentColumns'>
+                    <video className="vidPortfolio" controls poster={headerImageLink + display['image']} alt={display['name']} src={headerImageLink + display['video']} type="video/mp4"/>
                 </div>
-                <div className='grayColumns'>
+                <div className='vidContentColumns'>
                     <div className="profileProjectName">{display['name']}</div>
                     <div className="profileHeader">{'//'} {display['type']}</div>
                     <div className='profileParagraphFont'>{display['description']}</div>
-                    
-                    <div className='buttonAlign'>
-                    <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
+                </div>
+                <div className='pizzaCatButtonAlign'>
+                    <div><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
                         <button className="demoReadButtons">Read Me</button>
-                    </a></span>
-                    </div>
+                    </a></div>
                 </div>
                 {display['languages'].map((language, i) => {
                     const altText = language.replace(/\.[^/.]+$/, "")
@@ -106,15 +105,16 @@ const ProjectOnDisplay = ({title}) =>{
     }else{
         return(
             <div className='grayColumnContent'>
-                <div className= 'grayColumns'>
-                    <img className="picPortfolio" src= { headerImageLink + display['image']} alt={display['name']}/>
+                <div className= 'nonVidPicColumn'>
+                    <img className="picPortfolio p1" src= { headerImageLink + display['image']+['.png']} alt={display['name']}/>
+                    <img className="picPortfolio p2" src= { headerImageLink + display['image'] + ['2.png']} alt={display['name']}/>
                 </div>
-                <div className='grayColumns'>
+                <div className='nonVidTextColumn'>
                     <div className="profileProjectName">{display['name']}</div>
                     <div className="profileHeader">{'//'} {display['type']}</div>
                     <div className='profileParagraphFont'>{display['description']}</div>
 
-                    <div className='buttonAlign'>
+                    <div className='buttonAlign v1'>
                         <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
                             <button className="demoReadButtons">Live Demo</button>
                         </a></span>
@@ -123,11 +123,21 @@ const ProjectOnDisplay = ({title}) =>{
                         </a></span>
                     </div>
                 </div>
-                    {display['languages'].map((language, i) => {
-                        const altText = language.replace(/\.[^/.]+$/, "")
-                        // console.log(altText)
-                        return(
-                            <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
+                <div className="buttonsSmallerBlock">
+                    <div className='buttonAlign v2'>
+                        <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
+                            <button className="demoReadButtons">Live Demo</button>
+                        </a></span>
+                        <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
+                            <button className="demoReadButtons">Read Me</button>
+                        </a></span>
+                    </div>
+                </div>
+                {display['languages'].map((language, i) => {
+                    const altText = language.replace(/\.[^/.]+$/, "")
+                    // console.log(altText)
+                    return(
+                        <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
                         )
                     })}
             </div>
@@ -183,7 +193,7 @@ class Portfolio extends Component{
                         )
                     })}
                 </div>
-                <div className="hoverPageLine">
+                <div className="hoverPageLine h1">
                     {this.state.hoverProject}
                 </div>
                 <div className='parameters'>

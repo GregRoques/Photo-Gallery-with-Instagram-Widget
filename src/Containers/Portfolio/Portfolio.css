@@ -69,7 +69,19 @@ flex-direction: column;
 /* =================================================================== Pic and Video Portfolio */
 
 .picPortfolio{
-    height: 258px;
+    max-width:100%;
+    width: 400px;
+    box-shadow: 2px 2px 3px rgb(0,0,0, 0.65);
+}
+
+
+.vidPortfolio{
+    position: relative;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+
     max-width:100%;
     width: 400px;
     box-shadow: 2px 2px 3px rgb(0,0,0, 0.65);
@@ -111,7 +123,7 @@ flex-direction: column;
 .devStyle{
     height:60px;
     width:auto;
-    margin-top:2.5rem;
+    margin-top:2rem;
     margin-left:0.75rem;
     margin-right:0.75rem;
 }
@@ -133,9 +145,20 @@ flex-direction: column;
     justify-content: center;
 }
 
-.grayColumns{
-    display: flex;
+.vidContentColumns{
+    width:50%
+}
 
+.nonVidTextColumn{
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    width:50%
+}
+
+.nonVidPicColumn{
+    display: flex;
     justify-content:center;
     align-content:center;
     flex-direction:column;
@@ -150,6 +173,12 @@ flex-direction: column;
 }
 
 .buttonAlign{
+    text-align:center;
+}
+
+.pizzaCatButtonAlign{
+    margin-top:2rem;
+    width:100%;
     text-align:center;
 }
 
@@ -177,3 +206,237 @@ flex-direction: column;
 .demoReadButtons:focus{
     outline:0;
   }
+
+/* ================================================= Responsiveness*/
+
+@media screen and (max-width: 1259px){
+    .picPortfolio{
+        width:350px;
+    }
+
+    .vidPortfolio{
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 1145px){
+    .v2{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 1144px){
+    .picPortfolio{
+        width:300px;
+    }
+
+    .v1{
+        display: none;
+    }
+
+    .v2{
+        display:block;
+    }
+
+    .buttonsSmallerBlock{
+        width:100%
+    }
+
+    .profileParagraphFont{
+        font-size: .9rem;
+    }
+
+    .vidContentColumns{
+        width:100%
+    }
+
+    .vidPortfolio{
+        max-width:100%;
+        width: 450px;
+        margin-bottom:2rem;
+    }
+}
+
+@media screen and (min-width:1020px){
+    .p2{
+        display: none;
+    }
+}
+
+@media screen and (max-width:1019px){
+    .p2{
+        display: block;
+    }
+    .p1{
+        display:none;
+    }
+
+    .v1{
+        display: block;
+    }
+
+    .v2{
+        display:none;
+    }
+
+    .picPortfolio{
+        width:200px;
+    }
+
+    .nonVidTextColumn{
+        width:60%
+    }
+    
+    .nonVidPicColumn{
+        width:40%
+    }
+}
+
+@media screen and (max-width:919px){
+
+    .nonVidTextColumn{
+        width:50%
+    }
+    
+    .nonVidPicColumn{
+        width:50%
+    }
+}
+
+@media screen and (max-width:809px){
+
+    .v1{
+        display: none;
+    }
+
+    .v2{
+        display:block;
+    }
+
+    .picPortfolio{
+        width:150px;
+    }
+
+    .profileHeader{
+        font-size:1rem;
+    }
+
+    .profileProjectName{
+        font-size:2rem;
+    }
+}
+
+@media screen and (max-width:729px){
+
+    .v1{
+        display: block;
+    }
+
+    .v2{
+        display:none
+    }
+
+    .p2{
+        display: none;
+    }
+    .p1{
+        display:block;
+    }
+
+
+    .nonVidTextColumn{
+        width:100%;
+
+       
+    }
+    
+    .nonVidPicColumn{
+        width:100%;
+       
+    }
+
+
+    .picPortfolio{
+        width:400px;
+        margin-bottom:1.5rem;
+    }
+
+    .profileRowBackground{
+        padding:2rem;
+    }
+
+}
+
+@media screen and (max-width:552px){
+
+    .profileRowBackground{
+        background-color:white;
+        padding:0px;
+        border-radius:0px;
+        width:100%;
+    }
+
+    .parameters{
+        margin-right:.5rem;
+        margin-left:.5rem;
+    }
+
+    .profileHeader{
+       color:rgb(0,183,241);
+    }
+    .hoverPageLine{
+        font-size:1.25rem;
+    }
+}
+
+@media screen and (max-width:445px){
+
+  .demoReadButtons{
+      margin-bottom: 1rem;
+
+  }
+
+  .devStyle{
+      height: 50px;
+  }
+
+  .optionCircles{
+      height:45px;
+      width:45px;
+      margin-bottom:2rem;
+  }
+
+  .h1{
+      display:none;
+  }
+
+    .profileProjectName{
+        font-size: 1.5rem;
+    } 
+
+    .profileParagraphFont{
+        font-size:.85rem;
+    }
+
+    .vidPortfolio{
+        max-width:none;
+        width:300px;
+    }
+}
+
+@media screen and (max-width:389px){
+  .p2{
+    display: block;
+    }
+    .p1{
+        display:none;
+    }
+
+    .profileParagraphFont{
+        font-size:.8rem;
+    }
+    .vidPortfolio{
+        width:225px;
+    }
+
+}
