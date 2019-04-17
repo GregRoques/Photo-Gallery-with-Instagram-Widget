@@ -80,7 +80,8 @@ const ProjectOnDisplay = ({title}) =>{
         return(
             <div className='grayColumnContent'>
                 <div className= 'vidContentColumns'>
-                    <video className="vidPortfolio" controls  alt={display['name']} src={headerImageLink + display['video'] + '#t=1'} type="video/mp4"/>
+                <img src={headerImageLink + display['image']} className="vidPortfolio"  alt={display['name']}/>
+                    {/* <video className="vidPortfolio" controls  alt={display['name']} src={headerImageLink + display['video'] + '#t=1'} type="video/mp4"/> */}
                 </div>
                 <div className='vidContentColumns'>
                     <div className="profileProjectName">{display['name']}</div>
@@ -88,9 +89,12 @@ const ProjectOnDisplay = ({title}) =>{
                     <div className='profileParagraphFont'>{display['description']}</div>
                 </div>
                 <div className='pizzaCatButtonAlign'>
-                    <div><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
+                    <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
                         <button className="demoReadButtons">Read Me</button>
-                    </a></div>
+                    </a></span>
+                    <span><a target="_blank" rel="noopener noreferrer" href='https://www.gregroques.com/images/portfolioimages/pizzaCat.mp4'>
+                        <button className="demoReadButtons">Video Demo</button>
+                    </a></span>
                 </div>
                 {display['languages'].map((language, i) => {
                     const altText = language.replace(/\.[^/.]+$/, "")
