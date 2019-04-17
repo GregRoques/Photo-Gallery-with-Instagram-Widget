@@ -18,7 +18,7 @@ This site (www.GregRoques.com) is an updated version of my personal Portfolio pa
 
 
 # Challenges & Solutions
-##   1. Home Page redirect animations:
+###   1. Home Page redirect animations:
 This was very tricky, as it required precise timing for the animations to minimize into the distance before calling the next route. To achieve this, I created a click listener that would call the function "pageHandler". I implemented npm framework "Emotions" to create unique CSS styling classes or the fade out animations. Finally, I used a "setTimeOut" at the conclusion of the function that would update state to call the redirect at the exact second the animation transition for the clicked circle was complete.
 
 
@@ -90,7 +90,7 @@ const scalingClass = css`
     transition: 0.75s all;
 `;
 ```
-##   2. Re-Render current page in header when changing routes:
+###   2. Re-Render current page in header when changing routes:
 In the upper left hand corner, I wanted the page name to update and dynamically appear as if it were being typed out. The page name is forwarded to the header component as a prop via the Redux Store. For the typing effect, used an animation that would slowly reveal the width from left to right over 3.5 seconds...this was the easy part.
 ```
     /* The typing effect */
@@ -113,7 +113,7 @@ What was more tricky was getting the effect to re-render each time a new page is
 </div>
 ```
 
-##   3. Loading routes at the top of each page:
+###   3. Loading routes at the top of each page:
 
 When testing the site, I noticed that if I called a new route from a link on the bottom of the preceding page, it would update the new route to the exact location at which I was previously scrolled down to. This was super annoying! Luckily, there was a simple, one line solution to this problem. I simply added a condition to scroll to the top of the window within the "componentDidMount" for each page.
 ```
@@ -137,7 +137,6 @@ Launch new site with:
 
 Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
 
-# Screenshots
 
 
 
