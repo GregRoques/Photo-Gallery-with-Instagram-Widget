@@ -76,11 +76,10 @@ flex-direction: column;
 
 
 .vidPortfolio{
-    position: relative;
-    top:50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-
+    /* position: absolute; */
+    /* top:50%;
+    left: 50%; */
+    /* transform: translateX(-50%) translateY(-50%); */
 
     max-width:100%;
     width: 400px;
@@ -146,7 +145,7 @@ flex-direction: column;
 }
 
 .vidContentColumns{
-    width:50%
+    width:50%;
 }
 
 .nonVidTextColumn{
@@ -247,13 +246,17 @@ flex-direction: column;
     }
 
     .vidContentColumns{
-        width:100%
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .vidPortfolio{
-        max-width:100%;
+        
         width: 450px;
-        margin-bottom:2rem;
+        margin-bottom:1.5rem;
+       
     }
 }
 
