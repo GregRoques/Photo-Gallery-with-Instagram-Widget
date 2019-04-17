@@ -1,68 +1,144 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Personal Portfolio Site 2.0
 
-## Available Scripts
+# Contents
 
-In the project directory, you can run:
+* Description
+* Technologies
+* Challenges and Solutions
+* MVP
+* Stretch Goals
 
-### `npm start`
+# Description
+This site (www.GregRoques.com) is an updated version of my personal Portfolio page created using React and Redux. I chose to recreate my former site, built with vanilla JS and Bootstrap, to allow for cleaner content routing and more dyanmic animation rendering.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# Technologies
+- React/Redux
+- HTML/CSS/JavaScript
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Challenges & Solutions
+#   1. Home Page redirect animations:
+This was very tricky, as it required precise timing for the animations to minimize into the distance before calling the next route. To achieve this, I created a click listener that would call the function "pageHandler". I implemented npm framework "Emotions" to create unique CSS styling classes or the fade out animations. Finally, I used a "setTimeOut" at the conclusion of the function that would update state to call the redirect at the exact second the animation transition for the clicked circle was complete.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+state = {
+        thisCategory: '/',
+        nextPage: false,
+        redirect: false    
+    }
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    pageHandler = nextPage => {
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        const stateObj = {
+            nextRoute: nextPage,
+            nextPage: true,
+        }
 
-### `npm run eject`
+        pages.forEach(page => {
+            let lowerCase = page.toLowerCase()
+            if (lowerCase === nextPage) {
+                stateObj[`${lowerCase}Class`] = scalingClass
+            } else {
+                stateObj[`${lowerCase}Class`] = disappearingClass
+            }
+        })
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+        this.setState(stateObj)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        setTimeout(() => {
+            this.setState({redirect: true})
+        }, 1000 * disappearTime)        
+    }
+```
+```
+render(){
+        return(
+            <div className="homeBody fadeIn">
+            
+                {this.state.redirect && <Redirect push to={`${this.state.nextRoute}`}/>}
+                {pages.map((page, i)=>{
+                    let className = this.state[`${page.toLowerCase()}Class`]
+                    return (
+                        <Circle 
+                            key ={i}
+                            handler={this.pageHandler}
+                            className={className}
+                            name={page}                            
+                        />    
+                    )
+                }
+                )}                
+            </div>
+        )
+      
+    }
+```
+```
+import { css } from "emotion";
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+const disappearTime = 1;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+const disappearingClass = css`
+    opacity: 0;
+    transition: ${disappearTime}s all;
+`;
 
-## Learn More
+const scalingClass = css`
+    transform: scale(0);
+    transition: 0.75s all;
+`;
+```
+#   2. Re-Render current page in header when changing routes:
+In the upper left hand corner, I wanted the page name to update and dynamically appear as if it were being typed out. The page name is forwarded to the header component as a prop via the Redux Store. For the typing effect, used an animation that would slowly reveal the width from left to right over 3.5 seconds...this was the easy part.
+```
+    /* The typing effect */
+    @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+    }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: rgb(35,64,143); }
+    }
+``` 
+What was more tricky was getting the effect to re-render each time a new page is called. Initially, the page title would update without re-rendering the animation class. After much trial and error, I discovered that by calling an new, unique key when updating the prop name, the entire div would rerender, activating the className each time.
+```
+<div className ="rightNav">
+    <div key={this.props.header} className="typeTitle">
+        {`<!--`}{this.props.header}{`-->`}
+    </div>
+</div>
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#   3. Loading routes at the top of each page:
 
-### Code Splitting
+When testing the site, I noticed that if I called a new route from a link on the bottom of the preceding page, it would update the new route to the exact location at which I was previously scrolled down to. This was super annoying! Luckily, there was a simple, one line solution to this problem. I simply added a condition to scroll to the top of the window within the "componentDidMount" for each page.
+```
+componentDidMount() {
+    this.props.SetHeader("About");
+    window.scrollTo(0, 0);
+}
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+ 
 
-### Analyzing the Bundle Size
+# MVP
+Launch new site with:
+1) an about link, including a tertiary link to my graphic design and editorial work
+2) deveopment portfolio link
+3) Updatable blog page
+4) contact modal and links to Linked In, Github and a downloadabe copy of my resume
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+# Stretch Goals
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
 
-### Advanced Configuration
+# Screenshots
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  
