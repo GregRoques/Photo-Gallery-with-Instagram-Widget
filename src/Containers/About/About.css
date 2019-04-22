@@ -114,7 +114,7 @@
 /* ====================================== Responsiveness*/
 
 @media screen and (min-width: 1210px){
-  .t2, .b2, .p2{
+  .aboutTitle2, .aboutCloser2, .aboutParagraph2{
     display: none
   }
 }
@@ -133,7 +133,7 @@
     width:20rem;
   }
 
-  .t1, .b2, .p2{
+  .aboutTitle1, .aboutCloser2, .aboutParagraph2{
 display:none;
   }
 
@@ -161,11 +161,11 @@ display:none;
     width:12rem;
   }
 
-  .b1{
+  .aboutCloser1{
     display:none
   }
 
-  .b2{
+  .aboutCloser2{
     display:block;
     padding-top:0px;
   }
@@ -177,11 +177,11 @@ display:none;
 
 
 
-  .p2{
+  .aboutParagraph2{
     display: block;
   }
 
-  .p1{
+  .aboutParagraph1{
     display:none;
   }
 
@@ -198,16 +198,18 @@ display:none;
 @media screen and (max-width: 862px){
 
 
-  .b2, .p2{
+  .aboutCloser2, .aboutParagraph2{
     display:none
   }
 
-  .p1{
-    display: inline;
+  .aboutParagraph1{
+    padding-top:1rem;
+    display: block;
   }
 
-  .b1{
-    display:inline-block;
+  .aboutCloser1{
+    
+    display:block;
   }
 
     .portrait{

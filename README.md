@@ -123,6 +123,34 @@ componentDidMount() {
 }
 ```
 
+###   4. URL Route Refresh:
+
+Once I deployed my site to AWS, I discovered that I could not load to specific pages on my website my typing in their routes appended to the URL, nor could I refresh a page from its route: if I attempted to do so, the browser would return a 404. This is because the React's routes are constructed for client-side, not server side, and thus the page's do not exist. To fix this, I created a .htaccess file in the html root directory containing my site's index.html file, containing the following line of code:
+```
+Options +SymLinksIfOwnerMatch 
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+```
+
+This alone did not do the trick, however. Next, I had to had to allow this folder to access my new htaccess document. To do this, I accessed my apache2.conf file via the terminal by using:
+```
+sudo vim /etc/apache2/apache2.conf
+```
+Next, I had to find the folder containing my index.html file (var/www) within the document, and change the "AllowOveride" command from "None" to "All":
+```
+<Directory /var/www/>
+     Options Indexes FollowSymLinks
+     AllowOverride None (change to ALL to allow .htaccess to work)
+     Require all granted
+</Directory>
+```
+Finally, I restarted my apache using the below terminal command and boom...my URL links were working!
+```
+$ sudo /etc/init.d/httpd restart 
+```
+
  
 
 # MVP
