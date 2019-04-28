@@ -3,6 +3,8 @@ import { Redirect }  from 'react-router-dom';
 import { css } from "emotion";
 import "./Home.css"
 
+import MetaTags from 'react-meta-tags';
+
 // Redux
 import { connect } from "react-redux";
 import {bindActionCreators} from 'redux';
@@ -68,6 +70,15 @@ class Home extends Component{
     render(){
         return(
             <div className="homeBody fadeIn">
+
+                <MetaTags>
+                    <meta property="og:site_name" content="Greg Roques"/>
+                    <meta property="og:title" content="Software Developer"/>
+                    <meta property="og:description" content="Software Developer and Graphic Artist living and building in Atlanta, GA."/>
+                    <meta property="og:image" content="public/socialLink.png"/>
+                    <meta property="og:url" content="http://www.GregRoques.com/"/>
+                    <meta name="twitter:card" content="summary_large_image"/>
+                </MetaTags>
             
                 {this.state.redirect && <Redirect push to={`${this.state.nextRoute}`}/>}
                 {pages.map((page, i)=>{
