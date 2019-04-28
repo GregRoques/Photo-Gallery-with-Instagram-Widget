@@ -69,7 +69,9 @@ class Home extends Component{
     render(){
         return(
             <div className="homeBody fadeIn">
+
                 <MetaTags>
+                    <title>GregRoques.com</title>
                     <meta property="og:site_name" content="Greg Roques"/>
                     <meta property="og:title" content="Software Developer"/>
                     <meta property="og:description" content="Software Developer and Graphic Artist living and building in Atlanta, GA."/>
