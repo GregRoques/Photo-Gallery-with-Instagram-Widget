@@ -153,7 +153,7 @@ $ sudo /etc/init.d/httpd restart
 
  Now, the browser would recognize subpages on my website. This made navigating directly to, say, my portfolio by typing www.GregRoques.com/portfolio into the browser a nice shortcut, elinating the 404 error. However, what about routes that I had not created. Unfortunately, the above trick recognizes ALL subpages; thus, if you type in one that does not exist, you would render the Layout wrapper in App.js, but would not call any of its child routes, as seen below:
 
- (public/noPageRender.png)
+![No Link Page](public/readMeImages/noPageRender.png)
 
  The final fix was to add a Switch wrapper (imported from react-router-dom) in my app.js file to wrap around my routes, and then define a default for routes that don't exist. This route  calls a function that redirects (Redirect is also imported from react-router-dom) non-existing pages back to the homepage.
 
