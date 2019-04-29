@@ -151,7 +151,36 @@ Finally, I restarted my apache using the below terminal command and boom...my UR
 $ sudo /etc/init.d/httpd restart 
 ```
 
- 
+ Now, the browser would recognize subpages on my website. This made navigating directly to, say, my portfolio by typing www.GregRoques.com/portfolio into the browser a nice shortcut, elinating the 404 error. However, what about routes that I had not created. Unfortunately, the above trick recognizes ALL subpages; thus, if you type in one that does not exist, you would render the Layout wrapper in App.js, but would not call any of its child routes, as seen below:
+
+![No Link Page](public/readMeImages/noPageRender.png)
+
+ The final fix was to add a Switch wrapper (imported from react-router-dom) in my app.js file to wrap around my routes, and then define a default for routes that don't exist. This route  calls a function that redirects (Redirect is also imported from react-router-dom) non-existing pages back to the homepage.
+
+ ```
+       <Router>
+         <Layout >
+           <Switch>
+              <Route path="/" exact component={Home}/>
+              <Route exact path="/about" component={About}/>
+              <Route exact path="/editorial" component={Design}/>
+              <Route exact path="/portfolio" component={Portfolio}/>
+              <Route exact path="/blog" component={Blog}/>
+              <Route component ={this.NoPage}/>
+           </Switch>
+        </Layout>
+      </Router>
+ ```
+ ```
+   NoPage = () =>{
+    return(
+      <div>
+          <Redirect push to={Home}/>
+      </div>
+    )
+  }
+
+ ```
 
 # MVP
 Launch new site with:
