@@ -192,7 +192,9 @@ Launch new site with:
 
 # Stretch Goals
 
-Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
+1) Build secret login page to write and publish blog posts from the web. Posts will be saved to and retrieved from a backend database. The ability to edit and delete posts, as well as change login credentials will be available as well.
+
+2) Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
 
 
 
