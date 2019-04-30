@@ -190,9 +190,12 @@ Launch new site with:
 4) contact modal and links to Linked In, Github and a downloadabe copy of my resume
 
 
+
 # Stretch Goals
 
-Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
+1) Build secret login page to write and publish blog posts from the web. Posts will be saved to and retrieved from a backend database. The ability to edit and delete posts, as well as change login credentials will be available as well.
+
+2) Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
 
 
 
