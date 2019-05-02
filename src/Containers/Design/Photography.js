@@ -46,17 +46,7 @@ const musicPhotos = {
         band: 'Fall Out Boy Ft. Machine Gun Kelly',
         image: 'images/design/musicPhotog/fob.jpg',
         website: 'https://www.whereyat.com/fall-out-boy-light-up-the-smoothie-king-center2'
-    },
-    // 9:{
-    //     band: 'Kendrick Lamar',
-    //     image: 'images/design/musicPhotog/kendrick.jpg',
-    //     website: 'https://www.facebook.com/pg/whereyatnola/photos/?tab=album&album_id=10151601538649316'
-    // },
-    // 10:{
-    //     band: 'Gerard Way (with My Chemical Romance)',
-    //     image: 'images/design/musicPhotog/mcr.jpg',
-    //     website: 'https://www.facebook.com/pg/whereyatnola/photos/?tab=album&album_id=10150368322234316'
-    // }
+    }
 }
 
 let musicPhotosLength= (Object.keys(musicPhotos)).length

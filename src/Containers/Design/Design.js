@@ -5,8 +5,6 @@ import Articles from './Articles'
 import { Link }  from 'react-router-dom';
 import "./Design.css";
 
-import MetaTags from 'react-meta-tags';
-
 // Redux
 import { connect } from "react-redux";
 import {bindActionCreators} from 'redux';
@@ -24,14 +22,6 @@ class Design extends Component{
     render(){
         return(
             <div className="fadeIn">
-                <MetaTags>
-                    <meta property="og:site_name" content="Greg Roques"/>
-                    <meta property="og:title" content="Software Developer"/>
-                    <meta property="og:description" content="Graphic Design, Photography, and Entertainment Writing Samples."/>
-                    <meta property="og:image" content="public/socialLink.png"/>
-                    <meta property="og:url" content="http://www.GregRoques.com/editorial"/>
-                    <meta name="twitter:card" content="summary_large_image"/>
-                </MetaTags>
                 <Magazines/>
                 <Photography/>
                 <Articles/>
