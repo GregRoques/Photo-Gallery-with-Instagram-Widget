@@ -46,6 +46,11 @@ const musicPhotos = {
         band: 'Fall Out Boy Ft. Machine Gun Kelly',
         image: 'images/design/musicPhotog/fob.jpg',
         website: 'https://www.whereyat.com/fall-out-boy-light-up-the-smoothie-king-center2'
+    },
+    9:{
+        band: 'Follow On Instagram',
+        image: 'images/design/musicPhotog/insta.jpg',
+        website: 'https://www.instagram.com/qtrmileatatime/'
     }
 }
 
@@ -113,11 +118,6 @@ class Photography extends Component{
                 clickL = {this.leftClick}
                 clickR = {this.rightClick}
                 />
-                   <div className='buttonAlign'>
-                    <span><a rel="noopener noreferrer" target="_blank"  href='https://www.instagram.com/qtrmileatatime/'>
-                        <button className="demoReadButtons">Instagram</button>
-                    </a></span>
-                </div>
             </div>
         )
     }

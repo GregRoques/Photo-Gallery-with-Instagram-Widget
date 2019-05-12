@@ -43,8 +43,8 @@ const projectDetails ={
     pizzaCat: {
     name: `Intergalactic Adventures of Pizza Cat`,
         type: 'Python',
-        image: `pizzaCat.png`,
-        video: `pizzaCat.mp4`,
+        image: `pizzacat.png`,
+        video: `https://www.youtube.com/watch?v=Dq9bCD_Iibw`,
         description: `A horizontal side-scrolling shooter built in Python using the open-source video game library Pygame.`,
         languages: ['python.png','pygame.png', 'photoshop.png'],
         readMe: 'https://github.com/GregRoques/Pizza-Cat-Python-Project/blob/master/README.md'
@@ -54,7 +54,7 @@ const projectDetails ={
 
 // ================================= for constructing links with project details
 
-const headerImageLink = 'images/portfolioimages/'
+const headerImageLink = 'images/portfolioImages/'
 const languageImageLink = 'images/aboutMePage/'
 
 
@@ -91,7 +91,7 @@ const ProjectOnDisplay = ({title}) =>{
                     <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
                         <button className="demoReadButtons">Read Me</button>
                     </a></span>
-                    <span><a target="_blank" rel="noopener noreferrer" href='https://www.gregroques.com/images/portfolioimages/pizzaCat.mp4'>
+                    <span><a target="_blank" rel="noopener noreferrer" href={display['video']}>
                         <button className="demoReadButtons">Video Demo</button>
                     </a></span>
                 </div>
