@@ -50,18 +50,6 @@ const articleList ={
         image: 'images/design/articles/bigGigantic.jpg',
         link: 'https://www.dropbox.com/s/6qsqdhuperbeprw/big%20gigantic.pdf?dl=0'
     },
-    // 9:{
-    //     title: 'Jobs',
-    //     category: 'Film Review',
-    //     image: 'images/design/articles/jobs.jpg',
-    //     link: 'https://www.whereyat.com/jobs'
-    // },
-    // 10:{
-    //     title: 'Transformers: Age of Extinction',
-    //     category: 'Film Review',
-    //     image: 'images/design/articles/t4.jpg',
-    //     link: 'https://www.whereyat.com/transformers-age-of-extinction'
-    // },
 }
 
 const IssueList = ({art}) => {

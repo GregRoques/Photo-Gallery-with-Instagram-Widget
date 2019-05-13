@@ -26,7 +26,7 @@ class App extends Component {
            <Switch>
               <Route path="/" exact component={Home}/>
               <Route exact path="/about" component={About}/>
-              <Route exact path="/editorial" component={Design}/>
+              <Route exact path="/media" component={Design}/>
               <Route exact path="/portfolio" component={Portfolio}/>
               <Route exact path="/blog" component={Blog}/>
               <Route component ={this.NoPage}/>

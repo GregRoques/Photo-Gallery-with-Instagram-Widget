@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Photography from './Photography'
 import Magazines from './Magazines'
 import Articles from './Articles'
+import Film from './Film'
 import { Link }  from 'react-router-dom';
 import "./Design.css";
 
@@ -13,7 +14,7 @@ import SetHeader from '../../Actions/SetHeader'
 class Design extends Component{
 
     componentDidMount() {
-        this.props.SetHeader("Editorial Work");
+        this.props.SetHeader("Media");
         window.scrollTo(0, 0);
     }
 
@@ -25,6 +26,7 @@ class Design extends Component{
                 <Magazines/>
                 <Photography/>
                 <Articles/>
+                <Film />
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link>
