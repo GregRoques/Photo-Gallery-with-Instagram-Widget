@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './user.module.css'
 
 import SetHeader from '../../Actions/SetHeader'
-import { CheckCredentials, Proceed } from '../../Actions/LoginActions'
+import { Proceed } from '../../Actions/LoginActions'
 
 class LogIn extends Component{
     
@@ -27,32 +27,37 @@ class LogIn extends Component{
 // ==============================================================================
 // Change and Submit Handlers
 
-    submitHandler = (e) =>{
-        e.preventDefault();
-        this.props.CheckCredentials(this.state.email, this.state.password)
+    submitHandler = () =>{
+        console.log('hi')
+        if((this.state.email).toLowerCase() !== "greg@gregroques.com"){
+                console.log('bad email')
+                // this.props.SetHeader("Wrong Email");
+                this.setState({
+                    email: '',
+                    password: ''
+                })
+        }
+            
+        if(this.state.password !== "LilNacheauxNola"){
+            console.log('bad password')
+            // this.props.SetHeader("Wrong Password");
+            this.setState({
+                email: '',
+                password: ''
+            })
+        }
+            
+        if ((this.state.email).toLowerCase() === "greg@gregroques.com" && this.state.password === "LilNacheauxNola"){
+                console.log('fuck yeah')
+            // this.props.SetHeader("Welcome, Greg");
+            // this.props.proceed(true)
+        }
     }
 
     changedHandler = (e) =>{
         this.setState({
             [e.target.id]:e.target.value
         })
-    }
-
-
-// ==============================================================================
-// Confirms if Email/Password are correct and loggedIn === true
-
-    componentWillReceiveProps(newProps){
-        if(newProps.msg === "badUser"){
-            this.props.SetHeader("Wrong Email");
-            
-        } else if(newProps.msg === "badPassword"){
-            this.props.SetHeader("Wrong Password");
-        
-        } else if (newProps.msg === "loginSuccess"){
-            this.props.SetHeader("Welcome, Greg");
-            this.props.proceed(true)
-        }
     }
 
 // ==============================================================================
@@ -76,28 +81,22 @@ class LogIn extends Component{
                         onChange={this.changedHandler}
                         value={this.state.password}
                     />
-                    <button onClick={()=>this.submitHandler}>Submit</button>
+                    <button onClick={this.submitHandler}>Submit</button>
                 </form>
             </div>
         )
     }
 }
 
-const mapStateToProps = state =>{
-    return{
-        msg: state.msg
-    }
-}
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(
-        {
-            SetHeader,
-            CheckCredentials,
-            Proceed
-        }, 
-        dispatch
-    )
-}
+// function mapDispatchToProps(dispatch){
+//     return bindActionCreators(
+//         {
+//             SetHeader,
+//             // Proceed
+//         }, 
+//         dispatch
+//     )
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+export default connect(null, mapDispatchToProps)(LogIn);
