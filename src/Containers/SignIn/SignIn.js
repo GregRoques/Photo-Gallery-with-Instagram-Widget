@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import * as actions from '../../Actions/Auth'
+import SetHeader from '../../Actions/SetHeader'
 
 class SignIn extends Component{
+
     state={
         email:'',
         password:''
+    }
+
+    componentDidMount() {
+        this.props.Header("Sign In");
+        window.scrollTo(0, 0);
     }
 
 
@@ -26,6 +34,12 @@ submitHandler = (e) =>{
 // Render & Return
 
     render(){
+
+        
+        if (this.props.error !== null){
+            this.props.Header((this.props.error).replace(/\_/g, ' '))
+        }
+
         return(
             <div>
                 <h1>Log In</h1>
@@ -50,10 +64,17 @@ submitHandler = (e) =>{
     }
 };
 
-const mapDispatchToProps = dispatch =>{
+const mapStateToProps = state =>{
     return{
-        onAuth: (email, password) => dispatch(actions.auth(email, password))
+        error: state.auth.error
     }
 }
 
-export default connect(null, mapDispatchToProps)(SignIn);
+const mapDispatchToProps = dispatch =>{
+    return{
+        onAuth: (email, password) => dispatch(actions.auth(email, password)),
+        Header: (page) => dispatch(SetHeader(page))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

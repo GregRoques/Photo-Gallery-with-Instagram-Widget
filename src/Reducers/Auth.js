@@ -16,7 +16,7 @@ const authReducer = (state = initialState, action) =>{
                 userId: action.userId,
                 error: null,
             }
-        case actionType.authFail:
+        case actionType.AUTH_FAIL:
             return{
                 ...state,
                 error: action.error,

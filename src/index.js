@@ -15,8 +15,7 @@ const theStore = createStore(
     composeWithDevTools(
         applyMiddleware(thunk)
     )
-    )
-
+)
 
 ReactDOM.render(
     <Provider store={theStore}>
