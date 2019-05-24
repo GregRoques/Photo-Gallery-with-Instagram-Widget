@@ -13,7 +13,7 @@ import Portfolio from './Containers/Portfolio/Portfolio'
 import Blog from './Containers/Blog/Blog'
 
 // Backend Update for Blog
-import SignIn  from './Containers/SignIn/SignIn'
+import Update from './Containers/SignIn/Update'
 
 class App extends Component {
 
@@ -38,7 +38,7 @@ class App extends Component {
               <Route exact path="/portfolio" component={Portfolio}/>
               <Route exact path="/blog" component={Blog}/>
               {/* Backend Update Blog */}
-              <Route exact path = '/user-sign-in' component={SignIn}/>
+              <Route exact path = '/user-update' component={Update}/>
               {/* Re-Route Non-Existant Pages */}
               <Route component ={this.NoPage}/>
            </Switch>
