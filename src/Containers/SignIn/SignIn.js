@@ -37,7 +37,7 @@ submitHandler = (e) =>{
 
         
         if (this.props.error !== null){
-            this.props.Header((this.props.error).replace(/\_/g, ' '))
+            this.props.Header((this.props.error).replace(/_/g, ' '))
         }
 
         return(
