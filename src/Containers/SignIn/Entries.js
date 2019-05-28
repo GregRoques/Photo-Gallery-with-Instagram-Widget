@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// components
+import ArchiveModal from './archiveModal'
+
+// actions
 import SetHeader from '../../Actions/SetHeader'
 
-// =============================================================
-// figure out when logged out
+// =================================================================
+// Figure Out Time Left While Logged In
 
 var currentDate = new Date()
 var currentHour= currentDate.getHours()
@@ -15,7 +19,7 @@ const logOutTime = ((currentHour > 12 ? (currentHour - 12) : currentHour) + 1).t
     (currentHour > 12 ? 'pm' : "am")
 // console.log(logOutTime)
     
-// =============================================================
+// =================================================================
 
 class Entries extends Component{
 
@@ -30,6 +34,9 @@ class Entries extends Component{
         this.props.Header("Welcome, Greg");
         window.scrollTo(0, 0);
     }
+
+// =================================================================
+// Tile, Date, and Text Date Listeners
 
     titleChangedHandler = (e) =>{
         this.setState({
@@ -49,14 +56,30 @@ class Entries extends Component{
         })
     }
 
+    // =================================================================
+    // Archive Modal
+
+    openModal = () =>{
+        this.setState({
+          newEntry: true
+        })
+      }
+    
+      closeModal = () =>{
+        this.setState({
+          newEntry: false
+        })
+      }
+
     render(){
-        console.log(this.state.date)
+        
         return(
             <div>
                 <div>
                     You will be logged out at {logOutTime}
+                    <ArchiveModal show={this.state.newEntry} closed={this.closeModal}/>
                 </div>
-                <button>Update Existing Entry</button>
+                <button onClick={()=> this.openModal()}>Update Existing</button>
                 <div>
                     <input 
                         type="text" 
