@@ -16,7 +16,7 @@ var currentHour= currentDate.getHours()
 var currentMinute = currentDate.getMinutes()
 
 const logOutTime = ((currentHour > 12 ? (currentHour - 12) : currentHour) + 1).toString() + ":" +
-    (currentMinute).toString() +
+    ((currentMinute).toString()).padStart(2, '0') +
     (currentHour > 12 ? 'pm' : "am")
 // console.log(logOutTime)
     
