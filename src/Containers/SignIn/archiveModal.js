@@ -2,16 +2,14 @@ import React from "react";
 import update from './update.module.css'
 
 const ArchiveModal = props => {
-console.log(props.show)
-    const cssClasses = [
-        update.backdrop,
-        props.show === 'true' ? update.backdropOpen : update.backdropClosed,
+
+    const cssModal = [
         update.Modal,
-        props.show === 'true' ? update.ModalOpen : update.ModalClosed
+        props.show ? update.ModalOpen : update.ModalClosed
     ];
 
   return (
-    <div className={cssClasses.join(' ')}>
+    <div className={cssModal.join(' ')}>
         <h1>Archives</h1>
         <button className="Button" onClick={props.closed}>
             Close
