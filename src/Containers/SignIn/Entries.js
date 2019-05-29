@@ -6,6 +6,7 @@ import ArchiveModal from './archiveModal'
 
 // actions
 import SetHeader from '../../Actions/SetHeader'
+import { logOut } from '../../Actions/Auth'
 
 // =================================================================
 // Figure Out Time Left While Logged In
@@ -75,11 +76,13 @@ class Entries extends Component{
         
         return(
             <div>
+                <ArchiveModal show={this.state.newEntry} closed={this.closeModal}/>
                 <div>
                     You will be logged out at {logOutTime}
-                    <ArchiveModal show={this.state.newEntry} closed={this.closeModal}/>
+                    <br/>
+                    <button onClick={()=>this.props.LogOut()}>Log Out</button>
                 </div>
-                <button onClick={()=> this.openModal()}>Update Existing</button>
+                
                 <div>
                     <input 
                         type="text" 
@@ -102,6 +105,7 @@ class Entries extends Component{
                         onChange={this.textChangedHandler}
                         value={this.state.text}/>
                 </div>
+                <button onClick={()=> this.openModal()}>Update Existing</button>
                 <button>Submit</button>
             </div>
         )
@@ -113,7 +117,8 @@ class Entries extends Component{
 
 const mapDispatchToProps = dispatch =>{
     return{
-        Header: (page) => dispatch(SetHeader(page))
+        Header: (page) => dispatch(SetHeader(page)),
+        LogOut: () => dispatch(logOut())
     }
 }
 
