@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 // components
 import ArchiveModal from './archiveModal'
-
 // actions
 import SetHeader from '../../Actions/SetHeader'
 import { logOut } from '../../Actions/Auth'
+// backend
+import { instance as axios } from '../../AxiosOrders'
 
 // =================================================================
 // Figure Out Time Left While Logged In
@@ -57,6 +57,17 @@ class Entries extends Component{
         })
     }
 
+    submitHandler = () =>{
+        const myArticle = {
+            title: this.state.title,
+            date: this.state.date,
+            text: this.state.text
+        }
+        axios.post('articles.json', myArticle)
+        .then(response=>console.log(response))
+        .catch(error=> console.log('error'))
+    }
+
     // =================================================================
     // Archive Modal
 
@@ -91,13 +102,15 @@ class Entries extends Component{
                         onChange={this.titleChangedHandler}
                         value={this.state.title}
                     />
+                    <br/>
                     <input 
                         type="date" 
-                        min="01-01-2019" 
+                        min="06-01-2019" 
                         max="01-01-2030" 
                         onChange={this.dateChangedHandler}
                         value={this.state.date}
                     />
+                    <br/>
                     <input 
                         type="text"
                         maxLength="1200" 
@@ -106,7 +119,7 @@ class Entries extends Component{
                         value={this.state.text}/>
                 </div>
                 <button onClick={()=> this.openModal()}>Update Existing</button>
-                <button>Submit</button>
+                <button onClick={()=> this.submitHandler()}>Submit</button>
             </div>
         )
 
