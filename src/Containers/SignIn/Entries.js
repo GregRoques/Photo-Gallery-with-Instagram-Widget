@@ -6,7 +6,7 @@ import ArchiveModal from './archiveModal'
 import SetHeader from '../../Actions/SetHeader'
 import { logOut } from '../../Actions/Auth'
 // backend
-import { instance as axios } from '../../AxiosOrders'
+import { instance as axios} from '../../AxiosOrders'
 
 // =================================================================
 // Figure Out Time Left While Logged In
@@ -63,9 +63,9 @@ class Entries extends Component{
             date: this.state.date,
             text: this.state.text
         }
-        axios.post('articles.json', myArticle)
+        axios.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
         .then(response=>console.log(response))
-        .catch(error=> console.log('error'))
+        .catch(error=> console.log(error))
     }
 
     // =================================================================
@@ -128,6 +128,13 @@ class Entries extends Component{
 
 }
 
+const mapStateToProps = state =>{
+    return{
+        userId: state.auth.userId,
+        idToken: state.auth.idToken
+    }
+}
+
 const mapDispatchToProps = dispatch =>{
     return{
         Header: (page) => dispatch(SetHeader(page)),
@@ -135,4 +142,4 @@ const mapDispatchToProps = dispatch =>{
     }
 }
 
-export default connect(null, mapDispatchToProps)(Entries);
+export default connect(mapStateToProps, mapDispatchToProps)(Entries);
