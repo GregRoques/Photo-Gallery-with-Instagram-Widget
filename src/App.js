@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 import './App.css';
 
 // HOC
 import Layout from "./Components/Layout/Layout";
+
+// Actions
+import { authCheckState } from './Actions/Auth'
 
 // Visitor Pages
 import Home from './Containers/Home/Home';
@@ -17,6 +21,10 @@ import Update from './Containers/SignIn/Update'
 
 class App extends Component {
 
+  componentDidMount(){
+    this.props.onTryAutoSignUp();
+  }
+
   NoPage = () =>{
     return(
       <div>
@@ -27,7 +35,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <div>
         {/* HOC */}
          <Layout >
            <Switch>
@@ -43,10 +51,16 @@ class App extends Component {
               <Route component ={this.NoPage}/>
            </Switch>
         </Layout>
-      </Router>
+      </div>
     );
     
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch =>{
+  return{
+    onTryAutoSignUp:() => dispatch(authCheckState())
+  }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(App));
