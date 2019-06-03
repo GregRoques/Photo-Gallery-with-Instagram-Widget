@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 // components
 import ArchiveModal from './archiveModal'
+
 // actions
 import SetHeader from '../../Actions/SetHeader'
 import { logOut } from '../../Actions/Auth'
+
 // backend
 import { write as axios} from '../../AxiosOrders'
 
@@ -18,7 +21,16 @@ var currentMinute = currentDate.getMinutes()
 const logOutTime = ((currentHour > 12 ? (currentHour - 12) : currentHour) + 1).toString() + ":" +
     ((currentMinute).toString()).padStart(2, '0') +
     (currentHour > 12 ? 'pm' : "am")
-// console.log(logOutTime)
+
+// =================================================================
+// Get Today's Date
+
+var todaysDate = new Date()
+var day = ((todaysDate.getDate()).toString()).replace(/^0+/, '')
+var month = ((todaysDate.getMonth()+1).toString()).replace(/^0+/, '')
+var year = todaysDate.getFullYear()
+
+var todayReadableDate = month + "–" + day + "–" + year
     
 // =================================================================
 
@@ -27,7 +39,7 @@ class Entries extends Component{
     state={
         newEntry: false,
         title:'',
-        date: '',
+        date: todayReadableDate,
         text:''
     }
 
@@ -110,9 +122,9 @@ class Entries extends Component{
                     />
                     <br/>
                     <input 
-                        type="date" 
-                        min="06-01-2019" 
-                        max="01-01-2030" 
+                        type="text" 
+                        placeholder="date" 
+                        maxLength="10"
                         onChange={this.dateChangedHandler}
                         value={this.state.date}
                     />

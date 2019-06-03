@@ -3,7 +3,7 @@ import { Link }  from 'react-router-dom';
 import './Blog.css'
 
 //for parsing text
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 //axios
 import { read as axios} from '../../AxiosOrders'
@@ -42,15 +42,17 @@ class Blog extends Component{
     }
 
     click =(newPublish)=>{
+        const currentEntryValue = this.state.entries[newPublish]
+        console.log(currentEntryValue)
        this.setState({
-           currentRoute:newPublish
+           currentEntry: currentEntryValue
        })
     }
 
 
     
     render(){
-        console.log(typeof(this.state.currentEntry.text))
+        console.log(this.state.currentEntry)
         return(
             <div className='fadeIn'>
                 <div className='blogAlign'>
@@ -63,21 +65,21 @@ class Blog extends Component{
                             </div>
                         </div>
                     </div>
-                    {/* <div className='previousPostsColumn'>
+                    <div className='previousPostsColumn'>
                         <div className='previousPostsContainer'>
                             <div className='previousPostText'>
                             <h1 className='previousTitle'>Previous</h1>
-                            {Object.keys(blogPosts).map((posts,i)=> {
+                            {Object.keys(this.state.entries).reverse().map((post,i)=> {
                                 return(
-                                    <div key={i} onClick={()=>this.click(posts)}>
-                                        <span className="arrowColor">></span> <span className="selectPreviousHover"><b className='titleColor'>{posts} </b> <i>{blogPosts[posts]['date']}</i></span>
+                                    <div key={i} onClick={()=>this.click(post)}>
+                                        <span className="arrowColor">></span> <span className="selectPreviousHover"><b><i className="titleColor">{this.state.entries[post].date}</i></b></span>
                                     </div>
                                 )
                             })}
             
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 

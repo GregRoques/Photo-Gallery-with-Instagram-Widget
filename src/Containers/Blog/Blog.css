@@ -79,6 +79,9 @@
     font-family:sans-serif;
     font-style:italic;
     text-align:center;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size:1.25rem;
 }
 
 .blogEntryParagraph{
