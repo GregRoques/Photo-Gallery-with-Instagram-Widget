@@ -12,17 +12,6 @@ import { logOut } from '../../Actions/Auth'
 import { write as axios} from '../../AxiosOrders'
 
 // =================================================================
-// Figure Out Time Left While Logged In
-
-var currentDate = new Date()
-var currentHour= currentDate.getHours()
-var currentMinute = currentDate.getMinutes()
-
-const logOutTime = ((currentHour > 12 ? (currentHour - 12) : currentHour) + 1).toString() + ":" +
-    ((currentMinute).toString()).padStart(2, '0') +
-    (currentHour > 12 ? 'pm' : "am")
-
-// =================================================================
 // Get Today's Date
 
 var todaysDate = new Date()
@@ -107,7 +96,7 @@ class Entries extends Component{
             <div>
                 <ArchiveModal show={this.state.newEntry} closed={this.closeModal}/>
                 <div>
-                    You will be logged out at {logOutTime}
+                    You will be logged out at {localStorage.getItem('logOutTime')}
                     <br/>
                     <button onClick={()=>this.props.LogOut()}>Log Out</button>
                 </div>

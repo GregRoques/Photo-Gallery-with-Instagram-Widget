@@ -28,7 +28,8 @@ export const authFail = (error) => {
 export const logOut = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
-    localStorage.removeItem('expirationDate')
+    localStorage.removeItem('expirationDate');
+    localStorage.removeItem('logOutTime')
     return{
         type: AUTH_LOGOUT
     }
@@ -54,11 +55,22 @@ export const auth = (email, password) =>{
         // console.log(authData)
         axios.post(AuthURL, authData)
         .then(response =>{
+            // Figure Out Time Left While Logged In
+            var currentDate = new Date()
+            var currentHour= currentDate.getHours()
+            var currentMinute = currentDate.getMinutes()
+
+            const logOutTime = ((currentHour > 12 ? (currentHour - 12) : currentHour) + 1).toString() + ":" +
+                ((currentMinute).toString()).padStart(2, '0') +
+                (currentHour > 12 ? 'pm' : "am")
+
             //local storage 
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000)
             localStorage.setItem('token', response.data.idToken);
             localStorage.setItem('userId', response.data.localId);
             localStorage.setItem('expirationDate', expirationDate);
+            localStorage.setItem('logOutTime', logOutTime)
+
             //action dispatch
             dispatch(authSuccess(response.data.idToken, response.data.localId));
             dispatch(checkAuthTimeOut(response.data.expiresIn));

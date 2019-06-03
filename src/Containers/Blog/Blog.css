@@ -60,6 +60,10 @@
     text-decoration-color:  rgb(0,183,241);
 }
 
+.previousMargin{
+    margin-bottom:0.5rem;
+}
+
 /* ========================================================================================== Blog Entries */
 
 .blogEntryContainer{
@@ -81,12 +85,13 @@
     text-align:center;
     margin-top: 1rem;
     font-weight: bold;
-    font-size:1.25rem;
+    font-size:1.4rem;
 }
 
 .blogEntryParagraph{
     font-family: sans-serif;
     margin-top:2rem;
+    font-size: 1.1rem;
     text-indent: 20px;
 }
 

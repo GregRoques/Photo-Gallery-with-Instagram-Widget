@@ -46,7 +46,7 @@ class App extends Component {
               <Route exact path="/portfolio" component={Portfolio}/>
               <Route exact path="/blog" component={Blog}/>
               {/* Backend Update Blog */}
-              <Route exact path = '/user-update' component={Update}/>
+              <Route exact path = '/user-update-blog' component={Update}/>
               {/* Re-Route Non-Existant Pages */}
               <Route component ={this.NoPage}/>
            </Switch>

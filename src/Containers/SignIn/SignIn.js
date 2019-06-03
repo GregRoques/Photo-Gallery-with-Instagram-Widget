@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import css from './signIn.module.css'
 
 import * as actions from '../../Actions/Auth'
 import SetHeader from '../../Actions/SetHeader'
@@ -42,23 +43,34 @@ submitHandler = (e) =>{
 
         return(
             <div>
-                <h1>Log In</h1>
-                <br/>
-                <input 
-                    type="text"
-                    placeholder="Email Address"
-                    id = "email"
-                    onChange={this.changedHandler}
-                    value={this.state.email}
-                />
-                <input 
-                    type="password" 
-                    placeholder="password"
-                    id = "password"
-                    onChange={this.changedHandler}
-                    value={this.state.password}
-                />
-                <button onClick={(e) => this.submitHandler(e)}>Submit</button>
+
+                <div className={css.logInPosition}>
+                    <div className={css.logInForm}>
+                        <div>
+                            <input 
+                                className={css.inputText}
+                                type="text"
+                                placeholder="Email Address"
+                                id = "email"
+                                onChange={this.changedHandler}
+                                value={this.state.email}
+                            />
+                        </div>
+                        <div>
+                            <input 
+                                className={css.inputText}
+                                type="password" 
+                                placeholder="Password"
+                                id = "password"
+                                onChange={this.changedHandler}
+                                value={this.state.password}
+                            />
+                        </div>
+                        <div>
+                            <button className={css.inputSubmit} onClick={(e) => this.submitHandler(e)}>Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -71,7 +71,7 @@ class Blog extends Component{
                             <h1 className='previousTitle'>Previous</h1>
                             {Object.keys(this.state.entries).reverse().map((post,i)=> {
                                 return(
-                                    <div key={i} onClick={()=>this.click(post)}>
+                                    <div key={i} className="previousMargin" onClick={()=>this.click(post)}>
                                         <span className="arrowColor">></span> <span className="selectPreviousHover"><b><i className="titleColor">{this.state.entries[post].date}</i></b></span>
                                     </div>
                                 )
