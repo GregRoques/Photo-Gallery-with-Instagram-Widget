@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link }  from 'react-router-dom';
 import './Blog.css'
 
+//for parsing text
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+
 //axios
 import { read as axios} from '../../AxiosOrders'
 
@@ -16,7 +19,8 @@ import SetHeader from '../../Actions/SetHeader'
 class Blog extends Component{
 
     state = {
-        entries: ''
+        entries: '',
+        currentEntry: ''
     }
 
     componentDidMount() {
@@ -25,8 +29,11 @@ class Blog extends Component{
 
         axios.get()
             .then(response=>{
+                const blogReturn = Object.values(response.data.users)[0]
+                const currentEntryValue = Object.keys(blogReturn).length - 1
                 this.setState({
-                    entries: Object.values(response.data.users)[0]
+                    entries: blogReturn,
+                    currentEntry: Object.values(blogReturn)[currentEntryValue]
                 })
             })
         .catch(error=> {
@@ -41,21 +48,22 @@ class Blog extends Component{
     }
 
 
-    // state ={
-    //     currentRoute: startingArticle
-    // }
     
     render(){
-        console.log(this.state.entries)
+        console.log(typeof(this.state.currentEntry.text))
         return(
             <div className='fadeIn'>
-                {/* <div className='blogAlign'>
+                <div className='blogAlign'>
                     <div className='articleColumn'>
                         <div className='articlePadding'>
-                            {blogPosts[this.state.currentRoute]['route']}
+                            <div className ='blogEntryContainer'>
+                                <div className ='blogEntryHeader'>{this.state.currentEntry.title}</div>
+                                <div className ='blogEntryDate'>{this.state.currentEntry.date}</div>
+                                <div className ='blogEntryParagraph'>{ ReactHtmlParser(this.state.currentEntry.text)}</div>
+                            </div>
                         </div>
                     </div>
-                    <div className='previousPostsColumn'>
+                    {/* <div className='previousPostsColumn'>
                         <div className='previousPostsContainer'>
                             <div className='previousPostText'>
                             <h1 className='previousTitle'>Previous</h1>
@@ -69,8 +77,8 @@ class Blog extends Component{
             
                             </div>
                         </div>
-                    </div>
-                </div>*/}
+                    </div> */}
+                </div>
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link> | 
