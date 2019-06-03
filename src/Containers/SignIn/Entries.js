@@ -6,7 +6,7 @@ import ArchiveModal from './archiveModal'
 import SetHeader from '../../Actions/SetHeader'
 import { logOut } from '../../Actions/Auth'
 // backend
-import { instance as axios} from '../../AxiosOrders'
+import { write as axios} from '../../AxiosOrders'
 
 // =================================================================
 // Figure Out Time Left While Logged In
@@ -64,8 +64,14 @@ class Entries extends Component{
             text: this.state.text
         }
         axios.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
-        .then(response=>console.log(response))
-        .catch(error=> console.log(error))
+        .then(response=>{
+            this.props.Header('Post Successful');
+            console.log(response);
+        })
+        .catch(error=>{ 
+            this.props.Header('Post Error');
+            console.log(error)
+        })
     }
 
     // =================================================================

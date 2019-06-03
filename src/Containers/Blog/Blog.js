@@ -2,30 +2,36 @@ import React, { Component } from 'react';
 import { Link }  from 'react-router-dom';
 import './Blog.css'
 
-// Blog Post Routes
-import Welcome from '../../Components/BlogEntries/BlogEntries'
+//axios
+import { read as axios} from '../../AxiosOrders'
 
 // Redux
 import { connect } from "react-redux";
-import {bindActionCreators} from 'redux';
 import SetHeader from '../../Actions/SetHeader'
 
 
 
-const blogPosts = {
-'Welcome':{
-    date: '4/16/19',
-    route: <Welcome/>
-    },
-}
-
-const startingArticle= Object.keys(blogPosts)[Object.keys(blogPosts).length - 1]
+// const startingArticle= Object.keys(blogPosts)[Object.keys(blogPosts).length - 1]
 
 class Blog extends Component{
 
+    state = {
+        entries: ''
+    }
+
     componentDidMount() {
-        this.props.SetHeader("Blog");
+        this.props.Header("Blog");
         window.scrollTo(0, 0);
+
+        axios.get()
+            .then(response=>{
+                this.setState({
+                    entries: Object.values(response.data.users)[0]
+                })
+            })
+        .catch(error=> {
+            this.props.Header('Error');
+        })
     }
 
     click =(newPublish)=>{
@@ -35,15 +41,15 @@ class Blog extends Component{
     }
 
 
-    state ={
-        currentRoute: startingArticle
-    }
+    // state ={
+    //     currentRoute: startingArticle
+    // }
     
     render(){
-        // console.log(this.state.currentRoute)
+        console.log(this.state.entries)
         return(
             <div className='fadeIn'>
-                <div className='blogAlign'>
+                {/* <div className='blogAlign'>
                     <div className='articleColumn'>
                         <div className='articlePadding'>
                             {blogPosts[this.state.currentRoute]['route']}
@@ -64,24 +70,22 @@ class Blog extends Component{
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/}
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link> | 
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/portfolio"> Portfolio</Link>
-                </div>
+                </div> 
             </div>
         )
     }
 
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(
-        {
-        SetHeader: SetHeader
-        }, dispatch
-    )
+const mapDispatchToProps = dispatch =>{
+    return {
+        Header: (page) => dispatch(SetHeader(page))
+    }
 }
 
 export default connect(null, mapDispatchToProps)(Blog);
