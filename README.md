@@ -186,14 +186,13 @@ $ sudo /etc/init.d/httpd restart
 Launch new site with:
 1) an about link, including a tertiary link to my graphic design and editorial work
 2) deveopment portfolio link
-3) Updatable blog page
+3) Blog page updateable from a hidden login page; (Goolge) Firebase backend is updated via authenticated REST calls 
 4) contact modal and links to Linked In, Github and a downloadabe copy of my resume
 
 
 
 # Stretch Goals
 
-1) Build secret login page to write and publish blog posts from the web. Posts will be saved to and retrieved from a backend database. The ability to edit and delete posts, as well as change login credentials will be available as well.
 
 2) Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
 
