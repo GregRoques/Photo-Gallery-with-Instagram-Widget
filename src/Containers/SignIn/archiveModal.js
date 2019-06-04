@@ -14,11 +14,11 @@ const ArchiveModal = props => {
         {Object.keys(props.articles).reverse().map((post,i)=> {
             return(
                 <div key={i} className="previousMargin" >
-                    <span className="selectPreviousHover" onClick={()=>props.updateArticle(post)}>
-                      <b><i className="titleColor">{props.articles[post].date} </i></b>
-                      <span onClick={()=>props.existingDelete(post)} className="titleColor">DELETE</span>
-
+                    <span className="selectPreviousHover titleColor" onClick={()=>props.updateArticle(post)}>
+                      <b><i>{props.articles[post].date}</i></b> 
                     </span>
+                    <span onClick={()=>props.existingDelete(post)} className="selectPreviousHover titleColor">DELETE</span>
+
                 </div>
             )
         })}
