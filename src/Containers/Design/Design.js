@@ -13,7 +13,7 @@ import SetHeader from '../../Actions/SetHeader'
 class Design extends Component{
 
     componentDidMount() {
-        this.props.SetHeader("Media Samples");
+        this.props.Header("Media Samples");
         window.scrollTo(0, 0);
     }
 

@@ -37,7 +37,7 @@ const graphicDesign = [
 class About extends Component{
     
     componentDidMount() {
-        this.props.SetHeader("About");
+        this.props.Header("About");
         window.scrollTo(0, 0);
     }
     render(){
