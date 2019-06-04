@@ -15,6 +15,7 @@ This site (www.GregRoques.com) is an updated version of my personal Portfolio pa
 # Technologies
 - React/Redux
 - HTML/CSS/JavaScript
+- Google Firebase
 
 
 # Challenges & Solutions
@@ -193,8 +194,7 @@ Launch new site with:
 
 # Stretch Goals
 
-
-2) Continually update blog with lessons learned and project updates regarding development and design projects I am working on. 
+1) Continually update blog with lessons learned and project updates regarding development and design projects I am working on and share via LinkedIn. 
 
 
 
