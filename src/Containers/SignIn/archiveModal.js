@@ -10,19 +10,18 @@ const ArchiveModal = props => {
 
   return (
     <div className={cssModal.join(' ')}>
-        <h1>Archives</h1>
+        <h1 className={update.archiveTitle}>Archives</h1>
         {Object.keys(props.articles).reverse().map((post,i)=> {
             return(
-                <div key={i} className="previousMargin" >
-                    <span className="selectPreviousHover titleColor" onClick={()=>props.updateArticle(post)}>
-                      <b><i>{props.articles[post].date}</i></b> 
+                <div key={i}>
+                    <span className={update.oldArticle} onClick={()=>props.updateArticle(post)}>
+                        {props.articles[post].date}
                     </span>
-                    <span onClick={()=>props.existingDelete(post)} className="selectPreviousHover titleColor">DELETE</span>
-
+                    <span className={update.deleteButton} onClick={()=>props.existingDelete(post)}>DELETE</span>
                 </div>
             )
         })}
-        <button className="Button" onClick={props.closed}>
+        <button className={update.closeButton} onClick={props.closed}>
             Close
         </button>
     </div>

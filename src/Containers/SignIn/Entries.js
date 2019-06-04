@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// css
+import entriesCSS from './entries.module.css'
+
 // components
 import ArchiveModal from './archiveModal'
 
@@ -102,7 +105,10 @@ class Entries extends Component{
                     const blogReturn = Object.values(response.data.users)[0]
                     this.setState({
                         entries: blogReturn,
-                        updateArticleKey: ''
+                        updateArticleKey: '',
+                        title: '',
+                        date: '',
+                        text: ''                        
                     })
                 })
                 .catch(error=> {
@@ -124,6 +130,10 @@ class Entries extends Component{
                         const blogReturn = Object.values(response.data.users)[0]
                         this.setState({
                             entries: blogReturn,
+                            updateArticleKey: '',
+                            title: '',
+                            date: '',
+                            text: ''
                         })
                     })
                     .catch(error=> {
@@ -149,7 +159,7 @@ class Entries extends Component{
     }
 
     deleteHandler = articleToDelete =>{
-        write.delete(`${this.props.userId}/${this.state.updateArticleKey}/.json?auth=${this.props.idToken}`)
+        write.delete(`${this.props.userId}/${articleToDelete}/.json?auth=${this.props.idToken}`)
         .then(response=>{
             this.props.Header('Delete Successful');
             
@@ -200,13 +210,11 @@ class Entries extends Component{
                     existingDelete={this.deleteHandler} 
                     closed={this.closeModal}
                 />
-                <div>
-                    You will be logged out at {localStorage.getItem('logOutTime')}
-                    <br/>
-                    <button onClick={()=>this.props.LogOut()}>Log Out</button>
+                <div className={entriesCSS.logOutTime}>
+                    You will be logged out at <b>{localStorage.getItem('logOutTime')}</b>
                 </div>
                 
-                <div>
+                <div className={entriesCSS.posts}>
                     <input 
                         type="text" 
                         maxLength="25"
@@ -223,15 +231,19 @@ class Entries extends Component{
                         value={this.state.date}
                     />
                     <br/>
-                    <input 
+                    <textarea
+                        rows="20"
                         type="text"
                         maxLength="1200" 
                         placeholder="text" 
                         onChange={this.textChangedHandler}
                         value={this.state.text}/>
                 </div>
-                <button onClick={()=> this.openModal()}>Update Existing</button>
-                <button onClick={()=> this.submitHandler()}>Submit</button>
+                <div className={entriesCSS.buttonPosition}>
+                    <button className={entriesCSS.publishButtons} onClick={()=> this.submitHandler()}>Submit</button>
+                    <button className={entriesCSS.publishButtons} onClick={()=> this.openModal()}>Update Existing</button>
+                    <button className={entriesCSS.publishButtons} onClick={()=>this.props.LogOut()}>Log Out</button>
+                </div>
             </div>
         )
 
