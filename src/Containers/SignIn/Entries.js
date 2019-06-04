@@ -116,20 +116,20 @@ class Entries extends Component{
             
         } else{
             write.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
-            .then(response=>{
-                this.props.Header('Post Successful');
-            
-                read.get()
                 .then(response=>{
-                    const blogReturn = Object.values(response.data.users)[0]
-                    this.setState({
-                        entries: blogReturn,
+                    this.props.Header('Post Successful');
+                
+                    read.get()
+                    .then(response=>{
+                        const blogReturn = Object.values(response.data.users)[0]
+                        this.setState({
+                            entries: blogReturn,
+                        })
+                    })
+                    .catch(error=> {
+                        console.log('Could Not Load Saved Blog Articles.');
                     })
                 })
-                .catch(error=> {
-                    console.log('Could Not Load Saved Blog Articles.');
-                })
-            })
             .catch(error=>{ 
                 this.props.Header('Post Error');
                 console.log(error)
@@ -191,7 +191,6 @@ class Entries extends Component{
     }
 
     render(){
-        
         return(
             <div>
                 <ArchiveModal 
