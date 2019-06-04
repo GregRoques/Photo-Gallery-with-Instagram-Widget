@@ -20,9 +20,8 @@ var month = ((todaysDate.getMonth()+1).toString()).replace(/^0+/, '')
 var year = todaysDate.getFullYear()
 
 var todayReadableDate = month + "–" + day + "–" + year
-    
-// =================================================================
 
+// =================================================================
 class Entries extends Component{
 
     componentDidMount() {
@@ -37,7 +36,7 @@ class Entries extends Component{
             })
         })
         .catch(error=> {
-            console.log('Could Not Load Saved Blog Articles.');
+            console.log(error);
         })
     }
 
@@ -52,24 +51,34 @@ class Entries extends Component{
             updateArticleKey:''
     }
 
+    
 
 
 // =================================================================
 // Tile, Date, and Text Date Listeners
 
     titleChangedHandler = (e) =>{
+        if (this.props.Header !== "Welcome, Greg"){
+            this.props.Header("Welcome, Greg")
+        }
         this.setState({
             title: e.target.value
         })
     }
 
     dateChangedHandler = (e) =>{
+        if (this.props.Header !== "Welcome, Greg"){
+            this.props.Header("Welcome, Greg")
+        }
         this.setState({
             date: e.target.value
         })
     }
 
     textChangedHandler = (e) =>{
+        if (this.props.Header !== "Welcome, Greg"){
+            this.props.Header("Welcome, Greg")
+        }
         this.setState({
             text: e.target.value
         })
@@ -81,15 +90,51 @@ class Entries extends Component{
             date: this.state.date,
             text: this.state.text
         }
-        write.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
-        .then(response=>{
-            this.props.Header('Post Successful');
-            console.log(response);
-        })
-        .catch(error=>{ 
-            this.props.Header('Post Error');
-            console.log(error)
-        })
+
+
+        if(this.state.updateArticleKey && this.state.entries[this.state.updateArticleKey].date === this.state.date){
+            write.patch(`${this.props.userId}/${this.state.updateArticleKey}/.json?auth=${this.props.idToken}`, myArticle)
+            .then(response=>{
+                this.props.Header('Post Successful');
+
+                read.get()
+                .then(response=>{
+                    const blogReturn = Object.values(response.data.users)[0]
+                    this.setState({
+                        entries: blogReturn,
+                        updateArticleKey: ''
+                    })
+                })
+                .catch(error=> {
+                    console.log('Could Not Load Saved Blog Articles.');
+                })
+            })
+                .catch(error=>{ 
+                    this.props.Header('Post Error');
+                    console.log(error)
+            })
+            
+        } else{
+            write.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
+            .then(response=>{
+                this.props.Header('Post Successful');
+            
+                read.get()
+                .then(response=>{
+                    const blogReturn = Object.values(response.data.users)[0]
+                    this.setState({
+                        entries: blogReturn,
+                    })
+                })
+                .catch(error=> {
+                    console.log('Could Not Load Saved Blog Articles.');
+                })
+            })
+            .catch(error=>{ 
+                this.props.Header('Post Error');
+                console.log(error)
+            })
+        }
     }
 
     updateHandler = updateInfo =>{
@@ -101,7 +146,29 @@ class Entries extends Component{
             updateArticleKey: updateInfo,
             newEntry: false
         })
+    }
 
+    deleteHandler = articleToDelete =>{
+        write.delete(`${this.props.userId}/${this.state.updateArticleKey}/.json?auth=${this.props.idToken}`)
+        .then(response=>{
+            this.props.Header('Delete Successful');
+            
+            read.get()
+                .then(response=>{
+                    const blogReturn = Object.values(response.data.users)[0]
+                    this.setState({
+                        entries: blogReturn,
+                        updateArticleKey:''
+                    })
+                })
+                .catch(error=> {
+                    console.log('Could Not Load Saved Blog Articles.');
+                })
+        })
+        .catch(error=>{ 
+            this.props.Header('Delete Error');
+            console.log(error)
+        })
     }
 
     // =================================================================
@@ -130,7 +197,8 @@ class Entries extends Component{
                 <ArchiveModal 
                     articles={this.state.entries} 
                     show={this.state.newEntry} 
-                    updateArticle={this.updateHandler} 
+                    updateArticle={this.updateHandler}
+                    existingDelete={this.deleteHandler} 
                     closed={this.closeModal}
                 />
                 <div>
