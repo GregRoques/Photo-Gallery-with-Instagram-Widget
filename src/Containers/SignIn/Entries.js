@@ -9,7 +9,7 @@ import SetHeader from '../../Actions/SetHeader'
 import { logOut } from '../../Actions/Auth'
 
 // backend
-import { write as axios} from '../../AxiosOrders'
+import { write, read} from '../../AxiosOrders'
 
 // =================================================================
 // Get Today's Date
@@ -25,17 +25,34 @@ var todayReadableDate = month + "–" + day + "–" + year
 
 class Entries extends Component{
 
-    state={
-        newEntry: false,
-        title:'',
-        date: todayReadableDate,
-        text:''
-    }
-
     componentDidMount() {
         this.props.Header("Welcome, Greg");
         window.scrollTo(0, 0);
+       
+        read.get()
+        .then(response=>{
+            const blogReturn = Object.values(response.data.users)[0]
+            this.setState({
+                entries: blogReturn,
+            })
+        })
+        .catch(error=> {
+            console.log('Could Not Load Saved Blog Articles.');
+        })
     }
+
+    state={
+        //Article Data
+            title:'',
+            date: todayReadableDate,
+            text:'',
+        //Loading Previous Entries
+            newEntry: false,
+            entries:'',
+            updateArticleKey:''
+    }
+
+
 
 // =================================================================
 // Tile, Date, and Text Date Listeners
@@ -64,7 +81,7 @@ class Entries extends Component{
             date: this.state.date,
             text: this.state.text
         }
-        axios.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
+        write.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
         .then(response=>{
             this.props.Header('Post Successful');
             console.log(response);
@@ -75,26 +92,47 @@ class Entries extends Component{
         })
     }
 
+    updateHandler = updateInfo =>{
+        console.log(updateInfo)
+        this.setState({
+            title: this.state.entries[updateInfo].title,
+            date: this.state.entries[updateInfo].date,
+            text: this.state.entries[updateInfo].text,
+            updateArticleKey: updateInfo,
+            newEntry: false
+        })
+
+    }
+
     // =================================================================
     // Archive Modal
 
     openModal = () =>{
+        if(!this.state.entries){
+            this.props.Header("Error");
+        }else{
+            this.setState({
+                newEntry: true
+            })
+        }
+    }
+
+    closeModal = () =>{
         this.setState({
-          newEntry: true
+            newEntry: false
         })
-      }
-    
-      closeModal = () =>{
-        this.setState({
-          newEntry: false
-        })
-      }
+    }
 
     render(){
         
         return(
             <div>
-                <ArchiveModal show={this.state.newEntry} closed={this.closeModal}/>
+                <ArchiveModal 
+                    articles={this.state.entries} 
+                    show={this.state.newEntry} 
+                    updateArticle={this.updateHandler} 
+                    closed={this.closeModal}
+                />
                 <div>
                     You will be logged out at {localStorage.getItem('logOutTime')}
                     <br/>
