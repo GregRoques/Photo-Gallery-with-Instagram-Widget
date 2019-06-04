@@ -8,7 +8,6 @@ import "./Design.css";
 
 // Redux
 import { connect } from "react-redux";
-import {bindActionCreators} from 'redux';
 import SetHeader from '../../Actions/SetHeader'
 
 class Design extends Component{
@@ -37,12 +36,11 @@ class Design extends Component{
     
 
 }
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(
-        {
-        SetHeader: SetHeader
-        }, dispatch
-    )
-}
+
+const mapDispatchToProps = dispatch =>{
+    return{
+         Header: (page) => dispatch(SetHeader(page))
+    }
+ }
 
 export default connect(null, mapDispatchToProps)(Design);

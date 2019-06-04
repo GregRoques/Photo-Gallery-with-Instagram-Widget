@@ -4,7 +4,6 @@ import "./Portfolio.css";
 
 // Redux
 import { connect } from "react-redux";
-import {bindActionCreators} from 'redux';
 import SetHeader from '../../Actions/SetHeader'
 
 
@@ -153,7 +152,7 @@ const ProjectOnDisplay = ({title}) =>{
 class Portfolio extends Component{
 
     componentDidMount() {
-        this.props.SetHeader("Portfolio");
+        this.props.Header("Portfolio");
         window.scrollTo(0, 0);
     }
 
@@ -216,12 +215,10 @@ class Portfolio extends Component{
 }
 
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(
-        {
-        SetHeader: SetHeader
-        }, dispatch
-    )
+const mapDispatchToProps = dispatch =>{
+   return{
+        Header: (page) => dispatch(SetHeader(page))
+   }
 }
 
 export default connect(null, mapDispatchToProps)(Portfolio);

@@ -5,7 +5,6 @@ import "./Home.css"
 
 // Redux
 import { connect } from "react-redux";
-import {bindActionCreators} from 'redux';
 import SetHeader from '../../Actions/SetHeader'
 
 const disappearTime = 1;
@@ -88,12 +87,10 @@ class Home extends Component{
 
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(
-        {
-        SetHeader: SetHeader
-        }, dispatch
-    )
-}
+const mapDispatchToProps = dispatch =>{
+    return{
+         Header: (page) => dispatch(SetHeader(page))
+    }
+ }
 
 export default connect(null, mapDispatchToProps)(Home);

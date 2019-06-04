@@ -4,7 +4,6 @@ import "./About.css";
 
 // Redux
 import { connect } from "react-redux";
-import {bindActionCreators} from 'redux';
 import SetHeader from '../../Actions/SetHeader'
 
 const imageLink = '/images/aboutMePage/'
@@ -123,12 +122,10 @@ class About extends Component{
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(
-        {
-        SetHeader: SetHeader
-        }, dispatch
-    )
-}
+const mapDispatchToProps = dispatch =>{
+    return{
+         Header: (page) => dispatch(SetHeader(page))
+    }
+ }
 
 export default connect(null, mapDispatchToProps)(About);
