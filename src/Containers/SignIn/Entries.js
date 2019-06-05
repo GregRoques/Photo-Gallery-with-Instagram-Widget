@@ -12,7 +12,7 @@ import SetHeader from '../../Actions/SetHeader'
 import { logOut } from '../../Actions/Auth'
 
 // backend
-import { write, read} from '../../AxiosOrders'
+import { write, read } from '../../AxiosOrders'
 
 // =================================================================
 // Get Today's Date
@@ -31,6 +31,7 @@ class Entries extends Component{
         this.props.Header("Welcome, Greg");
         window.scrollTo(0, 0);
        
+        //Past Articles
         read.get()
         .then(response=>{
             const blogReturn = Object.values(response.data.users)[0]
@@ -51,7 +52,7 @@ class Entries extends Component{
         //Loading Previous Entries
             newEntry: false,
             entries:'',
-            updateArticleKey:''
+            updateArticleKey:'',
     }
 
     
@@ -213,7 +214,6 @@ class Entries extends Component{
                 <div className={entriesCSS.logOutTime}>
                     You will be logged out at <b>{localStorage.getItem('logOutTime')}</b>
                 </div>
-                
                 <div className={entriesCSS.posts}>
                     <input 
                         type="text" 
@@ -245,12 +245,12 @@ class Entries extends Component{
                     <button className={entriesCSS.publishButtons} onClick={()=>this.props.LogOut()}>Log Out</button>
                 </div>
             </div>
+            
         )
 
-        
     }
-
 }
+
 
 const mapStateToProps = state =>{
     return{

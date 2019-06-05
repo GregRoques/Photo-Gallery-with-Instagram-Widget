@@ -2,19 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import css from './signIn.module.css'
 
+import { kanye } from '../../AxiosOrders'
 import * as actions from '../../Actions/Auth'
 import SetHeader from '../../Actions/SetHeader'
 
 class SignIn extends Component{
 
-    state={
-        email:'',
-        password:''
-    }
-
     componentDidMount() {
         this.props.Header("Sign In");
         window.scrollTo(0, 0);
+
+        //Inspirational quote to keep me motivated
+        kanye.get()
+        .then(response=>{
+            this.setState({
+                inspirationalQuote: response.data.quote
+            })        
+        })
+    
+        .catch(error=> {
+            throw error
+        })
+    }
+
+    state={
+        email:'',
+        password:'',
+        inspirationalQuote:''
     }
 
 
@@ -43,7 +57,11 @@ submitHandler = (e) =>{
 
         return(
             <div>
-
+                {this.state.inspirationalQuote ? 
+                    <div className={css.quoteStyle}>
+                        "{this.state.inspirationalQuote}" <b><i>–Kanye West</i></b>
+                    </div> 
+                : null}
                 <div className={css.logInPosition}>
                     <div className={css.logInForm}>
                         <div>

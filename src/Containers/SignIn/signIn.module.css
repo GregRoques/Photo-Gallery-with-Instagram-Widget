@@ -1,5 +1,5 @@
 .logInPosition{
-    margin-top:5rem;
+    margin-top:3rem;
     margin-bottom:4rem;
     display:flex;
     flex-direction: row;
@@ -49,4 +49,9 @@
 
 .inputSubmit:active{
     background-color: rgb(0,183,241);
+}
+
+.quoteStyle{
+    text-align: center;
+    margin-top: 1rem;
 }
