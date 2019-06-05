@@ -12,7 +12,7 @@ import SetHeader from '../../Actions/SetHeader'
 import { logOut } from '../../Actions/Auth'
 
 // backend
-import { write, read } from '../../AxiosOrders'
+import { write, read, kanye } from '../../AxiosOrders'
 
 // =================================================================
 // Get Today's Date
@@ -42,6 +42,18 @@ class Entries extends Component{
         .catch(error=> {
             console.log(error);
         })
+
+          //Inspirational quote to keep me motivated
+          kanye.get()
+          .then(response=>{
+              this.setState({
+                  inspirationalQuote: response.data.quote
+              })        
+          })
+      
+          .catch(error=> {
+              console.log('Did the Earth stop rotating? Kanye is quiet... ', error)
+          })
     }
 
     state={
@@ -53,6 +65,8 @@ class Entries extends Component{
             newEntry: false,
             entries:'',
             updateArticleKey:'',
+        //For Funsies
+            inspirationalQuote:''
     }
 
     
@@ -94,7 +108,6 @@ class Entries extends Component{
             date: this.state.date,
             text: this.state.text
         }
-
 
         if(this.state.updateArticleKey && this.state.entries[this.state.updateArticleKey].date === this.state.date){
             write.patch(`${this.props.userId}/${this.state.updateArticleKey}/.json?auth=${this.props.idToken}`, myArticle)
@@ -218,14 +231,14 @@ class Entries extends Component{
                     <input 
                         type="text" 
                         maxLength="25"
-                        placeholder="title" 
+                        placeholder="Title" 
                         onChange={this.titleChangedHandler}
                         value={this.state.title}
                     />
                     <br/>
                     <input 
                         type="text" 
-                        placeholder="date" 
+                        placeholder="Date" 
                         maxLength="10"
                         onChange={this.dateChangedHandler}
                         value={this.state.date}
@@ -235,7 +248,8 @@ class Entries extends Component{
                         rows="20"
                         type="text"
                         maxLength="1200" 
-                        placeholder="text" 
+                        // placeholder="text" 
+                        placeholder={this.state.inspirationalQuote ? `Kanye Quote of the Day: "${this.state.inspirationalQuote}"` : "Text"}
                         onChange={this.textChangedHandler}
                         value={this.state.text}/>
                 </div>
