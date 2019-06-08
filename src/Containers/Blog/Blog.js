@@ -25,10 +25,9 @@ class Blog extends Component{
             if(window.location.pathname === '/blog'){
                 const lastObject = Object.keys(blogReturn).length - 1
                 displayArticle = Object.keys(blogReturn)[lastObject]
-                console.log(lastObject, displayArticle)
             }else{
                 displayArticle =(window.location.pathname).split('/blog/').pop()
-                console.log(displayArticle)
+
             }
             
             this.setState({
@@ -38,7 +37,8 @@ class Blog extends Component{
             this.props.Header('Blog')
         })
         .catch(error=> {
-            this.props.Header('Error Loading')
+            this.props.Header('Error');
+            console.log(Error)
         })
         window.scrollTo(0, 0);
     }
