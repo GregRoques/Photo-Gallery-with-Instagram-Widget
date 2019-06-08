@@ -10,10 +10,10 @@ import { connect } from "react-redux";
 import SetHeader from '../../Actions/SetHeader'
 
 class Blog extends Component{
-
     state = {
         currentEntry: (window.location.pathname).split("/blog/").pop()
     }
+
 
     componentDidMount() {
         if(!this.props.articles){
@@ -35,6 +35,7 @@ class Blog extends Component{
 
     
     render(){
+        
         return(
             <div className='fadeIn'>
                 <div className='blogAlign'>
