@@ -23,26 +23,22 @@ import Update from './Containers/SignIn/Update'
 class App extends Component {
 
   state={
-    entries:'',
-    article:''
+    entries:[]
   }
 
   componentDidMount(){
     this.props.onTryAutoSignUp();
-
-    if(window.location.path === '/blog' || window.location.path === '/blog/:article'){
+    
       read.get()
       .then(response=>{
           const blogReturn = Object.values(response.data.users)[0]
-          const currentEntryValue = Object.keys(blogReturn).length - 1
           this.setState({
-              article: Object.keys(blogReturn)[currentEntryValue]
+              entries: blogReturn 
           })
       })
       .catch(error=> {
-          console.log('error loading blog');
+          console.log('Error Loading Blog');
       })
-  }
   }
 
 
@@ -55,7 +51,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.article)
+    const currentEntryValue = Object.keys(this.state.entries).length - 1
+    const article =  Object.keys(this.state.entries)[currentEntryValue]
     return (
       <div>
         {/* HOC */}
@@ -68,10 +65,10 @@ class App extends Component {
               <Route exact path="/portfolio" component={Portfolio}/>
               {/* Blog Routing */}
               <Route exact path="/blog" 
-                component={()=> window.location.href = `http://localhost:3000/blog/${this.state.article}`}
-                articles={this.state.entries}
+                component={()=> window.location.href = `http://localhost:3000/blog/${article}`}
               />
-              <Route exact path='/blog/:article' articles={this.state.entries} component={Blog}/>
+              <Route exact path='/blog/:article' 
+              render={(routeProps)=> <Blog {...routeProps} articles={this.state.entries} />}/>
               {/* Backend Update Blog */}
               <Route exact path = '/user-update-blog' component={Update}/>
               {/* Re-Route Non-Existant Pages */}
