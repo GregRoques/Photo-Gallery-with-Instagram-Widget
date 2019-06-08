@@ -13,7 +13,7 @@ function Layout(props){
                 <div className="contentMargin">
                     {props.children}
                 </div>
-            <Footer/>
+            <Footer />
         </Aux>
         </div>
     )

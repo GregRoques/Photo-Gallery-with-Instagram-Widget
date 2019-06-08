@@ -15,15 +15,36 @@ import About from './Containers/About/About'
     import Design from './Containers/Design/Design' //subpage hyperlinked in bio on "about" page
 import Portfolio from './Containers/Portfolio/Portfolio'
 import Blog from './Containers/Blog/Blog'
+  import { read } from './AxiosOrders';
 
 // Backend Update for Blog
 import Update from './Containers/SignIn/Update'
 
 class App extends Component {
 
+  state={
+    entries:'',
+    article:''
+  }
+
   componentDidMount(){
     this.props.onTryAutoSignUp();
+
+    if(window.location.path === '/blog' || window.location.path === '/blog/:article'){
+      read.get()
+      .then(response=>{
+          const blogReturn = Object.values(response.data.users)[0]
+          const currentEntryValue = Object.keys(blogReturn).length - 1
+          this.setState({
+              article: Object.keys(blogReturn)[currentEntryValue]
+          })
+      })
+      .catch(error=> {
+          console.log('error loading blog');
+      })
   }
+  }
+
 
   NoPage = () =>{
     return(
@@ -34,6 +55,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.article)
     return (
       <div>
         {/* HOC */}
@@ -44,7 +66,12 @@ class App extends Component {
               <Route exact path="/about" component={About}/>
               <Route exact path="/media" component={Design}/>
               <Route exact path="/portfolio" component={Portfolio}/>
-              <Route exact path="/blog" component={Blog}/>
+              {/* Blog Routing */}
+              <Route exact path="/blog" 
+                component={()=> window.location.href = `http://localhost:3000/blog/${this.state.article}`}
+                articles={this.state.entries}
+              />
+              <Route exact path='/blog/:article' articles={this.state.entries} component={Blog}/>
               {/* Backend Update Blog */}
               <Route exact path = '/user-update-blog' component={Update}/>
               {/* Re-Route Non-Existant Pages */}
