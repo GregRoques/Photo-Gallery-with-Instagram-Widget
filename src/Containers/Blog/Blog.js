@@ -11,25 +11,36 @@ import { connect } from "react-redux";
 import SetHeader from '../../Actions/SetHeader'
 
 class Blog extends Component{
+
+    //=========================================================
+    // State
+
     state = {
         entries:'',
         currentEntry: ''
     }
 
+    //=========================================================
+    // componentDidMount
 
     componentDidMount() {
         read.get()
         .then(response=>{
-            let displayArticle = ''
-            const blogReturn = Object.values(response.data.users)[0]
+            let displayArticle = '';
+            const blogReturn = Object.values(response.data.users)[0];
+            const lastObject = Object.keys(blogReturn).length - 1;
             if(window.location.pathname === '/blog'){
-                const lastObject = Object.keys(blogReturn).length - 1
-                displayArticle = Object.keys(blogReturn)[lastObject]
+                displayArticle = Object.keys(blogReturn)[lastObject];
+                window.history.pushState(null, null, `/blog/${displayArticle}`);
             }else{
-                displayArticle =(window.location.pathname).split('/blog/').pop()
-
+                const currentPathname =(window.location.pathname).split('/blog/').pop();
+                if(blogReturn[currentPathname]){
+                    displayArticle = currentPathname;
+                }else{
+                    displayArticle = Object.keys(blogReturn)[lastObject];
+                    window.history.pushState(null, null, `/blog/${displayArticle}`);
+                }
             }
-            
             this.setState({
                 entries: blogReturn, 
                 currentEntry: blogReturn[displayArticle]
@@ -43,18 +54,21 @@ class Blog extends Component{
         window.scrollTo(0, 0);
     }
 
+    //=========================================================
+    // Event Listener
+
     click =(newPublish)=>{
         const currentEntryValue = this.state.entries[newPublish]
-        console.log(currentEntryValue)
+        window.history.pushState(null, null, `/blog/${newPublish}`)
        this.setState({
            currentEntry: currentEntryValue
        })
     }
 
+    //=========================================================
+    //  Render/Return
 
-    
     render(){
-        console.log()
         return(
             <div className='fadeIn'>
                 <div className='blogAlign'>
