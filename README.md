@@ -200,9 +200,9 @@ Launch new site with:
 ![Backend Login Page](public/readMeImages/backend1.png)
 
 ![Backend Update](public/readMeImages/backend2.png)
-... paragraph textarea-placeholder text courtesy of https://api.kanye.rest (https://kanye.rest/).
+> paragraph textarea-placeholder text courtesy of https://api.kanye.rest (https://kanye.rest/).
 
-![Backend Edit/Delete Old Articles](public/readMeImages/backend2.png)
+![Backend Edit/Delete Old Articles](public/readMeImages/backend3.png)
 
 
 
