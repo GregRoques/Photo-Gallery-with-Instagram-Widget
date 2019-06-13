@@ -230,7 +230,7 @@ class Entries extends Component{
                 <div className={entriesCSS.posts}>
                     <input 
                         type="text" 
-                        maxLength="25"
+                        maxLength="50"
                         placeholder="Title" 
                         onChange={this.titleChangedHandler}
                         value={this.state.title}
@@ -247,11 +247,12 @@ class Entries extends Component{
                     <textarea
                         rows="20"
                         type="text"
-                        maxLength="1200" 
+                        maxLength="5000" 
                         // placeholder="text" 
                         placeholder={this.state.inspirationalQuote ? `Kanye Quote of the Day: "${this.state.inspirationalQuote}"` : "Text"}
                         onChange={this.textChangedHandler}
-                        value={this.state.text}/>
+                        value={this.state.text}
+                    />
                 </div>
                 <div className={entriesCSS.buttonPosition}>
                     <button className={entriesCSS.publishButtons} onClick={()=> this.submitHandler()}>Submit</button>
