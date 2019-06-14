@@ -18,7 +18,8 @@ This site (www.GregRoques.com) is an updated version of my personal Portfolio pa
 - Google Firebase
 
 ### Packages
-- npm i react
+- npx create-react-app
+- npm i react-router-dom
 - npm i redux
 - npm i react-redux
 - npm i redux-devtools
