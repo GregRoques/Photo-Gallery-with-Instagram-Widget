@@ -12,12 +12,20 @@
 # Description
 This site (www.GregRoques.com) is an updated version of my personal Portfolio page created using React and Redux. I chose to recreate my former site, built with vanilla JS and Bootstrap, to allow for cleaner content routing and more dyanmic animation rendering.
 
-
 # Technologies
 - React/Redux
 - HTML/CSS/JavaScript
 - Google Firebase
 
+### Packages
+- npm i react
+- npm i redux
+- npm i react-redux
+- npm i redux-devtools
+- npm i redux-thunk
+- npm i axios
+- npm i emotion
+- npm i react-html-parser
 
 # Challenges & Solutions
 ###   1. Home Page redirect animations:
