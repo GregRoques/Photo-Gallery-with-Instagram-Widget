@@ -268,7 +268,6 @@ class Entries extends Component{
                         rows="20"
                         type="text"
                         maxLength="5000" 
-                        // placeholder="text" 
                         placeholder={this.state.textPlaceholder}
                         onChange={this.textChangedHandler}
                         value={this.state.text}
