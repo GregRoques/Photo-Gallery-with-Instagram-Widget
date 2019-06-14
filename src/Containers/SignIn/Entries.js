@@ -47,7 +47,7 @@ class Entries extends Component{
           kanye.get()
           .then(response=>{
               this.setState({
-                  inspirationalQuote: response.data.quote
+                  textPlaceholder: `Kanye Quote of the Day: "${response.data.quote}"`
               })        
           })
       
@@ -61,12 +61,14 @@ class Entries extends Component{
             title:'',
             date: todayReadableDate,
             text:'',
+        //Article Placeholder
+            titlePlaceholder: 'Title',
+            datePlaceholder: todayReadableDate,
+            textPlaceholder: "Text",
         //Loading Previous Entries
             newEntry: false,
             entries:'',
             updateArticleKey:'',
-        //For Funsies
-            inspirationalQuote:''
     }
 
     
@@ -109,36 +111,12 @@ class Entries extends Component{
             text: this.state.text
         }
 
-        if(this.state.updateArticleKey && this.state.entries[this.state.updateArticleKey].date === this.state.date){
-            write.patch(`${this.props.userId}/${this.state.updateArticleKey}/.json?auth=${this.props.idToken}`, myArticle)
-            .then(response=>{
-                this.props.Header('Post Successful');
-
-                read.get()
-                .then(response=>{
-                    const blogReturn = Object.values(response.data.users)[0]
-                    this.setState({
-                        entries: blogReturn,
-                        updateArticleKey: '',
-                        title: '',
-                        date: '',
-                        text: ''                        
-                    })
-                })
-                .catch(error=> {
-                    console.log('Could Not Load Saved Blog Articles.');
-                })
-            })
-                .catch(error=>{ 
-                    this.props.Header('Post Error');
-                    console.log(error)
-            })
-            
-        } else{
-            write.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
+        if(myArticle.title && myArticle.date && myArticle.text){
+            if(this.state.updateArticleKey && this.state.entries[this.state.updateArticleKey].date === this.state.date){
+                write.patch(`${this.props.userId}/${this.state.updateArticleKey}/.json?auth=${this.props.idToken}`, myArticle)
                 .then(response=>{
                     this.props.Header('Post Successful');
-                
+
                     read.get()
                     .then(response=>{
                         const blogReturn = Object.values(response.data.users)[0]
@@ -147,17 +125,59 @@ class Entries extends Component{
                             updateArticleKey: '',
                             title: '',
                             date: '',
-                            text: ''
+                            text: ''                        
                         })
                     })
                     .catch(error=> {
                         console.log('Could Not Load Saved Blog Articles.');
                     })
                 })
-            .catch(error=>{ 
-                this.props.Header('Post Error');
-                console.log(error)
-            })
+                    .catch(error=>{ 
+                        this.props.Header('Post Error');
+                        console.log(error)
+                })
+                
+            } else{
+                write.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
+                    .then(response=>{
+                        this.props.Header('Post Successful');
+                    
+                        read.get()
+                        .then(response=>{
+                            const blogReturn = Object.values(response.data.users)[0]
+                            this.setState({
+                                entries: blogReturn,
+                                updateArticleKey: '',
+                                title: '',
+                                date: '',
+                                text: ''
+                            })
+                        })
+                        .catch(error=> {
+                            console.log('Could Not Load Saved Blog Articles.');
+                        })
+                    })
+                .catch(error=>{ 
+                    this.props.Header('Post Error');
+                    console.log(error)
+                })
+            }
+        }else{
+           if (!myArticle.text){
+               this.setState({
+                   textPlaceholder: 'You Must Fill In Every Field'
+               })
+           }
+           if (!myArticle.date){
+                this.setState({
+                    datePlaceholder: 'You Must Fill In Every Field'
+                })
+            }
+            if (!myArticle.title){
+                this.setState({
+                    titlePlaceholder: 'You Must Fill In Every Field'
+                })
+            }
         }
     }
 
@@ -231,14 +251,14 @@ class Entries extends Component{
                     <input 
                         type="text" 
                         maxLength="50"
-                        placeholder="Title" 
+                        placeholder={this.state.titlePlaceholder}
                         onChange={this.titleChangedHandler}
                         value={this.state.title}
                     />
                     <br/>
                     <input 
                         type="text" 
-                        placeholder="Date" 
+                        placeholder={this.state.datePlaceholder}
                         maxLength="10"
                         onChange={this.dateChangedHandler}
                         value={this.state.date}
@@ -249,7 +269,7 @@ class Entries extends Component{
                         type="text"
                         maxLength="5000" 
                         // placeholder="text" 
-                        placeholder={this.state.inspirationalQuote ? `Kanye Quote of the Day: "${this.state.inspirationalQuote}"` : "Text"}
+                        placeholder={this.state.textPlaceholder}
                         onChange={this.textChangedHandler}
                         value={this.state.text}
                     />
