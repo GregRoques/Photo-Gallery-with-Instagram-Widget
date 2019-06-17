@@ -37,6 +37,14 @@ class App extends Component {
     )
   }
 
+  lookAtThisPhotograph = () =>{
+    return(
+      <div>
+          <Redirect push to='/media'/>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
@@ -47,6 +55,7 @@ class App extends Component {
               <Route path="/" exact component={Home}/>
               <Route exact path="/about" component={About}/>
               <Route exact path="/media" component={Design}/>
+              <Route exact path="/photography" component={this.lookAtThisPhotograph}/>
               <Route exact path="/portfolio" component={Portfolio}/>
               {/* Blog Routing */}
               <Route exact path="/blog" component={Blog}/>
