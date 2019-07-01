@@ -9,7 +9,6 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 
 
 export const authSuccess = (idToken, userId) => {
-    // console.log(idToken, '   THIS IS THE SECOND ID:   ', userId)
     return{
         type: AUTH_SUCCESS,
         idToken,
@@ -18,7 +17,6 @@ export const authSuccess = (idToken, userId) => {
 }
 
 export const authFail = (error) => {
-    // console.log(error)
     return{
         type: AUTH_FAIL,
         error
@@ -44,7 +42,6 @@ export const checkAuthTimeOut = (expirationTime) => {
 }
 
 export const auth = (email, password) =>{
-    // console.log(email, password)
     return dispatch =>{
 
         const authData={
@@ -52,7 +49,6 @@ export const auth = (email, password) =>{
             password,
             returnSecureToken: true
         };
-        // console.log(authData)
         axios.post(AuthURL, authData)
         .then(response =>{
             // Figure Out Time Left While Logged In

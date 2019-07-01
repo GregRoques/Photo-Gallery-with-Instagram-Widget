@@ -96,7 +96,6 @@ const ProjectOnDisplay = ({title}) =>{
                 </div>
                 {display['languages'].map((language, i) => {
                     const altText = language.replace(/\.[^/.]+$/, "")
-                    // console.log(altText)
                     return(
                         <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
                     )
@@ -137,7 +136,6 @@ const ProjectOnDisplay = ({title}) =>{
                 </div>
                 {display['languages'].map((language, i) => {
                     const altText = language.replace(/\.[^/.]+$/, "")
-                    // console.log(altText)
                     return(
                         <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
                         )

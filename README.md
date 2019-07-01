@@ -18,15 +18,26 @@ This site (www.GregRoques.com) is an updated version of my personal Portfolio pa
 - Google Firebase
 
 ### Packages
+React/Router:
 - npx create-react-app
 - npm i react-router-dom
+
+Redux w/ dev tools and middleware:
 - npm i redux
 - npm i react-redux
 - npm i redux-devtools
 - npm i redux-thunk
+
+Axios calls and HTML parsing:
 - npm i axios
-- npm i emotion
 - npm i react-html-parser
+
+CSS in JS for homepage:
+- npm i emotion
+
+Google Analytics:
+- npm i react-ga
+- npm i history
 
 # Challenges & Solutions
 ###   1. Home Page redirect animations:

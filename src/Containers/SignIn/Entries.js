@@ -182,7 +182,6 @@ class Entries extends Component{
     }
 
     updateHandler = updateInfo =>{
-        console.log(updateInfo)
         this.setState({
             title: this.state.entries[updateInfo].title,
             date: this.state.entries[updateInfo].date,

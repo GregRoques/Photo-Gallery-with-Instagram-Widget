@@ -25,7 +25,6 @@ const magList ={
 }
 
 const IssueList = ({mag}) => {
-    // console.log(mag)
     return(
         <div className='magContainers'>
             <a rel="noopener noreferrer" target="_blank" href={magList[mag]['link']} >
