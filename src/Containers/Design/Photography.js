@@ -25,7 +25,7 @@ const musicPhotos = {
     4:{
         band: 'The Legend of Zelda: Symphony of the Goddesses',
         image: 'images/design/musicPhotog/zelda.jpg',
-        website: 'http://www.whereyat.com/a-link-to-the-pas'
+        website: 'https://www.whereyat.com/a-link-to-the-past'
     },
     5:{
         band: 'Drake ft. Migos',
@@ -48,7 +48,7 @@ const musicPhotos = {
         website: 'https://www.whereyat.com/fall-out-boy-light-up-the-smoothie-king-center2'
     },
     9:{
-        band: 'Follow On Instagram',
+        band: 'Instagram: @QtrMileAtATime',
         image: 'images/design/musicPhotog/insta.jpg',
         website: 'https://www.instagram.com/qtrmileatatime/'
     }
