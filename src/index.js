@@ -13,7 +13,6 @@ import reducers from "./Reducers/RootReducer.js";
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 import { trackingId } from './AxiosOrders'
-import { get } from 'http';
 
 const history = createBrowserHistory();
 ReactGA.initialize(trackingId);

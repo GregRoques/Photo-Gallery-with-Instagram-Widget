@@ -69,19 +69,12 @@ flex-direction: column;
 /* =================================================================== Pic and Video Portfolio */
 
 .picPortfolio{
-    max-width:100%;
     width: 400px;
     box-shadow: 2px 2px 3px rgb(0,0,0, 0.65);
 }
 
 
 .vidPortfolio{
-    /* position: absolute; */
-    /* top:50%;
-    left: 50%; */
-    /* transform: translateX(-50%) translateY(-50%); */
-
-    max-width:100%;
     width: 400px;
     box-shadow: 2px 2px 3px rgb(0,0,0, 0.65);
 }
@@ -253,10 +246,8 @@ flex-direction: column;
     }
 
     .vidPortfolio{
-        
         width: 450px;
         margin-bottom:1.5rem;
-       
     }
 }
 
@@ -327,6 +318,12 @@ flex-direction: column;
     .profileProjectName{
         font-size:2rem;
     }
+
+    .vidPortfolio{
+        width: 100%;
+        object-fit:contain;
+        margin-bottom:1.5rem;
+    }
 }
 
 @media screen and (max-width:729px){
@@ -360,7 +357,8 @@ flex-direction: column;
 
 
     .picPortfolio{
-        width:400px;
+        width:100%;
+        object-fit:contain;
         margin-bottom:1.5rem;
     }
 
