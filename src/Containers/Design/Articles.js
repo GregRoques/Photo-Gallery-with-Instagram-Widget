@@ -33,10 +33,10 @@ const articleList ={
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
     6:{
-        title: `Louisiana's Most Haunted House`,
+        title: `Glamping Near NOLA`,
         category: 'Culture',
-        image: 'images/design/articles/myrtles.jpg',
-        link: 'https://www.whereyat.com/the-worlds-most-haunted-house-the-myrtles'
+        image: 'images/design/articles/glamping.jpg',
+        link: 'https://www.whereyat.com/glamorous-camping-glamping'
     },
     7:{
         title: 'Interview with Broken Social Scene',
