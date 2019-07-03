@@ -33,10 +33,10 @@ const articleList ={
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
     6:{
-        title: 'Video Games Based in New Orleans pt.1',
+        title: `Louisiana's Most Haunted House`,
         category: 'Culture',
-        image: 'images/design/articles/videogame.jpg',
-        link: 'https://www.whereyat.com/video-games-set-in-new-orleans6'
+        image: 'images/design/articles/myrtles.jpg',
+        link: 'https://www.whereyat.com/the-worlds-most-haunted-house-the-myrtles'
     },
     7:{
         title: 'Interview with Broken Social Scene',
