@@ -12,14 +12,13 @@ import { authCheckState } from './Actions/Auth'
 // Visitor Pages
 import Home from './Containers/Home/Home';
 import About from './Containers/About/About'
-    import Design from './Containers/Design/Design' //subpage hyperlinked in bio on "about" page
+    import Design from './Containers/Design/Design' 
+    import Photography from './Containers/Photography/Photography'
 import Portfolio from './Containers/Portfolio/Portfolio'
 import Blog from './Containers/Blog/Blog'
 
 // Backend Update for Blog
 import Update from './Containers/SignIn/Update'
-
-
 
 class App extends Component {
 
@@ -39,14 +38,6 @@ class App extends Component {
     )
   }
 
-  lookAtThisPhotograph = () =>{
-    return(
-      <div>
-          <Redirect push to='/media'/>
-      </div>
-    )
-  }
-
   render() {
     return (
       <div>
@@ -54,18 +45,19 @@ class App extends Component {
          <Layout >
            <Switch>
                {/* Vistor Pages */}
-              <Route path="/" exact component={Home}/>
-              <Route exact path="/about" component={About}/>
-              <Route exact path="/media" component={Design}/>
-              <Route exact path="/photography" component={this.lookAtThisPhotograph}/>
-              <Route exact path="/portfolio" component={Portfolio}/>
+                <Route path="/" exact component={Home}/>
+                <Route exact path="/about" component={About}/>
+                <Route exact path="/portfolio" component={Portfolio}/>
+                <Route exact path="/media" component={Design}/>
               {/* Blog Routing */}
-              <Route exact path="/blog" component={Blog}/>
-              <Route exact path='/blog/:article' component={Blog}/>
+                <Route exact path="/blog" component={Blog}/>
+                <Route exact path='/blog/:article' component={Blog}/>
+              {/* Photography Routing */}
+                <Route exact path="/photography" component={Photography}/>
               {/* Backend Update Blog */}
-              <Route exact path = '/user-update-blog' component={Update}/>
+                <Route exact path = '/user-update-blog' component={Update}/>
               {/* Re-Route Non-Existant Pages */}
-              <Route component ={this.NoPage}/>
+                <Route component ={this.NoPage}/>
            </Switch>
         </Layout>
       </div>

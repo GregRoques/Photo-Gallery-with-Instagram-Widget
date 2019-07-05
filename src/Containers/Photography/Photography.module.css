@@ -1,0 +1,52 @@
+.galleryContainer{
+    border-radius: 25px;
+    background-color: lightgray;
+    padding:4rem;
+    text-align:center;
+}
+
+.gridContainer {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, 10rem);
+    justify-content: center;
+    text-align:center;
+    grid-gap: 4rem;
+    /* grid-auto-rows: minmax(8rem, auto) */
+}
+
+.socialIcon{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    font-family: 'Grand Hotel', cursive;
+    margin-top: 2rem;
+}
+
+.socialIcon IMG{
+    width: 1.5rem;
+}
+
+
+/* ===================================================== Fade */
+.fadeIn{
+    animation-name: fadeIn;
+    animation-duration:2s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+/* ================ Dummy Data */
+
+.box {
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius:50%;
+    background-color: blue;
+}

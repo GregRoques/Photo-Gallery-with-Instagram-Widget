@@ -48,9 +48,9 @@ const musicPhotos = {
         website: 'https://www.whereyat.com/fall-out-boy-light-up-the-smoothie-king-center2'
     },
     9:{
-        band: 'Instagram: @QtrMileAtATime',
+        band: 'More Photos',
         image: 'images/design/musicPhotog/insta.jpg',
-        website: 'https://www.instagram.com/qtrmileatatime/'
+        website: 'https://www.gregroques.com/photography'
     }
 }
 

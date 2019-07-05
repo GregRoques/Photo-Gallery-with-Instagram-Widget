@@ -10,7 +10,7 @@ function Layout(props){
         <div className="layoutBody">
         <Aux>
             <Header header={props.header}/>
-                <div className="contentMargin">
+                <div className="contentMargin fadeIn">
                     {props.children}
                 </div>
             <Footer />
