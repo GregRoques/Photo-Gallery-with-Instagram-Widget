@@ -5,17 +5,22 @@ import SetHeader from '../../Actions/SetHeader'
 import { SetPhotoArray } from '../../Actions/PhotoArray'
 
 var photoArray = {}
-var currentPathname
+
 class Pictures extends Component{
 
     componentDidMount(){
-        currentPathname =((window.location.pathname).split('/photography/').pop()).replace(/["_"]/g, " ");
 
         if(this.props.header !== "Photography"){
             this.props.Header("Photography");
         }
 
         window.scrollTo(0, 0);
+
+    }
+
+    render(){
+
+        var currentPathname =((window.location.pathname).split('/photography/').pop()).replace(/["_"]/g, " ");
 
         if(this.props.reduxPhoto === null){
             const folderNames = require.context('../../../public/images/photography/').keys()
@@ -33,22 +38,16 @@ class Pictures extends Component{
         } else {
           photoArray = this.props.reduxPhoto
         }
-        if(Object.keys(photoArray).includes(currentPathname) === false){ 
-            this.props.history.push(`/photography`)
-        }
-    }
-
-    render(){
         
         return(
             <div className = { css.fadeIn }>
                 <div className = { css.galleryContainer }>
                     <div className = { css.photoGrid }>
-                        {/* {photoArray[currentPathname].map((image, i) => {
+                        { photoArray[currentPathname] ? photoArray[currentPathname].map((image, i) => {
                             return(
                                <img className={css.photoBox} key={ i } alt={ currentPathname + i } src={'/images/photography/'+ image}/>
                             )
-                        })} */}
+                        }): this.props.history.push(`/photography`) } 
                     </div>
                 </div>
             </div>
