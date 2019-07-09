@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
 
 import headerReducer from "./HeaderReducer";
-
+import photoArrayReducer from './PhotoArrayReducer'
 import authReducer from './Auth'
 
 
@@ -9,7 +9,8 @@ import authReducer from './Auth'
 
 const RootReducer = combineReducers({
     header: headerReducer,
-    auth: authReducer
+    auth: authReducer,
+    reduxPhoto: photoArrayReducer
 })
 
 export default RootReducer;

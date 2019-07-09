@@ -69,3 +69,22 @@
     justify-content: center;
     text-align: center;
   }
+
+  /* =========================== Photos */
+  .photoGrid {
+    display:grid;
+    margin:auto;
+    grid-template-columns: repeat(auto-fill, 12rem);
+    justify-content: center;
+    text-align:center;
+    grid-gap: 1rem;
+  }
+
+  .photoBox {
+    width: 200px;
+    height: 200px;
+    background-image: cover;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 10px;
+  }
