@@ -54,6 +54,7 @@ class App extends Component {
                 <Route exact path='/blog/:article' component={Blog}/>
               {/* Photography Routing */}
                 <Route exact path="/photography" component={Photography}/>
+                <Route exact path="/photography/:album" component={Photography}/>
               {/* Backend Update Blog */}
                 <Route exact path = '/user-update-blog' component={Update}/>
               {/* Re-Route Non-Existant Pages */}
