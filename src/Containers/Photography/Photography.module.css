@@ -88,3 +88,17 @@
     border-color: transparent;
     border-width: 10px;
   }
+
+  .albumTitleText{
+    text-align: center;
+    color: rgb(0,183,241);
+  }
+
+  .photoGalleryContainer{
+    border-radius: 25px;
+    background-color: lightgray;
+    margin-top:2rem;
+    padding:3rem;
+    justify-content: center;
+    text-align:center;
+  }

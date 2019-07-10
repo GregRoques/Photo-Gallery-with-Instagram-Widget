@@ -13,7 +13,6 @@ class Pictures extends Component{
         if(this.props.header !== "Photography"){
             this.props.Header("Photography");
         }
-
         window.scrollTo(0, 0);
 
     }
@@ -41,7 +40,8 @@ class Pictures extends Component{
         
         return(
             <div className = { css.fadeIn }>
-                <div className = { css.galleryContainer }>
+                <h1 className = {css.albumTitleText}>{currentPathname}</h1>
+                <div className = { css.photoGalleryContainer }>
                     <div className = { css.photoGrid }>
                         { photoArray[currentPathname] ? photoArray[currentPathname].map((image, i) => {
                             return(
