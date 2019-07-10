@@ -9,7 +9,6 @@ var photoArray = {}
 class Pictures extends Component{
 
     componentDidMount(){
-
         if(this.props.header !== "Photography"){
             this.props.Header("Photography");
         }
@@ -20,7 +19,6 @@ class Pictures extends Component{
     render(){
 
         var currentPathname =((window.location.pathname).split('/photography/').pop()).replace(/["_"]/g, " ");
-
         if(this.props.reduxPhoto === null){
             const folderNames = require.context('../../../public/images/photography/').keys()
             folderNames.forEach(folder=>{

@@ -21,6 +21,9 @@ class Photography extends Component{
         }
     
       render(){
+        if (window.location.pathname === "/photography/"){
+          this.props.history.push(`/photography`)
+        }
         if(this.props.reduxPhoto === null){
             const folderNames = require.context('../../../public/images/photography/').keys()
             folderNames.forEach(folder=>{
