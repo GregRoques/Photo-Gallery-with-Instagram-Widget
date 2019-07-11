@@ -81,14 +81,14 @@ class Pictures extends Component{
 
         if(this.state.modalShow){
             modalPhotoGallery=(
-                <div >
+                <div className= { css.photoModal } >
                     <div onClick={()=> this.pictureDisplayOff()}>x</div>
-                    <div>
-                        <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
-                    </div>
+                   
+                    <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
+                   
                     <div onClick={()=>this.clickL(this.state.modalPhoto, currentPathname)}>{`<`}</div>
                     <div onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
-                    <div>
+                    <div className ={ css.pictureCounter }>
                         { this.state.modalPhoto +1 }/{ photoArray[currentPathname].length }
                     </div>
                 </div>
