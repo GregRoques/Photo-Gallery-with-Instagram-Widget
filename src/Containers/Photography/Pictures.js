@@ -21,12 +21,41 @@ class Pictures extends Component{
         window.scrollTo(0, 0);
     }
 
-    pictureDisplay = (currentPhoto) =>{
+    pictureDisplayOn = (currentPhoto) =>{
         this.setState(prevState =>({
             modalShow: !prevState.modalShow,
             modalPhoto: currentPhoto
         }))
 
+    }
+
+    pictureDisplayOff = () =>{
+        this.setState(prevState=>({
+            modalShow: !prevState.modalShow,
+            modalPhoto: null
+        }))
+    }
+
+    clickL = (i, album) =>{
+        i--
+        if(i<0){
+            i = photoArray[album].length - 1
+        }
+
+        this.setState({
+            modalPhoto: i
+        })
+    }
+
+    clickR = (i, album) =>{
+        i++
+        if(i> photoArray[album].length - 1){
+            i = 0
+        }
+
+        this.setState({
+            modalPhoto: i
+        })
     }
 
     render(){
@@ -51,14 +80,16 @@ class Pictures extends Component{
         }
 
         if(this.state.modalShow){
-            let photoNum = this.state.modalPhoto
             modalPhotoGallery=(
-                <div className= { css.photoModal }>
+                <div >
+                    <div onClick={()=> this.pictureDisplayOff()}>x</div>
                     <div>
-                        <img alt={ currentPathname + photoNum } src={'/images/photography/' + photoArray[currentPathname][photoNum] }/>
+                        <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
                     </div>
+                    <div onClick={()=>this.clickL(this.state.modalPhoto, currentPathname)}>{`<`}</div>
+                    <div onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
                     <div>
-                        { photoNum +1 }/{ photoArray[currentPathname].length }
+                        { this.state.modalPhoto +1 }/{ photoArray[currentPathname].length }
                     </div>
                 </div>
             )
@@ -73,7 +104,7 @@ class Pictures extends Component{
                         { photoArray[currentPathname] ? photoArray[currentPathname].map((image, i) => {
                             return(
                                 <div key={ i } className={css.photoBox}>
-                                    <img onClick={() => this.pictureDisplay(i) } alt={ currentPathname + i } src={'/images/photography/'+ image}/>
+                                    <img onClick={() => this.pictureDisplayOn(i) } alt={ currentPathname + i } src={'/images/photography/'+ image}/>
                                 </div>
                             )
                         }): this.props.history.push(`/photography`) } 
