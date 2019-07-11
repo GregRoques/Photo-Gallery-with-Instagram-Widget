@@ -30,18 +30,19 @@ class PhotoGallery extends Component{
       })
     }
 
-    render(){
-
+  render(){
     return(
       <div className= { css.centerText }>
-        <img 
-          className = { css.box }
-          src = { './images/photography/'+ this.props.images[this.props.album][this.state.currentImage]}
-          alt = { this.props.album }
-          onMouseEnter = {()=> this.maskOn(Object.values(this.props.images[this.props.album]))}
-          onMouseLeave ={()=> this.maskOff()}
-          onClick ={()=> this.props.selectAlbumHandler(this.props.album)}
-        />
+        <div className= { css.box }>
+          <img 
+            
+            src = { './images/photography/'+ this.props.images[this.props.album][this.state.currentImage]}
+            alt = { this.props.album }
+            onMouseEnter = {()=> this.maskOn(Object.values(this.props.images[this.props.album]))}
+            onMouseLeave ={()=> this.maskOff()}
+            onClick ={()=> this.props.selectAlbumHandler(this.props.album)}
+          />
+        </div>
         { this.props.album }
       </div>
     )

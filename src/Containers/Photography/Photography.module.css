@@ -29,6 +29,7 @@
   
   
   /* ===================================================== Fade */
+
   .fadeIn{
     animation-name: fadeIn;
     animation-duration:2s;
@@ -55,6 +56,14 @@
     border-width: 10px;
     margin-bottom:1rem;
     transition: 0.5s ;
+  }
+
+  .box IMG{
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center;
   }
   
   .box:hover{
@@ -83,10 +92,17 @@
   .photoBox {
     width: 200px;
     height: 200px;
-    background-image: cover;
+    object-fit: cover;
     border-style: solid;
     border-color: transparent;
     border-width: 10px;
+  }
+
+  .photoBox IMG {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    object-position: center;
   }
 
   .albumTitleText{
@@ -102,3 +118,17 @@
     justify-content: center;
     text-align:center;
   }
+
+  /* ============================== Photo Modal */
+
+  .photoModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    transition:  linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    z-index: 8;
+}
