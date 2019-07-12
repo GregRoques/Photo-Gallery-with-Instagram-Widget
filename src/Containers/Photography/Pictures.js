@@ -82,12 +82,14 @@ class Pictures extends Component{
         if(this.state.modalShow){
             modalPhotoGallery=(
                 <div className= { css.photoModal } >
-                    <div onClick={()=> this.pictureDisplayOff()}>x</div>
-                   
-                    <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
-                   
-                    <div onClick={()=>this.clickL(this.state.modalPhoto, currentPathname)}>{`<`}</div>
-                    <div onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
+                    <div className={ css.closePhotoModal } onClick={()=> this.pictureDisplayOff()}>x</div>
+                    <div className ={ css.photoContent}>
+                        <div className={ css.imageGalleryButtons } onClick={()=>this.clickL(this.state.modalPhoto, currentPathname)}>{`<`}</div>
+                        <div className={ css.sliderContainer }>
+                            <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
+                        </div>
+                        <div className={ css.imageGalleryButtons } onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
+                    </div>
                     <div className ={ css.pictureCounter }>
                         { this.state.modalPhoto +1 }/{ photoArray[currentPathname].length }
                     </div>
