@@ -1,3 +1,7 @@
+.galleryContainer{
+  text-align: center;
+}
+  
   .gridContainer {
     display:grid;
     margin:auto;
