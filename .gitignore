@@ -2,7 +2,8 @@
 
 # /public/images/photography
 
-/public/images/photography/
+/public/images/photography
+# /images/photog
 
 # dependencies
 /node_modules
