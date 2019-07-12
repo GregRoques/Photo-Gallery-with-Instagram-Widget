@@ -1,19 +1,9 @@
-.galleryContainer{
-    border-radius: 25px;
-    background-color: lightgray;
-    margin-top:4rem;
-    padding:3rem;
-    justify-content: center;
-    text-align:center;
-  }
-  
   .gridContainer {
     display:grid;
     margin:auto;
-    grid-template-columns: repeat(auto-fill, 12rem);
     justify-content: center;
     text-align:center;
-    grid-gap: 4rem;
+    row-gap: 2rem;
   }
   
   .socialIcon{
@@ -83,10 +73,8 @@
   .photoGrid {
     display:grid;
     margin:auto;
-    grid-template-columns: repeat(auto-fill, 12rem);
-    justify-content: center;
+    justify-content: center; 
     text-align:center;
-    grid-gap: 1rem;
   }
 
   .photoBox {
@@ -110,14 +98,6 @@
     color: rgb(0,183,241);
   }
 
-  .photoGalleryContainer{
-    border-radius: 25px;
-    background-color: lightgray;
-    margin-top:2rem;
-    padding:3rem;
-    justify-content: center;
-    text-align:center;
-  }
 
   /* ============================== Photo Modal */
 
@@ -145,7 +125,6 @@
 
 .photoContent{
   position: absolute;
-  /* margin-top: 1rem; */
   display:flex;
   flex-direction: row;
   left: 50%;
@@ -201,3 +180,52 @@
   padding: 10px;
 }
 
+/* =============================================== Media Queries */
+
+/* =================================== Photos */
+
+@media screen and (min-width: 460px){
+  .photoGalleryContainer{
+    border-radius: 25px;
+    background-color: lightgray;
+    margin-top:2rem;
+    padding:3rem;
+    justify-content: center;
+    text-align:center;
+  }
+}
+
+@media screen and (min-width: 672px){
+ .photoGrid {
+    display:grid;
+    margin:auto;
+    grid-template-columns: repeat(auto-fill, 12rem);
+    justify-content: center; 
+    text-align:center;
+    column-gap: 1.75rem;
+  }
+}
+
+/* =================================== Albums */
+
+@media screen and (min-width: 712px){
+  .gridContainer {
+    display:grid;
+    margin:auto;
+    grid-template-columns: repeat(auto-fill, 12rem);
+    justify-content: center;
+    text-align:center;
+    grid-gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 386px){
+  .galleryContainer{
+    border-radius: 25px;
+    background-color: lightgray;
+    margin-top:4rem;
+    padding:3rem;
+    justify-content: center;
+    text-align:center;
+  }
+}

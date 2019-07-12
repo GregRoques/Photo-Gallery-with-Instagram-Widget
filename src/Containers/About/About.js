@@ -23,8 +23,7 @@ const backEnd = [
     'python.png',
     'nodejs.png',
     'express.png',
-    'mysql.png',
-    'postgresql.png',
+    'mysql.png'
 ]
 
 const graphicDesign = [
