@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/public/images/photography
+./public/images/photography
 /images/photography
 
 # dependencies
@@ -9,7 +9,6 @@
 .pnp.js
 .AxiosOrders.js
 AxiosOrders.js
-%PUBLIC_URL%/images/photography
 
 # testing
 /coverage
