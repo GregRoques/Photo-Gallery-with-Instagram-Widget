@@ -9,7 +9,7 @@
 .pnp.js
 .AxiosOrders.js
 AxiosOrders.js
-/public/images/photography
+%PUBLIC_URL%/images/photography
 
 # testing
 /coverage
