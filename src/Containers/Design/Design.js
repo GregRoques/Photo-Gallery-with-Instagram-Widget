@@ -25,7 +25,7 @@ class Design extends Component{
                 <Magazines/>
                 <Photography/>
                 <Articles/>
-                <Film />
+                <Film/>
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link>

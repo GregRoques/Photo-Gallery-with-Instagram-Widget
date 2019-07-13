@@ -3,7 +3,6 @@
 
 #photoGallery
 /public/images/photography
-/public/images/portfolioImages/pizzaCat.mp4
 
 # dependencies
 /node_modules

@@ -57,10 +57,10 @@ class Footer extends Component{
                 </div>
                 
                 <div className="resume socialIcon">
-                    <Link to="images/socialIcons/Resume.pdf" rel="noopener noreferrer" target="_blank">
+                    <a rel="noopener noreferrer" target="_blank" href='https://www.dropbox.com/s/qsrj71oqsz21y0z/Resume.pdf?dl=0' >
                         <img className="resume1"  src= '/images/socialIcons/pdf2.jpg' alt='2019 Resume'/>
                         <img className="resume2" src= '/images/socialIcons/pdf1.jpg' alt='2019 Resume'/>
-                    </Link>
+                    </a>
                 </div>
             </div>
         </div>
