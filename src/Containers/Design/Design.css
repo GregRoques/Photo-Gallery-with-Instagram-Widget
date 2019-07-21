@@ -83,15 +83,16 @@
 
 .mags{
   display:flex;
+  margin:0;
   text-align: center;
   align-items: center;
   justify-content: center;
   width: 100%;
   background-image: cover;
-  margin:auto;
   vertical-align: center;
-  
 }
+
+
 
 .mags IMG{
   height: inherit;
@@ -100,8 +101,8 @@
   object-position: center;
 }
 
-
 .imgDescription{
+  width:275px;
   position:absolute;
   color: white;
   font-family: serif;
@@ -181,9 +182,6 @@
 
 /* ============================================ Responsiveness */
 
-@media screen and (max-width: 1289px){
-
-}
 
 @media screen and (max-width: 1149px){
   .magGrid{
@@ -208,7 +206,8 @@
   .imgDescription{
     font-size: 1.15rem;
     font-weight: bold;
-}
+    text-shadow: 1px 1px .9px black;
+  }
 
 }
 
@@ -240,7 +239,8 @@
   }
 
   .imgDescription{
-    font-size: 1.25rem;
+    width:250px;
+    font-size: 1.1rem;
     font-weight: bold;
   }
 
@@ -255,6 +255,10 @@
     grid-template-columns: repeat(auto-fill, 20rem);
   }
 
+  .imgDescription{
+    font-size: 1.15rem;
+    font-weight: bold;
+  }
 }
 
 @media screen and (max-width: 449px){
@@ -288,7 +292,8 @@
 
 
   .imgDescription{
-    font-size: 1.15rem;
+    width:175px;
+    font-size: 1rem;
     font-weight: bold;
 }
 

@@ -58,9 +58,9 @@ const IssueList = ({art}) => {
             <a rel="noopener noreferrer" target="_blank" href={articleList[art]['link']} >
                 <div className="mags"> <img src={articleList[art]['image']} alt={articleList[art]['title']}/>
                     <div className="imgDescription">
-                    – {articleList[art]['category']} –
-                    <br/>
-                    <i>{articleList[art]['title']}</i>
+                        – {articleList[art]['category']} –
+                        <br/>
+                        <i>{articleList[art]['title']}</i>
                     </div>
                 </div>
             </a>
