@@ -72,48 +72,43 @@
 
 /* ======================================================================================================== Mags */
 
-.magRows{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.magGrid{
+  display: grid;
+  margin: auto;
   justify-content: center;
-  width: 100%
-
+  grid-gap: 2rem;
+  grid-template-columns: repeat(2, 30rem);
 }
 
-.magContainers{
-  position:relative;
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
 
 .mags{
-  width: 500px;
-  /* display: flex; */
-  /* flex-direction: column;
-  align-content: center;
-  align-items: center; */
-
+  display:flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: cover;
+  margin:auto;
+  vertical-align: center;
+  
 }
 
+.mags IMG{
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+
 .imgDescription{
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  position:absolute;
   color: white;
   font-family: serif;
   font-weight: bolder;
   font-size: 1.5rem;
   text-shadow: 1.25px 1.25px 1px black;
   visibility: hidden;
-  /* font-style:italic;   */
-  text-align:center;
 }
 
 
@@ -121,13 +116,7 @@
   cursor:pointer;
 }
 
-.mags IMG{
-  width: inherit;
-  height: auto;
-  position: inline;
-  padding-bottom:15px;
 
-}
 
 .mags:hover IMG{
   filter: grayscale(75%) blur(0.75px) opacity(75%);
@@ -136,6 +125,9 @@
 .mags:hover .imgDescription{
   visibility: visible;
 }
+
+
+
 
 /* =================================================================== Redirect Buttons */
 
@@ -190,101 +182,45 @@
 /* ============================================ Responsiveness */
 
 @media screen and (max-width: 1289px){
-  .mags{
-    width:450px;
-  }
 
-  .magContainers{
-    margin-top:.9rem;
-    margin-bottom: .9rem;
-  }
 }
 
 @media screen and (max-width: 1149px){
-  .mags{
-    width:400px;
-  }
-
-  .magContainers{
-    margin-top:.8rem;
-    margin-bottom: .8rem;
+  .magGrid{
+    grid-template-columns: repeat(2, 25rem);
   }
 }
 
 @media screen and (max-width: 1080px){
-  .mags{
-    width:350px;
-  }
-  .magContainers{
-    margin-top:.7rem;
-    margin-bottom: .7rem;
-  }
-
   .designFilmText{
     font-size: 0.9rem;
   }
-
 }
 
 @media screen and (max-width: 949px){
-  .mags{
-    width:300px;
+  .magGrid{
+    grid-template-columns: repeat(2, 20rem);
   }
-  .magContainers{
-    margin-top:.6rem;
-    margin-bottom: .6rem;
-  }
-
-  /* .imgDescription{
-    font-size: 1rem;
-    font-weight: bold;
-} */
-
-}
-
-@media screen and (max-width: 804px){
-  .mags{
-    width:250px;
-  }
-  .magContainers{
-    margin-top:.5rem;
-    margin-bottom: .5rem;
-  }
-
   .artDirection{
     font-size:3.25rem;
     /* margin:2rem; */
   }
-
-  .sliderContainer{
-    max-width:500px;
-  }
-
-  .picButtons{
-    font-size: 2.5rem;
-  }
-
-    .imgDescription{
-      font-size: 1.15rem;
-      font-weight: bold;
-  }
-  
+  .imgDescription{
+    font-size: 1.15rem;
+    font-weight: bold;
+}
 
 }
 
-@media screen and (max-width: 684px){
+
+@media screen and (max-width: 750px){
+
+  .magGrid{
+    grid-template-columns: repeat(2, 17rem);
+  }
 
   .artDirection{
     font-size:2.5rem;
-    /* margin:2rem; */
-  }
-
-  .mags{
-    width:300px;
-  }
-
-  .magContainers{
-    width:100%;
   }
 
   .sliderContainer{
@@ -314,20 +250,25 @@
 
 }
 
+@media screen and (max-width: 686px){
+  .magGrid{
+    grid-template-columns: repeat(auto-fill, 20rem);
+  }
+
+}
+
 @media screen and (max-width: 449px){
+
+  .magGrid{
+    grid-template-columns: repeat(auto-fill, 14rem);
+  }
 
   .artDirection{
     font-size:2rem;
     margin-bottom:1rem;
   }
 
-  .mags{
-    width:250px;
-  }
 
-  .magContainers{
-    width:100%;
-  }
 
   .sliderContainer{
     max-width:250px;

@@ -26,7 +26,7 @@ const magList ={
 
 const IssueList = ({mag}) => {
     return(
-        <div className='magContainers'>
+        <div>
             <a rel="noopener noreferrer" target="_blank" href={magList[mag]['link']} >
                 <div className="mags"> <img src={magList[mag]['image']} alt={magList[mag]['issue']}/>
                     <div className="imgDescription"><i>{magList[mag]['issue']}</i></div>
@@ -42,7 +42,7 @@ function Magazines(props){
     return(
         <div>
             <div className="artDirection">Art Direction</div>
-            <div className='magRows'>
+            <div className='magGrid'>
                 {(Object.keys(magList)).map((num,i) => {
                             return(
                             <IssueList

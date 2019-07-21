@@ -54,7 +54,7 @@ const articleList ={
 
 const IssueList = ({art}) => {
     return(
-        <div className='magContainers'>
+        <div>
             <a rel="noopener noreferrer" target="_blank" href={articleList[art]['link']} >
                 <div className="mags"> <img src={articleList[art]['image']} alt={articleList[art]['title']}/>
                     <div className="imgDescription">
@@ -74,7 +74,7 @@ function Articles(props){
     return(
         <div>
             <div className="artDirection">Articles</div>
-            <div className='magRows'>
+            <div className='magGrid'>
                 {(Object.keys(articleList)).map((num, i) => {
                             return(
                             <IssueList

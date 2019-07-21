@@ -14,9 +14,9 @@ const frontEnd = [
     'bootstrap.png',
     'sass.png',
     'javascript.png',
-    'jquery.png',
     'react.png',
-    'redux.png', 
+    'redux.png',
+    'cypress.png' 
 ]
 
 const backEnd = [

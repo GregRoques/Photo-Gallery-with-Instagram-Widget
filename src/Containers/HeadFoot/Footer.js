@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
 import "./HeadFoot.css";
+import { fileURLToPath } from "url";
 
 class Footer extends Component{
 
@@ -57,10 +58,10 @@ class Footer extends Component{
                 </div>
                 
                 <div className="resume socialIcon">
-                    <a rel="noopener noreferrer" target="_blank" href='https://www.dropbox.com/s/qsrj71oqsz21y0z/Resume.pdf?dl=0' >
+                    <Link onClick={e =>{ e.preventDefault(); window.open("https://www.gregroques.com/images/socialIcons/Resume.pdf")}}>
                         <img className="resume1"  src= '/images/socialIcons/pdf2.jpg' alt='2019 Resume'/>
                         <img className="resume2" src= '/images/socialIcons/pdf1.jpg' alt='2019 Resume'/>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
