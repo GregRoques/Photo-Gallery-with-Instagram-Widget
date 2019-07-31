@@ -35,7 +35,6 @@ class PhotoGallery extends Component{
       <div className= { css.centerText }>
         <div className= { css.box }>
           <img 
-            
             src = { './images/photography/'+ this.props.images[this.props.album][this.state.currentImage]}
             alt = { this.props.album }
             onMouseEnter = {()=> this.maskOn(Object.values(this.props.images[this.props.album]))}

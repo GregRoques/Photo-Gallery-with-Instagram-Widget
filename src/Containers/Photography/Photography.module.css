@@ -10,18 +10,6 @@
     row-gap: 2rem;
   }
   
-  .socialIcon{
-    font-size: 1.75rem;
-    font-family: 'Grand Hotel', cursive;
-    font-style: italic;
-    margin-top: 4rem;
-  }
-  
-  .socialIcon IMG{
-    width: 1.5rem;
-  }
-  
-  
   /* ===================================================== Fade */
 
   .fadeIn{
@@ -227,7 +215,7 @@
   .galleryContainer{
     border-radius: 25px;
     background-color: lightgray;
-    margin-top:4rem;
+    margin-top:2rem;
     padding:3rem;
     justify-content: center;
     text-align:center;
