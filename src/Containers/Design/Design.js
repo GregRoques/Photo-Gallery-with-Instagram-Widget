@@ -26,10 +26,6 @@ class Design extends Component{
                 <Photography/>
                 <Articles/>
                 <Film/>
-                <div className='redirectLinks'>
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link>
-                </div>
             </div>
         )
     }

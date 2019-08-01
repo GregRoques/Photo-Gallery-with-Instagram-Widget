@@ -49,7 +49,7 @@ class Blog extends Component{
         })
         .catch(error=> {
             this.props.Header('Error');
-            console.log(Error)
+            console.log(error)
         })
         window.scrollTo(0, 0);
     }
