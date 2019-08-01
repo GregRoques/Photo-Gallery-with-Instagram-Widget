@@ -142,7 +142,7 @@ display:none;
   }
 
   .aboutMeText{
-    font-size:.9rem;
+    font-size:.95rem;
   }
 
 }
@@ -168,6 +168,10 @@ display:none;
   .aboutCloser2{
     display:block;
     padding-top:0px;
+  }
+
+  .aboutMeText{
+    font-size:.9rem;
   }
 
 }
