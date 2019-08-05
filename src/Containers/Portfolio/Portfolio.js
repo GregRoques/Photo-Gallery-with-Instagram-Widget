@@ -27,7 +27,7 @@ const projectDetails ={
         image: 'dietactics',
         description: `DIETactics is a full stack web application utilizing mySQL, Node.Js, and Express. Users are able to create diet plans based on their input (current weight, height, target weight, etc.). Users can log into their profile and view/update their progress on their current diet.`,
         languages: ['html5.png', 'css3.png','javascript.png', 'nodejs.png', 'express.png','mysql.png'],
-        demo: 'http://dietactics.gregroques.com',
+        demo: 'https://www.youtube.com/watch?v=5rvmnx3hxyM&feature=youtu.be',
         readMe: 'https://github.com/GregRoques/DIETactics/blob/master/README.md'
     },
     sift: {
@@ -36,16 +36,16 @@ const projectDetails ={
         image: 'sift',
         description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
         languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
-        demo: 'http://sift.gregroques.com',
+        demo: 'https://www.youtube.com/watch?v=ALpS6kBmPKY&feature=youtu.be',
         readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
     },
     pizzaCat: {
-    name: `Intergalactic Adventures of Pizza Cat`,
+        name: `Intergalactic Adventures of Pizza Cat`,
         type: 'Python',
-        image: `pizzacat.png`,
-        video: `https://www.youtube.com/watch?v=Dq9bCD_Iibw`,
+        image: `pizzacat`,
         description: `A horizontal side-scrolling shooter built in Python using the open-source video game library Pygame.`,
         languages: ['python.png','pygame.png', 'photoshop.png'],
+        demo: `https://www.youtube.com/watch?v=Dq9bCD_Iibw`,
         readMe: 'https://github.com/GregRoques/Pizza-Cat-Python-Project/blob/master/README.md'
 
     }
@@ -74,76 +74,51 @@ const ProjectList = ({name, click, hover, offHover}) => {
 const ProjectOnDisplay = ({title}) =>{
 
     const display = projectDetails[title]
+    
+    return(
+        <div className='grayColumnContent'>
+            <div className= 'nonVidPicColumn'>
+                <img className="picPortfolio p1" src= { headerImageLink + display['image']+['.png']} alt={display['name']}/>
+                <img className="picPortfolio p2" src= { headerImageLink + display['image'] + ['2.png']} alt={display['name']}/>
+            </div>
+            <div className='nonVidTextColumn'>
+                <div className="profileProjectName">{display['name']}</div>
+                <div className="profileHeader">{'//'} {display['type']}</div>
+                <div className='profileParagraphFont'>{display['description']}</div>
 
-    if(display['type']==='Python'){
-        return(
-            <div className='grayColumnContent'>
-                <div className= 'vidContentColumns'>
-                    <img className="vidPortfolio" src={headerImageLink + display['image']}  alt={display['name']}/>
-                </div>
-                <div className='vidContentColumns'>
-                    <div className="profileProjectName">{display['name']}</div>
-                    <div className="profileHeader">{'//'} {display['type']}</div>
-                    <div className='profileParagraphFont'>{display['description']}</div>
-                </div>
-                <div className='pizzaCatButtonAlign'>
+                <div className='buttonAlign v1'>
+                    <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
+                        <button className="demoReadButtons">
+                            { display['demo'].includes('youtube', -1) ? `${'Video'}` : `${'Live Demo'}` }
+                        </button>
+                    </a></span>
                     <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
                         <button className="demoReadButtons">Read Me</button>
                     </a></span>
-                    <span><a target="_blank" rel="noopener noreferrer" href={display['video']}>
-                        <button className="demoReadButtons">Video Demo</button>
+                </div>
+            </div>
+            <div className="buttonsSmallerBlock">
+                <div className='buttonAlign v2'>
+                    <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
+                        <button className="demoReadButtons">
+                            { display['demo'].includes('youtube', -1) ? `${'Video'}` : `${'Live Demo'}` }
+                        </button>
+                    </a></span>
+                    <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
+                        <button className="demoReadButtons">Read Me</button>
                     </a></span>
                 </div>
-                {display['languages'].map((language, i) => {
-                    const altText = language.replace(/\.[^/.]+$/, "")
-                    return(
-                        <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
+            </div>
+            {display['languages'].map((language, i) => {
+                const altText = language.replace(/\.[^/.]+$/, "")
+                return(
+                    <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
                     )
                 })}
-            </div>
-        )
-
-    }else{
-        return(
-            <div className='grayColumnContent'>
-                <div className= 'nonVidPicColumn'>
-                    <img className="picPortfolio p1" src= { headerImageLink + display['image']+['.png']} alt={display['name']}/>
-                    <img className="picPortfolio p2" src= { headerImageLink + display['image'] + ['2.png']} alt={display['name']}/>
-                </div>
-                <div className='nonVidTextColumn'>
-                    <div className="profileProjectName">{display['name']}</div>
-                    <div className="profileHeader">{'//'} {display['type']}</div>
-                    <div className='profileParagraphFont'>{display['description']}</div>
-
-                    <div className='buttonAlign v1'>
-                        <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
-                            <button className="demoReadButtons">Live Demo</button>
-                        </a></span>
-                        <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
-                            <button className="demoReadButtons">Read Me</button>
-                        </a></span>
-                    </div>
-                </div>
-                <div className="buttonsSmallerBlock">
-                    <div className='buttonAlign v2'>
-                        <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
-                            <button className="demoReadButtons">Live Demo</button>
-                        </a></span>
-                        <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
-                            <button className="demoReadButtons">Read Me</button>
-                        </a></span>
-                    </div>
-                </div>
-                {display['languages'].map((language, i) => {
-                    const altText = language.replace(/\.[^/.]+$/, "")
-                    return(
-                        <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
-                        )
-                    })}
-            </div>
-        )
-    }
+        </div>
+    )
 }
+
 
 // ================================= define class and extend component
 

@@ -3,7 +3,6 @@ import Photography from './Photography'
 import Magazines from './Magazines'
 import Articles from './Articles'
 import Film from './Film'
-import { Link }  from 'react-router-dom';
 import "./Design.css";
 
 // Redux
