@@ -12,8 +12,8 @@ const frontEnd = [
     'html5.png',
     'css3.png',
     'bootstrap.png',
-    'sass.png',
     'javascript.png',
+    'jquery.png',
     'react.png',
     'redux.png',
     'cypress.png' 
