@@ -6,7 +6,7 @@ import "./About.css";
 import { connect } from "react-redux";
 import SetHeader from '../../Actions/SetHeader'
 
-const imageLink = '/images/aboutMePage/'
+const imageLink = '/images/technologies/'
 
 const frontEnd = [
     'html5.png',
@@ -14,15 +14,15 @@ const frontEnd = [
     'bootstrap.png',
     'javascript.png',
     'jquery.png',
+    'angular.png', 
     'react.png',
-    'redux.png',
-    'cypress.png' 
+    'redux.png'
 ]
 
 const backEnd = [
-    'python.png',
     'nodejs.png',
     'express.png',
+    'mongodb.png',
     'mysql.png'
 ]
 
@@ -46,7 +46,7 @@ class About extends Component{
         <div className="aboutMeHeader aboutTitle2">Who Am I?</div>
             <div className='aboutRows'>
                 <div className='portraitContainer'>
-                    <img className="portrait" src="/images/aboutMePage/selfLowRes.png" alt='Me'/>
+                    <img className="portrait" src="/images/selfLowRes.png" alt='Me'/>
                 </div> 
                 <div className='whoAmIContainer'>
                     <div className='whoAmIPadding'>

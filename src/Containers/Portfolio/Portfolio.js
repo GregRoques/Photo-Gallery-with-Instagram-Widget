@@ -9,17 +9,15 @@ import SetHeader from '../../Actions/SetHeader'
 
 // =============================== Projects displayed on this page
 
-const myProjects = ["mealsleuth", "dietactics", "sift", "pizzaCat"]
-
 const projectDetails ={
-    mealsleuth: {
-        name: 'MealSleuth',
-        type: 'Front End',
-        image: 'mealsleuth',
-        description: `This project is a front-end application designed to search for certain restaurants based on user input for location and price range. The application returns a result that matches the user's input and renders it within the browser. The user can then get directions to the resulting location via Google Maps.`,
-        languages: ['html5.png', 'css3.png','javascript.png'],
-        demo: 'https://www.gregroques.com/mealsleuth',
-        readMe: 'https://github.com/GregRoques/MealSleuth/blob/master/README.md'
+    sift: {
+        name: 'Sift',
+        type: 'Full Stack',
+        image: 'sift',
+        description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
+        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
+        demo: 'https://www.youtube.com/watch?v=ALpS6kBmPKY&feature=youtu.be',
+        readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
     },
     dietactics: {
         name: 'DIETactics',
@@ -30,14 +28,14 @@ const projectDetails ={
         demo: 'https://www.youtube.com/watch?v=5rvmnx3hxyM&feature=youtu.be',
         readMe: 'https://github.com/GregRoques/DIETactics/blob/master/README.md'
     },
-    sift: {
-        name: 'Sift',
-        type: 'Full Stack',
-        image: 'sift',
-        description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
-        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
-        demo: 'https://www.youtube.com/watch?v=ALpS6kBmPKY&feature=youtu.be',
-        readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
+    mealsleuth: {
+        name: 'MealSleuth',
+        type: 'Front End',
+        image: 'mealsleuth',
+        description: `This project is a front-end application designed to search for certain restaurants based on user input for location and price range. The application returns a result that matches the user's input and renders it within the browser. The user can then get directions to the resulting location via Google Maps.`,
+        languages: ['html5.png', 'css3.png','javascript.png'],
+        demo: 'https://www.gregroques.com/mealsleuth',
+        readMe: 'https://github.com/GregRoques/MealSleuth/blob/master/README.md'
     },
     pizzaCat: {
         name: `Intergalactic Adventures of Pizza Cat`,
@@ -54,7 +52,7 @@ const projectDetails ={
 // ================================= for constructing links with project details
 
 const headerImageLink = 'images/portfolioImages/'
-const languageImageLink = 'images/aboutMePage/'
+const languageImageLink = 'images/technologies/'
 
 
 // ================================= Populate selectable circles
@@ -78,7 +76,7 @@ const ProjectOnDisplay = ({title}) =>{
     return(
         <div className='grayColumnContent'>
             <div className= 'nonVidPicColumn'>
-                <img className="picPortfolio p1" src= { headerImageLink + display['image']+['.png']} alt={display['name']}/>
+                <img className="picPortfolio p1" src= { headerImageLink + display['image']+['1.png']} alt={display['name']}/>
                 <img className="picPortfolio p2" src= { headerImageLink + display['image'] + ['2.png']} alt={display['name']}/>
             </div>
             <div className='nonVidTextColumn'>
@@ -131,7 +129,7 @@ class Portfolio extends Component{
 
     state = {
         hoverProject: '',
-        currentProject: 'mealsleuth'
+        currentProject: 'sift'
     }
 
     displayProject = projectToDisplay =>{
@@ -156,7 +154,7 @@ class Portfolio extends Component{
         return(
             <div className="portfolioStyling fadeIn">
                 <div className="circleContainer">
-                    {myProjects.map((project, i) => {
+                    {Object.keys(projectDetails).map((project, i) => {
                         return(
                         <ProjectList 
                         name={project}
