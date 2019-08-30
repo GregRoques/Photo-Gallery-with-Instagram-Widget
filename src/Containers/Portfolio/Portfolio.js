@@ -28,6 +28,16 @@ const projectDetails ={
         demo: 'https://www.youtube.com/watch?v=5rvmnx3hxyM&feature=youtu.be',
         readMe: 'https://github.com/GregRoques/DIETactics/blob/master/README.md'
     },
+    urlshredder: {
+        name: `URL Shredder`,
+        type: 'Full Stack',
+        image: `urlshredder`,
+        description: `A custom a URL shortener similar to Bitly and TinyURL. After submitting the form a user is given a custom, shortened URL; when the shortened URL is used they are redirected to the original URL.`,
+        languages: ['html5.png', 'css3.png','javascript.png','react.png','nodejs.png', 'express.png','mysql.png'],
+        demo: `https://www.youtube.com/watch?v=Vc_ZWM41dnM&feature=youtu.be`,
+        readMe: 'https://github.com/GregRoques/URL-Shortener/blob/master/README.md'
+
+    },
     mealsleuth: {
         name: 'MealSleuth',
         type: 'Front End',
@@ -36,16 +46,6 @@ const projectDetails ={
         languages: ['html5.png', 'css3.png','javascript.png'],
         demo: 'https://www.gregroques.com/mealsleuth',
         readMe: 'https://github.com/GregRoques/MealSleuth/blob/master/README.md'
-    },
-    pizzaCat: {
-        name: `Intergalactic Adventures of Pizza Cat`,
-        type: 'Python',
-        image: `pizzacat`,
-        description: `A horizontal side-scrolling shooter built in Python using the open-source video game library Pygame.`,
-        languages: ['python.png','pygame.png', 'photoshop.png'],
-        demo: `https://www.youtube.com/watch?v=Dq9bCD_Iibw`,
-        readMe: 'https://github.com/GregRoques/Pizza-Cat-Python-Project/blob/master/README.md'
-
     }
 }
 
