@@ -17,15 +17,14 @@ class Footer extends Component{
     render(){
     return(
         <div>
-            <ResumeModal
-                show= {this.state.email}
+            { this.state.email ? <ResumeModal
                 close= {this.toggleEmail}
-            />
+            /> : null }
             <div className="footer">
                 
                 <div className="contact socialIcon" onClick={this.toggleEmail}>
-                        <img className="contact1"  src= '/images/socialIcons/contact2.jpg' alt='greg@gregroques.com'/>
-                        <img className="contact2" src= '/images/socialIcons/contact1.jpg' alt='greg@gregroques.com'/>
+                        <img className="contact1"  src= '/images/socialIcons/contact2.jpg' alt='greg@gregroques.com'/> 
+                        { !this.state.email ?  <img className="contact2" src= '/images/socialIcons/contact1.jpg' alt='greg@gregroques.com'/>: null}
                 </div>
 
                 <div className="li socialIcon">

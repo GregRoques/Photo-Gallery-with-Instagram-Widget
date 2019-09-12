@@ -1,8 +1,8 @@
 import React from 'react';
 import "./HeadFoot.css";
 
-const ResumeModal = ({ show, close }) => {
-    return show ? (
+const ResumeModal = ({ close }) => {
+    return (
         <div className="modal">
             <div className="modalPosition">
                 <div className="closeButton" onClick={close}>X</div>
@@ -15,7 +15,7 @@ const ResumeModal = ({ show, close }) => {
                 </div>
             </div>
         </div>
-    ) : null;
+    )
 };
 
 export default ResumeModal;

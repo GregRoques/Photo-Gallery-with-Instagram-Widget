@@ -170,9 +170,16 @@ class Portfolio extends Component{
                     {this.state.hoverProject}
                 </div>
                 <div className='parameters'>
-                    <div className="profileRowBackground">
-                        <ProjectOnDisplay title={this.state.currentProject}/>
-                    </div>
+                    
+                        {Object.keys(projectDetails).map((project, i) => {
+                            return (
+                                this.state.currentProject === project ? 
+                                    <div className="profileRowBackground">
+                                        <ProjectOnDisplay key={i} title={project} /> 
+                                    </div>: null 
+                            )
+                        })}
+                    
                 </div>
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 

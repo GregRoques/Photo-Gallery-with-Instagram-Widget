@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import Photography from './Photography'
 import Magazines from './Magazines'
 import Articles from './Articles'
-import Film from './Film'
 import "./Design.css";
 
 // Redux
@@ -24,7 +23,6 @@ class Design extends Component{
                 <Magazines/>
                 <Photography/>
                 <Articles/>
-                <Film/>
             </div>
         )
     }
