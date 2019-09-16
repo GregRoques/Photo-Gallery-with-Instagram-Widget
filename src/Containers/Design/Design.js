@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Photography from './Photography'
 import Magazines from './Magazines'
 import Articles from './Articles'
-import Film from './Film';
+import Film from './film'
 import "./Design.css";
 
 // Redux

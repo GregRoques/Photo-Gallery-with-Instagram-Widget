@@ -219,25 +219,27 @@ Launch new site with:
 
 ## Blog Updater
 
+### Login
 ![Backend Login Page](public/readMeImages/backend1.png)
 
+### Update Page
 ![Backend Update](public/readMeImages/backend2.png)
 > placeholder text courtesy of https://api.kanye.rest (https://kanye.rest/).
 
+### Previous Post Edit Module
 ![Backend Edit/Delete Old Articles](public/readMeImages/backend3.png)
 
 ## Photography Gallery
 
-GregRoques.com/Photography(https://www.gregroques.com/photography)
-
+### Photography Gallery Page
 ![Photo landing page](public/readMeImages/photo1.png)
 
+### Gallery Image Carousel View
 ![Photo landing page](public/readMeImages/photo2.png)
 
 ## Graphic Design Gallery
 
-GregRoques.com/Media(https://www.gregroques.com/media)
-
-![Graphic Design landing page](public/readMeImages/design1.png)
+### Graphic Design Gallery Page
+![Graphic Design landing page](public/readMeImages/design.png)
 
   
