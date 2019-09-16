@@ -55,7 +55,7 @@ export const auth = (email, password) =>{
             var currentDate = new Date()
             var currentHour= currentDate.getHours()
             var currentMinute = currentDate.getMinutes()
-
+            console.log(response.data.expiresIn)
             const logOutTime = (currentHour >= 12 ? (currentHour - 12) + 1 : currentHour + 1).toString() + ":" +
                 ((currentMinute).toString()).padStart(2, '0') +
                 (currentHour > 12 ? 'pm' : "am")

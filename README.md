@@ -7,7 +7,7 @@
 * Challenges and Solutions
 * MVP
 * Stretch Goals
-* Backend Images
+* Images
 
 # Description
 This site (www.GregRoques.com) is an updated version of my personal Portfolio page created using React and Redux. I chose to recreate my former site, built with vanilla JS and Bootstrap, to allow for cleaner content routing and more dyanmic animation rendering.
@@ -215,14 +215,24 @@ Launch new site with:
 
 1) Continually update blog with lessons learned and project updates regarding development and design projects I am working on and share via LinkedIn. 
 
-# Backend Images
+# Images
+
+## Blog Updater
 
 ![Backend Login Page](public/readMeImages/backend1.png)
 
 ![Backend Update](public/readMeImages/backend2.png)
-> paragraph textarea/placeholder text courtesy of https://api.kanye.rest (https://kanye.rest/).
+> placeholder text courtesy of https://api.kanye.rest (https://kanye.rest/).
 
 ![Backend Edit/Delete Old Articles](public/readMeImages/backend3.png)
+
+## Photography Gallery
+
+GregRoques.com/Photography(https://www.gregroques.com/photography)
+
+![Photo landing page](public/readMeImages/photo1.png)
+
+![Photo landing page](public/readMeImages/photo2.png)
 
 
 
