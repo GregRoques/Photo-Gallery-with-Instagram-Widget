@@ -69,7 +69,7 @@ class About extends Component{
                     <div className="aboutMeHeader">Who Am I?</div>
                     <div className="aboutMeText">
                         <div>I am a front-end developer & graphic designer specializing in the MERN stack (MySQL, Express, React, Node). I also bring more than 10 years of experience managing award-winning print and digital publications to developing efficient, user-friendly software solutions.</div> 
-                        <div>In my free time I am an avid long distance runner, and enjoy <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/photography">photography</Link>, <a target="_blank" rel="noopener noreferrer" href="https://www.duolingo.com/profile/qtrMileAtATime">learning spanish</a> and exploring the Atlanta restaurant scene with my wife. I am also a volunteer with the Leukemia & Lymphoma Society.</div>
+                        <div>In my free time I am an avid long distance runner, and enjoy <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/photography">photography</Link>, learning spanish and exploring the Atlanta restaurant scene with my wife. I am also a volunteer with the Leukemia & Lymphoma Society.</div>
                     </div>     
                 </div>
             </div>
