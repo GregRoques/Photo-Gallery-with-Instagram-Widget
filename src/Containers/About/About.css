@@ -1,8 +1,14 @@
+.bioGrid{
+  display: grid;
+  grid-template-columns: 35% 65%;
+  column-gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+
 .portrait{
-    background-image: url('/images/aboutMePage/selfLowRes.png');
+    background: url('/images/selfLowRes.png') no-repeat center;
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; 
 }
 
 .aboutMeHeader{
@@ -11,16 +17,14 @@
     font-style: oblique;
     font-weight: bolder;
     color: rgb(35,64,143);
-    /* color:rgb(35,64,143); */
     font-size: 3.5rem; 
-    /* text-shadow: 2px 2px 0px rgb(35,64,143); */
     text-align: center;
     padding-top:5%;
     padding-bottom:25px;
 }
 
 .aboutMeText{
-    text-indent: 20px;
+    /* text-indent: 24px; */
     font-family: sans-serif;
     font-size: 1rem;
     padding:10px;
@@ -61,7 +65,6 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%
-  
   }
   
   .aboutContainers{
@@ -76,118 +79,33 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
+  .aboutStack{
+    position:relative;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    align-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
   
-  .portraitContainer{
-    float: left;
-
-    position:relative;
-    align-content: center;
-    align-items: center;
-    width: 40%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  .part2{
+    display: none;
   }
-  .whoAmIContainer{
-    position:relative;
-    align-content: center;
-    align-items: center;
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .whoAmIPadding{
-    padding-right:2rem;
-    padding-left:2rem;
-    padding-top:1rem;
-  }
-
 
 /* ====================================== Responsiveness*/
 
-@media screen and (min-width: 1210px){
-  .aboutTitle2, .aboutCloser2, .aboutParagraph2{
-    display: none
+
+@media screen and (min-width: 1375px){
+  .bioGrid{
+    position: relative;
+    display: grid;
+    grid-template-columns: 45 55%;
+    column-gap: 1rem;
+    padding-bottom: 1rem;
   }
-}
-
-@media screen and (max-width: 1209px){
-
-  .portraitContainer{
-    width:30%;
-  }
-
-  .whoAmIContainer{
-    widows: 70%;
-  }
-
-  .portrait{
-    width:20rem;
-  }
-
-  .aboutTitle1, .aboutCloser2, .aboutParagraph2{
-display:none;
-  }
-
-  .aboutMeHeader{
-    padding:0px;
-  }
-
-  .aboutMeText{
-    font-size:.95rem;
-  }
-
-}
-
-@media screen and (max-width: 1119px){
-
-  .portraitContainer{
-    width:25%;
-  }
-
-  .whoAmIContainer{
-    widows: 75%;
-  }
-
-  .portrait{
-    width:12rem;
-  }
-
-  .aboutCloser1{
-    display:none
-  }
-
-  .aboutCloser2{
-    display:block;
-    padding-top:0px;
-  }
-
-  .aboutMeText{
-    font-size:.9rem;
-  }
-
-}
-
-@media screen and (max-width: 1050px){
-
-
-
-
-  .aboutParagraph2{
-    display: block;
-  }
-
-  .aboutParagraph1{
-    display:none;
-  }
+  
 
   .aboutMeSkills{
     font-size: 1.75rem;
@@ -199,45 +117,56 @@ display:none;
 
 }
 
-@media screen and (max-width: 862px){
+@media screen and (max-width: 1050px){
 
-
-  .aboutCloser2, .aboutParagraph2{
-    display:none
+  .aboutMeSkills{
+    font-size: 1.75rem;
   }
 
-  .aboutParagraph1{
-    padding-top:1rem;
-    display: block;
-  }
-
-  .aboutCloser1{
-    
-    display:block;
-  }
-
-    .portrait{
-      width:20rem;
-    }
-
-  .portraitContainer{
-    width:100%
-  }
-
-  .whoAmIContainer{
-    width:100%
-  }
-
-  .whoAmIPadding{
-    padding:0px;
+  .skillIcon{
+    height:55px
   }
 
 }
 
-@media screen and (max-width: 685px){
+@media screen and (max-width: 900px){
+
   .aboutMeHeader{
-    display:none;
+    font-size: 2.75rem;
+    padding-bottom: 15px;
   }
+
+  .aboutMeText{
+    font-size: 14px;
+    padding-bottom: .5rem;
+  }
+
+}
+
+@media screen and (max-width: 800px){
+
+  .bioGrid{
+    grid-template-columns: 45% 55%;
+  }
+
+  .aboutMeHeader{
+    font-size: 2rem;
+  }
+
+  .aboutMeText{
+    font-size: 14px;
+    padding-bottom: .5rem;
+  }
+
+}
+
+@media screen and (max-width: 750px){
+
+  .bioGrid{
+    position:relative;
+    display: block;
+    text-align: center;
+  };
 
   .aboutMeSkills{
     font-size: 1.5rem;
@@ -247,27 +176,28 @@ display:none;
     height:50px
   }
 
-  .portrait{
-    width:15rem;
-  }
-
   .aboutContainers{
     width: 100%
   }
 
-  .aboutMeText{
-    font-size: .85rem;
+  .portraitDisappear{
+    display: none;
   }
+
+  .part2{
+    text-align: center;
+    display: block;
+    height:250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 
 
 @media screen and (max-width: 400px){
 
-
-  .portrait{
-    width:10rem;
-  }
 
   .aboutMeSkills{
     font-size: 1.25rem;
@@ -277,8 +207,17 @@ display:none;
     height:45px
   }
 
-  .aboutMeText{
-    font-size: .8rem;
+  .aboutMeHeader{
+    font-size: 1.75rem;
   }
 
+}
+
+@media screen and (max-width: 350px){
+  .aboutMeHeader{
+    font-size: 1.5rem;
+  }
+  .part2{
+    height: 200px;
+  }
 }

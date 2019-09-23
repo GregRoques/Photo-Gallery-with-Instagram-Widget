@@ -222,11 +222,11 @@ Launch new site with:
 ### Login
 ![Backend Login Page](public/readMeImages/backend1.png)
 
-### Update Page
+### Blog Update Page
 ![Backend Update](public/readMeImages/backend2.png)
 > placeholder text courtesy of https://api.kanye.rest (https://kanye.rest/).
 
-### Previous Post Edit Module
+### Blog Module for Editing Previous Posts 
 ![Backend Edit/Delete Old Articles](public/readMeImages/backend3.png)
 
 ## Photography Gallery
@@ -236,10 +236,5 @@ Launch new site with:
 
 ### Gallery Image Carousel View
 ![Photo landing page](public/readMeImages/photo2.png)
-
-## Graphic Design Gallery
-
-### Graphic Design Gallery Page
-![Graphic Design landing page](public/readMeImages/design.png)
 
   
