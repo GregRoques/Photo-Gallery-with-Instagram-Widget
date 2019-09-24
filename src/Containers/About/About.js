@@ -46,8 +46,8 @@ const mySkills = {
     digitalMarketing: {
         name: "Digital Marketing",
         tech: [
-            'googleAnalytics.png',
-            'googleAds.png',
+            'ggl1.png',
+            'ggl2.png',
             'facebook.png'
         ]
     },
@@ -84,7 +84,7 @@ class About extends Component{
                                 {(tech).map((language, i) => {
                                     const altText = language.replace(/\.[^/.]+$/, "")
                                     return(
-                                        <img className='skillIcon' id={`${name}Tech${i}`} src= {imageLink + language} alt={altText}/>
+                                        <img className='skillIcon' id={`Tech${i}`} src= {imageLink + language} alt={altText}/>
                                     )
                                 })}
                             </div>
