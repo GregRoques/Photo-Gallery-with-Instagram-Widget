@@ -17,14 +17,13 @@
     font-style: oblique;
     font-weight: bolder;
     color: rgb(35,64,143);
-    font-size: 3.5rem; 
+    font-size: 3rem; 
     text-align: center;
     padding-top:5%;
     padding-bottom:25px;
 }
 
 .aboutMeText{
-    /* text-indent: 24px; */
     font-family: sans-serif;
     font-size: 1rem;
     padding:10px;
@@ -39,7 +38,6 @@
     text-align: center;
     font-style: oblique;
     font-weight: bolder;
-    /* color: rgb(0,183,241); */
     color: rgb(100,100,100,0.65);
 }
 
@@ -123,6 +121,11 @@
     font-size: 1.75rem;
   }
 
+  .aboutMeHeader{
+    font-size: 2.75rem;
+    padding-bottom: 15px;
+  }
+
   .skillIcon{
     height:55px
   }
@@ -131,13 +134,7 @@
 
 @media screen and (max-width: 900px){
 
-  .aboutMeHeader{
-    font-size: 2.75rem;
-    padding-bottom: 15px;
-  }
-
   .aboutMeText{
-    font-size: 14px;
     padding-bottom: .5rem;
   }
 
@@ -154,7 +151,6 @@
   }
 
   .aboutMeText{
-    font-size: 14px;
     padding-bottom: .5rem;
   }
 
@@ -178,6 +174,10 @@
 
   .aboutContainers{
     width: 100%
+  }
+
+  .aboutMeHeader{
+    font-size: 2.5rem;
   }
 
   .portraitDisappear{
