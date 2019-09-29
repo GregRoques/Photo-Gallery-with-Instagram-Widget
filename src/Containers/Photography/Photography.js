@@ -58,7 +58,7 @@ class Photography extends Component{
                             })}
                       </div>
                       <div className={css.fullGallery}>
-                        <a href="https://gr504.myportfolio.com" target="_blank" rel="noopener noreferrer">Full Gallery</a>
+                        <a href="https://gr504photos.myportfolio.com" target="_blank" rel="noopener noreferrer">Full Gallery</a>
                       </div>
                   </div>
               </div>
