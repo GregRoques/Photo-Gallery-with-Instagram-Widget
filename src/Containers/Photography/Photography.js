@@ -43,7 +43,7 @@ class Photography extends Component{
        
           return(
               <div className = { css.fadeIn }>
-                <h1 className = {css.albumTitleText}>Music + Travel</h1>
+                {/* <h1 className = {css.albumTitleText}>Music + Travel</h1> */}
                   <div className = { css.galleryContainer }>
                       <div className = { css.gridContainer }>
                             {Object.keys(photoArray).map((volume, i) => {
@@ -56,6 +56,9 @@ class Photography extends Component{
                                   />
                                 )
                             })}
+                      </div>
+                      <div className={css.fullGallery}>
+                        <a href="https://gr504.myportfolio.com" target="_blank" rel="noopener noreferrer">Full Gallery</a>
                       </div>
                   </div>
               </div>
