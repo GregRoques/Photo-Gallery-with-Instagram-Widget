@@ -68,7 +68,7 @@ class About extends Component{
                 <div className='whoAmIPadding'>
                     <div className="aboutMeHeader">About Me</div>
                     <div className="aboutMeText">
-                        <div>I am a front-end developer and graphic designer specializing in the MERN stack (MySQL, Express, React, Node). I also bring more than 10 years of experience managing award-winning print and digital publications to developing efficient, user-friendly software solutions.</div> 
+                        <div>I am a front-end developer and graphic designer specializing in the MERN stack (MySQL, Express, React, Node). I also bring more than 10 years of experience managing award-winning <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/media">print and digital publications</Link> to developing efficient, user-friendly software solutions.</div> 
                         <div>In my free time I am an avid long distance runner, and enjoy <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/photography">photography</Link>, learning spanish, and exploring Atlanta with my wife.</div>
                     </div>     
                 </div>
