@@ -20,6 +20,7 @@ const mySkills = {
             'jquery.png',
             'angular.png', 
             'react.png',
+            'sass.png',
             'redux.png'
         ]
     },

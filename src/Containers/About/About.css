@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 35% 65%;
   column-gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 
@@ -99,18 +99,48 @@
   .bioGrid{
     position: relative;
     display: grid;
-    grid-template-columns: 45 55%;
+    grid-template-columns: 35% 65%;
     column-gap: 1rem;
     padding-bottom: 1rem;
+    height: auto;
+    margin-bottom: 4rem;
   }
   
+  .aboutMeText{
+    font-size: 1.5rem;
+  }
 
   .aboutMeSkills{
-    font-size: 1.75rem;
+    font-size: 2.5rem;
   }
 
   .skillIcon{
-    height:55px
+    height:75px
+  }
+
+}
+
+@media screen and (max-width: 1374px){
+  .bioGrid{
+    position: relative;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 1rem;
+    padding-bottom: 1rem;
+    height: 40vh;
+    margin-bottom: 4rem;
+  }
+  
+  .aboutMeText{
+    font-size: 1.25rem;
+  }
+
+  .aboutMeSkills{
+    font-size: 2.25rem;
+  }
+
+  .skillIcon{
+    height:60px
   }
 
 }
@@ -134,8 +164,26 @@
 
 @media screen and (max-width: 900px){
 
+  .bioGrid{
+    position: relative;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 1rem;
+    padding-bottom: 1rem;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
   .aboutMeText{
-    padding-bottom: .5rem;
+    font-size: 1rem;
+  }
+
+  .aboutMeSkills{
+    font-size: 2rem;
+  }
+
+  .skillIcon{
+    height:60px
   }
 
 }
@@ -154,6 +202,10 @@
     padding-bottom: .5rem;
   }
 
+  .skillIcon{
+    height:55px
+  }
+
 }
 
 @media screen and (max-width: 750px){
@@ -163,6 +215,7 @@
     display: block;
     text-align: center;
   };
+
 
   .aboutMeSkills{
     font-size: 1.5rem;
