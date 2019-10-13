@@ -58,8 +58,8 @@ const musicPhotos = {
     9:{
         band: 'More Photos',
         image: 'images/design/musicPhotog/insta.jpg',
-        website: 'https://gr504photos.myportfolio.com',
-        target: '_self'
+        website: 'https://qtrmileatatime.myportfolio.com',
+        target: '_blank'
     }
 }
 
