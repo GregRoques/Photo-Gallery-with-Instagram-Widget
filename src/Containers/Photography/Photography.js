@@ -57,6 +57,9 @@ class Photography extends Component{
                                 )
                             })}
                       </div>
+                      <div class={css.underline}>
+                          <a href="https://qtrmileatatime.myportfolio.com" target="_blank" rel="noopener noreferrer"> <span class={css.morePhotos}> more <span class={css.one}>. </span> <span class={css.two}>. </span ><span class={css.three}>.</span></span></a>
+                      </div>
                   </div>
               </div>
           )
