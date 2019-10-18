@@ -182,7 +182,7 @@
     font-style: italic;
     font-family: 'Pacifico', cursive;
     text-align: center;
-    color:rgb(35,64,143);
+    color:#F73704;
     font-size: 2rem;
 }
   
@@ -257,7 +257,7 @@
           height: 2px;
           bottom: 0;
           left: 0;
-          background-color: rgb(35,64,143);
+          background-color: #F73704;
           visibility: hidden;
           -webkit-transform: scaleX(0);
           transform: scaleX(0);
