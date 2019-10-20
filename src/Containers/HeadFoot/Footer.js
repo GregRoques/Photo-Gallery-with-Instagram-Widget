@@ -62,6 +62,7 @@ class Footer extends Component{
     render(){
         const design = window.location.pathname === "/media";
         const photo = window.location.pathname === "/photography";
+        const photoLink = (window.location.pathname.replace(/[^\w\s]/gi, '').length) > 11 && (window.location.pathname).includes("/photography")
     return(
             <div>
                 { this.state.email ? <ResumeModal
@@ -72,10 +73,10 @@ class Footer extends Component{
                         <img className="contact1"  src= '/images/socialIcons/contact2.jpg' alt='greg@gregroques.com'/> 
                         { !this.state.email ?  <img className="contact2" src= '/images/socialIcons/contact1.jpg' alt='greg@gregroques.com'/>: null}
                     </div>
-                    {!photo ? <LinkedIn/> : null}
-                    {photo || design ? null : <GitHub/>}
-                    {photo || design ? null : <Resume/>}
-                    {photo || design ? <Insta/> : null}
+                    {photo || photoLink ? null : <LinkedIn/>}
+                    {photo || photoLink || design ? null : <GitHub/>}
+                    {photo || photoLink || design ? null : <Resume/>}
+                    {photo || photoLink || design ? <Insta/> : null}
                 </div>
             </div>
         )
