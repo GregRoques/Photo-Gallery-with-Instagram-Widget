@@ -40,7 +40,8 @@ const mySkills = {
         tech: [
             'illustrator.png',
             'indesign.png',
-            'photoshop.png'
+            'photoshop.png',
+            'xd.png'
         ]
     },
 
