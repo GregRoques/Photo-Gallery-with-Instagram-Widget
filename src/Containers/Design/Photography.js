@@ -58,7 +58,7 @@ const musicPhotos = {
     9:{
         band: 'More Photos',
         image: 'images/design/musicPhotog/insta.jpg',
-        website: 'https://qtrmileatatime.myportfolio.com',
+        website: 'https://www.gregroques.com/photography',
         target: '_blank'
     }
 }
