@@ -10,15 +10,24 @@ import SetHeader from '../../Actions/SetHeader'
 // =============================== Projects displayed on this page
 
 const projectDetails ={
-    sift: {
-        name: 'Sift',
+    Varicure: {
+        name: 'Varicure Vein Center',
         type: 'Full Stack',
-        image: 'sift',
-        description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
-        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
-        demo: 'https://www.youtube.com/watch?v=ALpS6kBmPKY&feature=youtu.be',
-        readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
+        image: 'varicure',
+        description: `MERN Stack company website for Miami-based medical practice Varicure Vein Center. In addition to website creation and maintaneance, I also manage the practice's digital marketing strategy and graphic design.`,
+        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','mysql.png'],
+        demo: 'https://www.VaricureVeinCenter.com',
+        readMe: 'https://github.com/GregRoques/VeriCure/blob/master/README.md'
     },
+    // sift: {
+    //     name: 'Sift',
+    //     type: 'Full Stack',
+    //     image: 'sift',
+    //     description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
+    //     languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
+    //     demo: 'https://www.youtube.com/watch?v=ALpS6kBmPKY&feature=youtu.be',
+    //     readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
+    // },
     dietactics: {
         name: 'DIETactics',
         type: 'Full Stack',
@@ -27,6 +36,15 @@ const projectDetails ={
         languages: ['html5.png', 'css3.png','javascript.png', 'nodejs.png', 'express.png','mysql.png'],
         demo: 'https://www.youtube.com/watch?v=5rvmnx3hxyM&feature=youtu.be',
         readMe: 'https://github.com/GregRoques/DIETactics/blob/master/README.md'
+    },
+    mealsleuth: {
+        name: 'MealSleuth',
+        type: 'Front End',
+        image: 'mealsleuth',
+        description: `This project is a front-end application designed to search for certain restaurants based on user input for location and price range. The application returns a result that matches the user's input and renders it within the browser. The user can then get directions to the resulting location via Google Maps.`,
+        languages: ['html5.png', 'css3.png','javascript.png'],
+        demo: 'https://www.gregroques.com/mealsleuth',
+        readMe: 'https://github.com/GregRoques/MealSleuth/blob/master/README.md'
     },
     urlshredder: {
         name: `URL Shredder`,
@@ -38,15 +56,6 @@ const projectDetails ={
         readMe: 'https://github.com/GregRoques/URL-Shortener/blob/master/README.md'
 
     },
-    mealsleuth: {
-        name: 'MealSleuth',
-        type: 'Front End',
-        image: 'mealsleuth',
-        description: `This project is a front-end application designed to search for certain restaurants based on user input for location and price range. The application returns a result that matches the user's input and renders it within the browser. The user can then get directions to the resulting location via Google Maps.`,
-        languages: ['html5.png', 'css3.png','javascript.png'],
-        demo: 'https://www.gregroques.com/mealsleuth',
-        readMe: 'https://github.com/GregRoques/MealSleuth/blob/master/README.md'
-    }
 }
 
 // ================================= for constructing links with project details
