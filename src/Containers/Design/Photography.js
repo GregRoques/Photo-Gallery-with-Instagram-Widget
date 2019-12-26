@@ -59,7 +59,7 @@ const musicPhotos = {
         band: 'More Photos',
         image: 'images/design/musicPhotog/insta.jpg',
         website: 'https://www.gregroques.com/photography',
-        target: '_blank'
+        target: '_self'
     }
 }
 
