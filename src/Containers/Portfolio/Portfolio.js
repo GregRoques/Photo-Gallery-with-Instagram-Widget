@@ -128,7 +128,7 @@ class Portfolio extends Component{
 
     state = {
         hoverProject: '',
-        currentProject: 'sift'
+        currentProject: 'varicure'
     }
 
     displayProject = projectToDisplay =>{
