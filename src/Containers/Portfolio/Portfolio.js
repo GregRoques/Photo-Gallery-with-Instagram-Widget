@@ -10,7 +10,7 @@ import SetHeader from '../../Actions/SetHeader'
 // =============================== Projects displayed on this page
 
 const projectDetails ={
-    Varicure: {
+    varicure: {
         name: 'Varicure Vein Center',
         type: 'Full Stack',
         image: 'varicure',
