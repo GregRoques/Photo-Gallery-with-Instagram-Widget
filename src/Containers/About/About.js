@@ -17,7 +17,7 @@ const mySkills = {
             'css3.png',
             'bootstrap.png',
             'javascript.png',
-            'jquery.png',
+            //'jquery.png',
             'angular.png', 
             'react.png',
             'sass.png',
