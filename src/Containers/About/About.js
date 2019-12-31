@@ -15,12 +15,12 @@ const mySkills = {
         tech: [
             'html5.png',
             'css3.png',
+            'sass.png',
             'bootstrap.png',
             'javascript.png',
             //'jquery.png',
             'angular.png', 
             'react.png',
-            'sass.png',
             'redux.png'
         ]
     },
