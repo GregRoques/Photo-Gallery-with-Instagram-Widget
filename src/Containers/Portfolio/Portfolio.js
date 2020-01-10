@@ -37,14 +37,15 @@ const projectDetails ={
         demo: 'https://www.youtube.com/watch?v=5rvmnx3hxyM&feature=youtu.be',
         readMe: 'https://github.com/GregRoques/DIETactics/blob/master/README.md'
     },
-    mealsleuth: {
-        name: 'MealSleuth',
-        type: 'Front End',
-        image: 'mealsleuth',
-        description: `This project is a front-end application designed to search for certain restaurants based on user input for location and price range. The application returns a result that matches the user's input and renders it within the browser. The user can then get directions to the resulting location via Google Maps.`,
-        languages: ['html5.png', 'css3.png','javascript.png'],
-        demo: 'https://www.gregroques.com/mealsleuth',
-        readMe: 'https://github.com/GregRoques/MealSleuth/blob/master/README.md'
+    urlshredder: {
+        name: `URL Shredder`,
+        type: 'Full Stack',
+        image: `urlshredder`,
+        description: `A custom a URL shortener similar to Bitly and TinyURL. After submitting the form a user is given a custom, shortened URL; when the shortened URL is used they are redirected to the original URL.`,
+        languages: ['html5.png', 'css3.png','javascript.png','react.png','nodejs.png', 'express.png','mysql.png'],
+        demo: `https://www.youtube.com/watch?v=Vc_ZWM41dnM&feature=youtu.be`,
+        readMe: 'https://github.com/GregRoques/URL-Shortener/blob/master/README.md'
+
     }
 }
 
