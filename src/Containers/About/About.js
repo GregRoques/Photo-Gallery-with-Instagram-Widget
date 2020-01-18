@@ -46,11 +46,12 @@ const mySkills = {
     },
 
     digitalMarketing: {
-        name: "Digital Marketing",
+        name: "Web Services",
         tech: [
             'ggl1.png',
             'ggl2.png',
-            'facebook.png'
+            'facebook.png',
+            'portfolioAws.png'
         ]
     },
 }

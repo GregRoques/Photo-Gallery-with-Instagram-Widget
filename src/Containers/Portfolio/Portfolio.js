@@ -15,7 +15,7 @@ const projectDetails ={
         type: 'Full Stack',
         image: 'varicure',
         description: `MERN Stack company website for Miami-based medical practice Varicure Vein Center. In addition to website creation and maintaneance, I also manage the practice's digital marketing strategy and graphic design.`,
-        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','mysql.png'],
+        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','mysql.png','portfolioAws.png'],
         demo: 'https://www.Varicure.com',
         readMe: 'https://github.com/GregRoques/VeriCure/blob/master/README.md'
     },
