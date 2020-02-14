@@ -60,7 +60,7 @@ class Photography extends Component{
                       
                   </div>
                   <div className={css.publishedWorkButtonAlign}>
-                      <span><a target="_blank" rel="noopener noreferrer" href='https://www.gregroques.com/media'>
+                      <span><a target="_self" rel="noopener noreferrer" href='https://www.gregroques.com/media'>
                           <button className={css.publishedWorkButton}>Published Work</button>
                       </a></span>
                   </div>
