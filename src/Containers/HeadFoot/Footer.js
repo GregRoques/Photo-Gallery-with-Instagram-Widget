@@ -60,6 +60,7 @@ class Footer extends Component{
     }
     
     render(){
+        const update = window.location.pathname === "/user-update-blog"
         const design = window.location.pathname === "/media";
         const photo = window.location.pathname === "/photography";
         const photoLink = (window.location.pathname.replace(/[^\w\s]/gi, '').length) > 11 && (window.location.pathname).includes("/photography")
@@ -68,16 +69,18 @@ class Footer extends Component{
                 { this.state.email ? <ResumeModal
                     close= {this.toggleEmail}
                 /> : null }
-                <div className="footer">
-                    <div className="contact socialIcon" onClick={this.toggleEmail}>
-                        <img className="contact1"  src= '/images/socialIcons/contact2.jpg' alt='greg@gregroques.com'/> 
-                        { !this.state.email ?  <img className="contact2" src= '/images/socialIcons/contact1.jpg' alt='greg@gregroques.com'/>: null}
+                { !update ?
+                    <div className="footer">
+                        <div className="contact socialIcon" onClick={this.toggleEmail}>
+                            <img className="contact1"  src= '/images/socialIcons/contact2.jpg' alt='greg@gregroques.com'/> 
+                            { !this.state.email ?  <img className="contact2" src= '/images/socialIcons/contact1.jpg' alt='greg@gregroques.com'/>: null}
+                        </div>
+                        {photo || photoLink ? null : <LinkedIn/>}
+                        {photo || photoLink || design ? null : <GitHub/>}
+                        {photo || photoLink || design ? null : <Resume/>}
+                        {photo || photoLink || design ? <Insta/> : null}
                     </div>
-                    {photo || photoLink ? null : <LinkedIn/>}
-                    {photo || photoLink || design ? null : <GitHub/>}
-                    {photo || photoLink || design ? null : <Resume/>}
-                    {photo || photoLink || design ? <Insta/> : null}
-                </div>
+                :null }
             </div>
         )
 }

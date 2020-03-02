@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { instaClientId } from "../../AxiosOrders";
 
 // css
 import entriesCSS from './entries.module.css'
@@ -227,6 +228,11 @@ class Entries extends Component{
         }
     }
 
+    linkInsta = () =>{
+        const instaLogin = `https://api.instagram.com/oauth/authorize/?client_id=${instaClientId}&redirect_uri=REDIRECT-URI&response_type=code`;
+        window.open(instaLogin, "_blank");
+    }
+
     closeModal = () =>{
         this.setState({
             newEntry: false
@@ -275,6 +281,9 @@ class Entries extends Component{
                 <div className={entriesCSS.buttonPosition}>
                     <button className={entriesCSS.publishButtons} onClick={()=> this.submitHandler()}>Submit</button>
                     <button className={entriesCSS.publishButtons} onClick={()=> this.openModal()}>Update Existing</button>
+                </div>
+                <div className={entriesCSS.buttonPosition}>
+                    <button className={entriesCSS.publishButtons} onClick={()=> this.linkInsta()}>Link Insta</button>
                     <button className={entriesCSS.publishButtons} onClick={()=>this.props.LogOut()}>Log Out</button>
                 </div>
             </div>
