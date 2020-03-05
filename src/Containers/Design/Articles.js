@@ -50,6 +50,18 @@ const articleList ={
         image: 'images/design/articles/bigGigantic.jpg',
         link: 'https://www.dropbox.com/s/6qsqdhuperbeprw/big%20gigantic.pdf?dl=0'
     },
+    9:{
+        title: 'Transformers: Age of Extinction',
+        category: 'Film',
+        image: 'images/design/articles/transformers.jpg',
+        link: 'https://www.whereyat.com/transformers-age-of-extinction'
+    },
+    10:{
+        title: 'Taken 3',
+        category: 'Film',
+        image: 'images/design/articles/taken.jpg',
+        link: 'https://www.whereyat.com/taken-3'
+    },
 }
 
 const IssueList = ({art}) => {
