@@ -52,13 +52,13 @@ const articleList ={
     },
     9:{
         title: 'Transformers: Age of Extinction',
-        category: 'Film',
+        category: 'Film Reviews',
         image: 'images/design/articles/transformers.jpg',
         link: 'https://www.whereyat.com/transformers-age-of-extinction'
     },
     10:{
         title: 'Taken 3',
-        category: 'Film',
+        category: 'Film Reviews',
         image: 'images/design/articles/taken.jpg',
         link: 'https://www.whereyat.com/taken-3'
     },
