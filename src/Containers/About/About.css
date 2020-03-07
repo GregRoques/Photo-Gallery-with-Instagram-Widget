@@ -18,8 +18,8 @@
   width: 25vw;
   height: 25vw;
   border-radius: 50%;
-  background-size: cover;
-  background-position:50% 50%;
+  object-fit: cover;
+  background-position: center 0px;
   background-repeat: no-repeat;
   border: 4px white solid;
   box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.5);
