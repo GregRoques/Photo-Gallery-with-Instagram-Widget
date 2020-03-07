@@ -65,8 +65,9 @@ class About extends Component{
         return(
         <div className="fadeIn">
             <div className="bioGrid">
-                <div className="portrait portraitDisappear"/>
-                <img className="part2" alt="myPic" src="/images/homepage/myPic.jpg"/>
+                <div className="portraitPadding">
+                    <img className="portrait" alt="myPic" src="/images/homepage/myPic.jpg"/>
+                </div>
                 <div className='whoAmIPadding'>
                     <div className="aboutMeHeader">About Me</div>
                     <div className="aboutMeText">

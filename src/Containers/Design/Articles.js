@@ -39,29 +39,29 @@ const articleList ={
         link: 'https://www.whereyat.com/glamorous-camping-glamping'
     },
     7:{
-        title: 'Interview with Broken Social Scene',
-        category: 'Music',
-        image: 'images/design/articles/bss.jpg',
-        link: 'https://www.whereyat.com/calming-the-storm-broken-social-scenes-kevin'
-    },
-    8:{
-        title: 'Interview with Big Gigantic',
-        category: 'Music',
-        image: 'images/design/articles/bigGigantic.jpg',
-        link: 'https://www.dropbox.com/s/6qsqdhuperbeprw/big%20gigantic.pdf?dl=0'
-    },
-    9:{
         title: 'Transformers: Age of Extinction',
         category: 'Film Reviews',
         image: 'images/design/articles/transformers.jpg',
         link: 'https://www.whereyat.com/transformers-age-of-extinction'
     },
-    10:{
+    8:{
         title: 'Taken 3',
         category: 'Film Reviews',
         image: 'images/design/articles/taken.jpg',
         link: 'https://www.whereyat.com/taken-3'
     },
+    9:{
+        title: 'Interview with Broken Social Scene',
+        category: 'Music',
+        image: 'images/design/articles/bss.jpg',
+        link: 'https://www.whereyat.com/calming-the-storm-broken-social-scenes-kevin'
+    },
+    10:{
+        title: 'Interview with Big Gigantic',
+        category: 'Music',
+        image: 'images/design/articles/bigGigantic.jpg',
+        link: 'https://www.dropbox.com/s/6qsqdhuperbeprw/big%20gigantic.pdf?dl=0'
+    }
 }
 
 const IssueList = ({art}) => {
