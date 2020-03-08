@@ -14,6 +14,7 @@ This site (www.GregRoques.com) is an updated version of my personal Portfolio pa
 
 # Technologies
 - React/Redux
+- Node/Express
 - HTML/CSS/JavaScript
 - Google Firebase
 
@@ -27,6 +28,13 @@ Redux w/ dev tools and middleware:
 - npm i react-redux
 - npm i redux-devtools
 - npm i redux-thunk
+
+Backend for Instagram API calls
+- npm i node
+- npm i express
+- npm i body-parser
+- npm i cors
+- npm i helmet
 
 Axios calls and HTML parsing:
 - npm i axios
