@@ -21,7 +21,7 @@ const projectDetails ={
     },
     sift: {
         name: 'Sift',
-        type: 'Full Stack',
+        type: 'MERN Stack',
         image: 'sift',
         description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
         languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
@@ -39,7 +39,7 @@ const projectDetails ={
     },
     urlshredder: {
         name: `URL Shredder`,
-        type: 'Full Stack',
+        type: 'MERN Stack',
         image: `urlshredder`,
         description: `A custom a URL shortener similar to Bitly and TinyURL. After submitting the form a user is given a custom, shortened URL; when the shortened URL is used they are redirected to the original URL.`,
         languages: ['html5.png', 'css3.png','javascript.png','react.png','nodejs.png', 'express.png','mysql.png'],

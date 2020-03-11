@@ -49,7 +49,7 @@ Google Analytics:
 
 # Challenges & Solutions
 ###   1. Home Page redirect animations:
-This was very tricky, as it required precise timing for the animations to minimize into the distance before calling the next route. To achieve this, I created a click listener that would call the function "pageHandler". I implemented npm framework "Emotions" to create unique CSS styling classes or the fade out animations. Finally, I used a "setTimeOut" at the conclusion of the function that would update state to call the redirect at the exact second the animation transition for the clicked circle was complete.
+This was tricky, as it required precise timing for the animations to minimize into the distance before calling the next route. To achieve this, I created a click listener that would call the function "pageHandler". I implemented npm framework "Emotions" to create unique CSS styling classes or the fade out animations. Finally, I used a "setTimeOut" at the conclusion of the function that would update state to call the redirect at the exact second the animation transition for the clicked circle was complete.
 
 
 ```
