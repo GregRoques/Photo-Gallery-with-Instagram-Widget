@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import css from './Photography.module.css'
 import { connect } from "react-redux";
-import SetHeader from '../../Actions/SetHeader'
-import { SetPhotoArray } from '../../Actions/PhotoArray'
-import PhotoGallery from './GalleryHandler'
+import SetHeader from '../../Actions/SetHeader';
+import { SetPhotoArray } from '../../Actions/PhotoArray';
+import PhotoGallery from './GalleryHandler';
+import InstaGallery from './instaGallery';
 
 var photoArray ={}
 
@@ -57,13 +58,14 @@ class Photography extends Component{
                                 )
                             })}
                       </div>
-                      
                   </div>
+                  
                   <div className={css.publishedWorkButtonAlign}>
                       <span><a target="_self" rel="noopener noreferrer" href='https://www.gregroques.com/media'>
                           <button className={css.publishedWorkButton}>Published Work</button>
                       </a></span>
                   </div>
+                  <InstaGallery/>
               </div>
           )
         
