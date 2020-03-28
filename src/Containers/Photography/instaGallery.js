@@ -83,7 +83,7 @@ class instaGallery extends Component {
                 <this.instaPopUp/> 
                  <div className={instaCss.container}>
         <div className={instaCss.header}>
-            <a href="https://www.instagram.com/qtrmileatatime" target="_blank" rel="noopener noreferrer nofollow">
+            <a title="Follow Me: @qtrmileatatime" href="https://www.instagram.com/qtrmileatatime" target="_blank" rel="noopener noreferrer nofollow">
                 Instagram
             </a> 
         </div>
