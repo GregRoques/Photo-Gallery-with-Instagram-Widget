@@ -45,10 +45,10 @@ const articleList ={
         link: 'https://www.whereyat.com/transformers-age-of-extinction'
     },
     8:{
-        title: 'Taken 3',
+        title: 'Jobs',
         category: 'Film Reviews',
         image: 'images/design/articles/taken.jpg',
-        link: 'https://www.whereyat.com/taken-3'
+        link: 'https://www.whereyat.com/jobs'
     },
     9:{
         title: 'Interview with Broken Social Scene',
