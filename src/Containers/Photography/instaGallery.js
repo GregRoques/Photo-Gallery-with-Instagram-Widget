@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import axios from "axios";
 import instaCss from './instaGallery.module.css';
 
 class instaGallery extends Component {
@@ -40,6 +41,24 @@ class instaGallery extends Component {
         },
         display: false
     }
+
+    // componentDidUpdate = () =>{
+    //     this.getInstaGallery()
+    // }
+
+    // getInstaGallery = () =>{
+    //     axios.get('/user')
+    //       .then(function (res) {
+    //           const {myProfilePic, images} = res
+    //         this.setState({
+    //             profilePic: myProfilePic,
+    //             image: [...images]
+    //         })
+    //       })
+    //       .catch(function (error) {
+    //         console.log(error);
+    //       });
+    // }
 
     instaPopUp = () =>{
         const { selectedPic } = this.state;

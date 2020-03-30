@@ -47,7 +47,7 @@ const articleList ={
     8:{
         title: 'Jobs',
         category: 'Film Reviews',
-        image: 'images/design/articles/taken.jpg',
+        image: 'images/design/articles/jobs.jpg',
         link: 'https://www.whereyat.com/jobs'
     },
     9:{
