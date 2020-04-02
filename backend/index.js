@@ -4,7 +4,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
-const instaAuth = require("./routes/instaAuth");
+const instaImages = require("./routes/instaImages");
+const instaOauth = require("./routes/instaOauth");
 
 app.use(cors());
 app.use(helmet());
@@ -12,7 +13,8 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(instaAuth);
+app.use(instaImages);
+app.use(instaOauth);
 
 app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res, next) => {

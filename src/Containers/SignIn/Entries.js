@@ -229,7 +229,12 @@ class Entries extends Component{
     }
 
     linkInsta = () =>{
-        const instaLogin = `https://api.instagram.com/oauth/authorize/?client_id=${instaClientId}&redirect_uri=REDIRECT-URI&response_type=code`;
+        const redirectUrl = "https://www.gregRoques.com/instaOauth"
+        const instaLogin = `https://api.instagram.com/oauth/authorize/
+            ?client_id=${instaClientId}
+            &redirect_uri=${redirectUrl}
+            &scope=user_profile,user_media
+            &response_type=code`;
         window.open(instaLogin, "_blank");
     }
 
@@ -251,6 +256,9 @@ class Entries extends Component{
                 />
                 <div className={entriesCSS.logOutTime}>
                     You will be logged out at <b>{localStorage.getItem('logOutTime')}</b>
+                </div>
+                <div className={entriesCSS.logOutTime}>
+                    Instagram token will expire in <b>{'# of days'} days. Refresh?</b>
                 </div>
                 <div className={entriesCSS.posts}>
                     <input 
