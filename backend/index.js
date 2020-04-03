@@ -22,4 +22,4 @@ app.get("/*", (req, res, next) => {
 });
 
 app.listen(2000);
-console.log('App is runung on port 2000');
+console.log('App is running on port 2000');

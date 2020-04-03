@@ -39,6 +39,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    width: 400px;
+    height: 400px;
 }
 
 .hitemwiththatflexColumn2{
@@ -59,23 +61,18 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    /* background-color: lightblue; */
     border-radius: 1rem;
     box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
-    transition: .5s;
-    width: 400px;
-    height: 400px;
-
+    width: inherit;
+    height: inherit;
 }
 
 .smallPicture1{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    /* background-color: lightblue; */
     border-radius: 1rem;
     box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
-    transition: .5s;
     width: 185px;
     height: 185px;
     margin-bottom: 15px;
@@ -85,18 +82,53 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    /* background-color: lightblue; */
     border-radius: 1rem;
     box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
-    transition: .5s;
     width: 185px;
     height: 185px;
     margin-top: 15px;
 }
 
-.bigPicture:hover, .smallPicture1:hover, .smallPicture2:hover{
-    transform: scale(.95);
-    transition: .5s;
+
+.onHover{
+    display:none;
+}
+
+
+.hitemwiththatflexColumn1:hover .onHover{
+    display:inline-block;
+    position: absolute;
+    text-align: center;
+    padding: 1rem;
+    left: 50%;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.onHoverDate, .onHoverLikes, .onHoverTags{
+    text-align: center;
+    margin-bottom:1rem;
+    font-size: 24px;
+    color: white;
+    font-weight: 900;
+    -webkit-text-stroke: 1px black;
+}
+
+.onHoverLikes{
+    font-size: 36px;
+}
+
+
+.hitemwiththatflexColumn1, .hitemwiththatflexColumn2, .hitemwiththatflexColumn3{
+    filter: grayscale(0)
+}
+.hitemwiththatflexColumn1:hover img, 
+.hitemwiththatflexColumn2 .smallPicture1:hover, .hitemwiththatflexColumn2 .smallPicture2:hover, 
+.hitemwiththatflexColumn3 .smallPicture1:hover, .hitemwiththatflexColumn3 .smallPicture2:hover{
+    filter: blur(2px) saturate(2);
 }
 
 @media screen and (max-width: 1064px){
