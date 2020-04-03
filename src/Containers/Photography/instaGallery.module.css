@@ -41,6 +41,9 @@
     flex-direction: column;
     width: 400px;
     height: 400px;
+    background-color: black;
+    border-radius: 1rem;
+    box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
 }
 
 .hitemwiththatflexColumn2{
@@ -61,8 +64,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 1rem;
-    box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
+    border-radius: inherit;
     width: inherit;
     height: inherit;
 }
@@ -125,11 +127,13 @@
 .hitemwiththatflexColumn1, .hitemwiththatflexColumn2, .hitemwiththatflexColumn3{
     filter: grayscale(0)
 }
+
 .hitemwiththatflexColumn1:hover img, 
-.hitemwiththatflexColumn2 .smallPicture1:hover, .hitemwiththatflexColumn2 .smallPicture2:hover, 
-.hitemwiththatflexColumn3 .smallPicture1:hover, .hitemwiththatflexColumn3 .smallPicture2:hover{
-    filter: blur(2px) saturate(2);
+.hitemwiththatflexColumn2:hover .smallPicture1, .hitemwiththatflexColumn2:hover .smallPicture2, 
+.hitemwiththatflexColumn3:hover .smallPicture1, .hitemwiththatflexColumn3:hover .smallPicture2{
+    opacity:0.5;
 }
+
 
 @media screen and (max-width: 1064px){
 
