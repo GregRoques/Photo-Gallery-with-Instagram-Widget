@@ -19,13 +19,13 @@ const projectDetails ={
         demo: 'https://www.Varicure.com',
         readMe: 'https://github.com/GregRoques/VeriCure/blob/master/README.md'
     },
-    sift: {
-        name: 'Sift',
-        type: 'MERN Stack',
-        image: 'sift',
-        description: `Sift is a PERN stack web application that allows users to organize their leisure acitivities by category. Once the user is in that category, they are able to create to do lists with notes, create favorite lists and write their own personal reviews.`,
-        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','postgresql.png'],
-        demo: 'https://www.youtube.com/watch?v=ALpS6kBmPKY&feature=youtu.be',
+    beds: {
+        name: 'Beds 4 Less',
+        type: 'Full Stack',
+        image: 'beds',
+        description: `Full Stack website for New Orleans-based mattress reatailer Beds 4 Less.`,
+        languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','portfolioAws.png'],
+        demo: 'https://www.NolaBeds.com',
         readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
     },
     dietactics: {
