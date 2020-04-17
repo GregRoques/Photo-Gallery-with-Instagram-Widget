@@ -25,8 +25,8 @@ const projectDetails ={
         image: 'beds',
         description: `Full Stack website for New Orleans-based mattress reatailer Beds 4 Less.`,
         languages: ['html5.png', 'css3.png','javascript.png','react.png', 'redux.png','nodejs.png', 'express.png','portfolioAws.png'],
-        demo: 'https://www.NolaBeds.com',
-        readMe: 'https://github.com/GregRoques/Sift/blob/master/readme.md'
+        demo: 'https://www.nolabeds.com',
+        readMe: 'https://github.com/GregRoques/BFL/blob/master/README.md'
     },
     dietactics: {
         name: 'DIETactics',
