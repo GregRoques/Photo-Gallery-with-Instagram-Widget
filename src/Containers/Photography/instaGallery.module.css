@@ -39,12 +39,23 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+}
+
+.instaImage1{
     width: 400px;
     height: 400px;
     background-color: black;
     border-radius: 1rem;
     box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
 }
+
+.bigPicture{
+    width: inherit;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center;
+}
+
 
 .hitemwiththatflexColumn2{
     display: flex;
@@ -60,77 +71,67 @@
     margin-left: 30px;
 }
 
-.bigPicture{
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: inherit;
+.instaImage2, .instaImage3, .instaImage4, .instaImage5{
+    position: relative;
+    width: 185px;
+    height: 185px;
+    background-color: black;
+    border-radius: 1rem;
+    box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
+    margin-bottom: 2rem;
+}
+
+.smallPicture{
     width: inherit;
-    height: inherit;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center;
 }
-
-.smallPicture1{
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 1rem;
-    box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
-    width: 185px;
-    height: 185px;
-    margin-bottom: 15px;
-}
-
-.smallPicture2{
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 1rem;
-    box-shadow: .15rem .15rem .15rem rgba(0,0,0,0.45);
-    width: 185px;
-    height: 185px;
-    margin-top: 15px;
-}
-
 
 .onHover{
     display:none;
 }
 
-
-.hitemwiththatflexColumn1:hover .onHover{
+.instaImage1:hover .onHover, .instaImage2:hover .onHover, .instaImage3:hover .onHover,
+.instaImage4:hover .onHover, .instaImage5:hover .onHover{
     display:inline-block;
     position: absolute;
     text-align: center;
     padding: 1rem;
     left: 50%;
-    width: 100%;
+    width: inherit;
     top: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
 }
 
 .onHoverDate, .onHoverLikes, .onHoverTags{
     text-align: center;
     margin-bottom:1rem;
-    font-size: 24px;
+    font-size: 16px;
     color: white;
     font-weight: 900;
     -webkit-text-stroke: 1px black;
 }
 
 .onHoverLikes{
-    font-size: 36px;
+    font-size: 24px;
 }
 
+.instaImage1 .onHoverDate, .instaImage1 .onHoverLikes, .instaImage1 .onHoverTags{
+    font-size: 24px;
+}
+
+.instaImage1 .onHoverLikes{
+    font-size: 36px;
+}
 
 .hitemwiththatflexColumn1, .hitemwiththatflexColumn2, .hitemwiththatflexColumn3{
     filter: grayscale(0)
 }
 
-.hitemwiththatflexColumn1:hover img, 
-.hitemwiththatflexColumn2:hover .smallPicture1, .hitemwiththatflexColumn2:hover .smallPicture2, 
-.hitemwiththatflexColumn3:hover .smallPicture1, .hitemwiththatflexColumn3:hover .smallPicture2{
+.instaImage1:hover .bigPicture, 
+.instaImage2:hover  .smallPicture, .instaImage3:hover  .smallPicture, 
+.instaImage4:hover  .smallPicture, .instaImage5:hover .smallPicture{
     opacity:0.5;
 }
 
