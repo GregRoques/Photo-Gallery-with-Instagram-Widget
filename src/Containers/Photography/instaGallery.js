@@ -74,8 +74,8 @@ class instaGallery extends Component {
         </div>
         <div className={instaCss.hitemwiththatflexRow}>
             <div className={instaCss.hitemwiththatflexColumn1}>
-                <div className={instaCss.instaImage1}>
-                    <img className={instaCss.bigPicture} alt={ "insta1" } onClick={()=> this.isPopUpOpen(0)} src={ image[0].pic }/>
+                <div className={instaCss.instaImage1} onClick={()=> this.isPopUpOpen(0)} >
+                    <img className={instaCss.bigPicture} alt={ "insta1" } src={ image[0].pic }/>
                     <div className ={instaCss.onHover}>
                         <div className={instaCss.onHoverLikes}>&#x2665; {image[0].likes}</div>
                         <div className={instaCss.onHoverDate}>{image[0].date}</div>
@@ -85,16 +85,16 @@ class instaGallery extends Component {
             </div>
             
             <div className={instaCss.hitemwiththatflexColumn2}>
-                <div className={instaCss.instaImage2}>
-                    <img className={instaCss.smallPicture} alt={ "insta2" } onClick={()=> this.isPopUpOpen(1)} src={ image[1].pic }/>
+                <div className={instaCss.instaImage2} onClick={()=> this.isPopUpOpen(1)} >
+                    <img className={instaCss.smallPicture} alt={ "insta2" } src={ image[1].pic }/>
                     <div className ={instaCss.onHover}>
                         <div className={instaCss.onHoverLikes}>&#x2665; {image[1].likes}</div>
                         <div className={instaCss.onHoverDate}>{image[1].date}</div>
                         <div className={instaCss.onHoverTags}>{(image[1].tags[0] + "," + image[1].tags[1] + "," + image[1].tags[2]).toString().replace(/,/g, ', ')}</div>
                     </div>
                 </div>
-                <div className={instaCss.instaImage3}>
-                    <img className={instaCss.smallPicture} alt={ "insta3"  } onClick={()=> this.isPopUpOpen(2)} src={ image[2].pic }/>
+                <div className={instaCss.instaImage3} onClick={()=> this.isPopUpOpen(2)} >
+                    <img className={instaCss.smallPicture} alt={ "insta3"  } src={ image[2].pic }/>
                     <div className ={instaCss.onHover}>
                         <div className={instaCss.onHoverLikes}>&#x2665; {image[2].likes}</div>
                         <div className={instaCss.onHoverDate}>{image[2].date}</div>
@@ -104,16 +104,16 @@ class instaGallery extends Component {
             </div>
             
             <div className={instaCss.hitemwiththatflexColumn3}>
-                <div className={instaCss.instaImage4}>
-                    <img className={instaCss.smallPicture} alt={ "insta4" } onClick={()=> this.isPopUpOpen(3)} src={ image[3].pic }/>
+                <div className={instaCss.instaImage4} onClick={()=> this.isPopUpOpen(3)} >
+                    <img className={instaCss.smallPicture} alt={ "insta4" } src={ image[3].pic }/>
                     <div className ={instaCss.onHover}>
                         <div className={instaCss.onHoverLikes}>&#x2665; {image[3].likes}</div>
                         <div className={instaCss.onHoverDate}>{image[3].date}</div>
                         <div className={instaCss.onHoverTags}>{(image[3].tags[0] + "," + image[3].tags[1] + "," + image[3].tags[2]).toString().replace(/,/g, ', ')}</div>
                     </div>
                 </div>
-                <div className={instaCss.instaImage5}>
-                    <img className={instaCss.smallPicture} alt={ "insta5" } onClick={()=> this.isPopUpOpen(4)} src={ image[4].pic }/>
+                <div className={instaCss.instaImage5} onClick={()=> this.isPopUpOpen(4)} >
+                    <img className={instaCss.smallPicture} alt={ "insta5" } src={ image[4].pic }/>
                     <div className ={instaCss.onHover}>
                         <div className={instaCss.onHoverLikes}>&#x2665; {image[4].likes}</div>
                         <div className={instaCss.onHoverDate}>{image[4].date}</div>
