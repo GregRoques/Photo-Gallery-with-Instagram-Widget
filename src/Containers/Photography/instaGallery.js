@@ -7,7 +7,7 @@ class instaGallery extends Component {
     state={
         userName: "qtrmileatatime",
         profilePic: "",
-        image: [],
+        image: [""],
         selectedPic: 0,
         display: false
     }
@@ -26,8 +26,8 @@ class instaGallery extends Component {
                 image: images,
             })
           })
-          .catch(error => {
-            console.log(error);
+          .catch(()=> {
+            console.log("Error Loading Instagram Widget");
           });
     }
 
