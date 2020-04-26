@@ -27,28 +27,28 @@ const articleList ={
         link: 'https://www.whereyat.com/fit-club-cyclebar-drops-the-bass-on-indoor-spin'
     },
     5:{
+        title: 'Six Hikes Near NOLA',
+        category: 'Outdoors',
+        image: 'images/design/articles/hikes.jpg',
+        link: 'http://www.whereyat.com/6-hiking-trails-near-new'
+    },
+    6:{
+        title: `Glamping Near NOLA`,
+        category: 'Outdoors',
+        image: 'images/design/articles/glamping.jpg',
+        link: 'https://www.whereyat.com/glamorous-camping-glamping'
+    },
+    7:{
         title: 'NOLA Street Art 2018',
         category: 'Culture',
         image: 'images/design/articles/streetArt.jpg',
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
-    6:{
-        title: `Glamping Near NOLA`,
-        category: 'Culture',
-        image: 'images/design/articles/glamping.jpg',
-        link: 'https://www.whereyat.com/glamorous-camping-glamping'
-    },
-    7:{
-        title: 'Transformers: Age of Extinction',
-        category: 'Film Reviews',
-        image: 'images/design/articles/transformers.jpg',
-        link: 'https://www.whereyat.com/transformers-age-of-extinction'
-    },
     8:{
-        title: 'Taken 3',
-        category: 'Film Reviews',
-        image: 'images/design/articles/taken3.jpg',
-        link: 'https://www.whereyat.com/taken-3'
+        title: 'Video Games Set in NOLA',
+        category: 'Culture',
+        image: 'images/design/articles/games.jpg',
+        link: 'http://www.whereyat.com/video-games-set-in-new-orleans6'
     },
     9:{
         title: 'Interview with Broken Social Scene',

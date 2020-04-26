@@ -7,7 +7,7 @@ class instaGallery extends Component {
     state={
         userName: "qtrmileatatime",
         profilePic: "",
-        image: [""],
+        image: [0],
         selectedPic: 0,
         display: false
     }
@@ -126,7 +126,7 @@ class instaGallery extends Component {
                 
             </div>
 
-        ): null;
+        ): <div></div>;
     };
 }
 
