@@ -27,28 +27,28 @@ const articleList ={
         link: 'https://www.whereyat.com/fit-club-cyclebar-drops-the-bass-on-indoor-spin'
     },
     5:{
-        title: 'Six Hikes Near NOLA',
-        category: 'Outdoors',
-        image: 'images/design/articles/hikes.jpg',
-        link: 'http://www.whereyat.com/6-hiking-trails-near-new'
-    },
-    6:{
-        title: `Glamping Near NOLA`,
-        category: 'Outdoors',
-        image: 'images/design/articles/glamping.jpg',
-        link: 'https://www.whereyat.com/glamorous-camping-glamping'
-    },
-    7:{
         title: 'NOLA Street Art 2018',
         category: 'Culture',
         image: 'images/design/articles/streetArt.jpg',
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
-    8:{
-        title: 'Video Games Set in NOLA',
+    6:{
+        title: 'Big Easy Roller Girls',
         category: 'Culture',
-        image: 'images/design/articles/games.jpg',
-        link: 'http://www.whereyat.com/video-games-set-in-new-orleans6'
+        image: 'images/design/articles/berg.jpg',
+        link: 'https://www.whereyat.com/strong-like-bull-the-big-easy-roller-girls'
+    },
+    7:{
+        title: "A Night in LA's Most Haunted House",
+        category: 'Tourism',
+        image: 'images/design/articles/mrytles.jpg',
+        link: 'https://www.whereyat.com/the-worlds-most-haunted-house-the-myrtles'
+    },
+    8:{
+        title: `Glamping Near NOLA`,
+        category: 'Tourism',
+        image: 'images/design/articles/glamping.jpg',
+        link: 'https://www.whereyat.com/glamorous-camping-glamping'
     },
     9:{
         title: 'Interview with Broken Social Scene',

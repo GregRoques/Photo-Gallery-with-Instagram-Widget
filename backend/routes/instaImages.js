@@ -1,59 +1,130 @@
+https://developers.facebook.com/docs/instagram-basic-display-api/guides/long-lived-access-tokens#get-a-long-lived-token
+
+// =============== requests authorization
+
+https://api.instagram.com/oauth/authorize
+  ?client_id={instagram-app-id}
+  &redirect_uri={redirect-uri}
+  &scope={scope}
+  &response_type=code
+  &state={state}     
+
+// ====================================================== short code get
+
+
 const express = require("express");
 const router = express.Router();
+const nodemailer = require("nodemailer");
+const sendgridTransport = require("nodemailer-sendgrid-transport");
+const myKey = require("../util/sendgridApi.js");
 
-const results = {
-    userName: "qtrmileatatime",
-    link: "https//www.instagram.com/qtrmileatatime",
-    myProfilePic: "https://lh3.googleusercontent.com/proxy/qRSmXP4xklfeIxWJx47NWPPOXTw98JUMwIVIoxmG_TWApKRltySXzMc-ylnZmeKHQudlxamstWDBhuFE3iAGJTDBl3pBsgncI9zfj7-eEidHxiOJTXN79WZb4rrUA-tVLBnqH_kqZOEHiQ",
-    images: [
-        { 
-            pic: "https://cdn.mos.cms.futurecdn.net/vChK6pTy3vN3KbYZ7UU7k3-1200-80.jpg",
-            date: "March 26, 2020",
-            caption: "Cats living their best life.",
-            likes: 16,
-            tags: ["#cats", "#kittens", "#felines", "#khatool", "#gato"],
-            location: "Stein's Deli – New Orleans"
+// ============================================================== in the event of pm2 refresh, this retreives and restarts countdown to long-term token refresh
 
-        },
-        { 
-            pic: "https://lh3.googleusercontent.com/proxy/5f-8aWhJtPvAypaj3rZgqhBFqrAIDNvS1Le4goALoOxJ_gYUu49_exoNivJg7N3dOCUbpaCSDXpb3InW5uLacBci3Hk2NfSfqPZCw59wPqZX4T1_PsOBxCG_MaCjVWjQ9yM",
-            date: "February 26, 2020",
-            caption: "Cats living their best life.",
-            likes: 16,
-            tags: ["#cats", "#kittens", "#felines", "#khatool", "#gato"],
-            location: "Stein's Deli – New Orleans"
-        },
-        { 
-            pic: "https://4al52k24l8r51wpym5i46ltd-wpengine.netdna-ssl.com/wp-content/uploads/sites/2/2020/02/GettyImages-1199242002-1-scaled.jpg",
-            date: "April 26, 2020",
-            caption: "Cats living their best life.",
-            likes: 16,
-            tags: ["#cats", "#kittens", "#felines", "#khatool", "#gato"],
-            location: "Stein's Deli – New Orleans"
-        },
-        { 
-            pic: "https://images.squarespace-cdn.com/content/v1/55e7b445e4b04e7d0095c2cd/1556296318516-36C15R1S3A4H1GUP62QL/ke17ZwdGBToddI8pDm48kFyD7pzB8zoMIVY5aiUuFlp7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jG2lbcDYBOeMi4OFSYem8DMb5PTLoEDdB05UqhYu-xbnSznFxIRsaAU-3g5IaylIg/AdobeStock_170586850+%281%29.jpeg?format=1000w",
-            date: "January 26, 2020",
-            caption: "Cats living their best life.",
-            likes: 18,
-            tags: ["#cats", "#kittens", "#felines", "#khatool", "#gato"],
-            location: "Stein's Deli – New Orleans"
-        },
-        { 
-            pic: "https://chuckanddons.com/media/wysiwyg/kitten_blog.jpg",
-            date: "May 26, 2020",
-            caption: "Cats living their best life.",
-            likes: 16,
-            tags: ["#cats", "#kittens", "#felines", "#khatool", "#gato"],
-            location: "Stein's Deli – New Orleans"
-        }
-    ]
-};
+var isTrue = false;
 
-router.get("/instaImages", (req, res) => {
-    res.json(results)
-})
-   
+if(!isTrue){
+
+    //get longTermToken and expiration from db
+    .then(res =>{
+        const{ access_token, expires_in} = res;
+        isTrue = true;
+        refreshLongTermToken(access_token, expires_in)
+    })
     
 
-module.exports = router;
+}
+
+// ============================================================== user long-term token refresh
+
+refreshLongTermToken(token, expiration){
+    setTimeout(function(){
+        axios.get(`https://graph.instagram.com/refresh_access_token`, {
+        grant_type: "ig_refresh_token",
+        client_secret: "",
+        access_token: token
+    })
+    .then(res => {
+        const{ access_token, expires_in} = res;
+        
+        // Send access_token and expires_in to db
+
+        isTrue = true;
+        refreshLongTermToken(access_token, expires_in)
+
+    })
+    .catch(res =>{
+        const {error, error_reason, error_description} = res;
+        const sendDate = new Date().toISOString().slice(0, 10);
+
+        // ============================================================== email user if refresh fails
+
+        transporter.sendMail({
+            to: "",
+            from: email,
+            subject: `${subject}`,
+            html: `<b>From:</b> ${name} <br/> 
+            <b>Date:</b> ${sendDate} <br/><br/>
+            Your Long Term Instagram Token for GregRoques.com/photography did not refresh.<br/>
+            Please log in and request a new token to use your Instagram Widget again.<br/>
+            <b>${error}: </b> ${error_reason} <br/> ${error_description}`
+        })
+    })
+    }, expiration - 86400) // 86400 is one day before expiration
+}
+
+// ============================================================== user request for long-term token
+
+const getLongTermToken = (token) => {
+    axios.get(`https://graph.instagram.com/access_token'`, {
+        grant_type: "ig_exchange_token",
+        client_secret: "",
+        access_token: token
+    })
+    .then(res => {
+        const{ access_token, expires_in} = res;
+        
+        // Send access_token and expires_in to db
+
+        refreshLongTermToken(access_token, expires_in)
+
+    })
+    .catch(res =>{
+        const errors = res;
+        router.post('/user-update-blog', (req, res, next) => {
+            res.json(errors)
+        })
+    })
+}
+
+// ============================================================== router post from instagram for short-term token
+
+router.get("/insta-auth", (req,res,next) =>{
+    if(req.error){
+        router.post('/user-update-blog', (req, res, next) => {
+            res.json(req)
+        })
+    }
+
+    if(req.code){
+        const { code } = req;
+        axios.get('https://api.instagram.com/oauth/access_token',{
+            client_id: "",
+            client_secret: "",
+            grant_type: "authorization_code",
+            redirect_uri="",
+            code = code
+        })
+        .then(res =>{
+            const {user_id, acess_token } = res;
+            //const exchangeType = "ig_exchange_token";
+            //const exchangetUrl = 'access_token'
+            getLongTermToken(access_token)
+        })
+        .catch(res =>{
+            const errors = res;
+            router.post('/user-update-blog', (req, res, next) => {
+                res.json(errors)
+            })
+        })
+    }
+})

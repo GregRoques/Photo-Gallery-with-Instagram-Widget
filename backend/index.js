@@ -4,7 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
-const instaImages = require("./routes/instaImages");
+const instaImages = require("./routes/instaImagesTest");
 const instaOauth = require("./routes/instaOauth");
 
 app.use(cors());
