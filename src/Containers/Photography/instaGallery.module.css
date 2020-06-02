@@ -135,6 +135,22 @@
     opacity:0.5;
 }
 
+.imageGalleryButtons{
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    align-content:center;
+    align-items: center;
+    color:white;
+    font-size:2rem;
+    font-weight:bold;
+    user-select: none;
+    padding: 10px;
+  }
+
+  
+  /* ========================================== media screens */
+
 
 @media screen and (max-width: 1065px){
 
@@ -309,6 +325,25 @@
     border-radius: 15px;
 }
 
+.buttonRight{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.buttonLeft{
+  position: absolute;
+  height: 350px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+
 img{
     height: inherit;
     object-fit: cover;
@@ -388,6 +423,25 @@ img{
         width: 250px;
         height: 250px;
     }
+
+    .buttonRight{
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-content: center;
+    }
+  
+    .buttonLeft{
+      position: absolute;
+      height: 250px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-content: center;
+  }
 
     .selectedCaption{
         font-size: 14px;

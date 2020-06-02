@@ -12,6 +12,7 @@
 .pnp.js
 ./AxiosOrders.js
 AxiosOrders.js
+instatest.js
 
 # testing
 /coverage
