@@ -70,6 +70,8 @@ class Entries extends Component{
             newEntry: false,
             entries:'',
             updateArticleKey:'',
+        //Insta Logout
+            instaLogOut: ""
     }
 
     
@@ -257,9 +259,12 @@ class Entries extends Component{
                 <div className={entriesCSS.logOutTime}>
                     You will be logged out at <b>{localStorage.getItem('logOutTime')}</b>
                 </div>
-                <div className={entriesCSS.logOutTime}>
-                    Instagram token will expire in <b>{'# of days'} days. Refresh?</b>
-                </div>
+                {this.state.instaLogOut && this.state.instaLogOut > 0 ?
+                    <div className={entriesCSS.logOutTime}>
+                        Instagram token will expire in <b>${this.state.instaLogOut} days. Refresh?</b>
+                    </div>
+                    : null
+                }
                 <div className={entriesCSS.posts}>
                     <input 
                         type="text" 
