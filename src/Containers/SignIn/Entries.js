@@ -78,10 +78,15 @@ class Entries extends Component{
 //Insta Update Date
 
     instaUpdateDate = ex => {
-        const currDate = new Date().getTime;
-        const daysToExpiration = Math.round((ex - currDate) / (1000 * 3600 * 24))
+        const days = 59;
+        let result = new Date(ex);
+        result.setDate(result.getDate() + days);
+        const numOfSeconds = result.getTime() - ex
+        const numOfDays = Math.round(numOfSeconds) / (1000 * 3600 * 24);
+        //console.log(numOfSeconds + " | " + numOfDays)
+    
         this.setState({
-            instaLogOut: daysToExpiration
+            instaLogOut: numOfDays
         })
     }
 

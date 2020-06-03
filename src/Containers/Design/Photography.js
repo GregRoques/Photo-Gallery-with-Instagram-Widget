@@ -66,13 +66,13 @@ const musicPhotos = {
 let musicPhotosLength= (Object.keys(musicPhotos)).length
 
 // Slider Render
-const Slider = ({ currentNum, clickL, clickR }) =>{
+const Slider = ({ currentNum, clickL, clickR, preventDefaultHander }) =>{
     return(
     <div>
         <div className="artDirection">Photography</div>
         <div className='photoContent'>
             <div onClick={()=>clickL()} className="picButtons buttonLeft">{`<`}</div>
-            <div className='sliderContainer'>
+            <div className='sliderContainer' onContextMenu={ preventDefaultHander } onDragStart={ preventDefaultHander }>
                 <img src={musicPhotos[currentNum]['image']} alt={musicPhotos['band']}/>
             </div>
             <div onClick={()=>clickR()}  className="picButtons buttonRight">{`>`}</div>
@@ -116,6 +116,10 @@ class Photography extends Component{
         })
     }
 
+    preventDragHandler = (e) => {
+        e.preventDefault();
+      }
+
 // ============================================ Render
 
     render(){
@@ -126,6 +130,7 @@ class Photography extends Component{
                 currentNum = {this.state.imageNum}
                 clickL = {this.leftClick}
                 clickR = {this.rightClick}
+                preventDefaultHander = { this.preventDragHandler }
                 />
             </div>
         )

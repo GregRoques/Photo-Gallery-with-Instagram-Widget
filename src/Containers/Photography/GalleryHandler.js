@@ -22,6 +22,10 @@ class PhotoGallery extends Component{
             
         }, 800);
     }
+
+    preventDragHandler = (e) => {
+      e.preventDefault();
+    }
     
     maskOff = () => {
         clearInterval(myInterval)
@@ -33,7 +37,7 @@ class PhotoGallery extends Component{
   render(){
     return(
       <div className= { css.centerText }>
-        <div className= { css.box }>
+        <div className= { css.box } onContextMenu={this.preventDragHandler} onDragStart={this.preventDragHandler}>
           <img 
             src = { './images/photography/'+ this.props.images[this.props.album][this.state.currentImage]}
             alt = { this.props.album }

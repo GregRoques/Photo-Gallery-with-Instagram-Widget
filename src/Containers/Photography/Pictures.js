@@ -58,6 +58,10 @@ class Pictures extends Component{
         })
     }
 
+    preventDragHandler = (e) => {
+        e.preventDefault();
+      }
+
     render(){
 
         var currentPathname =((window.location.pathname).split('/photography/').pop()).replace(/["_"]/g, " ");
@@ -85,7 +89,7 @@ class Pictures extends Component{
                     <div className={ css.closePhotoModal } onClick={()=> this.pictureDisplayOff()}>x</div>
                     <div className ={ css.photoContent}>
                         <div className={ css.imageGalleryButtons } onClick={()=>this.clickL(this.state.modalPhoto, currentPathname)}>{`<`}</div>
-                        <div className={ css.sliderContainer }>
+                        <div className={ css.sliderContainer } onContextMenu={this.preventDragHandler} onDragStart={this.preventDragHandler}>
                             <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
                         </div>
                         <div className={ css.imageGalleryButtons } onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
@@ -105,7 +109,7 @@ class Pictures extends Component{
                     <div className = { css.photoGrid }>
                         { photoArray[currentPathname] ? photoArray[currentPathname].map((image, i) => {
                             return(
-                                <div key={ i } className={css.photoBox}>
+                                <div key={ i } className={css.photoBox} onContextMenu={this.preventDragHandler} onDragStart={this.preventDragHandler}>
                                     <img onClick={() => this.pictureDisplayOn(i) } alt={ currentPathname + i } src={'/images/photography/'+ image}/>
                                 </div>
                             )
