@@ -54,11 +54,12 @@ export const auth = (email, password) =>{
             // Figure Out Time Left While Logged In
             var currentDate = new Date()
             var currentHour= currentDate.getHours()
+            const isPM = currentHour + 1
             var currentMinute = currentDate.getMinutes()
             console.log(response.data.expiresIn)
             const logOutTime = (currentHour >= 12 ? (currentHour - 12) + 1 : currentHour + 1).toString() + ":" +
                 ((currentMinute).toString()).padStart(2, '0') +
-                (currentHour > 12 ? 'pm' : "am")
+                (isPM > 12 ? ' pm' : " am")
 
             //local storage 
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000)

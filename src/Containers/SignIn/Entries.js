@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { instaClientId } from "../../AxiosOrders";
 
 // css
 import entriesCSS from './entries.module.css'
@@ -35,7 +34,11 @@ class Entries extends Component{
         //Past Articles
         read.get()
         .then(response=>{
-            const blogReturn = Object.values(response.data.users)[0]
+            const blogReturn = Object.values(response.data.users)[0];
+            const instaAccess = response.data.insta_access.lttDate;
+            if(instaAccess){
+                this.instaUpdateDate(instaAccess)
+            }
             this.setState({
                 entries: blogReturn,
             })
@@ -55,6 +58,7 @@ class Entries extends Component{
           .catch(error=> {
               console.log('Did the Earth stop rotating? Kanye is quiet... ', error)
           })
+
     }
 
     state={
@@ -244,16 +248,6 @@ class Entries extends Component{
         }
     }
 
-    linkInsta = () =>{
-        const redirectUrl = "https://www.gregRoques.com/instaOauth"
-        const instaLogin = `https://api.instagram.com/oauth/authorize/
-            ?client_id=${instaClientId}
-            &redirect_uri=${redirectUrl}
-            &scope=user_profile,user_media
-            &response_type=code`;
-        window.open(instaLogin, "_blank");
-    }
-
     closeModal = () =>{
         this.setState({
             newEntry: false
@@ -275,7 +269,7 @@ class Entries extends Component{
                 </div>
                 {this.state.instaLogOut > 0 ?
                     <div className={entriesCSS.logOutTime}>
-                        Instagram token will expire in <b>${this.state.instaLogOut} days. Refresh?</b>
+                        Instagram token will expire in <b>{this.state.instaLogOut} days.</b>
                     </div>
                     : null
                 }
@@ -309,8 +303,11 @@ class Entries extends Component{
                     <button className={entriesCSS.publishButtons} onClick={()=> this.submitHandler()}>Submit</button>
                     <button className={entriesCSS.publishButtons} onClick={()=> this.openModal()}>Update Existing</button>
                 </div>
+                {/* <div className={entriesCSS.buttonPosition}>
+                    <button className={entriesCSS.publishButtons} onClick={()=> }>Insta Edit</button>
+                    <button className={entriesCSS.publishButtons} onClick={()=> }>Password Edit</button>
+                </div> */}
                 <div className={entriesCSS.buttonPosition}>
-                    <button className={entriesCSS.publishButtons} onClick={()=> this.linkInsta()}>Link Insta</button>
                     <button className={entriesCSS.publishButtons} onClick={()=>this.props.LogOut()}>Log Out</button>
                 </div>
             </div>

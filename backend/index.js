@@ -1,11 +1,10 @@
 var express = require('express');
 var app = express();
-const path = require("path");
+//const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
-const instaImages = require("./routes/instaImagesTest");
-const instaOauth = require("./routes/instaOauth");
+const instaImages = require("./routes/instaImages");
 
 app.use(cors());
 app.use(helmet());
@@ -14,12 +13,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(instaImages);
-app.use(instaOauth);
 
-app.use(express.static(path.join(__dirname, "build")));
-app.get("/*", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+// app.use(express.static(path.join(__dirname, "build")));
+// app.get("/*", (req, res, next) => {
+//     res.sendFile(path.join(__dirname, "build", "index.html"));
+// });
+
+const PORT = 2000;
+app.listen(PORT, () => {
+    console.log("Listening on ", PORT);
 });
-
-app.listen(2000);
-console.log('App is running on port 2000');
