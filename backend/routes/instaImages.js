@@ -4,7 +4,7 @@ const instaToken = require('../util/insta');
 const axios = require("axios");
 
 router.get("/instaImages", (req,res) =>{
-
+//https://developers.facebook.com/docs/instagram-api/reference/media
     const url = `https://graph.instagram.com/me/media/`;
     const fields = '?fields=caption,id,media_url,permalink,timestamp,children'
     const count = "&count=5";
