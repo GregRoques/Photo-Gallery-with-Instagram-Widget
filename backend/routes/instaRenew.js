@@ -1,57 +1,22 @@
 // const express = require("express");
 // const router = express.Router();
-// const nodemailer = require("nodemailer");
-// const sendgridTransport = require("nodemailer-sendgrid-transport");
-// const myKey = require("../util/sendgridApi.js");
-
-// const transporter = nodemailer.createTransport(sendgridTransport({
-//     auth: {
-//         api_key: myKey
-//     }
-// }));
-
-// // ============================================================== in the event of pm2 refresh, this retreives and restarts countdown to long-term token refresh
-
-// var isTrue = false;
-
-// if(!isTrue){
-//     //get longTermToken and expiration from db
-//     .then(res =>{
-//         const{ lttDate } = res;
-//             const currDate = new Date(lttDate);
-//             const expirationDate = setDate(currDate.getDate() + days);
-//             const expires_in = (expirationDate).getTime() - currDate.getTime();
-//         if(expires_in > 0){
-//             isTrue = true;
-//             setTimeout(function(){
-//                 refreshLongTermToken()
-//         }, expires_in)
-//         }
-//     })
-// }
-
-// // ================================================================= email error 
-
-
-// const sendErrorEmail = error => {
-//     const sendDate = new Date().toISOString().slice(0, 10);
-//     transporter.sendMail({
-//         to: 'greg@gregroques.com',
-//         from: 'greg@gregroques.com',
-//         subject: `Instagram Widget LongTerm Token Refresh Failed`,
-//         html: `
-//         <b>Date:</b> ${sendDate} <br/><br/>
-//         Your Long Term Instagram Token for GregRoques.com/photography did not refresh.<br/>
-//         Please log in and request a new token to use your Instagram Widget again.<br/>
-//         <b>${error}<br><br/><br/>`
-//     })
-// }
+// const axios = require("axios");
 
 // // ============================================================== user long-term token refresh
 
 // const refreshLongTermToken = () => {
 
-//     //get longTermToken and appSecret from db
+    // axios.get('https://gregs-blog-1546d.firebaseio.com/insta_access/.json?data/')
+    // .then(res=>{
+    //     req.instaToken = res.data.longTermToken
+    //     //req.instaID = res.data.appID
+    //     req.instaSecret = res.data.Secret
+    //     next();
+    // })
+    // .catch(err =>{
+    //     console.log(`Could not get login info: ${err}`)
+    //     next();
+    // })
 //     .then(res =>{
 //         const{ appSecret, longTermToken } = res;
     
