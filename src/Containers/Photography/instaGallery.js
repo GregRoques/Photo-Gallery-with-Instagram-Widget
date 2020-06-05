@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import axios from "axios";
 import instaCss from './instaGallery.module.css';
 import { instaBackend } from "../../AxiosOrders";
-import Results from "../../instatest";
 
 class instaGallery extends Component {
     state={
-        userName: Results.userName,
+        userName: "",
         profilePic: "/images/homepage/myPic.jpg",
-        image: Results.images,
+        image: [],
         instaDisplay: false,
         selectedPic: 0,
         display: false
