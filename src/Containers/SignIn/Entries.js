@@ -303,10 +303,6 @@ class Entries extends Component{
                     <button className={entriesCSS.publishButtons} onClick={()=> this.submitHandler()}>Submit</button>
                     <button className={entriesCSS.publishButtons} onClick={()=> this.openModal()}>Update Existing</button>
                 </div>
-                {/* <div className={entriesCSS.buttonPosition}>
-                    <button className={entriesCSS.publishButtons} onClick={()=> }>Update Insta</button>
-                    <button className={entriesCSS.publishButtons} onClick={()=> }>Refresh Insta</button>
-                </div> */}
                 <div className={entriesCSS.buttonPosition}>
                     <button className={entriesCSS.publishButtons} onClick={()=>this.props.LogOut()}>Log Out</button>
                 </div>

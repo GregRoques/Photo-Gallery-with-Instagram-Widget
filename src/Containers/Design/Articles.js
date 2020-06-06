@@ -27,29 +27,30 @@ const articleList ={
         link: 'https://www.whereyat.com/fit-club-cyclebar-drops-the-bass-on-indoor-spin'
     },
     5:{
+        title: "Extreme Trail Running",
+        category: 'Outdoors',
+        image: 'images/design/articles/running.jpg',
+        link: 'https://www.whereyat.com/taking-it-to-the-trails-q50-races-offers'
+    },
+    6:{
+        title: `Glamping Near NOLA`,
+        category: 'Outdoors',
+        image: 'images/design/articles/glamping.jpg',
+        link: 'https://www.whereyat.com/glamorous-camping-glamping'
+    },
+    7:{
         title: 'NOLA Street Art 2018',
         category: 'Culture',
         image: 'images/design/articles/streetArt.jpg',
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
-    6:{
+    8:{
         title: 'Big Easy Roller Girls',
         category: 'Culture',
         image: 'images/design/articles/berg.jpg',
         link: 'https://www.whereyat.com/strong-like-bull-the-big-easy-roller-girls'
     },
-    7:{
-        title: "A Night in LA's Most Haunted House",
-        category: 'Tourism',
-        image: 'images/design/articles/mrytles.jpg',
-        link: 'https://www.whereyat.com/the-worlds-most-haunted-house-the-myrtles'
-    },
-    8:{
-        title: `Glamping Near NOLA`,
-        category: 'Tourism',
-        image: 'images/design/articles/glamping.jpg',
-        link: 'https://www.whereyat.com/glamorous-camping-glamping'
-    },
+
     9:{
         title: 'Interview with Broken Social Scene',
         category: 'Music',

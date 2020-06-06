@@ -1,67 +1,47 @@
 const express = require("express");
 const router = express.Router();
-//const instaToken = require('../util/insta');
 const axios = require("axios");
 
-// https://developers.facebook.com/docs/instagram-api/reference/media
 
-router.get("/instaImages", (req,res,next) =>{
-    axios.get('https://gregs-blog-1546d.firebaseio.com/insta_access/.json?data/')
+router.get("/instaImages", (req,res, next) =>{
+
+    const userName = 'qtrmileatatime';
+    let userInfo ={
+        userName: userName
+    };
+
+    axios.get(`https://www.instagram.com/${userName}/?__a=1`)
     .then(res=>{
-        req.instaToken = res.data.longTermToken
-        req.instaID = res.data.appID
-        next();
-    })
-    .catch(err =>{
-        //console.log(`Could not get login info: ${err}`)
-        throw err
-    })
+        const { profile_pic_url_hd, edge_owner_to_timeline_media } = res.data.graphql.user;
+       
+        userInfo.profilePic = profile_pic_url_hd;
+        userInfo.postCount = edge_owner_to_timeline_media.count
+        userInfo.image = [];
 
-}, (req, res, next)=>{
-    const url = `https://graph.instagram.com/me/media/`;
-    const fields = '?fields=caption,username,id,media_url,permalink,timestamp'
-    const count = "&count=5";
-    const accessToken = `&access_token=${req.instaToken}`;
-
-    req.returnObject = {};
-
-    axios.get(`${url}${fields}${accessToken}${count}`)
-    .then(res =>{
-        const data = res.data.data
-        req.returnObject.userName = data[0].username;
-        
-        //req.returnObject.image = [data[0], data[1],data[2],data[3],data[4]]
-        req.returnObject.image = [];
-      
+        const images = res.data.graphql.user.edge_owner_to_timeline_media.edges
+        console.log(images[0])
         for (let i=0; i < 5; i++){
-            req.returnObject.image.push({   
-                pic: data[i].media_url,
-                caption: data[i].caption,
-                date: data[i].timestamp.slice(0,10), 
-                url: data[i].permalink
+            const picDate = new Date((images[i].node.taken_at_timestamp) * 1000)
+            userInfo.image.push({   
+                pic: images[i].node.display_url,
+                caption: images[i].node.edge_media_to_caption.edges[0].node.text,
+                date: `${picDate.getMonth()}/${picDate.getDate()}/${picDate.getFullYear()}`,
+                url: `https://www.instagram.com/p/${images[i].node.shortcode}/`,
+                likes: images[i].node.edge_liked_by.count,
+                location: images[i].node.location ? images[i].node.location.name : ""
             })
-            
         }
+        req.forSend = userInfo;
         next();
-    })
-    .catch(err =>{
-        //console.log(`Could not get media info: ${err}`);
-        throw err;  
-    })
-}, (req,res)=>{
-
-    axios.get(`https://www.instagram.com/${req.returnObject.userName}/?__a=1`)
-    .then(res=>{
-        const { profile_pic_url_hd } = res.data.graphql.user;
-        req.returnObject.profilePic = profile_pic_url_hd;
-        console.log(req.returnObject);
-        res.json(req.returnObject)
     })
     .catch(err=>{
         console.log(`Could not get user info: ${err}`)
-        //console.log(req.returnObject);
-        res.json(req.returnObject)
+        throw err;
     })
+}, (req, res)=>{
+    res.json(req.forSend)
 })
 
 module.exports = router;
+
+
