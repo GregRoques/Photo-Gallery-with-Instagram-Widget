@@ -24,7 +24,7 @@ router.get("/instaImages", (req,res, next) =>{
             const picDate = new Date((images[i].node.taken_at_timestamp) * 1000)
             userInfo.image.push({   
                 pic: images[i].node.display_url,
-                caption: images[i].node.edge_media_to_caption.edges[0].node.text,
+                caption: (images[i].node.edge_media_to_caption.edges[0]) ? images[i].node.edge_media_to_caption.edges[0].node.text : "",
                 date: `${picDate.getMonth()}/${picDate.getDate()}/${picDate.getFullYear()}`,
                 url: `https://www.instagram.com/p/${images[i].node.shortcode}/`,
                 likes: images[i].node.edge_liked_by.count,
