@@ -19,17 +19,26 @@ router.get("/instaImages", (req,res, next) =>{
         userInfo.image = [];
 
         const images = res.data.graphql.user.edge_owner_to_timeline_media.edges
-        console.log(images[0])
+        //console.log(images[1].node.edge_sidecar_to_children)
         for (let i=0; i < 5; i++){
             const picDate = new Date((images[i].node.taken_at_timestamp) * 1000)
+            const children = [];
+            if(images[i].node.edge_sidecar_to_children){
+                const albumImages = images[i].node.edge_sidecar_to_children.edges
+                for (let j=1; j < albumImages.length; j++){
+                    children.push(albumImages[j].node.display_url)
+                }
+            }
+
             userInfo.image.push({   
-                pic: images[i].node.display_url,
+                pic: children ? [images[i].node.display_url, ...children] : [images[i].node.display_url],
                 caption: (images[i].node.edge_media_to_caption.edges[0]) ? images[i].node.edge_media_to_caption.edges[0].node.text : "",
                 date: `${picDate.getMonth()}/${picDate.getDate()}/${picDate.getFullYear()}`,
                 url: `https://www.instagram.com/p/${images[i].node.shortcode}/`,
                 likes: images[i].node.edge_liked_by.count,
                 location: images[i].node.location ? images[i].node.location.name : ""
             })
+
         }
         req.forSend = userInfo;
         next();
@@ -39,6 +48,7 @@ router.get("/instaImages", (req,res, next) =>{
         throw err;
     })
 }, (req, res)=>{
+    //console.log(req.forSend.image[1].pic)
     res.json(req.forSend)
 })
 
