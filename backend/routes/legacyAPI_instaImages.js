@@ -5,7 +5,6 @@ const axios = require("axios");
 
 
 router.get("/instaImages", (req,res, next) =>{
-    router.get("/instaImages", (req,res,next) =>{
         axios.get(instaRead)
         .then(res=>{
             req.userName = res.data.userName
@@ -15,7 +14,6 @@ router.get("/instaImages", (req,res, next) =>{
             console.log(`Could not get login info`)
             throw err
         })
-    })
     
 }, (req,res, next) =>{
 
