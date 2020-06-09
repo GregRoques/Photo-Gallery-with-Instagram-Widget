@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(instaImages);
 
 app.use(express.static(path.join(__dirname, "build")));
-app.get("/*", (req, res, next) => {
+app.get("/", (req, res, next) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
