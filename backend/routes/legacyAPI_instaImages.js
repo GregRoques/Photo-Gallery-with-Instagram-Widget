@@ -42,14 +42,17 @@ router.get("/instaImages", (req,res, next) =>{
 
         }
         req.forSend = userInfo;
-        next();
+        setTimeout(function(){
+            next();
+        },3000)
+        
     })
     .catch(err=>{
         console.log(`Could not get user info: ${err}`)
         throw err;
     })
 }, (req, res)=>{
-    //console.log(req.forSend.image[1].pic)
+    console.log(req.forSend.image[1].pic)
     res.json(req.forSend)
 })
 
