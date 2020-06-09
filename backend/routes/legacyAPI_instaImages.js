@@ -20,7 +20,7 @@ router.get("/instaImages", (req,res, next) =>{
         userInfo.image = [];
 
         const images = res.data.graphql.user.edge_owner_to_timeline_media.edges
-        console.log(images[1].node.edge_sidecar_to_children)
+        //console.log(images[1].node.edge_sidecar_to_children)
         for (let i=0; i < 5; i++){
             const picDate = new Date((images[i].node.taken_at_timestamp) * 1000)
             const children = [];
@@ -42,18 +42,14 @@ router.get("/instaImages", (req,res, next) =>{
 
         }
         req.forSend = userInfo;
-        setTimeout(function(){
-            console.log("2")
-            next();
-        },3000)
-        
+        next();
     })
     .catch(err=>{
         console.log(`Could not get user info: ${err}`)
         throw err;
     })
 }, (req, res)=>{
-    console.log("3")
+    //console.log(req.forSend.image[1].pic)
     res.json(req.forSend)
 })
 

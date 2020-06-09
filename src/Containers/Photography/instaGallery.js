@@ -20,7 +20,7 @@ class instaGallery extends Component {
     getInstaGallery = () =>{
         axios.get(instaBackend)
           .then(res => {
-              console.log(res)
+              console.log(res.data)
               const { userName, profilePic, image, postCount } = res.data;
               this.setState({
                   user: {
@@ -31,7 +31,6 @@ class instaGallery extends Component {
                   image: image,
                   instaDisplay: image.length === 5 ? true : false
               })
-            console.log(res);
           })
           .catch( err => {
             console.log(err);
