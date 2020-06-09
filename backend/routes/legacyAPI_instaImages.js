@@ -3,6 +3,9 @@ const router = express.Router();
 const instaRead = require('../util/insta');
 const axios = require("axios");
 
+
+router.get("/instaImages", (req,res, next) =>{
+       
     const userName = 'qtrmileatatime';
     let userInfo ={
         userName: userName
