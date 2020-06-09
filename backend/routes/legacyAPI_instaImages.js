@@ -3,21 +3,7 @@ const router = express.Router();
 const instaRead = require('../util/insta');
 const axios = require("axios");
 
-
-router.get("/instaImages", (req,res, next) =>{
-        axios.get(instaRead)
-        .then(res=>{
-            req.userName = res.data.userName
-            next();
-        })
-        .catch(err =>{
-            console.log(`Could not get login info`)
-            throw err
-        })
-    
-}, (req,res, next) =>{
-
-    const userName = req.userName;
+    const userName = 'qtrmileatatime';
     let userInfo ={
         userName: userName
     };
