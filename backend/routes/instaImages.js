@@ -1,57 +1,77 @@
 const express = require("express");
 const router = express.Router();
+const instaRead = require('../util/insta');
 const axios = require("axios");
 
+// https://developers.facebook.com/docs/instagram-api/reference/media
 
-router.get("/instaImages", (req,res, next) =>{
+router.get("/instaImages", (req,res,next) =>{
+    req.returnObject = {};
 
-    const userName = 'qtrmileatatime';
-    let userInfo ={
-        userName: userName
-    };
-
-    axios.get(`https://www.instagram.com/${userName}/?__a=1`)
+    axios.get(instaRead)
     .then(res=>{
-        const { profile_pic_url_hd, edge_owner_to_timeline_media } = res.data.graphql.user;
-       
-        userInfo.profilePic = profile_pic_url_hd;
-        userInfo.postCount = edge_owner_to_timeline_media.count
-        userInfo.image = [];
-
-        const images = res.data.graphql.user.edge_owner_to_timeline_media.edges
-        //console.log(images[1].node.edge_sidecar_to_children)
-        for (let i=0; i < 5; i++){
-            const picDate = new Date((images[i].node.taken_at_timestamp) * 1000)
-            const children = [];
-            if(images[i].node.edge_sidecar_to_children){
-                const albumImages = images[i].node.edge_sidecar_to_children.edges
-                for (let j=1; j < albumImages.length; j++){
-                    children.push(albumImages[j].node.display_url)
-                }
-            }
-
-            userInfo.image.push({   
-                pic: children ? [images[i].node.display_url, ...children] : [images[i].node.display_url],
-                caption: (images[i].node.edge_media_to_caption.edges[0]) ? images[i].node.edge_media_to_caption.edges[0].node.text : "",
-                date: `${picDate.getMonth()}/${picDate.getDate()}/${picDate.getFullYear()}`,
-                url: `https://www.instagram.com/p/${images[i].node.shortcode}/`,
-                likes: images[i].node.edge_liked_by.count,
-                location: images[i].node.location ? images[i].node.location.name : ""
-            })
-
-        }
-        req.forSend = userInfo;
+        req.instaToken = res.data.longTermToken
+        req.returnObject.profilePic = res.data.profilePic ? res.data.profilePic : "";
         next();
     })
-    .catch(err=>{
-        console.log(`Could not get user info: ${err}`)
-        throw err;
+    .catch(err =>{
+        console.log(`Could not get login info`)
+        throw err
     })
-}, (req, res)=>{
-    //console.log(req.forSend.image[1].pic)
-    res.json(req.forSend)
-})
+
+}, (req, res, next)=>{
+    const url = `https://graph.instagram.com/me/media`;
+    const fields = '?fields=username, media_url,permalink,caption,timestamp,children' // id
+    const count = "&count=5";
+    const accessToken = `&access_token=${req.instaToken}`;
+
+    axios.get(`${url}${fields}${count}${accessToken}`)
+    .then(res =>{
+        const data = res.data.data
+        req.returnObject.userName = data[0].username
+        req.returnObject.image = [];
+        for (let i=0; i < 5; i++){
+            req.returnObject.image.push({   
+                pic: [data[i].media_url],
+                caption: data[i].caption,
+                date: data[i].timestamp.slice(5,10) + "-" + data[i].timestamp.slice(0,4), 
+                url: data[i].permalink,
+                children: data[i].children ? data[i].children.data.slice(1,data[i].children.data.length): null 
+            })
+        }
+        next();
+    })
+    .catch(err =>{
+        console.log(`Could not get media info`);
+        throw err;  
+    })
+}, (req,res,next)=>{
+        const myImages = req.returnObject.image;
+        for(let i = 0; i < myImages.length; i++){
+            if(myImages[i].children !== null){
+                for (let j = 0; j < myImages[i].children.length; j++){
+                    const url = `https://graph.instagram.com/${myImages[i].children[j].id}`;
+                    const fields = '?fields=media_url'
+                    const accessToken = `&access_token=${req.instaToken}`;
+                    
+                     axios.get(`${url}${fields}${accessToken}`)
+                    .then(res =>{
+                        req.returnObject.image[i].pic.push(res.data.media_url)
+                    })
+                    .catch(err =>{
+                        console.log(`Could not get child info: ${err}`);
+                     throw err;  
+                    })
+                } 
+                
+            }
+        }
+        setTimeout(function(){
+            next();
+        }, 2000)
+    }, (req,res)=>{
+        console.log(req.returnObject)
+        res.json(req.returnObject)
+ })
 
 module.exports = router;
-
-
