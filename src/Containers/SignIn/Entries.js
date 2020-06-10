@@ -35,10 +35,10 @@ class Entries extends Component{
         read.get()
         .then(response=>{
             const blogReturn = Object.values(response.data.users)[0];
-            const instaAccess = response.data.insta_access.lttDate;
-            if(instaAccess){
-                this.instaUpdateDate(instaAccess)
-            }
+            // const instaAccess = response.data.insta_access.lttDate;
+            // if(instaAccess){
+            //     this.instaUpdateDate(instaAccess)
+            // }
             this.setState({
                 entries: blogReturn,
             })
@@ -75,7 +75,7 @@ class Entries extends Component{
             entries:'',
             updateArticleKey:'',
         //Insta Logout
-            instaLogOut: 0
+            //instaLogOut: 0
     }
 
 // =================================================================
@@ -267,12 +267,12 @@ class Entries extends Component{
                 <div className={entriesCSS.logOutTime}>
                     You will be logged out at <b>{localStorage.getItem('logOutTime')}</b>
                 </div>
-                {this.state.instaLogOut > 0 ?
+                {/* {this.state.instaLogOut > 0 ?
                     <div className={entriesCSS.logOutTime}>
                         Instagram token will expire in <b>{this.state.instaLogOut} days.</b>
                     </div>
                     : null
-                }
+                } */}
                 <div className={entriesCSS.posts}>
                     <input 
                         type="text" 
