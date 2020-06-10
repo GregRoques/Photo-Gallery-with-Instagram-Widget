@@ -36,7 +36,7 @@ router.get("/instaImages", (req,res,next) =>{
                 caption: data[i].caption,
                 date: data[i].timestamp.slice(5,10) + "-" + data[i].timestamp.slice(0,4), 
                 url: data[i].permalink,
-                children: data[i].children ? data[i].children.data.slice(1,data[i].children.data.length): null 
+                //children: data[i].children ? data[i].children.data.slice(1,data[i].children.data.length): null 
             })
         }
         next();
@@ -45,30 +45,30 @@ router.get("/instaImages", (req,res,next) =>{
         console.log(`Could not get media info`);
         throw err;  
     })
-}, (req,res,next)=>{
-        const myImages = req.returnObject.image;
-        for(let i = 0; i < myImages.length; i++){
-            if(myImages[i].children !== null){
-                for (let j = 0; j < myImages[i].children.length; j++){
-                    const url = `https://graph.instagram.com/${myImages[i].children[j].id}`;
-                    const fields = '?fields=media_url'
-                    const accessToken = `&access_token=${req.instaToken}`;
+// }, (req,res,next)=>{
+//         const myImages = req.returnObject.image;
+//         for(let i = 0; i < myImages.length; i++){
+//             if(myImages[i].children !== null){
+//                 for (let j = 0; j < myImages[i].children.length; j++){
+//                     const url = `https://graph.instagram.com/${myImages[i].children[j].id}`;
+//                     const fields = '?fields=media_url'
+//                     const accessToken = `&access_token=${req.instaToken}`;
                     
-                     axios.get(`${url}${fields}${accessToken}`)
-                    .then(res =>{
-                        req.returnObject.image[i].pic.push(res.data.media_url)
-                    })
-                    .catch(err =>{
-                        console.log(`Could not get child info: ${err}`);
-                     throw err;  
-                    })
-                } 
+//                      axios.get(`${url}${fields}${accessToken}`)
+//                     .then(res =>{
+//                         req.returnObject.image[i].pic.push(res.data.media_url)
+//                     })
+//                     .catch(err =>{
+//                         console.log(`Could not get child info: ${err}`);
+//                      throw err;  
+//                     })
+//                 } 
                 
-            }
-        }
-        setTimeout(function(){
-            next();
-        }, 2000)
+//             }
+//         }
+//         setTimeout(function(){
+//             next();
+//         }, 2000)
     }, (req,res)=>{
         console.log(req.returnObject)
         res.json(req.returnObject)

@@ -223,26 +223,9 @@ Launch new site with:
 
 1) Continually update blog with lessons learned and project updates regarding development and design projects I am working on and share via LinkedIn. 
 
-# Images
+# Demo Video
+## Click image below to view video
 
-## Blog Updater
-
-### Login
-![Backend Login Page](public/readMeImages/backend1.png)
-
-### Blog Update Page
-![Backend Update](public/readMeImages/backend2.png)
-> placeholder text courtesy of https://api.kanye.rest (https://kanye.rest/).
-
-### Blog Module for Editing Previous Posts 
-![Backend Edit/Delete Old Articles](public/readMeImages/backend3.png)
-
-## Photography Gallery
-
-### Photography Gallery Page
-![Photo landing page](public/readMeImages/photo1.png)
-
-### Gallery Image Carousel View
-![Photo landing page](public/readMeImages/photo2.png)
+[![demo video](public/readMeImages/playVideo.png)](https://youtu.be/gGkqwKJC9HU)
 
   
