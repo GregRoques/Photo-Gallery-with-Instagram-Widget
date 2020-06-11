@@ -226,6 +226,6 @@ Launch new site with:
 # Demo Video
 ## Click image below to view video
 
-[![demo video](public/readMeImages/playVideo.png)](https://youtu.be/gGkqwKJC9HU)
+[![demo video](public/readMeImages/playVideo.png)](https://youtu.be/YhksUFOM09Q)
 
   

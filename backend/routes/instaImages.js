@@ -11,6 +11,7 @@ router.get("/instaImages", (req,res,next) =>{
     axios.get(instaRead)
     .then(res=>{
         req.instaToken = res.data.longTermToken
+        req.returnObject.userName = res.data.userName
         req.returnObject.profilePic = res.data.profilePic ? res.data.profilePic : "";
         next();
     })
@@ -21,25 +22,30 @@ router.get("/instaImages", (req,res,next) =>{
 
 }, (req, res, next)=>{
     const url = `https://graph.instagram.com/me/media`;
-    const fields = '?fields=username,id,media_url,permalink,caption,timestamp,media_type,children{media_url}' // id
-    const count = "&count=5";
+    const fields = '?fields=media_url,permalink,caption,timestamp,media_type,children{media_url}' // username,id,
     const accessToken = `&access_token=${req.instaToken}`;
 
-    axios.get(`${url}${fields}${count}${accessToken}`)
-    .then(async(res) =>{
+    axios.get(`${url}${fields}${accessToken}`)
+    .then(res =>{
+        //console.log(res.data.data)
         const data = res.data.data
-        req.returnObject.userName = data[0].username
+        //req.returnObject.userName = data[0].username
         req.returnObject.image = [];
-        for (let i=0; i < 5; i++){
-            console.log(data[i].children)
-        const {  media_url, caption, timestamp, permalink, children } = data[i]; //media_type, id,
-             req.returnObject.image.push({   
-                pic: media_url,
-                caption: caption,
-                date: timestamp.slice(5,10) + "-" + timestamp.slice(0,4), 
-                url: permalink,
-                children: children ? children.data : null
-            })
+        let i=0;
+        let j=0;
+        while(i<5){
+            if(data[j].media_type !=="VIDEO"){
+                const {  media_url, caption, timestamp, permalink, children } = data[j]; 
+                        req.returnObject.image.push({   
+                        pic: media_url,
+                        caption: caption,
+                        date: timestamp.slice(5,10) + "-" + timestamp.slice(0,4), 
+                        url: permalink,
+                        children: children ? children.data : null
+                    })
+                    i++
+            }
+            j++
         }
         next();
     })
@@ -49,7 +55,7 @@ router.get("/instaImages", (req,res,next) =>{
     })
 
 }, (req,res)=>{
-    console.log(req.returnObject)
+    //console.log(req.returnObject)
     res.json(req.returnObject)
  })
 
