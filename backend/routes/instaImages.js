@@ -31,11 +31,9 @@ router.get("/instaImages", (req,res,next) =>{
         const data = res.data.data
         //req.returnObject.userName = data[0].username
         req.returnObject.image = [];
-        let i=0;
-        let j=0;
-        while(i<5){
-            if(data[j].media_type !=="VIDEO"){
-                const {  media_url, caption, timestamp, permalink, children } = data[j]; 
+        data.map(pic=>{
+            if(pic.media_type !=="VIDEO"){
+                const {  media_url, caption, timestamp, permalink, children } = pic; 
                         req.returnObject.image.push({   
                         pic: media_url,
                         caption: caption,
@@ -43,10 +41,9 @@ router.get("/instaImages", (req,res,next) =>{
                         url: permalink,
                         children: children ? children.data : null
                     })
-                    i++
+                    
             }
-            j++
-        }
+        })
         next();
     })
     .catch(err =>{

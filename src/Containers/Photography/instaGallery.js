@@ -8,6 +8,7 @@ class instaGallery extends Component {
         user: {},
         image: [],
         instaDisplay: false,
+        picIndex: 0,
         selectedPic: 0,
         selectedPicIndex: 0,
         display: false
@@ -20,16 +21,15 @@ class instaGallery extends Component {
     getInstaGallery = () =>{
         axios.get(instaBackend)
           .then(res => {
-              console.log(res.data)
+              //console.log(res.data)
               const { userName, profilePic, image } = res.data; //postCount 
               this.setState({
                   user: {
                       userName: userName,
-                      //postCount: postCount,
                       profilePic: profilePic ? profilePic : '/images/homepage/myPic.jpg'
                   },
                   image: image,
-                  instaDisplay: image.length === 5 ? true : false
+                  instaDisplay: image.length >= 5 ? true : false
               })
           })
           .catch( err => {
@@ -38,7 +38,7 @@ class instaGallery extends Component {
     }
 
     instaPopUp = () =>{
-        const { image, selectedPic,selectedPicIndex } = this.state;
+        const { image, selectedPic, selectedPicIndex } = this.state;
         const { profilePic, userName } = this.state.user;
         return  this.state.display === true ? (
             <div className={instaCss.centerAndBackground}>
@@ -63,7 +63,6 @@ class instaGallery extends Component {
                             </div>
                         }
                     <div className={instaCss.selectedCaption}>
-                    {/* { image[selectedPic].location ? <b>{image[selectedPic].location}</b> : <b>{image[selectedPic].date}</b> } <br/> */}
                     <b>{image[selectedPic].date}</b><br/>
                     { image[selectedPic].children !== null ? <b>{ selectedPicIndex +1 }/{ image[selectedPic].children.length }: </b> : null }{ image[selectedPic].caption }
                     </div>
@@ -105,9 +104,29 @@ class instaGallery extends Component {
         })
     }
 
+    togglePics = () =>{
+        const { picIndex } = this.state;
+        const total = this.state.image.length;
+
+        const newIndex = (picIndex + 10) <= total
+            ? picIndex + 5 
+            : total - picIndex <= 5
+                ? 0 
+                : picIndex + (total - picIndex - 5)
+
+        console.log(newIndex)
+        this.setState({
+            picIndex: newIndex
+        })
+    }
+
+    // ========================================================= RENDER
+    // ================================================================ 
+
     render(){
-        const { image } = this.state;
-        return this.state.instaDisplay === true ? (
+        const { image, picIndex, instaDisplay } = this.state;
+        console.log(picIndex)
+        return instaDisplay === true ? (
             <div className={instaCss.instaModuleSpacing}>
                 <this.instaPopUp/> 
                  <div className={instaCss.container}>
@@ -117,49 +136,44 @@ class instaGallery extends Component {
             </a> 
         </div>
         <div className={instaCss.postCount}>
-            {/* <b>Posts:</b> {this.state.user.postCount} */}
+            { image.length > 5 ? <span title="Click to Toggle Instagram Images" className={instaCss.boldHover} onClick={()=> this.togglePics()}>More Pics</span> : "" }
         </div>
         <div className={instaCss.hitemwiththatflexRow}>
             <div className={instaCss.hitemwiththatflexColumn1}>
-                <div className={instaCss.instaImage1} onClick={()=> this.isPopUpOpen(0)} >
-                    <img className={instaCss.bigPicture} alt={ "insta1" } src={ image[0].pic }/>
+                <div className={instaCss.instaImage1} onClick={()=> this.isPopUpOpen(0 + picIndex)} >
+                    <img className={instaCss.bigPicture} alt={ "insta1" } src={ image[0 + picIndex].pic }/>
                     <div className ={instaCss.onHover}>
-                        {/* <div className={instaCss.onHoverLikes}>&#x2665; {image[0].likes}</div> */}
-                        <div className={instaCss.onHoverDate}>{image[0].date}</div>
+                        <div className={instaCss.onHoverDate}>{image[0 + picIndex].date}</div>
                     </div>
                 </div>
             </div>
             
             <div className={instaCss.hitemwiththatflexColumn2}>
-                <div className={instaCss.instaImage2} onClick={()=> this.isPopUpOpen(1)} >
-                    <img className={instaCss.smallPicture} alt={ "insta2" } src={ image[1].pic }/>
+                <div className={instaCss.instaImage2} onClick={()=> this.isPopUpOpen(1 + picIndex)} >
+                    <img className={instaCss.smallPicture} alt={ "insta2" } src={ image[1 + picIndex].pic }/>
                     <div className ={instaCss.onHover}>
-                        {/* <div className={instaCss.onHoverLikes}>&#x2665; {image[1].likes}</div> */}
-                        <div className={instaCss.onHoverDate}>{image[1].date}</div>
+                        <div className={instaCss.onHoverDate}>{image[1 + picIndex].date}</div>
                     </div>
                 </div>
-                <div className={instaCss.instaImage3} onClick={()=> this.isPopUpOpen(2)} >
-                    <img className={instaCss.smallPicture} alt={ "insta3"  } src={ image[2].pic }/>
+                <div className={instaCss.instaImage3} onClick={()=> this.isPopUpOpen(2 + picIndex)} >
+                    <img className={instaCss.smallPicture} alt={ "insta3"  } src={ image[2 + picIndex].pic }/>
                     <div className ={instaCss.onHover}>
-                        {/* <div className={instaCss.onHoverLikes}>&#x2665; {image[2].likes}</div> */}
-                        <div className={instaCss.onHoverDate}>{image[2].date}</div>
+                        <div className={instaCss.onHoverDate}>{image[2 + picIndex].date}</div>
                     </div>
                 </div>
             </div>
             
             <div className={instaCss.hitemwiththatflexColumn3}>
-                <div className={instaCss.instaImage4} onClick={()=> this.isPopUpOpen(3)} >
-                    <img className={instaCss.smallPicture} alt={ "insta4" } src={ image[3].pic }/>
+                <div className={instaCss.instaImage4} onClick={()=> this.isPopUpOpen(3 + picIndex)} >
+                    <img className={instaCss.smallPicture} alt={ "insta4" } src={ image[3 + picIndex].pic }/>
                     <div className ={instaCss.onHover}>
-                        {/* <div className={instaCss.onHoverLikes}>&#x2665; {image[3].likes}</div> */}
-                        <div className={instaCss.onHoverDate}>{image[3].date}</div>
+                        <div className={instaCss.onHoverDate}>{image[3 + picIndex].date}</div>
                     </div>
                 </div>
-                <div className={instaCss.instaImage5} onClick={()=> this.isPopUpOpen(4)} >
-                    <img className={instaCss.smallPicture} alt={ "insta5" } src={ image[4].pic }/>
+                <div className={instaCss.instaImage5} onClick={()=> this.isPopUpOpen(4 + picIndex)} >
+                    <img className={instaCss.smallPicture} alt={ "insta5" } src={ image[4 + picIndex].pic }/>
                     <div className ={instaCss.onHover}>
-                        {/* <div className={instaCss.onHoverLikes}>&#x2665; {image[4].likes}</div> */}
-                        <div className={instaCss.onHoverDate}>{image[4].date}</div>
+                        <div className={instaCss.onHoverDate}>{image[4 + picIndex].date}</div>
                     </div>
                 </div>
             </div>
