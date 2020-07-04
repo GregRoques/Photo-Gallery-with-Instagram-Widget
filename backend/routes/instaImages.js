@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const instaRead = require('../util/insta');
+const { instaRead } = require('../util/insta');
 const axios = require("axios");
 
 // https://developers.facebook.com/docs/instagram-api/reference/media
 
-router.get("/instaImages", (req,res,next) =>{
+router.get("/", (req,res,next) =>{
     req.returnObject = {};
 
     axios.get(instaRead)
