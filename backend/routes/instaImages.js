@@ -2,8 +2,40 @@ const express = require("express");
 const router = express.Router();
 const { instaRead } = require('../util/insta');
 const axios = require("axios");
+const nodemailer = require("nodemailer");
+const sendgridTransport = require("nodemailer-sendgrid-transport");
+const myKey = require("../util/sendgripApi");
 
-// https://developers.facebook.com/docs/instagram-api/reference/media
+const transporter = nodemailer.createTransport(sendgridTransport({
+    auth: {
+        api_key: myKey
+    }
+}));
+
+let isSentToday = false;
+
+const setSentTodayToTrue = () =>{
+    isSentToday = true;
+    setTimeout(() => {
+        isSentToday = false;
+    }, 86400000);
+}
+
+const emailWarning = message =>{
+    const sendDate = new Date().toISOString().slice(0, 10);
+    transporter.sendMail({
+        to: "greg.roques@gmail.com",
+        from: "greg@gregroques.com",
+        subject: `${message}`,
+        html: `<b>Date:</b> ${sendDate} <br/><br/>
+        ${message}`
+    }).then(() => {
+        console.log("Success");
+        setSentTodayToTrue();
+    }).catch(err => {
+        console.log("err");
+    });
+}
 
 router.get("/", (req,res,next) =>{
     req.returnObject = {};
@@ -47,7 +79,10 @@ router.get("/", (req,res,next) =>{
         next();
     })
     .catch(err =>{
-        console.log(`Could not get media info`);
+        //console.log(`Could not get media info`);
+        if(!isSentToday){
+            emailWarning('GregRoques.com: InstaGram Long Term Token has expired')
+        }
         throw err;  
     })
 
