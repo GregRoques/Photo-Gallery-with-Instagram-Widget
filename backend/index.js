@@ -4,9 +4,9 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
+
 const blogEntries = require("./routes/blogEntries");
 const instaImages = require("./routes/instaImages");
-
 
 app.use(cors());
 app.use(helmet());
