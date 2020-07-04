@@ -29,12 +29,15 @@ Redux w/ dev tools and middleware:
 - npm i redux-devtools
 - npm i redux-thunk
 
-Backend for Instagram API calls
+Backend
 - npm i node
 - npm i express
 - npm i body-parser
 - npm i cors
 - npm i helmet
+- npm i nodemailer
+- npm i nodemailer-sendgrid-transport
+
 
 Axios calls and HTML parsing:
 - npm i axios
