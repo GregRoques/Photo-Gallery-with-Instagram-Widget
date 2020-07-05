@@ -17,6 +17,11 @@ app.use(bodyParser.json());
 app.use("/instaImages", instaImages);
 app.use("/blogBackend", blogEntries);
 
+app.get("/instaImages", (req,res) =>{
+    res.send(instaImages)});
+app.get("/blogBackend", (req,res)=>{
+    res.send(blogEntries)});
+
 app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res, next) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
