@@ -37,7 +37,7 @@ const emailWarning = message =>{
     });
 }
 
-router.get("/", (req,res,next) =>{
+router.get("/instaImages", (req,res,next) =>{
     req.returnObject = {};
 
     axios.get(instaRead)
