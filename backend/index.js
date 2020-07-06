@@ -14,8 +14,8 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(instaImages);
-app.use(blogEntries);
+app.use("/api",instaImages);
+app.use("/api", blogEntries);
 
 app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res, next) => {
