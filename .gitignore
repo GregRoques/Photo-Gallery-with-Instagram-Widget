@@ -5,7 +5,7 @@
 /public/images/photography
 
 # dependencies
-# /backend/node_modules
+/backend/node_modules
 /backend/util
 /node_modules
 /.pnp
