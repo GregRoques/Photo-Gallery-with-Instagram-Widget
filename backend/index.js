@@ -13,7 +13,7 @@ app.use(helmet());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+console.log("index")
 app.use("/api",instaImages);
 app.use("/api", blogEntries);
 

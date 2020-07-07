@@ -4,6 +4,7 @@ const { fireUser } = require('../util/insta');
 const axios = require("axios");
 
 router.get("/blogBackend", (req,res,next) =>{
+    console.log("blog")
     axios.get(`${fireUser}orderBy="$key"&limitToLast=5`)
         .then(res=> {
             //console.log(Object.values(res.data))
