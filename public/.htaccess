@@ -6,9 +6,3 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . /index.html [L]
  </IfModule>
-
-Redirect /about https://www.gregroques.com/about
-Redirect /portfolio https://www.gregroques.com/portfolio
-Redirect /design https://www.gregroques.com/design
-Redirect /blog https://www.gregroques.com/blog
-Redirect 404 https://www.gregroques.com/
