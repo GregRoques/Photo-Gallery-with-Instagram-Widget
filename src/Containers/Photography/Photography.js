@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import SetHeader from '../../Actions/SetHeader';
 import { SetPhotoArray } from '../../Actions/PhotoArray';
 import PhotoGallery from './GalleryHandler';
-//import InstaGallery from './instaGallery';
+import InstaGallery from './instaGallery';
 
 var photoArray ={}
 
@@ -65,7 +65,7 @@ class Photography extends Component{
                           <button className={css.publishedWorkButton}>Published Work</button>
                       </a></span>
                   </div>
-                  {/* <InstaGallery/> */}
+                  <InstaGallery/>
               </div>
           )
         
