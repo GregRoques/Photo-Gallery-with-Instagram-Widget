@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-const path = require("path");
+//const path = require("path");
 //const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -18,10 +18,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(instaImages);
 app.use(blogEntries);
 
-app.use(express.static(path.join(__dirname, "build")));
-app.get("/*", (req, res, next) => {
-   res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "build")));
+// app.get("/*", (req, res, next) => {
+//    res.sendFile(path.join(__dirname, "build", "index.html"));
+// });
 
 const PORT = 2000;
 app.listen(PORT, () => {
