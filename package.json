@@ -38,6 +38,5 @@
   ],
   "devDependencies": {
     "redux-devtools-extension": "^2.13.8"
-  },
-  "proxy": "gregroques.com:443/"
+  }
 }
