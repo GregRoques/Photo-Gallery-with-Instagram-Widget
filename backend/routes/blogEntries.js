@@ -3,8 +3,7 @@ const router = express.Router();
 const { fireUser } = require('../util/insta');
 const axios = require("axios");
 
-router.get("/blogBackend", (req,res,next) =>{
-    console.log("blog")
+router.get("/myblogs", (req,res,next) =>{
     axios.get(`${fireUser}orderBy="$key"&limitToLast=5`)
         .then(res=> {
             //console.log(Object.values(res.data))

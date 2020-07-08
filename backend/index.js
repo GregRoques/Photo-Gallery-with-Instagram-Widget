@@ -15,8 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.use(instaImages);
-app.use(blogEntries);
+app.use("/api",instaImages);
+app.use("/api",blogEntries);
 
 // app.use(express.static(path.join(__dirname, "build")));
 // app.get("/*", (req, res, next) => {
