@@ -37,7 +37,7 @@ const emailWarning = message =>{
     });
 }
 
-router.get("/instagramImages", (req,res,next) =>{
+router.get("/", (req,res,next) =>{
     console.log("insta")
     req.returnObject = {};
 
