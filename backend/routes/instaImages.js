@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { instaRead } = require('../util/insta');
+const instaRead = require('../util/insta');
 const axios = require("axios");
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
