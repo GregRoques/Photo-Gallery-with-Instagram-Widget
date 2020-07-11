@@ -38,7 +38,6 @@ const emailWarning = message =>{
 }
 
 router.get("/", (req,res,next) =>{
-    console.log("insta")
     req.returnObject = {};
 
     axios.get(instaRead)
