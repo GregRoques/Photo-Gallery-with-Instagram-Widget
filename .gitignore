@@ -2,7 +2,7 @@
 
 
 #photoGallery
-/public/images/photography
+/public/images
 
 # dependencies
 /backend/node_modules
