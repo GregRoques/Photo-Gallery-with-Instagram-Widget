@@ -22,11 +22,10 @@ class instaGallery extends Component {
         axios.get(instaBackend)
           .then(res => {
               console.log(res.data)
-              const { userName, profilePic, image } = res.data; //postCount 
+              const { userName, image } = res.data; //profilePic
               this.setState({
                   user: {
-                      userName: userName,
-                      profilePic: profilePic ? profilePic : '/images/homepage/myPic.jpg'
+                      userName: userName
                   },
                   image: image,
                   instaDisplay: image.length >= 5 ? true : false
@@ -39,13 +38,13 @@ class instaGallery extends Component {
 
     instaPopUp = () =>{
         const { image, selectedPic, selectedPicIndex } = this.state;
-        const { profilePic, userName } = this.state.user;
+        const { userName } = this.state.user;
         return  this.state.display === true ? (
             <div className={instaCss.centerAndBackground}>
                 <div onClick={() => this.isPopUpOpen( "")} className={instaCss.closeButton}>X</div>
                 <div className={instaCss.selectedContainer}>
                     <div className={instaCss.selectedHeader}>
-                        <img alt="profile pic" className={instaCss.selectedHeaderImage} src={ profilePic }/>
+                        <img alt="profile pic" className={instaCss.selectedHeaderImage} src='/images/homepage/instaPic.jpg'/>
         <a className={instaCss.selectedHyperlink} href={`${image[selectedPic].url}`} target="_blank" rel="noopener noreferrer nofollow">{userName}</a> 
                     </div>
                     { image[selectedPic].children !== null ?
