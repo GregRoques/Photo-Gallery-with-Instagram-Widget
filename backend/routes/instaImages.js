@@ -21,20 +21,37 @@ const setSentTodayToTrue = () =>{
     }, 86400000);
 }
 
-const emailWarning = message =>{
+
+const emailWarning = (message, err) =>{
     const sendDate = new Date().toISOString().slice(0, 10);
     transporter.sendMail({
         to: "greg.roques@gmail.com",
         from: "greg@gregroques.com",
         subject: `${message}`,
         html: `<b>Date:</b> ${sendDate} <br/><br/>
-        ${message}`
+        ${message} <br/><br/>
+        <b>ERROR MESSAGE:</b> ${err}`
     }).then(() => {
         console.log("Success");
         setSentTodayToTrue();
     }).catch(err => {
         console.log("err");
     });
+}
+
+const isTimeUp = ex => {
+    const days = 59;
+    let result = new Date(ex);
+    let today = new Date();
+    result.setDate(result.getDate() + days);
+    const numOfSeconds = result.getTime() - today.getTime();
+    const numOfDays = Math.round((Math.round(numOfSeconds) / (1000 * 3600 * 24)).toFixed(1));
+    
+    if(numOfDays <= 5){
+        const subject = 'GregRoques.com: InstaGram Long Term Token expiring soon';
+        const when = `You Long Term Token will expire in approximately ${numOfDays} days. Renew it today!`
+        emailWarning(subject, when)
+    }
 }
 
 router.get("/", (req,res,next) =>{
@@ -44,7 +61,8 @@ router.get("/", (req,res,next) =>{
     .then(res=>{
         req.instaToken = res.data.longTermToken
         req.returnObject.userName = res.data.userName
-        req.returnObject.profilePic = res.data.profilePic ? res.data.profilePic : "";
+        //req.returnObject.profilePic = res.data.profilePic ? res.data.profilePic : "";
+        isTimeUp(res.data.lttDate)
         next();
     })
     .catch(err =>{
@@ -81,7 +99,8 @@ router.get("/", (req,res,next) =>{
     .catch(err =>{
         //console.log(`Could not get media info`);
         if(!isSentToday){
-            emailWarning('GregRoques.com: InstaGram Long Term Token has expired')
+            const subject = 'GregRoques.com: InstaGram Long Term Token has experienced an error or has expired.';
+            emailWarning(subject, err)
         }
         throw err;  
     })
