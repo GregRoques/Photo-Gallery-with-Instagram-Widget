@@ -59,9 +59,9 @@ class App extends Component {
               {/* Backend Update Blog */}
                 <Route exact path = '/user-update-blog' component={Update}/>
               {/* Re-Route Non-Existant Pages */}
-                <Route path='/resume' component={() => { 
+                <Route exact path='/resume' component={() => { 
                     window.location.href = "https://www.gregroques.com/images/socialIcons/Resume.pdf"; 
-                    return null;
+                    return false;
                 }}/>
                 <Route component ={this.NoPage}/>
                
