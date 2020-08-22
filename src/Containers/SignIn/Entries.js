@@ -6,6 +6,7 @@ import entriesCSS from './entries.module.css'
 
 // components
 import ArchiveModal from './archiveModal'
+import InstaModal from './instaModal'
 
 // actions
 import SetHeader from '../../Actions/SetHeader'
@@ -36,8 +37,9 @@ class Entries extends Component{
         .then(response=>{
             const blogReturn = Object.values(response.data.users)[0];
             const instaAccess = response.data.insta_access.lttDate;
+            const instaName = response.data.insta_access.userName
             if(instaAccess){
-                this.instaUpdateDate(instaAccess)
+                this.instaUpdateDate(instaAccess, instaName)
             }
             this.setState({
                 entries: blogReturn,
@@ -75,13 +77,15 @@ class Entries extends Component{
             entries:'',
             updateArticleKey:'',
         //Insta Logout
-            instaLogOut: 0
+            instaLogOut: 0,
+            instaIsOpen: false,
+            instaName: ""
     }
 
 // =================================================================
 //Insta Update Date
 
-    instaUpdateDate = ex => {
+    instaUpdateDate = (ex, name) => {
         const days = 59;
         let result = new Date(ex);
         let today = new Date();
@@ -91,7 +95,9 @@ class Entries extends Component{
         //console.log(numOfSeconds + " | " + numOfDays)
     
         this.setState({
-            instaLogOut: numOfDays
+            instaLogOut: numOfDays,
+            instaName: name
+
         })
     }
 
@@ -240,18 +246,30 @@ class Entries extends Component{
     // Archive Modal
 
     openModal = () =>{
-        if(!this.state.entries){
-            this.props.Header("Error");
-        }else{
-            this.setState({
-                newEntry: true
+        if(!this.state.instaIsOpen){
+            if(!this.state.entries){
+                this.props.Header("Error");
+            }else{
+                this.setState({
+                    newEntry: true
+                })
+            }
+        }
+    }
+
+    instaUpdate = () =>{
+        if(!this.state.newEntry){
+            this.state({
+                instaIsOpen: true
             })
         }
     }
 
     closeModal = () =>{
+        const [instaIsOpen, newEntry] = this.state;
+        const whichToClose = instaIsOpen ? instaIsOpen : newEntry
         this.setState({
-            newEntry: false
+            [whichToClose]: false
         })
     }
 
@@ -263,6 +281,12 @@ class Entries extends Component{
                     show={this.state.newEntry} 
                     updateArticle={this.updateHandler}
                     existingDelete={this.deleteHandler} 
+                    closed={this.closeModal}
+                />
+                <InstaModal
+                    expirationDate={this.state.instaLogOut}
+                    userName={this.state.instaName}
+                    show={this.state.instaIsOpen} 
                     closed={this.closeModal}
                 />
                 <div className={entriesCSS.logOutTime}>
@@ -306,6 +330,7 @@ class Entries extends Component{
                 </div>
                 <div className={entriesCSS.buttonPosition}>
                     <button className={entriesCSS.publishButtons} onClick={()=>this.props.LogOut()}>Log Out</button>
+                    <button className={entriesCSS.publishButtons} onClick={()=>this.instaUpdate()}>Instagram</button>
                 </div>
             </div>
             

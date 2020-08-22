@@ -47,7 +47,7 @@ const isTimeUp = ex => {
     const numOfSeconds = result.getTime() - today.getTime();
     const numOfDays = Math.round((Math.round(numOfSeconds) / (1000 * 3600 * 24)).toFixed(1));
     
-    if(numOfDays <= 5){
+    if(numOfDays <= 5 && !isSentToday){
         const subject = 'GregRoques.com: InstaGram Long Term Token expiring soon';
         const when = `You Long Term Token will expire in approximately ${numOfDays} days. Renew it today!`
         emailWarning(subject, when)
@@ -77,7 +77,6 @@ router.get("/", (req,res,next) =>{
 
     axios.get(`${url}${fields}${accessToken}`)
     .then(res =>{
-        //console.log(res.data.data)
         const data = res.data.data
         //req.returnObject.userName = data[0].username
         req.returnObject.image = [];

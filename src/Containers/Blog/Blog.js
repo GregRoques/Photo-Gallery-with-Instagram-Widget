@@ -122,7 +122,7 @@ class Blog extends Component{
                 <div className='redirectLinks'>
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
                     <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link> | 
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/portfolio"> Portfolio</Link>
+                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/projects"> Projects</Link>
                 </div> 
             </div>
         )

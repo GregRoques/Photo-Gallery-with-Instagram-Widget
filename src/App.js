@@ -48,7 +48,7 @@ class App extends Component {
                {/* Vistor Pages */}
                 <Route path="/" exact component={Home}/>
                 <Route exact path="/about" component={About}/>
-                <Route exact path="/portfolio" component={Portfolio}/>
+                <Route exact path="/projects" component={Portfolio}/>
                 <Route exact path="/media" component={Design}/>
               {/* Blog Routing */}
                 <Route exact path="/blog" component={Blog}/>
@@ -63,6 +63,7 @@ class App extends Component {
                     window.location.href = "https://www.gregroques.com/images/socialIcons/Resume.pdf"; 
                     return false;
                 }}/>
+                <Redirect path="/portfolio" push to={"/projects"}/>
                 <Route component ={this.NoPage}/>
                
            </Switch>

@@ -123,7 +123,7 @@ const ProjectOnDisplay = ({title}) =>{
 class Portfolio extends Component{
 
     componentDidMount() {
-        this.props.Header("Portfolio");
+        this.props.Header("Projects");
         window.scrollTo(0, 0);
     }
 

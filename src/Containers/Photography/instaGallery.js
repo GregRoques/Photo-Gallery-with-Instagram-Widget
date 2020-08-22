@@ -21,7 +21,7 @@ class instaGallery extends Component {
     getInstaGallery = () =>{
         axios.get(instaBackend)
           .then(res => {
-              console.log(res.data)
+              //console.log(res.data)
               const { userName, image } = res.data; //profilePic
               this.setState({
                   user: {
