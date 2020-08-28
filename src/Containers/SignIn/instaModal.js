@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import update from './instaModal.module.css'
-import { write } from '../../AxiosOrders'
+import { instaWrite } from '../../AxiosOrders'
 
 class instaModal extends Component{
     state={
@@ -26,7 +26,7 @@ class instaModal extends Component{
                 isSubmitted: ""
             })
         }else{
-            //write.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
+            //instaWrite.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
             .then(response=>{
                 this.setState({
                     isSubmitted:'Post Successful'
