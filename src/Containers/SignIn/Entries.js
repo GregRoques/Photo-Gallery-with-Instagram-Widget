@@ -86,14 +86,18 @@ class Entries extends Component{
 //Insta Update Date
 
     instaUpdateDate = (ex, name) => {
-        const days = 59;
-        let result = new Date(ex);
-        let today = new Date();
-        result.setDate(result.getDate() + days);
-        const numOfSeconds = result.getTime() - today.getTime();
-        const numOfDays = (Math.round(numOfSeconds) / (1000 * 3600 * 24)).toFixed(1);
-        //console.log(numOfSeconds + " | " + numOfDays)
-    
+        let numOfDays
+        if(ex !== this.state.instaLogOut){
+            const days = 59;
+            let result = new Date(ex);
+            let today = new Date();
+            result.setDate(result.getDate() + days);
+            const numOfSeconds = result.getTime() - today.getTime();
+            numOfDays = (Math.round(numOfSeconds) / (1000 * 3600 * 24)).toFixed(1);
+            //console.log(numOfSeconds + " | " + numOfDays)
+        } else {
+            numOfDays = ex
+        }
         this.setState({
             instaLogOut: numOfDays,
             instaName: name
@@ -286,6 +290,7 @@ class Entries extends Component{
                 <InstaModal
                     expirationDate={this.state.instaLogOut}
                     userName={this.state.instaName}
+                    updateInsta={this.instaUpdateDate}
                     show={this.state.instaIsOpen} 
                     closed={this.closeModal}
                 />

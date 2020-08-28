@@ -27,7 +27,10 @@ class instaModal extends Component{
             })
         }else{
             //instaWrite.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
+            const submitName = userName ? userName : this.props.userName
+            const submitDate = userToken ? createdOn : this.props.expirationDate
             .then(response=>{
+                this.props.updateInsta(submitDate,submitName)
                 this.setState({
                     isSubmitted:'Post Successful'
                 })
@@ -67,7 +70,7 @@ class instaModal extends Component{
                         placeholder={ 
                             !props.expirationDate || props.expirationDate === 0 ?
                             `Token has Expired`:
-                            `Expires in ${props.expirationDate}`
+                            `Expires in ${props.expirationDate} days`
                         }
                         onChange={this.valueHandler}
                         name="userToken"
