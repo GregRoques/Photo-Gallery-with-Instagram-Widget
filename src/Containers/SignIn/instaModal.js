@@ -17,8 +17,19 @@ class instaModal extends Component{
     }
 
     submitHandler = () =>{
+        let updates = {};
         const [userName, userToken, isSubmitted] = this.state; 
-        const createdOn = new Date().getTime(), 
+        const createdOn = new Date().getTime(); 
+
+        if(userName){
+            update['userName'] = userName
+        }
+
+        if(userToken.length > 10){
+            update['lttDate'] = createdOn;
+            update['longTermToken'] = userToken;
+        }
+
         if(isSubmitted){
             this.setState({
                 userName: "",
@@ -26,10 +37,10 @@ class instaModal extends Component{
                 isSubmitted: ""
             })
         }else{
-            //instaWrite.post(`${this.props.userId}.json?auth=${this.props.idToken}`, myArticle)
-            const submitName = userName ? userName : this.props.userName
-            const submitDate = userToken ? createdOn : this.props.expirationDate
+            instaWrite.post(`${this.props.databaseID}.json?auth=${this.props.databaseToken}`, updates)
             .then(response=>{
+                const submitName = userName ? userName : this.props.userName
+                const submitDate = userToken.length > 10 ? createdOn : this.props.expirationDate
                 this.props.updateInsta(submitDate,submitName)
                 this.setState({
                     isSubmitted:'Post Successful'
@@ -58,7 +69,7 @@ class instaModal extends Component{
                 <input 
                         type="text" 
                         maxLength="50"
-                        placeholder={props.userName}
+                        placeholder={this.props.userName}
                         onChange={this.valueHandler}
                         name="userName"
                         value={this.state.userName}
@@ -68,9 +79,9 @@ class instaModal extends Component{
                         type="text" 
                         maxLength="255"
                         placeholder={ 
-                            !props.expirationDate || props.expirationDate === 0 ?
+                            !this.props.expirationDate || this.props.expirationDate === 0 ?
                             `Token has Expired`:
-                            `Expires in ${props.expirationDate} days`
+                            `Expires in ${this.props.expirationDate} days`
                         }
                         onChange={this.valueHandler}
                         name="userToken"
@@ -94,4 +105,3 @@ class instaModal extends Component{
 };
 
 export default instaModal;
-

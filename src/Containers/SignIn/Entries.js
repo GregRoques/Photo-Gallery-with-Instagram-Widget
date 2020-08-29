@@ -290,6 +290,8 @@ class Entries extends Component{
                 <InstaModal
                     expirationDate={this.state.instaLogOut}
                     userName={this.state.instaName}
+                    databaseID={this.props.userId}
+                    databaseToken={this.props.idToken}
                     updateInsta={this.instaUpdateDate}
                     show={this.state.instaIsOpen} 
                     closed={this.closeModal}
