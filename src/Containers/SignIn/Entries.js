@@ -136,7 +136,8 @@ class Entries extends Component{
         })
     }
 
-    submitHandler = () =>{
+    submitHandler = e =>{
+        e.preventDefault();
         const myArticle = {
             title: this.state.title,
             date: this.state.date,
@@ -263,17 +264,16 @@ class Entries extends Component{
 
     instaUpdate = () =>{
         if(!this.state.newEntry){
-            this.state({
+            this.setState({
                 instaIsOpen: true
             })
         }
     }
 
     closeModal = () =>{
-        const [instaIsOpen, newEntry] = this.state;
-        const whichToClose = instaIsOpen ? instaIsOpen : newEntry
+        const isInstaOpen = this.state.instaIsOpen;
         this.setState({
-            [whichToClose]: false
+            [isInstaOpen ? 'instaIsOpen' : 'newEntry']: false
         })
     }
 
@@ -332,7 +332,7 @@ class Entries extends Component{
                     />
                 </div>
                 <div className={entriesCSS.buttonPosition}>
-                    <button className={entriesCSS.publishButtons} onClick={()=> this.submitHandler()}>Submit</button>
+                    <button className={entriesCSS.publishButtons} onClick={!this.state.instaIsOpen ? (e)=> this.submitHandler(e): null}>Submit</button>
                     <button className={entriesCSS.publishButtons} onClick={()=> this.openModal()}>Update Existing</button>
                 </div>
                 <div className={entriesCSS.buttonPosition}>
