@@ -32,7 +32,7 @@ class instaGallery extends Component {
               })
           })
           .catch( err => {
-            console.log(err);
+            //console.log(err);
           });
     }
 
