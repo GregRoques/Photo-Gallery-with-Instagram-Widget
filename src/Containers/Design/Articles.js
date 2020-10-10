@@ -45,10 +45,10 @@ const articleList ={
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
     8:{
-        title: 'Big Easy Roller Girls',
+        title: 'NOLA EDM Hit by Covid-19',
         category: 'Culture',
-        image: 'images/design/articles/berg.jpg',
-        link: 'https://www.whereyat.com/strong-like-bull-the-big-easy-roller-girls'
+        image: 'images/design/articles/nolaEDM.jpg',
+        link: ''
     },
 
     9:{

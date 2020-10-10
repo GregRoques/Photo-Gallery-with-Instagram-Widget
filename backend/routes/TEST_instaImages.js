@@ -106,15 +106,19 @@ const getToken = () =>{
 }
 
 setTimeout(() => {
-    getToken()
+    getToken();
 }, 21600000);
 
- router.get("/", (req,res,next) =>{
-     if(returnObject){
+if(!returnObject){
+    getToken();
+}
+
+router.get("/", (req,res,next) =>{
+    if(returnObject){
         res.json(returnObject)
-     }
+    }
  }).catch(err =>{
-     throw err
+    throw err
  })
 
 module.exports = router;

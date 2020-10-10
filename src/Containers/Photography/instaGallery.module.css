@@ -37,10 +37,15 @@
            user-select: none;
 }
 
-/* .boldHover:hover{
-    font-weight: bold;
-    transition: .25s
-} */
+.instaHeaderTitle{
+    font-family: 'GregsText';
+    font-size: 4rem;
+    text-align:center;
+    font-weight: bolder;
+    color: rgb(0,183,241);
+    margin-top:3rem;
+    margin-bottom:2rem;
+}
 
 .container{
     width: 830px;

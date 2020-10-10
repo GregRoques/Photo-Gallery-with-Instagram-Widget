@@ -31,9 +31,9 @@ class instaGallery extends Component {
                   instaDisplay: image.length >= 5 ? true : false
               })
           })
-          .catch( err => {
-            //console.log(err);
-          });
+        //   .catch( err => {
+        //     console.log(err);
+        //   });
     }
 
     instaPopUp = () =>{
@@ -126,61 +126,60 @@ class instaGallery extends Component {
         const { image, picIndex, instaDisplay } = this.state;
         console.log(picIndex)
         return instaDisplay === true ? (
-            <div className={instaCss.instaModuleSpacing}>
-                <this.instaPopUp/> 
-                 <div className={instaCss.container}>
-        <div className={instaCss.header}>
-            <a href={`https://www.instagram.com/${this.state.user.userName}`} target="_blank" rel="noopener noreferrer nofollow">
-                @{this.state.user.userName}
-            </a> 
-        </div>
-        <div className={instaCss.postCount}>
-            { image.length > 5 ? <span title="Click to Toggle Instagram Images" className={instaCss.boldHover} onClick={()=> this.togglePics()}>More Pics</span> : "" }
-        </div>
-        <div className={instaCss.hitemwiththatflexRow}>
-            <div className={instaCss.hitemwiththatflexColumn1}>
-                <div className={instaCss.instaImage1} onClick={()=> this.isPopUpOpen(0 + picIndex)} >
-                    <img className={instaCss.bigPicture} alt={ "insta1" } src={ image[0 + picIndex].pic }/>
-                    <div className ={instaCss.onHover}>
-                        <div className={instaCss.onHoverDate}>{image[0 + picIndex].date}</div>
+            <div>
+                <div className="instaHeaderTitle">Instagram</div>
+                <div className={instaCss.instaModuleSpacing}>
+                    <this.instaPopUp/> 
+                    <div className={instaCss.container}>
+                        <div className={instaCss.header}>
+                            <a href={`https://www.instagram.com/${this.state.user.userName}`} target="_blank" rel="noopener noreferrer nofollow">
+                                @{this.state.user.userName}
+                            </a> 
+                        </div>
+                        <div className={instaCss.postCount}>
+                            { image.length > 5 ? <span title="Click to Toggle Instagram Images" className={instaCss.boldHover} onClick={()=> this.togglePics()}>More Pics</span> : "" }
+                        </div>
+                        <div className={instaCss.hitemwiththatflexRow}>
+                            <div className={instaCss.hitemwiththatflexColumn1}>
+                                <div className={instaCss.instaImage1} onClick={()=> this.isPopUpOpen(0 + picIndex)} >
+                                    <img className={instaCss.bigPicture} alt={ "insta1" } src={ image[0 + picIndex].pic }/>
+                                    <div className ={instaCss.onHover}>
+                                        <div className={instaCss.onHoverDate}>{image[0 + picIndex].date}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={instaCss.hitemwiththatflexColumn2}>
+                                <div className={instaCss.instaImage2} onClick={()=> this.isPopUpOpen(1 + picIndex)} >
+                                    <img className={instaCss.smallPicture} alt={ "insta2" } src={ image[1 + picIndex].pic }/>
+                                    <div className ={instaCss.onHover}>
+                                        <div className={instaCss.onHoverDate}>{image[1 + picIndex].date}</div>
+                                    </div>
+                                </div>
+                                <div className={instaCss.instaImage3} onClick={()=> this.isPopUpOpen(2 + picIndex)} >
+                                    <img className={instaCss.smallPicture} alt={ "insta3"  } src={ image[2 + picIndex].pic }/>
+                                    <div className ={instaCss.onHover}>
+                                        <div className={instaCss.onHoverDate}>{image[2 + picIndex].date}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={instaCss.hitemwiththatflexColumn3}>
+                                <div className={instaCss.instaImage4} onClick={()=> this.isPopUpOpen(3 + picIndex)} >
+                                    <img className={instaCss.smallPicture} alt={ "insta4" } src={ image[3 + picIndex].pic }/>
+                                    <div className ={instaCss.onHover}>
+                                        <div className={instaCss.onHoverDate}>{image[3 + picIndex].date}</div>
+                                    </div>
+                                </div>
+                                <div className={instaCss.instaImage5} onClick={()=> this.isPopUpOpen(4 + picIndex)} >
+                                    <img className={instaCss.smallPicture} alt={ "insta5" } src={ image[4 + picIndex].pic }/>
+                                    <div className ={instaCss.onHover}>
+                                        <div className={instaCss.onHoverDate}>{image[4 + picIndex].date}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div className={instaCss.hitemwiththatflexColumn2}>
-                <div className={instaCss.instaImage2} onClick={()=> this.isPopUpOpen(1 + picIndex)} >
-                    <img className={instaCss.smallPicture} alt={ "insta2" } src={ image[1 + picIndex].pic }/>
-                    <div className ={instaCss.onHover}>
-                        <div className={instaCss.onHoverDate}>{image[1 + picIndex].date}</div>
-                    </div>
-                </div>
-                <div className={instaCss.instaImage3} onClick={()=> this.isPopUpOpen(2 + picIndex)} >
-                    <img className={instaCss.smallPicture} alt={ "insta3"  } src={ image[2 + picIndex].pic }/>
-                    <div className ={instaCss.onHover}>
-                        <div className={instaCss.onHoverDate}>{image[2 + picIndex].date}</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div className={instaCss.hitemwiththatflexColumn3}>
-                <div className={instaCss.instaImage4} onClick={()=> this.isPopUpOpen(3 + picIndex)} >
-                    <img className={instaCss.smallPicture} alt={ "insta4" } src={ image[3 + picIndex].pic }/>
-                    <div className ={instaCss.onHover}>
-                        <div className={instaCss.onHoverDate}>{image[3 + picIndex].date}</div>
-                    </div>
-                </div>
-                <div className={instaCss.instaImage5} onClick={()=> this.isPopUpOpen(4 + picIndex)} >
-                    <img className={instaCss.smallPicture} alt={ "insta5" } src={ image[4 + picIndex].pic }/>
-                    <div className ={instaCss.onHover}>
-                        <div className={instaCss.onHoverDate}>{image[4 + picIndex].date}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-                
-            </div>
-
         ): <div></div>;
     };
 }
