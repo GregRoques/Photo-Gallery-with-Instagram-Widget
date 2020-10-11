@@ -107,7 +107,7 @@ const getToken = () =>{
 
 setTimeout(() => {
     getToken();
-}, 21600000);
+}, 21600000); // refreshes every 6 hours
 
 if(!returnObject){
     getToken();

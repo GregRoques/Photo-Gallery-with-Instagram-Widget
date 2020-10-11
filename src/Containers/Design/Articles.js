@@ -86,7 +86,7 @@ function Articles(props){
 
     return(
         <div>
-            <div className="artDirection">Articles</div>
+            <div className="artDirection">Writing</div>
             <div className='magGrid'>
                 {(Object.keys(articleList)).map((num, i) => {
                             return(
