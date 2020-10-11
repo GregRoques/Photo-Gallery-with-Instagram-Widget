@@ -18,7 +18,8 @@ const mySkills = {
             'sass.png',
             'bootstrap.png',
             'javascript.png',
-            'angular.png', 
+            'typescript.png',
+            'angularjs.png', 
             'react.png',
             'redux.png'
         ]
@@ -49,8 +50,7 @@ const mySkills = {
             'ggl1.png',
             'ggl2.png',
             'facebook.png',
-            'portfolioAws.png',
-            'servicenow.png'
+            'portfolioAws.png'
         ]
     },
 }
