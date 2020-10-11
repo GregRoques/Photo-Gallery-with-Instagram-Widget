@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import InstaGallery from '../Photography/instaGallery';
 import "./Design.css";
 
 
@@ -133,7 +132,6 @@ class Photography extends Component{
                 clickR = {this.rightClick}
                 preventDefaultHander = { this.preventDragHandler }
                 />
-                <InstaGallery/>
             </div>
         )
     }
