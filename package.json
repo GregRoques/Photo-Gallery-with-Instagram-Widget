@@ -37,6 +37,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
     "redux-devtools-extension": "^2.13.8"
-  }
+  },
+  "build": "babel ./index.js --out-dir ./dist/index.js --no-comments"
 }

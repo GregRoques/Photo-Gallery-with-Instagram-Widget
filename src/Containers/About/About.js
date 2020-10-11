@@ -30,7 +30,8 @@ const mySkills = {
         tech: [
             'nodejs.png',
             'express.png',
-            'mongodb.png',
+            //'mongodb.png',
+            "graphql,png",
             'mysql.png'
         ]
     },
