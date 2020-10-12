@@ -1,60 +1,9 @@
 import React, { Component } from "react";
-import { Link }  from 'react-router-dom';
 import "./About.css";
-
-// Redux
+import { mySkills, imageLink } from './about_technologies'
+import Legend from "../Legend/Legend";
 import { connect } from "react-redux";
 import SetHeader from '../../Actions/SetHeader'
-
-const imageLink = '/images/technologies/'
-
-const mySkills = {
-
-    frontEnd: {  
-        name: "Front End",
-        tech: [
-            'html5.png',
-            'css3.png',
-            'sass.png',
-            'bootstrap.png',
-            'javascript.png',
-            'typescript.png',
-            'angularjs.png', 
-            'react.png',
-            'redux.png'
-        ]
-    },
-
-    backEnd: {  
-        name: "Back End",
-        tech: [
-            'nodejs.png',
-            'express.png',
-            //'mongodb.png',
-            "graphql,png",
-            'mysql.png'
-        ]
-    },
-
-    graphicDesign: {
-        name: "Graphic Design",
-        tech: [
-            'illustrator.png',
-            'indesign.png',
-            'photoshop.png'
-        ]
-    },
-
-    digitalMarketing: {
-        name: "Web Services",
-        tech: [
-            'ggl1.png',
-            'ggl2.png',
-            'facebook.png',
-            'portfolioAws.png'
-        ]
-    },
-}
 
 class About extends Component{
     
@@ -95,11 +44,7 @@ class About extends Component{
                         </div>
                     )})}
             </div>
-            <div className='redirectLinks'>
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home </Link> | 
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/projects"> Projects </Link> |
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/blog"> Blog</Link>
-            </div>
+            <Legend/>
         </div>
             
         )

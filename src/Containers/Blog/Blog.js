@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link }  from 'react-router-dom';
+import Legend from "../Legend/Legend";
 import './Blog.css'
 import axios from 'axios';
 import { fireCall } from '../../AxiosOrders'
@@ -13,16 +13,10 @@ import SetHeader from '../../Actions/SetHeader'
 
 class Blog extends Component{
 
-    //=========================================================
-    // State
-
     state = {
         entries:'',
         currentEntry: ''
     }
-
-    //=========================================================
-    // componentDidMount
 
     componentDidMount() {
         this.props.Header('Blog')
@@ -69,9 +63,6 @@ class Blog extends Component{
         window.scrollTo(0, 0);
     }
 
-    //=========================================================
-    // Event Listener
-
     initialState = (list, article) =>{
         this.setState({
             entries: list,
@@ -86,9 +77,6 @@ class Blog extends Component{
            currentEntry: currentEntryValue
        })
     }
-
-    //=========================================================
-    //  Render/Return
 
     render(){
         return(
@@ -119,11 +107,7 @@ class Blog extends Component{
                             </div>
                         </div>
                 </div>
-                <div className='redirectLinks'>
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/">Home</Link> | 
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/about"> About</Link> | 
-                    <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/projects"> Projects</Link>
-                </div> 
+                <Legend/>
             </div>
         )
     }
