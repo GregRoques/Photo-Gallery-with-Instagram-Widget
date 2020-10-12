@@ -46,6 +46,7 @@ class Portfolio extends Component{
                         return(
                         <ProjectList 
                         name={project}
+                        image={projectDetails[project].image}
                         key={i}
                         click={this.displayProject}
                         hover={this.displayHover}

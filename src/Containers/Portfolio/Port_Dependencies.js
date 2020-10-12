@@ -45,10 +45,10 @@ export const projectDetails ={
 
 // ================================= Populate selectable circles
 
-export const ProjectList = ({name, click, hover, offHover}) => {
+export const ProjectList = ({name, image, click, hover, offHover}) => {
     return (
         <div>
-            <div className={`optionCircles ${name}BackgroundImage`} onClick={()=>click(name)} onMouseOut={()=>offHover()} onMouseOver={()=>hover(name)}>
+            <div style={`background-image: url('/images/portfolioImages/${image}Icon.png)`} onClick={()=>click(name)} onMouseOut={()=>offHover()} onMouseOver={()=>hover(name)}>
             </div>
         </div>                
     )

@@ -38,23 +38,6 @@ flex-direction: column;
 
     }
 
-.urlshredderBackgroundImage{
-    background-image: url('/images/portfolioImages/urlshredderIcon.png');
-}
-
-.bedsBackgroundImage{
-    background-image: url('/images/portfolioImages/bedsIcon.png');
-}
-
-.dietacticsBackgroundImage{
-    background-image: url('/images/portfolioImages/dietacticsIcon.png');
-}
-
-.varicureBackgroundImage{
-    background-image: url('/images/portfolioImages/varicureIcon.png');
-}
-
-
 .hoverPageLine{
     font-family: 'Oleo Script', cursive;
     color:rgb(0,183,241);
