@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import instaCss from './instaGallery.module.css';
-import { instaBackend } from "../../AxiosOrders";
+import { instaBackend } from "../../../../AxiosOrders";
 
 class instaGallery extends Component {
     state={

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import css from './Photography.module.css'
 import { connect } from "react-redux";
-import SetHeader from '../../Actions/SetHeader';
-import { SetPhotoArray } from '../../Actions/PhotoArray';
+import SetHeader from '../../../../Actions/SetHeader';
+import { SetPhotoArray } from '../../../../Actions/PhotoArray';
 import PhotoGallery from './GalleryHandler';
 import InstaGallery from './instaGallery';
 
