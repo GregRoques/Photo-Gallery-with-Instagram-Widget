@@ -12,8 +12,8 @@ import { authCheckState } from './Actions/Auth'
 // Visitor Pages
 import Home from './Containers/Home/Home';
 import About from './Containers/About/About'
-    import Design from './Containers/Design/Design' 
-    import Photography from './Containers/Photography/Photography'
+    import Design from './Containers/About/SubPages/Design/Design' 
+    import Photography from './Containers/About/SubPages/Photography/Photography'
     import Pictures from './Containers/Photography/Pictures'
 import Portfolio from './Containers/Portfolio/Portfolio'
 import Blog from './Containers/Blog/Blog'

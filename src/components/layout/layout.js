@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux"
 import "./Layout.css";
-import Header from "../../Containers/HeadFoot/Header";
-import Footer from "../../Containers/HeadFoot/Footer";
-import Aux from "../../HOC/Aux";
+import Header from "../HeadFoot/Header";
+import Footer from "../HeadFoot/Footer";
+import Aux from "../HOC/Aux";
 
 function Layout(props){
     return(
