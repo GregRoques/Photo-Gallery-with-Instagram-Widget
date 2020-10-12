@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { AuthURL } from '../AxiosOrders';
+import { AuthURL } from '../../AxiosOrders';
 
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS'
