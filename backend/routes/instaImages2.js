@@ -111,7 +111,7 @@ const getToken = () =>{
     })
 }
 
-setTimeout(() => {
+setInterval(() => {
     getToken();
 }, 21600000); // refreshes every 6 hours
 
