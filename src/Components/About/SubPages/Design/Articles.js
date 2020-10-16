@@ -1,69 +1,7 @@
 import React from 'react'
+import { articleList } from "./ArticleList"
 import './Design.css'
 
-const articleList ={
-    1:{
-        title: '5 Days in Israel',
-        category: 'Travel',
-        image: 'images/design/articles/israel.jpg',
-        link: 'https://www.whereyat.com/a-trip-through-history-five-days-in-israel'
-    },
-    2:{
-        title: 'Marking Down Moscow',
-        category: 'Travel',
-        image: 'images/design/articles/moscow.jpg',
-        link: 'https://www.whereyat.com/marking-down-moscow'
-    },
-    3:{
-        title: 'City Surf Makes Waves on Magazine St.',
-        category: 'Fitness',
-        image: 'images/design/articles/citySurf.jpg',
-        link: 'https://www.whereyat.com/making-waves-on-magazine-stree'
-    },
-    4:{
-        title: 'Dropping the Bass on Indoor Spin',
-        category: 'Fitness',
-        image: 'images/design/articles/spin.jpg',
-        link: 'https://www.whereyat.com/fit-club-cyclebar-drops-the-bass-on-indoor-spin'
-    },
-    5:{
-        title: "Extreme Trail Running",
-        category: 'Outdoors',
-        image: 'images/design/articles/running.jpg',
-        link: 'https://www.whereyat.com/taking-it-to-the-trails-q50-races-offers'
-    },
-    6:{
-        title: `Glamping Near NOLA`,
-        category: 'Outdoors',
-        image: 'images/design/articles/glamping.jpg',
-        link: 'https://www.whereyat.com/glamorous-camping-glamping'
-    },
-    7:{
-        title: 'NOLA Street Art 2018',
-        category: 'Culture',
-        image: 'images/design/articles/streetArt.jpg',
-        link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
-    },
-    8:{
-        title: 'NOLA EDM Hit by Covid-19',
-        category: 'Culture',
-        image: 'images/design/articles/nolaEDM.jpg',
-        link: ''
-    },
-
-    9:{
-        title: 'Interview with Broken Social Scene',
-        category: 'Music',
-        image: 'images/design/articles/bss.jpg',
-        link: 'https://www.whereyat.com/calming-the-storm-broken-social-scenes-kevin'
-    },
-    10:{
-        title: 'Interview with Big Gigantic',
-        category: 'Music',
-        image: 'images/design/articles/bigGigantic.jpg',
-        link: 'https://www.dropbox.com/s/6qsqdhuperbeprw/big%20gigantic.pdf?dl=0'
-    }
-}
 
 const IssueList = ({art}) => {
     return(

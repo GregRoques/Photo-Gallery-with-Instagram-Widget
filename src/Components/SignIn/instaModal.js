@@ -4,7 +4,6 @@ import { instaWrite } from '../../AxiosOrders'
 
 class instaModal extends Component{
     state={
-        userName: "",
         userToken: "",
         isSubmitted: ""
     }
@@ -26,12 +25,9 @@ class instaModal extends Component{
     submitHandler = () =>{
 
         let updates = {};
-        const {userName, userToken, isSubmitted} = this.state; 
+        const { userToken, isSubmitted} = this.state; 
         const createdOn = new Date().getTime(); 
 
-        if(userName){
-            updates['userName'] = userName
-        }
 
         if(userToken && userToken.length > 20){
             updates['lttDate']= createdOn;
@@ -39,16 +35,14 @@ class instaModal extends Component{
         }
         
         //console.log(updates)
-        if(userName || (userToken && userToken.length > 20)){
+        if((userToken && userToken.length > 20)){
             instaWrite.post(`${this.props.databaseID}.json?auth=${this.props.databaseToken}`, updates)
             .then(response=>{
-                console.log(response)
-                const submitName = userName ? userName : this.props.userName
+                //console.log(response)
                 const submitDate = userToken ? createdOn : this.props.expirationDate
-                this.props.updateInsta(submitDate, submitName)
+                this.props.updateInsta(submitDate)
                 this.setState({
                     isSubmitted: "Success",
-                    userName: "",
                     userToken: "",
                 })
             })
@@ -56,8 +50,7 @@ class instaModal extends Component{
                 console.log(error)
                 this.setState({
                     isSubmitted:'Error in console.log! Please Try Again',
-                    userName: "",
-                    userToken: "",
+                    userToken: ""
                 })
             })
         } else if (isSubmitted === "") {
@@ -81,15 +74,6 @@ class instaModal extends Component{
                     <h1 className={update.archiveTitle}>Instagram</h1>
                     {this.state.isSubmitted === "" ?
                     <div>
-                        <h3>Current User Name</h3>
-                        <input 
-                            type="text" 
-                            maxLength="50"
-                            placeholder={this.props.userName}
-                            name="userName"
-                            onChange={this.valueHandler}
-                            value={this.state.userName}
-                        />
                         <h3>User Token</h3>
                         <input 
                             type="text" 
