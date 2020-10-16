@@ -7,6 +7,16 @@
     justify-content: center;
 }
 
+.instaHeaderTitle{
+    font-family: 'GregsText';
+    font-size: 4rem;
+    text-align:center;
+    font-weight: bolder;
+    color: rgb(0,183,241);
+    margin-top:3rem;
+    margin-bottom:2rem;
+}
+
 .header{
     font-family: 'Oleo Script Swash Caps', cursive;
     font-size: 2.5rem;
@@ -37,15 +47,10 @@
            user-select: none;
 }
 
-.instaHeaderTitle{
-    font-family: 'GregsText';
-    font-size: 4rem;
-    text-align:center;
-    font-weight: bolder;
-    color: rgb(0,183,241);
-    margin-top:3rem;
-    margin-bottom:2rem;
-}
+/* .boldHover:hover{
+    font-weight: bold;
+    transition: .25s
+} */
 
 .container{
     width: 830px;
@@ -326,7 +331,9 @@
     border-radius: 25px;
     animation: zoomIn .75s forwards; 
     animation-delay: 0.25s;
-    transform: scale(0)
+    transform: scale(0);
+    overflow-y: scroll;
+    text-overflow: ellipsis;
 }
 
 .selectedHeader{
@@ -386,13 +393,14 @@ img{
     object-position: center;
 }
 
+
 .selectedCaption{
     font-size: 16px;
     padding: 0px 30px 0px 30px;
-    /* max-lines: 4; */
+    max-lines: 4;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
+    display: block;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
@@ -476,12 +484,35 @@ img{
     .selectedCaption{
         font-size: 14px;
         padding: 0px 30px 0px 30px;
+        
         /* max-lines: 4; */
-        overflow: hidden;
+        /* overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
+        -webkit-box-orient: vertical; */
     }
     
 }
+
+@media screen and (max-width: 949px){
+
+    .artDirection{
+      font-size:3.25rem;
+    }
+
+  }
+  
+  
+  @media screen and (max-width: 750px){
+    .artDirection{
+      font-size:2.5rem;
+    }
+  }
+  
+  @media screen and (max-width: 449px){
+    .artDirection{
+      font-size:2rem;
+      margin-bottom:1rem;
+    }
+  }
