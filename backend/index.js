@@ -5,7 +5,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 
-const instaImages = require("./routes/instaImages2");
+const instaImages = require("./routes/instaImages");
+const photography = require("./routes/photography");
+const blog = require("./routes/blog");
 
 app.use(cors());
 app.use(helmet());
@@ -15,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.use("/instagramImages", instaImages);
+app.use("/photography", photography);
 
 app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res, next) => {

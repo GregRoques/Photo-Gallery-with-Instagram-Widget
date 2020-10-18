@@ -12,15 +12,15 @@ const transporter = nodemailer.createTransport(sendgridTransport({
     }
 }));
 
-let isSentToday = false;
+let returnObject = {};
 
+let isSentToday = false;
 const setSentTodayToTrue = () =>{
     isSentToday = true;
     setTimeout(() => {
         isSentToday = false;
     }, 86400000);
 }
-
 
 const emailWarning = (message, err) =>{
     const sendDate = new Date().toISOString().slice(0, 10);
@@ -32,14 +32,48 @@ const emailWarning = (message, err) =>{
         ${message} <br/><br/>
         <b>ERROR MESSAGE:</b> ${err}`
     }).then(() => {
-        console.log("Success");
+        //console.log("Success");
         setSentTodayToTrue();
     }).catch(err => {
-        console.log("err");
+        console.log("Could not send error email");
+        //throw err
     });
 }
 
-const isTimeUp = ex => {
+const getInstaInfo = (instaToken) =>{
+    const url = `https://graph.instagram.com/me/media`;
+    const fields = '?fields=media_url,permalink,caption,timestamp,media_type,children{media_url}' // username,id,
+    const accessToken = `&access_token=${instaToken}`;
+    //console.log(instaToken)
+    axios.get(`${url}${fields}${accessToken}`)
+    .then(res =>{
+        const data = res.data.data
+        // console.log(data)
+        returnObject.image = [];
+        data.map(pic=>{
+            if(pic.media_type !=="VIDEO"){
+                const {  media_url, caption, timestamp, permalink, children } = pic; 
+                        returnObject.image.push({   
+                        pic: media_url,
+                        caption: caption,
+                        date: timestamp.slice(5,10) + "-" + timestamp.slice(0,4), 
+                        url: permalink,
+                        children: children ? children.data : null
+                    })
+            }
+        })
+    })
+    .catch(err =>{
+        if(!isSentToday){
+            const subject = 'GregRoques.com: InstaGram Long Term Token has experienced an error or has expired.';
+            emailWarning(subject, err)
+        }
+        console.log(`Could not get media info`);
+        returnObject = {}
+    })
+ }
+
+ const isTimeUp = (ex, myToken) => {
     const days = 59;
     let result = new Date(ex);
     let today = new Date();
@@ -47,66 +81,48 @@ const isTimeUp = ex => {
     const numOfSeconds = result.getTime() - today.getTime();
     const numOfDays = Math.round((Math.round(numOfSeconds) / (1000 * 3600 * 24)).toFixed(1));
     
-    if(numOfDays <= 5 && !isSentToday){
+    if(numOfDays <= 5 && numOfDays >= 1 && !isSentToday){
         const subject = 'GregRoques.com: InstaGram Long Term Token expiring soon';
         const when = `You Long Term Token will expire in approximately ${numOfDays} days. Renew it today!`
+        emailWarning(subject, when)
+        getInstaInfo(myToken)
+    }
+    if(numOfDays > 5){
+        getInstaInfo(myToken)
+    }
+    if(numOfDays < 1){
+        const subject = 'GregRoques.com: InstaGram Long Term Token HAS EXPIRED!!!';
+        const when = `You Long Term Token has expired. Renew it today!`
         emailWarning(subject, when)
     }
 }
 
-router.get("/", (req,res,next) =>{
-    req.returnObject = {};
-
+const getToken = () =>{
     axios.get(instaRead)
     .then(res=>{
-        req.instaToken = res.data.longTermToken
-        req.returnObject.userName = res.data.userName
-        //req.returnObject.profilePic = res.data.profilePic ? res.data.profilePic : "";
-        isTimeUp(res.data.lttDate)
-        next();
+        const instaToken = res.data.longTermToken
+        const longTermTokenDate = res.data.lttDate
+        returnObject.userName = res.data.userName
+        isTimeUp(longTermTokenDate, instaToken)
     })
     .catch(err =>{
         console.log(`Could not get login info`)
-        throw err
+        //throw err
     })
+}
 
-}, (req, res, next)=>{
-    const url = `https://graph.instagram.com/me/media`;
-    const fields = '?fields=media_url,permalink,caption,timestamp,media_type,children{media_url}' // username,id,
-    const accessToken = `&access_token=${req.instaToken}`;
+setInterval(() => {
+    getToken();
+}, 21600000); // refreshes every 6 hours
 
-    axios.get(`${url}${fields}${accessToken}`)
-    .then(res =>{
-        const data = res.data.data
-        //req.returnObject.userName = data[0].username
-        req.returnObject.image = [];
-        data.map(pic=>{
-            if(pic.media_type !=="VIDEO"){
-                const {  media_url, caption, timestamp, permalink, children } = pic; 
-                        req.returnObject.image.push({   
-                        pic: media_url,
-                        caption: caption,
-                        date: timestamp.slice(5,10) + "-" + timestamp.slice(0,4), 
-                        url: permalink,
-                        children: children ? children.data : null
-                    })
-                    
-            }
-        })
-        next();
-    })
-    .catch(err =>{
-        //console.log(`Could not get media info`);
-        if(!isSentToday){
-            const subject = 'GregRoques.com: InstaGram Long Term Token has experienced an error or has expired.';
-            emailWarning(subject, err)
-        }
-        throw err;  
-    })
+getToken()
 
-}, (req,res)=>{
-    //console.log(req.returnObject)
-    res.json(req.returnObject)
+router.get("/", (req,res,next) =>{
+    if(returnObject !== {}){
+        res.json(returnObject)
+    }
  })
+
+
 
 module.exports = router;

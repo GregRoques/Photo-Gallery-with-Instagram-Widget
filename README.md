@@ -214,18 +214,6 @@ $ sudo /etc/init.d/httpd restart
   }
 
  ```
-
-# MVP
-Launch new site with:
-1) an about link, including a tertiary link to my graphic design and editorial work
-2) deveopment portfolio link
-3) Blog page updateable from a hidden login page; (Goolge) Firebase backend is updated via authenticated REST calls 
-4) contact modal and links to Linked In, Github and a downloadabe copy of my resume
-
-# Stretch Goals
-
-1) Continually update blog with lessons learned and project updates regarding development and design projects I am working on and share via LinkedIn. 
-
 # Demo Video
 ## Click image below to view video
 
