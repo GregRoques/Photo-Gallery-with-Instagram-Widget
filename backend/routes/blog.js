@@ -34,7 +34,9 @@ const emailWarning = (message, err) =>{
         <b>ERROR MESSAGE:</b> ${err}`
     }).then(() => {
         //console.log("Success");
-        setSentTodayToTrue();
+        if(isSentToday === false){
+            setSentTodayToTrue();
+        }
     }).catch(err => {
         console.log("Could not send error email");
         //throw err

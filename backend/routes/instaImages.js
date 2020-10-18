@@ -33,7 +33,9 @@ const emailWarning = (message, err) =>{
         <b>ERROR MESSAGE:</b> ${err}`
     }).then(() => {
         //console.log("Success");
-        setSentTodayToTrue();
+        if(isSentToday === false){
+            setSentTodayToTrue();
+        }
     }).catch(err => {
         console.log("Could not send error email");
         //throw err
@@ -64,7 +66,7 @@ const getInstaInfo = (instaToken) =>{
         })
     })
     .catch(err =>{
-        if(!isSentToday){
+        if(isSentToday === false){
             const subject = 'GregRoques.com: InstaGram Long Term Token has experienced an error or has expired.';
             emailWarning(subject, err)
         }
@@ -81,7 +83,7 @@ const getInstaInfo = (instaToken) =>{
     const numOfSeconds = result.getTime() - today.getTime();
     const numOfDays = Math.round((Math.round(numOfSeconds) / (1000 * 3600 * 24)).toFixed(1));
     
-    if(numOfDays <= 5 && numOfDays >= 1 && !isSentToday){
+    if(numOfDays <= 5 && numOfDays >= 1 && isSentToday === false){
         const subject = 'GregRoques.com: InstaGram Long Term Token expiring soon';
         const when = `You Long Term Token will expire in approximately ${numOfDays} days. Renew it today!`
         emailWarning(subject, when)
@@ -90,7 +92,7 @@ const getInstaInfo = (instaToken) =>{
     if(numOfDays > 5){
         getInstaInfo(myToken)
     }
-    if(numOfDays < 1){
+    if(numOfDays < 1 && isSentToday === false){
         const subject = 'GregRoques.com: InstaGram Long Term Token HAS EXPIRED!!!';
         const when = `You Long Term Token has expired. Renew it today!`
         emailWarning(subject, when)
