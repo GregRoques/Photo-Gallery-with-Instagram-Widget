@@ -7,7 +7,7 @@ export const mySkills = {
             'html5.png',
             'css3.png',
             'sass.png',
-            'bootstrap.png',
+            //'bootstrap.png',
             'javascript.png',
             'typescript.png',
             'angularjs.png', 
