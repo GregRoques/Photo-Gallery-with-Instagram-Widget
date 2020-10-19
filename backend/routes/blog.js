@@ -67,7 +67,7 @@ setInterval(()=>{
     if(blogList === [] || blogList.length !== 5){
         updateBlogList();
     }
-}, 3000); //this is currently 3 seconds... need to set to check once a day
+}, 86400000);
 
 
 // ==================================== Get Requests
@@ -79,15 +79,6 @@ router.get("/update", (req,res,next) =>{
 
 // Go to blog page
 router.get("/", (req,res,next) =>{
-    if(blogList === [] || blogList.length !== 5){
-        (async function(){
-            await updateBlogList();
-            next()
-        })();
-    } else {
-        next();
-    }
-}, (req, res) =>{
     if(blogListDates.includes(encodeURI(req.date))){
         const blogIndex = blogListDates.indexOf(req.date);
         const blogPage = {
