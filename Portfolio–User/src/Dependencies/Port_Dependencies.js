@@ -1,6 +1,3 @@
-import React from 'react';
-import "./Portfolio.css";
-
 // ================================= Featured Projects
 
 export const projectDetails ={
@@ -43,64 +40,3 @@ export const projectDetails ={
     }
 }
 
-// ================================= Populate selectable circles
-
-export const ProjectList = ({name, image, click, hover, offHover}) => {
-    return (
-        <div>
-            <div style={`background-image: url('/images/portfolioImages/${image}Icon.png)`} onClick={()=>click(name)} onMouseOut={()=>offHover()} onMouseOver={()=>hover(name)}>
-            </div>
-        </div>                
-    )
-}
-
-// ================================= Populate selected project
-
-export const ProjectOnDisplay = ({title}) =>{
-    const display = projectDetails[title]
-    const headerImageLink = 'images/portfolioImages/'
-    const languageImageLink = 'images/technologies/'
-    
-    return(
-        <div className='grayColumnContent'>
-            <div className= 'nonVidPicColumn'>
-                <img className="picPortfolio p1" src= { headerImageLink + display['image']+['1.png']} alt={display['name']}/>
-                <img className="picPortfolio p2" src= { headerImageLink + display['image'] + ['2.png']} alt={display['name']}/>
-            </div>
-            <div className='nonVidTextColumn'>
-                <div className="profileProjectName">{display['name']}</div>
-                <div className="profileHeader">{'//'} {display['type']}</div>
-                <div className='profileParagraphFont'>{display['description']}</div>
-
-                <div className='buttonAlign v1'>
-                    <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
-                        <button className="demoReadButtons">
-                            { display['demo'].includes('youtube', -1) ? `${'Video'}` : `${'Live Demo'}` }
-                        </button>
-                    </a></span>
-                    <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
-                        <button className="demoReadButtons">Read Me</button>
-                    </a></span>
-                </div>
-            </div>
-            <div className="buttonsSmallerBlock">
-                <div className='buttonAlign v2'>
-                    <span><a target="_blank" rel="noopener noreferrer" href={display['demo']}>
-                        <button className="demoReadButtons">
-                            { display['demo'].includes('youtube', -1) ? `${'Video'}` : `${'Live Demo'}` }
-                        </button>
-                    </a></span>
-                    <span><a target="_blank" rel="noopener noreferrer" href={display['readMe']}>
-                        <button className="demoReadButtons">Read Me</button>
-                    </a></span>
-                </div>
-            </div>
-            {display['languages'].map((language, i) => {
-                const altText = language.replace(/\.[^/.]+$/, "")
-                return(
-                    <img className='devStyle' key={i} src= {languageImageLink + language} alt={altText}/>
-                    )
-                })}
-        </div>
-    )
-}

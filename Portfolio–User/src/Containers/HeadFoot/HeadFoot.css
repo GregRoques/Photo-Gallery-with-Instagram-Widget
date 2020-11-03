@@ -163,7 +163,7 @@
     color:   rgb(100,100,100,0.65);
     font-size:1rem;
     font-family: sans-serif;
-    /* line-height: 2; */
+    display: inline-block;
 }
 
 .contactFormat a{
@@ -251,11 +251,6 @@
 
 }
 
-@media screen and (min-width:400px){
-    .footerResize2{
-        display: none
-    }
-}
 
 @media screen and (max-width: 399px){
 
@@ -271,14 +266,6 @@
         height: 40px;
         width: 40px;
         margin-top:0rem;
-    }
-
-    .footerResize1{
-        display:none
-    }
-
-    .footerResize2{
-        display:block;
     }
 
     .modal{

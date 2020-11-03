@@ -7,7 +7,6 @@ export const mySkills = {
             'html5.png',
             'css3.png',
             'sass.png',
-            //'bootstrap.png',
             'javascript.png',
             'typescript.png',
             'angularjs.png', 
@@ -20,9 +19,8 @@ export const mySkills = {
         tech: [
             'nodejs.png',
             'express.png',
-            //'mongodb.png',
-            "graphql,png",
-            'mysql.png'
+            'mysql.png',
+            "graphql,png"
         ]
     },
     graphicDesign: {
@@ -36,10 +34,10 @@ export const mySkills = {
     digitalMarketing: {
         name: "Web Services",
         tech: [
-            'ggl1.png',
             'ggl2.png',
             'facebook.png',
-            'portfolioAws.png'
+            'portfolioAws.png',
+            'servicenow.png'
         ]
     },
 }

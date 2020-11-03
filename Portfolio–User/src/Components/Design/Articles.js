@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { articleList } from "./ArticleList"
 import './Design.css'
-
 
 const IssueList = ({art}) => {
     return(
@@ -17,32 +16,39 @@ const IssueList = ({art}) => {
             </a>
         </div>
     )
-
 }
 
-function Articles(props){
-
-    return(
-        <div>
-            <div className="artDirection">Writing</div>
-            <div className='magGrid'>
-                {(Object.keys(articleList)).map((num, i) => {
+class Articles extends Component{
+    state={
+        isLoaded: false
+    }
+    render(){
+        return isLoaded ? (
+            <div>
+                <div className="artDirection">Writing</div>
+                <div className='magGrid'>
+                    {
+                        (Object.keys(articleList)).map((num, i) => {
+                            Object.keys(articleList).length === (i+1) ? this.setState({isLoaded:true}) : "";
                             return(
-                            <IssueList
-                            key={i}
-                            art={num}
-                            />
+                                <IssueList
+                                key={i}
+                                art={num}
+                                />
                             )
-                        })}
+                        })
+                        
+                    }
 
-            </div>
-            <div className='buttonAlign'>
-                    <span><a target="_blank" rel="noopener noreferrer" href='https://docs.google.com/document/d/1DC-jCkloiDcsfvOqXuUdJ-HMAchRf60jFP7xR_zLN98/edit'>
-                        <button className="demoReadButtons">More Articles</button>
-                    </a></span>
                 </div>
-        </div>
-    )
+                <div className='buttonAlign'>
+                        <span><a target="_blank" rel="noopener noreferrer" href='https://docs.google.com/document/d/1DC-jCkloiDcsfvOqXuUdJ-HMAchRf60jFP7xR_zLN98/edit'>
+                            <button className="demoReadButtons">More Articles</button>
+                        </a></span>
+                    </div>
+            </div>
+        ) : ""
+    }
 }
 
 export default Articles;

@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
-import { mySkills, imageLink } from './about_technologies'
+import { mySkills, imageLink } from './About_Technologies'
 import Legend from "../Legend/Legend";
 import { connect } from "react-redux";
 import SetHeader from '../../Actions/SetHeader'
 
 class About extends Component{
+    state={
+        isLoaded: false
+    }
     
     componentDidMount() {
         this.props.Header("About");
         window.scrollTo(0, 0);
     }
     render(){
-        return(
+        return isLoaded ? (
         <div className="fadeIn">
             <div className="bioGrid">
                 <div className="portraitPadding">
@@ -22,8 +25,8 @@ class About extends Component{
                 <div className='whoAmIPadding'>
                     <div className="aboutMeHeader">About Me</div>
                     <div className="aboutMeText">
-                        <div>I am a front-end developer and graphic designer specializing in the MERN stack (MySQL, Express, React, Node). I also bring more than 10 years of experience managing award-winning <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/media">print and digital publications</Link> to developing efficient, user-friendly software solutions.</div> 
-                        <div>A New Orleans native, I am an avid distance runner and enjoy <Link style={{ textDecoration: 'none', color: 'rgb(35,64,143)' }} to="/photography">photography</Link>, live music and traveling with my wife, Rebecca.</div>
+                        <div>I am a front-end developer and graphic designer specializing in the MERN stack (MySQL, Express, React, Node). I also bring more than 10 years of experience managing award-winning <Link to="/media">print and digital publications</Link> to developing efficient, user-friendly software solutions.</div> 
+                        <div>A New Orleans native, I am an avid distance runner and enjoy <Link to="/photography">photography</Link>, live music and traveling with my wife, Rebecca.</div>
                     </div>     
                 </div>
             </div>
@@ -35,20 +38,22 @@ class About extends Component{
                         <div className="aboutContainers"  id ={`skills${i}`}>
                             <div className="aboutMeSkills">{name}</div>
                             <div className="lightGray">
-                                {(tech).map((language, i) => {
+                                {(tech).map((language, j) => {
                                     const altText = language.replace(/\.[^/.]+$/, "")
+                                    Object.keys(mySkills).length === (i+1) && tech.length === (j+1) ? this.setState({isLoaded: true}) : "" 
                                     return(
-                                        <img className='skillIcon' id={`Tech${i}`} src= {imageLink + language} alt={altText}/>
+                                        <img className='skillIcon' id={`Tech${j}`} src= {imageLink + language} alt={altText}/>
                                     )
                                 })}
                             </div>
                         </div>
-                    )})}
+                    )})
+                }
             </div>
             <Legend/>
         </div>
             
-        )
+        ) : "";
     }
 }
 

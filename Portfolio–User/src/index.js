@@ -4,10 +4,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import {createStore, applyMiddleware} from "redux";
+import {createStore} from "redux";
 import {Provider} from "react-redux";
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
 import reducers from "./Reducers/RootReducer.js";
 
 import ReactGA from 'react-ga';
@@ -25,10 +23,7 @@ history.listen(location => {
 
 
 const theStore = createStore(
-    reducers,
-    composeWithDevTools(
-        applyMiddleware(thunk)
-    )
+    reducers
 )
 
 ReactDOM.render(
