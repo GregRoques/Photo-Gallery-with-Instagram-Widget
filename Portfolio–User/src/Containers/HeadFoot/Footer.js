@@ -62,23 +62,30 @@ class Footer extends Component{
         email: false
     }
 
+    componentDidMount(){
+        const isMedia = window.location.pathname === "/media" || window.location.pathname.includes("/photography");
+        this.setState({
+            isMedia: isMedia
+        })
+    }
+
     toggleEmail=()=>{
         const doesShow = this.state.email
         this.setState({email: !doesShow})
     }
     
     render(){
-        const isMedia = window.location.pathname === "/media" || window.location.pathname.includes("/photography");
-    return(
+        const { email, isMedia } = this.state;
+        return(
             <div>
                 <ResumeModal
-                    isShown={this.state.email}
+                    isShown={email}
                     close= {this.toggleEmail}
                 /> 
                 <div className="footer">
                     <Contact 
                         isEmailToggled={this.toggleEmail}
-                        isShown={this.state.email}
+                        isShown={email}
                     />
                     {!isMedia ?
                         <>
@@ -87,11 +94,11 @@ class Footer extends Component{
                             <Resume/>
                         </> :
                             <Insta/>
-                }
+                    }
                 </div>
             </div>
         )
-}
+    }
 }
 
 export default Footer;
