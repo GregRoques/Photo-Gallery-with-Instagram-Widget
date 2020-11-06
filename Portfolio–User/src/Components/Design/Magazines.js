@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Design.css'
 import { magList } from '../../Dependencies/Design_Magazine;'
 
@@ -14,29 +14,23 @@ const IssueList = ({mag}) => {
     )
 }
 
-class Magazines extends Component{
-    state={
-        isLoaded: false
-    }
-    render(){
-        return isLoaded ? (
-            <div>
-                <div className="artDirection">Art Direction</div>
-                <div className='magGrid'>
-                    {(Object.keys(magList)).map((num,i) => {
-                        Object.keys(magList).length === (i+1) ? this.setState({isLoaded: true}) : "";
-                        return(
-                            <IssueList
-                            key={i}
-                            mag={num}
-                            />
-                        )
-                    })}
-
-                </div>
+const Magazines = ({isLoadedOne}) =>{
+    return (
+        <div>
+            <div className="artDirection">Art Direction</div>
+            <div className='magGrid'>
+                {(Object.keys(magList)).map((num,i) => {
+                    if(Object.keys(magList).length === (i+1)){isLoadedOne()}
+                    return(
+                        <IssueList
+                        key={i}
+                        mag={num}
+                        />
+                    )
+                })}
             </div>
-        ): ""
-    }
+        </div>
+    )
 }
 
 export default Magazines;

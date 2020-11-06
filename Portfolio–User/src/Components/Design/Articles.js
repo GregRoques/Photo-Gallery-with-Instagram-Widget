@@ -18,18 +18,14 @@ const IssueList = ({art}) => {
     )
 }
 
-class Articles extends Component{
-    state={
-        isLoaded: false
-    }
-    render(){
-        return isLoaded ? (
+const Articles = ({isLoadedTwo}) => {
+        return (
             <div>
                 <div className="artDirection">Writing</div>
                 <div className='magGrid'>
                     {
                         (Object.keys(articleList)).map((num, i) => {
-                            Object.keys(articleList).length === (i+1) ? this.setState({isLoaded:true}) : "";
+                            if (Object.keys(articleList).length === (i+1)){isLoadedTwo()}
                             return(
                                 <IssueList
                                 key={i}
@@ -47,7 +43,7 @@ class Articles extends Component{
                         </a></span>
                     </div>
             </div>
-        ) : ""
+        )
     }
 }
 

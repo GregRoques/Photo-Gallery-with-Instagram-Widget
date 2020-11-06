@@ -11,26 +11,36 @@ import { connect } from "react-redux";
 import SetHeader from '../../Actions/SetHeader'
 
 class Design extends Component{
+    state={
+        loadingIndex: 0
+    }
 
     componentDidMount() {
         this.props.Header("Media Samples");
         window.scrollTo(0, 0);
     }
 
+    isLoaded = () =>{
+        this.setState(prevState =>({
+            loadingIndex: prevState.loadingIndex++
+        }));
+    }
 
     render(){
-        return(
+        return this.state.loadingIndex === 2 ?(
             <div className="fadeIn">
-                <Magazines/>
+                <Magazines
+                    isLoadedOne={this.isLoaded}
+                />
                 <Photography/>
-                <Articles/>
+                <Articles
+                    isLoadedTwo={this.isLoaded}
+                />
                 <Film/>
                 <InstaGallery/>
             </div>
-        )
+        ): null;
     }
-    
-
 }
 
 const mapDispatchToProps = dispatch =>{

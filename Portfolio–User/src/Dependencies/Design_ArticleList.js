@@ -42,22 +42,22 @@ export const articleList ={
         link: 'https://www.whereyat.com/10-street-artists-murals-whove-given-new'
     },
     8:{
-        title: 'NOLA EDM Hit by Covid-19',
+        title: 'Street Art for Social Justice',
         category: 'Culture',
+        image: 'images/design/articles/plywoodProjectNola.jpg',
+        link: ''
+    },
+    9:{
+        title: 'Covid-19 Mutes NOLA EDM Scene',
+        category: 'Music',
         image: 'images/design/articles/nolaEDM.jpg',
         link: 'https://www.whereyat.com/unplugged-covid-19-and-facebook-pull-the-plug-on-the-local-electronic-music-scene'
     },
-
-    9:{
+    10:{
         title: 'Interview with Broken Social Scene',
         category: 'Music',
         image: 'images/design/articles/bss.jpg',
         link: 'https://www.whereyat.com/calming-the-storm-broken-social-scenes-kevin'
     },
-    10:{
-        title: 'Interview with Big Gigantic',
-        category: 'Music',
-        image: 'images/design/articles/bigGigantic.jpg',
-        link: 'https://www.dropbox.com/s/6qsqdhuperbeprw/big%20gigantic.pdf?dl=0'
-    }
+
 }
