@@ -42,6 +42,15 @@ const emailWarning = (message, err) =>{
     });
 }
 
+const abridgeCaption = ({caption}) =>{
+    const trimCaption = caption.trim();
+    if(trimCaption.length < 81) return trimCaption
+    if(trimCaption.length > 80){
+        let slicedCaption = trimCaption.slice(0, string.lastIndexOf(" ", 80))
+        return slicedCaption[slicedCaption.length - 1] === 80 ? slicedCaption : `${slicedCaption}...`
+    }
+}
+
 const getInstaInfo = (instaToken) =>{
     const url = `https://graph.instagram.com/me/media`;
     const fields = '?fields=media_url,permalink,caption,timestamp,media_type,children{media_url}' // username,id,
@@ -57,7 +66,7 @@ const getInstaInfo = (instaToken) =>{
                 const {  media_url, caption, timestamp, permalink, children } = pic; 
                         returnObject.image.push({   
                         pic: media_url,
-                        caption: caption,
+                        caption: abridgeCaption(caption),
                         date: timestamp.slice(5,10) + "-" + timestamp.slice(0,4), 
                         url: permalink,
                         children: children ? children.data : null

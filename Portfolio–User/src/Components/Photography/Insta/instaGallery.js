@@ -31,9 +31,6 @@ class instaGallery extends Component {
                   instaDisplay: image.length >= 5 ? true : false
               })
           })
-        //   .catch( err => {
-        //     console.log(err);
-        //   });
     }
 
     instaPopUp = () =>{
