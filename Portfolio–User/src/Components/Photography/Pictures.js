@@ -94,9 +94,6 @@ class Pictures extends Component{
                         </div>
                         <div className={ css.imageGalleryButtons } onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
                     </div>
-                    <div className ={ css.pictureCounter }>
-                        { this.state.modalPhoto +1 }/{ photoArray[currentPathname].length }
-                    </div>
                 </div>
             )
         }
