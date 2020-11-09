@@ -45,7 +45,7 @@ export const articleList ={
         title: 'Street Art for Social Justice',
         category: 'Culture',
         image: 'images/design/articles/plywoodProjectNola.jpg',
-        link: ''
+        link: 'https://www.whereyat.com/art-for-hearts-sake'
     },
     9:{
         title: 'Covid-19 Mutes NOLA EDM Scene',

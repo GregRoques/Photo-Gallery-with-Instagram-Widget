@@ -399,7 +399,7 @@ img{
     padding: 0px 30px 0px 30px;
     max-lines: 4;
     overflow: hidden;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
     display: block;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -484,13 +484,12 @@ img{
     .selectedCaption{
         font-size: 14px;
         padding: 0px 30px 0px 30px;
-        
-        /* max-lines: 4; */
-        /* overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical; */
+        max-lines: 4;
+        overflow: hidden;
+        /* text-overflow: ellipsis; */
+        display: block;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
     }
     
 }
