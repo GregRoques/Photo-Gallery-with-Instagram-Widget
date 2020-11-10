@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const instaRead = require('../util/instaKey');
+const instaRead = require('../utils/instaKey');
 const axios = require("axios");
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
-const myKey = require("../util/sendgripApi");
+const myKey = require("../utils/sendgripApi");
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
         api_key: myKey
     }
-}));
+})); // You will want to store this in a utils folder, much like I did with my InstaKey
 
 let returnObject = {};
 
@@ -39,7 +39,7 @@ const emailWarning = (message, err) =>{
             console.log(`Could not send error email: ${err}`);
         });
     }
-}
+};
 
 const abridgeCaption = ({caption}) =>{
     const trimCaption = caption.trim();
@@ -48,8 +48,8 @@ const abridgeCaption = ({caption}) =>{
         let slicedCaption = trimCaption.slice(0, string.lastIndexOf(" ", 75))
         return slicedCaption[slicedCaption.length - 1] === 75 ? slicedCaption : `${slicedCaption}...`
     }
-} //I restrict my caption here to no more than 75 characters; this is better than attempting this
-  // server-side with CSS, as CSS is finicky depending on the browser and browser version.
+} // I restrict my caption here to no more than 75 characters; this is better than attempting this
+  // server-side with CSS, as CSS is finicky depending on a user's browser and browser version.
 
 const getInstaInfo = (instaToken) =>{
     const url = `https://graph.instagram.com/me/media`;
@@ -78,13 +78,13 @@ const getInstaInfo = (instaToken) =>{
             emailWarning(subject, err)
         }
         console.log(`Could not get media info: ${err}`);
-        returnObject = {}
+        returnObject = {}; // we don't want the expired info to remain, so we clear this variable
     })
  }
 
- const isTimeUp = (ex, myToken) => {
-    const days = 59; // Instagram token lasts 60 days, so I want to give myself a days advance.
-    let result = new Date(ex);
+ const isTimeUp = (expirationDate, myToken) => {
+    const days = 59; // Instagram token lasts 60 days, so I want to give myself a day advance but warning myself early.
+    let result = new Date(expirationDate); // converts the 'numeric time date' I input when my new token was created to a date format.
     let today = new Date();
     result.setDate(result.getDate() + days);
     const numOfSeconds = result.getTime() - today.getTime();
@@ -125,14 +125,12 @@ setInterval(() => {
     getToken();
 }, 21600000); // refreshes every 6 hours
 
-getToken()
+getToken(); // gets token the second the server is booted or refreshed
 
 router.get("/", (req,res,next) =>{
     if(returnObject !== {}){
         res.json(returnObject)
     }
- })
-
-
+ });
 
 module.exports = router;

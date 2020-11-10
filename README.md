@@ -217,6 +217,6 @@ $ sudo /etc/init.d/httpd restart
 # Demo Video
 ## Click image below to view video
 
-[![demo video](public/readMeImages/playVideo.png)](https://youtu.be/YhksUFOM09Q)
+[![demo video](./readMeImages/playVideo.png)](https://youtu.be/YhksUFOM09Q)
 
   

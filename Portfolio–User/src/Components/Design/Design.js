@@ -37,7 +37,6 @@ class Design extends Component{
                     isLoadedTwo={this.isLoaded}
                 />
                 <Film/>
-                <InstaGallery/>
             </div>
         ): null;
     }

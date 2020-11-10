@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import SetHeader from '../../../../Actions/SetHeader';
 import { SetPhotoArray } from '../../../../Actions/PhotoArray';
 import PhotoGallery from './GalleryHandler';
-import InstaGallery from './InstaGallery/Insta';
 
 var photoArray ={}
 
@@ -59,7 +58,6 @@ class Photography extends Component{
                             })}
                       </div>
                   </div>
-                  <InstaGallery/>
               </div>
           )
         

@@ -31,17 +31,20 @@ class Footer extends Component{
                     close= {this.toggleEmail}
                 /> 
                 <div className="footer">
-                    <Contact 
-                        isEmailToggled={this.toggleEmail}
-                        isShown={email}
-                    />
                     {!isMedia ?
                         <>
+                            <Contact 
+                                isEmailToggled={this.toggleEmail}
+                                isShown={email}
+                            />
                             <LinkedIn/>
                             <GitHub/>
                             <Resume/>
                         </> :
-                            ""
+                            <Contact 
+                                isEmailToggled={this.toggleEmail}
+                                isShown={email}
+                            />
                     }
                 </div>
             </div>
