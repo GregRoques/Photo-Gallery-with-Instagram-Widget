@@ -35,9 +35,9 @@ export const mySkills = {
         name: "Web Services",
         tech: [
             'ggl2.png',
-            'facebook.png',
-            'portfolioAws.png',
-            'servicenow.png'
+            //'facebook.png',
+            'portfolioAws.png'//,
+            //'servicenow.png'
         ]
     },
 }
