@@ -25,8 +25,8 @@ class About extends Component{
                 <div className='whoAmIPadding'>
                     <div className="aboutMeHeader">About Me</div>
                     <div className="aboutMeText">
-                        <div>I am a front-end developer and graphic designer specializing in the MERN stack (MySQL, Express, React, Node). I also bring more than 10 years of experience managing award-winning <Link to="/media">print and digital publications</Link> to developing efficient, user-friendly software solutions.</div> 
-                        <div>A New Orleans native, I am an avid distance runner and enjoy <Link to="/photography">photography</Link>, live music and traveling with my wife, Rebecca.</div>
+                        <div>I am a full-stack developer and graphic designer specializing in the MERN stack (MySQL, Express, React, Node). I also bring more than 10 years of experience managing award-winning <Link to="/print">print and digital publications</Link> to developing efficient, user-friendly software solutions.</div> 
+                        <div>A New Orleans native, I am an avid marathon runner and enjoy <Link to="/photography">photography</Link>, the outdoors and traveling with my wife, Rebecca.</div>
                     </div>     
                 </div>
             </div>

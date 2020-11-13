@@ -24,16 +24,16 @@ export const articleList ={
         link: 'https://www.whereyat.com/fit-club-cyclebar-drops-the-bass-on-indoor-spin'
     },
     5:{
-        title: "Extreme Trail Running",
-        category: 'Outdoors',
+        title: "Ultra-Running Off Road",
+        category: 'Extreme Sports',
         image: 'images/design/articles/running.jpg',
         link: 'https://www.whereyat.com/taking-it-to-the-trails-q50-races-offers'
     },
     6:{
-        title: `Glamping Near NOLA`,
-        category: 'Outdoors',
-        image: 'images/design/articles/glamping.jpg',
-        link: 'https://www.whereyat.com/glamorous-camping-glamping'
+        title: `Big Easy Roller Girls`,
+        category: 'Extreme Sports',
+        image: 'images/design/articles/berg.jpg',
+        link: 'https://www.whereyat.com/strong-like-bull-the-big-easy-roller-girls'
     },
     7:{
         title: 'NOLA Street Art 2018',

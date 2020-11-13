@@ -19,7 +19,7 @@ const scalingClass = css`
     transition: 0.75s all;
 `;
 
-const pages = ["About", "Projects", "Blog"]
+const pages = ["About", "Web", "Print"]
 
 const Circle = ({name, handler, className}) => {
     const lowerCaseName = name.toLowerCase();
