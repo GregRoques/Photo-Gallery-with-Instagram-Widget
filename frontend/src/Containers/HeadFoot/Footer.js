@@ -1,19 +1,20 @@
 import React, {Component} from "react";
 import "./HeadFoot.css";
 import ResumeModal from './ResumeModal';
-import { Footer, LinkedIn, GitHub, Resume, Insta} from './FooterLinks'
+import { Footer, LinkedIn, GitHub, Resume } from './FooterLinks'
 
 
 class Footer extends Component{
 
     state ={
-        email: false
+        email: false,
+        isPhoto: false
     }
 
     componentDidMount(){
-        const isMedia = window.location.pathname === "/print" || window.location.pathname.includes("/photography");
+        const isPhoto = window.location.pathname.includes("/photography") ? true : false;
         this.setState({
-            isMedia: isMedia
+            isPhoto: isPhoto
         })
     }
 
@@ -23,7 +24,7 @@ class Footer extends Component{
     }
     
     render(){
-        const { email, isMedia } = this.state;
+        const { email, isPhoto } = this.state;
         return(
             <div>
                 <ResumeModal
@@ -31,7 +32,7 @@ class Footer extends Component{
                     close= {this.toggleEmail}
                 /> 
                 <div className="footer">
-                    {!isMedia ?
+                    {!isPhoto ?
                         <>
                             <Contact 
                                 isEmailToggled={this.toggleEmail}
@@ -41,13 +42,10 @@ class Footer extends Component{
                             <GitHub/>
                             <Resume/>
                         </> :
-                        <>
-                            <Contact 
-                                isEmailToggled={this.toggleEmail}
-                                isShown={email}
-                            />
-                            <Insta/>
-                        </> 
+                        <Contact 
+                            isEmailToggled={this.toggleEmail}
+                            isShown={email}
+                        />
                     }
                 </div>
             </div>

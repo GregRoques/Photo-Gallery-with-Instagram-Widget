@@ -1,4 +1,4 @@
-# Personal Portfolio Site 2.0
+# Personal Portfolio Site
 
 # Contents
 
