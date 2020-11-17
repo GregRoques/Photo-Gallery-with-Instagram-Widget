@@ -1,15 +1,11 @@
-# Portfolio–Publisher
 
-# Portfolio–User
-/frontend/node_modules
-/frontend/public/images
-/frontend/src/AxiosOrders.js
-/frontend/public/fonts
-
-
-# backend
 node_modules
 /backend/node_modules
 /backend/util
 
+/src/AxiosOrders
+AxiosOrders.js
+/images
+images
+/public/images
 
