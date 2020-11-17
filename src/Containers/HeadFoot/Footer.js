@@ -54,9 +54,14 @@ class Footer extends Component{
         email: false
     }
 
-    toggleEmail=()=>{
+    toggleEmail=(e)=>{
+        if(e.target !== e.currentTarget && this.state.email){
+            return
+        }
         const doesShow = this.state.email
         this.setState({email: !doesShow})
+        
+        
     }
     
     render(){

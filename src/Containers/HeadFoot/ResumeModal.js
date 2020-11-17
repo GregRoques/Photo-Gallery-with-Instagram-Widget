@@ -3,7 +3,7 @@ import "./HeadFoot.css";
 
 const ResumeModal = ({ close }) => {
     return (
-        <div className="modal">
+        <div className="modal" onClick={close}>
             <div className="modalPosition">
                 <div className="closeButton" onClick={close}>X</div>
                 <div className="modalContact">
