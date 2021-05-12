@@ -17,7 +17,7 @@
     "express": "^4.17.1",
     "helmet": "^3.23.3",
     "mysql2": "^2.1.0",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "path": "^0.12.7",
     "rand-token": "^1.0.1"
