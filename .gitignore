@@ -1,7 +1,6 @@
 
 node_modules
-/backend/node_modules
-/backend/util
+package-lock.json
 
 /src/AxiosOrders
 AxiosOrders.js
