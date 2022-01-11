@@ -1,0 +1,153 @@
+.blogAlign{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.articleColumn{
+    align-items:top;
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+    flex-wrap: wrap;
+}
+
+.previousPostsContainer{
+
+    background-color:rgb(242,212,83);
+    width:100%;
+    border-radius:15px
+
+}
+
+.previousPostsColumn{
+    display: flex;
+    flex-direction: column;
+    align-items:top;
+    min-width: 30%;
+    flex-wrap: wrap;
+}
+
+.previousPostText{
+    padding-right: 2rem;
+    padding-left:2rem;
+    padding-bottom:2rem;
+}
+
+.articlePadding{
+    padding-right: 2rem;
+    padding-left:2rem;
+}
+
+.titleColor{
+    color:  rgb(35,64,143);
+}
+
+.arrowColor{
+    color:white;
+    font-weight:bolder;
+}
+
+.previousTitle{
+    font-family: 'Oleo Script', cursive;
+    font-weight: 100;
+    color:white;
+    text-shadow: 1.25px 1.25px 1px rgb(0,0,0,0.75)
+}
+
+.selectPreviousHover:hover {
+    text-decoration-line: underline;
+    text-decoration-color:  rgb(0,183,241);
+}
+
+.previousMargin{
+    margin-bottom:0.5rem;
+}
+
+/* ========================================================================================== Blog Entries */
+
+.blogEntryContainer{
+    padding-right:1.5rem;
+}
+
+.blogEntryHeader{
+    color:rgb(35,64,143);
+    font-family: serif;
+    font-size:2.5rem;
+    text-align:center;
+    font-weight: bolder
+}
+
+.blogEntryDate{
+    color:rgb(0,0,0,0.5);
+    font-family:sans-serif;
+    font-style:italic;
+    text-align:center;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size:1.4rem;
+}
+
+.blogEntryParagraph{
+    font-family: sans-serif;
+    margin-top:2rem;
+    font-size: 1.1rem;
+    text-indent: 20px;
+}
+
+/* ================================================== Responsiveness */
+
+@media screen and (max-width: 879px){
+    .blogAlign{
+        display: block;
+    }
+    .articleColumn, .previousPostsColumn{
+        min-width:100%;
+        flex-wrap:none;
+    }
+    .previousPostsContainer{
+        margin-top:2rem;
+    }
+
+    .articlePadding{
+        padding-right: 0rem;
+        padding-left:0rem;
+    }
+
+    .blogEntryContainer{
+        padding-right:0rem;
+    }
+}
+
+@media screen and (max-width: 685px){
+    .blogEntryParagraph{
+        font-size: .9rem;
+    }
+
+    .blogEntryHeader{
+        font-size:2rem;
+    }
+}
+
+@media screen and (max-width: 499px){
+
+    .blogEntryParagraph{
+        font-size: .85rem;
+    }
+    .blogEntryDate{
+        font-size:.9rem;
+    }
+
+}
+
+@media screen and (max-width:399px){
+
+    .blogEntryParagraph{
+        font-size: .8rem;
+    }
+
+    .blogEntryHeader{
+        font-size:1.75rem;
+    }
+}
+
