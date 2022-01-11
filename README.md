@@ -14,7 +14,6 @@ This is the code for my first personal website. I designed this barely two years
 
 # Technologies
 - React/Redux
-- Node/Express
 - HTML/CSS/JavaScript
 - Google Firebase
 
