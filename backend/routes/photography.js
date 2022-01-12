@@ -4,7 +4,7 @@ const { readdirSync, statSync } = require("fs-extra");
 const { join } = require("path");
 const cron = require("node-cron");
 
-//const source = path.join(__dirname, "../../frontend/public/images/photography");
+//const source = path.join(__dirname, "../../public/images/photography");
 const source = path.join(__dirname, "../build/images/photography");
 
 const dirs = (p) =>
