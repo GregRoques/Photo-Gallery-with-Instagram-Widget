@@ -19,9 +19,9 @@ This is the code for my first personal website. I designed this barely two years
 
 # Technologies
 
+- HTML/CSS/JavaScript
 - React/Redux
 - Node/Express
-- HTML/CSS/JavaScript
 - Google Firebase
 
 ### Packages
@@ -32,7 +32,6 @@ This is the code for my first personal website. I designed this barely two years
 - npm i react-router-dom
 - npm i react-html-parser
 - npm i emotion
-- npm i react-bootstrap
 - npm i react-infinite-scroll-component
 - **_Redux w/ dev tools and middleware_**:
   - npm i redux
@@ -44,11 +43,8 @@ This is the code for my first personal website. I designed this barely two years
 
 - npm i node
 - npm i express
-- npm i body-parser
 - npm i cors
 - npm i helmet
-- npm i nodemailer
-- npm i nodemailer-sendgrid-transport
 - npm i fs-extra
 - npm i path
 - npm i node-cron
