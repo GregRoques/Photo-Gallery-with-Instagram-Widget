@@ -13,6 +13,8 @@ import { authCheckState } from "./Actions/Auth";
 import Home from "./Containers/Home/Home";
 import About from "./Containers/About/About";
 import Design from "./Containers/Design/Design";
+import Photography from "./Containers/Photography/Photography";
+import Pictures from "./Containers/Photography/Pictures";
 import Portfolio from "./Containers/Portfolio/Portfolio";
 import Blog from "./Containers/Blog/Blog";
 
@@ -50,6 +52,9 @@ class App extends Component {
             {/* Blog Routing */}
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/blog/:article" component={Blog} />
+            {/* Photography Routing */}
+            <Route exact path="/photography" component={Photography} />
+            <Route exact path="/photography/:album" component={Pictures} />
             {/* Backend Update Blog */}
             <Route exact path="/user-update-blog" component={Update} />
             {/* Re-Route Non-Existant Pages */}

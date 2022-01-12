@@ -1,0 +1,8 @@
+.instaNotVisibleCenter{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.instaNotVisibleCenter img{
+   width: 60px
+}

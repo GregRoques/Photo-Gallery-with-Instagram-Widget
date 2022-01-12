@@ -75,6 +75,29 @@ const Resume = () => {
   );
 };
 
+const Insta = () => {
+  return (
+    <div className="insta socialIcon">
+      <a
+        href="https://www.instagram.com/qtrmileatatime"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          className="insta1"
+          src="/images/socialIcons/insta2.jpg"
+          alt="Insta: @qtrmileatatime"
+        />
+        <img
+          className="insta2"
+          src="/images/socialIcons/insta1.jpg"
+          alt="Insta: @qtrmileatatime"
+        />
+      </a>
+    </div>
+  );
+};
+
 class Footer extends Component {
   state = {
     email: false,
@@ -117,6 +140,7 @@ class Footer extends Component {
             {photo || photoLink ? null : <LinkedIn />}
             {photo || photoLink || design ? null : <GitHub />}
             {photo || photoLink || design ? null : <Resume />}
+            {photo || photoLink || design ? <Insta /> : null}
           </div>
         ) : null}
       </div>

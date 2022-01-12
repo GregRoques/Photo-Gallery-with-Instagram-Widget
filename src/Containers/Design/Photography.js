@@ -59,6 +59,12 @@ const musicPhotos = {
       "https://www.whereyat.com/fall-out-boy-light-up-the-smoothie-king-center2",
     target: "_blank",
   },
+  9: {
+    band: "More Photos",
+    image: "images/design/musicPhotog/insta.jpg",
+    website: "https://www.gregroques.com/photography",
+    target: "_self",
+  },
 };
 
 let musicPhotosLength = Object.keys(musicPhotos).length;
