@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import cssInstagram from "./instaIcon.module.css";
 import ImageLoader from "../ImgLoader/imgLoader";
-import { grAPI } from "../../Dependencies/BackendAPI";
+import { grAPI } from "../../AxiosOrders";
 
 class Insta extends Component {
   state = {
