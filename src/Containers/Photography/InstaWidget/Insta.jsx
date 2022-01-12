@@ -307,18 +307,18 @@ class InstaGallery extends Component {
 
   render() {
     const { instaDisplay } = this.state;
+    const { isShown } = this.props;
     const { InstaBody, InstaLink, InstaPopUp } = this;
-    return instaDisplay === "widget" ? (
+    return isShown && instaDisplay === "widget" ? (
       <div>
         <InstaPopUp />
         <InstaBody />
       </div>
-    ) : instaDisplay === "hyperlink" ? (
+    ) : isShown && instaDisplay === "hyperlink" ? (
       <InstaLink />
     ) : (
       ""
     );
   }
-}
 
 export default InstaGallery;
