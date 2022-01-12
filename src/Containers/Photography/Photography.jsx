@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import cssPhotography from "./photography.module.css";
 import PhotoGallery from "./GalleryHandler";
 import axios from "axios";
-import { grAPI } from "../../Dependencies/BackendAPI";
+import { grAPI } from "../../AxiosOrders";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Insta from "./InstaWidget/Insta";
 
