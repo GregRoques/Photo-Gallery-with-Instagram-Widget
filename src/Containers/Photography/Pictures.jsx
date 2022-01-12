@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { grAPI } from "../../Dependencies/BackendAPI";
+import { grAPI } from "../../AxiosOrders";
 import InfiniteScroll from "react-infinite-scroll-component";
 import cssPictures from "./photography.module.css";
 import PicModal from "./picturesModal";
