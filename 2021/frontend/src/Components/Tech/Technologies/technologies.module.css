@@ -1,0 +1,215 @@
+
+.techHeader{
+    font-family: sans-serif;
+    text-align:center;
+    font-style: oblique;
+    font-weight: bolder;
+    color: #4C61B2;
+    font-size: 4rem; 
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.techSkills{
+    font-family: sans-serif;
+    font-size: 2.25rem;
+    padding-top: 3%;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bolder;
+    color: rgb(100,100,100,0.65);
+}
+
+.lightGray{
+    max-width:100%;
+    height:auto;
+    padding:10px;
+    text-align:center;
+    background-position: center;
+}
+
+.skillIcon{
+    height:75px;
+    width:auto;
+    margin:10px;
+
+}
+
+.techRows{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%
+  }
+  
+  .techContainers{
+    position:relative;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .techStack{
+    position:relative;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    align-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .gitHubLink{
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .gitHubLink a img{
+      width: 125px;
+  }
+  
+
+/* ====================================== Responsiveness*/
+
+
+@media screen and (min-width: 1375px){
+  .bioGrid{
+    position: relative;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 1rem;
+    padding-bottom: 1rem;
+    height: auto;
+    margin-bottom: 4rem;
+  }
+
+  .portrait{
+    width: 17.5vw;
+    height: 17.5vw;
+  }
+
+}
+
+@media screen and (max-width: 1374px){
+  .bioGrid{
+    position: relative;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 1rem;
+    padding-bottom: 1rem;
+    height: 40vh;
+    margin-bottom: 4rem;
+  }
+  
+  .portrait{
+    width: 17.5vw;
+    height: 17.5vw;
+  }
+
+}
+
+@media screen and (max-width: 1050px){
+
+  .techHeader{
+    padding-bottom: 15px;
+  }
+
+  .portrait{
+    width: 20vw;
+    height: 20vw;
+  }
+
+}
+
+@media screen and (max-width: 949px){
+   .techHeader{
+      font-size:3.5rem;
+    }
+
+}
+
+@media screen and (max-width: 900px){
+
+  .bioGrid{
+    position: relative;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 1rem;
+    padding-bottom: 1rem;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+}
+
+@media screen and (max-width: 800px){
+
+  .bioGrid{
+    grid-template-columns: 45% 55%;
+  }
+
+  .portrait{
+    width: 25vw;
+    height: 25vw;
+  }
+
+}
+
+@media screen and (max-width: 750px){
+
+  .bioGrid{
+    position:relative;
+    display: block;
+    text-align: center;
+  }
+
+  .portrait{
+    width: 35vw;
+    height: 35vw;
+  }
+
+  .skillIcon{
+    height:65px;
+  }
+
+  .techSkills{
+    font-size: 2rem;
+  }
+  
+  .aboutContainers{
+    width: 100%
+  }
+  .techHeader{
+    font-size:2.5rem;
+  }
+
+}
+
+@media screen and (max-width: 449px){
+  .techHeader{
+    font-size:2rem;
+  }
+}
+
+
+@media screen and (max-width: 400px){
+
+
+  .techSkills{
+    font-size: 1.75rem;
+  }
+
+}
+
+@media screen and (max-width: 350px){
+  .part2{
+    height: 200px;
+  }
+}

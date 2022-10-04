@@ -1,0 +1,11 @@
+.layoutBody{
+        min-height: 100vh; 
+        overflow: hidden;
+        display: block;
+        position: relative;
+}
+
+.contentMargin{
+    margin: 8rem 2rem 2rem 2rem;
+}
+

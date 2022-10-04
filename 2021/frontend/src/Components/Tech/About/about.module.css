@@ -1,0 +1,79 @@
+.portrait{
+    float: left;
+    margin: 0px 2rem 1rem 0px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center 0px;
+    background-repeat: no-repeat;
+    border: 4px white solid;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.5);
+  }
+  
+  .aboutMeHeader{
+      font-family: sans-serif;
+      font-style: oblique;
+      font-weight: bolder;
+      color: #4C61B2;
+      font-size: 3rem; 
+      padding-bottom:25px;
+      text-align: left;
+  }
+  
+  .aboutMeText{
+      text-align: left;
+      font-family: sans-serif;
+      font-size: 1rem;
+      padding:10px;
+      color: rgb(100,100,100,0.65);
+  }
+
+  .portrait{
+    float: left;
+    margin: 0px 2rem 1rem 0px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center 0px;
+    background-repeat: no-repeat;
+    border: 4px white solid;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.5);
+  }
+  
+  .aboutMeHeader{
+      font-family: sans-serif;
+      font-style: oblique;
+      font-weight: bolder;
+      color: #4C61B2;
+      font-size: 3rem; 
+      padding-bottom:25px;
+      text-align: left;
+  }
+  
+  .aboutMeText{
+      text-align: left;
+      font-family: sans-serif;
+      font-size: 1rem;
+      padding:10px;
+      color: rgb(100,100,100,0.65);
+  }
+  
+  @media screen and (max-width: 750px){
+    .portrait{
+      float:none;
+      margin: 0 0 1rem 0;
+    }
+  
+    .portraitCenterSmall{
+      display: flex;
+      justify-content: center;
+      
+    }
+  
+    .aboutMeHeader, .aboutMeText{
+      text-align:center;
+    }
+  
+  }
